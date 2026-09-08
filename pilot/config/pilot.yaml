@@ -1,0 +1,25 @@
+experiment_name: algorythm_pattern_prior_pilot
+
+dataset:
+  target: ConDefects-Python
+  target_n: 30
+
+conditions:
+  control: pattern_agnostic
+  treatment: oracle_pattern_prior
+
+metrics:
+  - top1
+  - top3
+  - top5
+  - exam
+
+repetitions: 5
+
+statistics:
+  primary: exact_mcnemar
+  bootstrap_iterations: 10000
+
+# Pattern vocabulary and prior text remain intentionally unfrozen pending the
+# scientific handoff described in the project brief.
+
