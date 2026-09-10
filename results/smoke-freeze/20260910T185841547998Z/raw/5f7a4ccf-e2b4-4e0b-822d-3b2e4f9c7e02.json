@@ -1,0 +1,53 @@
+{
+  "run_id": "5f7a4ccf-e2b4-4e0b-822d-3b2e4f9c7e02",
+  "session_id": "20260910T185841547998Z",
+  "execution_key": "00bc00c46b2a609669efd39be0878fc114d4613d0bc9488b74e7e9416da602b2",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-count",
+  "task_id": "smoke-count",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "google_gemini",
+  "model": "gemini-3.8-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-10T18:58:56.133614+00:00",
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "hash_map_counting",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "44653899ef3c3bd8044d694b36fb4a801b4b25bedd1411fa62ca3a1fd8e0acd2",
+  "prior_hash": null,
+  "prompt_chars": 2679,
+  "prompt_tokens_estimate": 670,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: smoke-count\nTask ID: smoke-count\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def counts(values):\n2:     result = {}\n3:     for value in values:\n4:         result[value] = result.get(value, 0) + 2\n5:     return result\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 4, \"score\": 0.95, \"reason\": \"Increments count by 2 instead of 1 for each occurrence of value.\"}]}",
+  "latency": 9.56136841600528,
+  "token_usage": {
+    "completion_tokens": 39,
+    "prompt_tokens": 664,
+    "total_tokens": 769
+  },
+  "response_metadata": {
+    "provider_request_id": "5_2iav6lDbvavdIPjLP-gAU",
+    "provider_created": 1789066736,
+    "model_identity_exposed": true,
+    "finish_reason": "stop"
+  },
+  "actual_provider": "google_gemini",
+  "actual_model": "gemini-3.8-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

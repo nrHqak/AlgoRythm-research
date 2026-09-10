@@ -1,0 +1,49 @@
+{
+  "run_id": "5f7a4ccf-e2b4-4e0b-822d-3b2e4f9c7e02",
+  "session_id": "20260910T185841547998Z",
+  "execution_key": "00bc00c46b2a609669efd39be0878fc114d4613d0bc9488b74e7e9416da602b2",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-count",
+  "task_id": "smoke-count",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "google_gemini",
+  "model": "gemini-3.8-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-10T18:58:56.133614Z",
+  "latency": 9.56136841600528,
+  "token_usage": {
+    "completion_tokens": 39,
+    "prompt_tokens": 664,
+    "total_tokens": 769
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 4, \"score\": 0.95, \"reason\": \"Increments count by 2 instead of 1 for each occurrence of value.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260910T185841547998Z/raw/5f7a4ccf-e2b4-4e0b-822d-3b2e4f9c7e02.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 4,
+        "score": 0.95,
+        "reason": "Increments count by 2 instead of 1 for each occurrence of value."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "hash_map_counting",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "44653899ef3c3bd8044d694b36fb4a801b4b25bedd1411fa62ca3a1fd8e0acd2",
+  "prior_hash": null,
+  "prompt_chars": 2679,
+  "prompt_tokens_estimate": 670,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

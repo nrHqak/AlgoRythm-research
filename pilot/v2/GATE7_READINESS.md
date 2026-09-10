@@ -194,3 +194,11 @@ BLOCK and Gate 5 remains BLOCK with no coin flip. Two calls were attempted, one
 succeeded, zero parser failures occurred, and no scientific candidate was sent.
 No settings changed. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md) for the
 current result; the earlier credential-precheck record remains historical.
+
+## Latest authorized Gemini smoke retry
+
+Fresh session `20260910T185841547998Z` used identical frozen settings and assets.
+Calls 1–3 passed; call 4 returned HTTP 503 UNAVAILABLE/high demand. The procedure
+stopped and marked the session VOID. Gate 4: BLOCK; Gate 5: BLOCK; parser failures:
+0; coin flips: 0; scientific calls: 0. No automatic retry. Current evidence is in
+[GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).

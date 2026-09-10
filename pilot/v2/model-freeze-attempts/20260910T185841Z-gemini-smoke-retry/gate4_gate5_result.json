@@ -1,0 +1,61 @@
+{
+  "recorded_at": "2026-09-10T19:00:32.057021+00:00",
+  "status": "BLOCKED",
+  "gate4": "BLOCK",
+  "gate5": "BLOCK",
+  "provider": "Google Gemini API via OpenAI-compatible endpoint",
+  "settings": {
+    "provider": "google_gemini",
+    "provider_type": "openai_compatible",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "model": "gemini-3.8-flash",
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "timeout": 120.0
+  },
+  "scientific_repetitions": 5,
+  "requested_model": "gemini-3.8-flash",
+  "returned_completion_models": [
+    "gemini-3.8-flash"
+  ],
+  "new_metadata_requests": 0,
+  "smoke_calls_attempted": 4,
+  "smoke_calls_completed_successfully": 3,
+  "smoke_call_target": 12,
+  "parser_failures": 0,
+  "provider_failures": 1,
+  "http_status_sequence": [
+    200,
+    200,
+    200,
+    503
+  ],
+  "blocker": "Call 4 returned HTTP 503 UNAVAILABLE/high demand; stopped with no automatic retries or settings changes.",
+  "generation_parameters_accepted_on_successful_calls": {
+    "model": "gemini-3.8-flash",
+    "temperature": 0,
+    "max_tokens": 1024
+  },
+  "settings_identical_to_prior_attempt": true,
+  "frozen_assets_unchanged": true,
+  "smoke_session_path": "results/smoke-freeze/20260910T185841547998Z",
+  "previous_void_session": "results/smoke-freeze/20260910T184609524153Z",
+  "session_order": null,
+  "coin_flips": 0,
+  "scientific_candidate_calls": 0,
+  "full_pilot_authorized": false,
+  "evidence_sha256": {
+    "pilot/v2/model-freeze-attempts/20260910T185841Z-gemini-smoke-retry/attempt_start.json": "dd2f867312b5d889150d373158dfca5ab00ac1733b9f7bd22c3c6cab9ad57407",
+    "pilot/v2/model-freeze-attempts/20260910T185841Z-gemini-smoke-retry/smoke_http_exchanges.json": "3345e6f4ad153786dc5e5170db62ed6c673203fd7db58cc154ba157574aebe28",
+    "pilot/v2/model-freeze-attempts/20260910T185841Z-gemini-smoke-retry/smoke_execution_summary.json": "ee2966290491e674ebc4bba3a5b5c7cbaca7da2011ff3cf1d2712f9201e7475e",
+    "results/smoke-freeze/20260910T185841547998Z/session_manifest.json": "5ccfa5617dbe2c807ca7ebdf259a4ba1148d6f12584973970a7c51084af20e3d",
+    "results/smoke-freeze/20260910T185841547998Z/VOID.json": "e36b7c4906ab43cb92fad3cfddd0d019260b33c8a3638ac5f540b4412ebb4ba8",
+    "results/smoke-freeze/20260910T185841547998Z/processed/5d60b8c6-a259-4b10-b249-1e3f7ea3dd7b.json": "7554028e81f0bb8c5fa74b2ca4470c15eecff2d712af0377e7ccaa98a1e5708e",
+    "results/smoke-freeze/20260910T185841547998Z/processed/5f7a4ccf-e2b4-4e0b-822d-3b2e4f9c7e02.json": "cd239461c0aedf09d1f8a64a65b15da66d8176e245edb45068d9f4ca9a1a6891",
+    "results/smoke-freeze/20260910T185841547998Z/processed/a492c954-1f8c-4780-a42d-3a4e1999fa02.json": "fb5475b6cfcdc33bb231ae6f09f98c428db26c5e2627005b338e52c6591a193f",
+    "results/smoke-freeze/20260910T185841547998Z/processed/dcd43422-ea6e-4dd3-b9be-8a06cc1369bd.json": "97fcaabc8cefc541471c95b6990fd094be623085f5701b4879197f1d76ab15e4",
+    "results/smoke-freeze/20260910T185841547998Z/raw/5d60b8c6-a259-4b10-b249-1e3f7ea3dd7b.json": "bb290a74a25ce74fe80598f8c4c1303a72bddc26ec3eb79cbd11cd9afa84a7d2",
+    "results/smoke-freeze/20260910T185841547998Z/raw/5f7a4ccf-e2b4-4e0b-822d-3b2e4f9c7e02.json": "eb5bd862fd7a4bead42e56a44a1fd1050bfb038ecafcbc3a4a02d3e1ef7b2d0e",
+    "results/smoke-freeze/20260910T185841547998Z/raw/a492c954-1f8c-4780-a42d-3a4e1999fa02.json": "0b45bae5fbaa3346ff4851a93a0d078521236dab23b3fde61da23d21756cad7b"
+  }
+}

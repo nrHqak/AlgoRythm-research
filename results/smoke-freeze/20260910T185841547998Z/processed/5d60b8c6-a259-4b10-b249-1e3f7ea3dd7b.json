@@ -1,0 +1,49 @@
+{
+  "run_id": "5d60b8c6-a259-4b10-b249-1e3f7ea3dd7b",
+  "session_id": "20260910T185841547998Z",
+  "execution_key": "695721f72e22e23ea5499e3fc89b14a44e5b438eb6ee08fd8160c97d7ddf873e",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-sum",
+  "task_id": "smoke-sum",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "google_gemini",
+  "model": "gemini-3.8-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-10T18:58:43.915293Z",
+  "latency": 2.3624812079942785,
+  "token_usage": {
+    "completion_tokens": 38,
+    "prompt_tokens": 651,
+    "total_tokens": 732
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 2, \"score\": 0.95, \"reason\": \"result is initialized to 1 instead of 0 for calculating the sum\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260910T185841547998Z/raw/5d60b8c6-a259-4b10-b249-1e3f7ea3dd7b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 2,
+        "score": 0.95,
+        "reason": "result is initialized to 1 instead of 0 for calculating the sum"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "643f4f7eb8e8beab99f27653804ccd9d432616615b9364afe2ad4a06193cfe69",
+  "prior_hash": null,
+  "prompt_chars": 2648,
+  "prompt_tokens_estimate": 662,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

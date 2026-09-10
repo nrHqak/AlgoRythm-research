@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-09-10T18:58:41.547179+00:00",
+  "procedure": "Unchanged experiments.model_preflight.run using exactly the previous provider/settings/model reference",
+  "observation": "requests.post observed without altering arguments, responses, or retry behavior; authorization headers omitted",
+  "scientific_candidate_calls": 0,
+  "metadata_requests": 0,
+  "status": "BLOCK",
+  "error_type": "SafetyViolation",
+  "error_message": "smoke call failed: provider_failure/HTTPError",
+  "http_exchanges_attempted": 4,
+  "session_order": null,
+  "coin_flips": 0,
+  "finished_at": "2026-09-10T18:58:58.357258+00:00",
+  "new_smoke_sessions": [
+    "20260910T185841547998Z"
+  ],
+  "frozen_assets_unchanged": true
+}

@@ -1,0 +1,49 @@
+{
+  "run_id": "a492c954-1f8c-4780-a42d-3a4e1999fa02",
+  "session_id": "20260910T185841547998Z",
+  "execution_key": "61fbf5a9b8ae4fcf265a7a611cad41cd7d426e6e3ac39fe96a30bc0a4c030a84",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-sum",
+  "task_id": "smoke-sum",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "google_gemini",
+  "model": "gemini-3.8-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-10T18:58:46.567346Z",
+  "latency": 2.645626000012271,
+  "token_usage": {
+    "completion_tokens": 37,
+    "prompt_tokens": 822,
+    "total_tokens": 969
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 2, \"score\": 0.95, \"reason\": \"Sum accumulator result is incorrectly initialized to 1 instead of 0.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260910T185841547998Z/raw/a492c954-1f8c-4780-a42d-3a4e1999fa02.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 2,
+        "score": 0.95,
+        "reason": "Sum accumulator result is incorrectly initialized to 1 instead of 0."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "643f4f7eb8e8beab99f27653804ccd9d432616615b9364afe2ad4a06193cfe69",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3492,
+  "prompt_tokens_estimate": 873,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}
