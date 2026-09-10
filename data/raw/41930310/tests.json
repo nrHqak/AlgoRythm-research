@@ -1,0 +1,26 @@
+[
+  {
+    "input": "7 2\n2 0\n4 1\n",
+    "expected_output": "Takahashi\n"
+  },
+  {
+    "input": "3 3\n1 1\n2 0\n3 1\n",
+    "expected_output": "Aoki\n"
+  },
+  {
+    "input": "1000000000000000000 0\n",
+    "expected_output": "Aoki\n"
+  },
+  {
+    "input": "1 0\n",
+    "expected_output": "Takahashi\n"
+  },
+  {
+    "input": "1 1\n1 0\n",
+    "expected_output": "Aoki\n"
+  },
+  {
+    "input": "1000000000000000000 1\n1 0\n",
+    "expected_output": "Takahashi\n"
+  }
+]

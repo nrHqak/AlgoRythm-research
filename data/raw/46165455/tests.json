@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3\n1 10 5\n1 20 5\n2 3\n",
+    "expected_output": "30\n"
+  },
+  {
+    "input": "4\n1 10 5\n1 20 5\n2 3\n2 4\n",
+    "expected_output": "30\n60\n"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "input": "5 7\n....Sv.\n.>.....\n.......\n>..<.#<\n^G....>\n",
+    "expected_output": "15\n"
+  },
+  {
+    "input": "4 3\nS..\n.<.\n.>.\n..G\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "3 3\nS..\n>..\n..G\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "4 4\nS...\n.#..\n.#G.\n....\n",
+    "expected_output": "4\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "input": "zzz\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "ababbaba\n",
+    "expected_output": "8\n"
+  },
+  {
+    "input": "abababababababababababababababababababababababababababababababababababababababababababababababababab\n",
+    "expected_output": "409340462\n"
+  }
+]

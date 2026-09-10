@@ -1,0 +1,10 @@
+[
+  {
+    "input": "5\nAAAAA\n",
+    "expected_output": "0\n"
+  },
+  {
+    "input": "6\nAARCCC\n",
+    "expected_output": "2\n"
+  }
+]

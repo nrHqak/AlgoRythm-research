@@ -1,0 +1,6 @@
+[
+  {
+    "input": "6 4\r\nABCCCA\r\n3 5\r\n2 3\r\n1 3\r\n1 6\r\n",
+    "expected_output": "0\r\n1\r\n2\r\n2\r\n"
+  }
+]

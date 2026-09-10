@@ -1,0 +1,22 @@
+[
+  {
+    "input": "2 4\r\n",
+    "expected_output": "5\r\n"
+  },
+  {
+    "input": "4 4\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "10 123456789\r\n",
+    "expected_output": "205695670\r\n"
+  },
+  {
+    "input": "9 281\r\n",
+    "expected_output": "989855738\r\n"
+  },
+  {
+    "input": "1 167\r\n",
+    "expected_output": "167\r\n"
+  }
+]

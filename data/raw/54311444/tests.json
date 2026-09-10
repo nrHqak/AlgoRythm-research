@@ -1,0 +1,10 @@
+[
+  {
+    "input": "3 0 0\n42\n",
+    "expected_output": "? 0 0\n! 42\n"
+  },
+  {
+    "input": "3 3 4\n10\n10\n",
+    "expected_output": "? 0 3\n? 0 4\n! 20\n"
+  }
+]
