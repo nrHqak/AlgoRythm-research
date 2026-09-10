@@ -1,0 +1,1009 @@
+program_id,task_id,buggy_pass_count,buggy_fail_count,fixed_pass_count,fixed_fail_count,eligible,exclusion_reason,timestamp
+40898300,abc221_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.766363+00:00
+45225814,abc221_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.766743+00:00
+26339941,abc221_g,6,2,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.766844+00:00
+26320903,abc221_h,4,4,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.767020+00:00
+26785022,abc221_h,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.767689+00:00
+45118973,abc222_g,1,7,8,0,True,,2026-09-10T17:47:34.767814+00:00
+49217735,abc222_g,7,1,8,0,True,,2026-09-10T17:47:34.767951+00:00
+45783590,abc223_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.768204+00:00
+49036505,abc223_e,7,1,8,0,True,,2026-09-10T17:47:34.768392+00:00
+53250614,abc223_e,7,1,8,0,True,,2026-09-10T17:47:34.780395+00:00
+53648866,abc223_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.794730+00:00
+45728797,abc223_f,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.802648+00:00
+26668974,abc223_h,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.803240+00:00
+44885115,abc224_d,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:34.820194+00:00
+51168884,abc224_f,1,5,6,0,True,,2026-09-10T17:47:34.840815+00:00
+27132818,abc224_g,7,1,8,0,True,,2026-09-10T17:47:34.854644+00:00
+28236524,abc224_g,5,3,8,0,True,,2026-09-10T17:47:35.157150+00:00
+32872217,abc224_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.205541+00:00
+44888915,abc225_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.439450+00:00
+45240176,abc225_d,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.456485+00:00
+30550444,abc225_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.551238+00:00
+31785117,abc225_f,6,2,8,0,True,,2026-09-10T17:47:35.790654+00:00
+45483175,abc226_b,3,1,4,0,True,,2026-09-10T17:47:35.796465+00:00
+45711710,abc226_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.878894+00:00
+53188054,abc226_d,3,5,8,0,True,,2026-09-10T17:47:35.909836+00:00
+53053125,abc226_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:35.935762+00:00
+53676492,abc226_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.029515+00:00
+53796243,abc226_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.047732+00:00
+48239634,abc226_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.193835+00:00
+48936036,abc226_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.235484+00:00
+52807136,abc226_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.412904+00:00
+44996770,abc229_a,7,1,8,0,True,,2026-09-10T17:47:36.433870+00:00
+45424479,abc229_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.435660+00:00
+44646979,abc229_e,4,4,8,0,True,,2026-09-10T17:47:36.443830+00:00
+46038453,abc229_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.482742+00:00
+54240175,abc230_c,1,7,8,0,True,,2026-09-10T17:47:36.526109+00:00
+46047126,abc230_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:36.605752+00:00
+27770752,abc230_g,4,1,5,0,True,,2026-09-10T17:47:36.808190+00:00
+44805380,abc232_d,5,3,8,0,True,,2026-09-10T17:47:37.112399+00:00
+45267327,abc232_d,7,1,8,0,True,,2026-09-10T17:47:37.174805+00:00
+45343318,abc232_d,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:37.228884+00:00
+45499422,abc232_d,7,1,8,0,True,,2026-09-10T17:47:37.344666+00:00
+44929490,abc232_e,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:47:37.483513+00:00
+45459245,abc232_e,3,5,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:37.692932+00:00
+45574605,abc232_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.016835+00:00
+46187377,abc232_e,0,8,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.098893+00:00
+28189928,abc232_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.103370+00:00
+28970603,abc232_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.130734+00:00
+28235852,abc232_h,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.150893+00:00
+38349532,abc233_g,7,1,8,0,True,,2026-09-10T17:47:38.221284+00:00
+44313828,abc233_h,2,2,4,0,True,,2026-09-10T17:47:38.561413+00:00
+46688976,abc233_h,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.821157+00:00
+45477719,abc234_e,5,3,8,0,True,,2026-09-10T17:47:38.865032+00:00
+45484479,abc234_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:38.909881+00:00
+53824155,abc234_f,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.019231+00:00
+54296996,abc234_f,0,8,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.052125+00:00
+44415594,abc235_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.142273+00:00
+28594583,abc235_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.307762+00:00
+28640040,abc235_g,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.421544+00:00
+43758724,abc235_g,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.563147+00:00
+48493148,abc235_g,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.918939+00:00
+29171105,abc235_h,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:39.925634+00:00
+30741132,abc236_g,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:42.192391+00:00
+55003330,abc236_g,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:42.264061+00:00
+28807713,abc236_h,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:43.257228+00:00
+45275344,abc237_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:44.812293+00:00
+45542474,abc237_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:45.060659+00:00
+45711395,abc237_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:45.184998+00:00
+46026874,abc237_c,3,2,5,0,True,,2026-09-10T17:47:45.222404+00:00
+35962547,abc237_f,5,3,8,0,True,,2026-09-10T17:47:45.469411+00:00
+45053944,abc238_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:45.604276+00:00
+45717530,abc238_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:45.621799+00:00
+52795863,abc238_e,6,1,7,0,True,,2026-09-10T17:47:45.642271+00:00
+30171666,abc238_f,6,2,8,0,True,,2026-09-10T17:47:45.648613+00:00
+39396735,abc238_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:45.841994+00:00
+41446414,abc238_f,6,2,8,0,True,,2026-09-10T17:47:45.909755+00:00
+48523335,abc238_f,6,2,8,0,True,,2026-09-10T17:47:46.270016+00:00
+44443541,abc238_g,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:46.333761+00:00
+44818357,abc239_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:46.514196+00:00
+52953499,abc239_d,6,2,8,0,True,,2026-09-10T17:47:46.626227+00:00
+45522067,abc239_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:46.721477+00:00
+45950802,abc239_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.085713+00:00
+45982558,abc240_e,0,4,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.158245+00:00
+35075785,abc240_g,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.194088+00:00
+45284602,abc241_d,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.311745+00:00
+45777353,abc241_d,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.407024+00:00
+45806316,abc241_d,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.467929+00:00
+45018675,abc241_e,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.492680+00:00
+45450212,abc241_e,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.498762+00:00
+46162583,abc241_e,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.516500+00:00
+41657280,abc241_f,7,1,8,0,True,,2026-09-10T17:47:47.572798+00:00
+46189922,abc241_g,3,5,8,0,True,,2026-09-10T17:47:47.722494+00:00
+45535167,abc242_e,1,1,2,0,True,,2026-09-10T17:47:47.861299+00:00
+52939949,abc242_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.918383+00:00
+44922035,abc243_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:47.930529+00:00
+44607569,abc243_d,2,1,3,0,True,,2026-09-10T17:47:47.951037+00:00
+45981948,abc243_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.055057+00:00
+49785483,abc243_e,3,5,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.115077+00:00
+52524531,abc243_e,6,2,8,0,True,,2026-09-10T17:47:48.194227+00:00
+40101065,abc243_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.210576+00:00
+30174663,abc243_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.264547+00:00
+45713633,abc244_b,4,4,8,0,True,,2026-09-10T17:47:48.336447+00:00
+44593613,abc244_d,4,4,8,0,True,,2026-09-10T17:47:48.350347+00:00
+32985131,abc244_g,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.580367+00:00
+52210355,abc245_d,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.860723+00:00
+45811431,abc245_f,5,1,6,0,True,,2026-09-10T17:47:48.945106+00:00
+51453180,abc245_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:48.953721+00:00
+30480849,abc245_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.046046+00:00
+45753152,abc246_d,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.106803+00:00
+45780372,abc246_d,7,1,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.156789+00:00
+45083106,abc246_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.560351+00:00
+45269631,abc246_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.721413+00:00
+45553928,abc246_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:49.727113+00:00
+32131546,abc246_g,2,1,3,0,True,,2026-09-10T17:47:50.232217+00:00
+33284569,abc246_g,2,1,3,0,True,,2026-09-10T17:47:50.399897+00:00
+49874325,abc246_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:50.407518+00:00
+46165455,abc247_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:50.475174+00:00
+45003873,abc247_e,6,2,8,0,True,,2026-09-10T17:47:50.655918+00:00
+49035803,abc247_f,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:47:50.672697+00:00
+52972964,abc247_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:50.679391+00:00
+55036523,abc247_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:50.868523+00:00
+39496981,abc247_g,4,3,7,0,True,,2026-09-10T17:47:51.020031+00:00
+30891102,abc247_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:51.185890+00:00
+45983434,abc248_d,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:51.351650+00:00
+45230444,abc248_e,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:51.426887+00:00
+45802660,abc248_e,7,1,8,0,True,,2026-09-10T17:47:51.831801+00:00
+45104462,abc249_a,7,1,8,0,True,,2026-09-10T17:47:51.923147+00:00
+51504381,abc249_e,4,4,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:52.306856+00:00
+45465070,abc249_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:52.339685+00:00
+45205318,abc250_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:52.611889+00:00
+44996552,abc250_d,7,1,8,0,True,,2026-09-10T17:47:52.651507+00:00
+45700046,abc250_d,5,3,8,0,True,,2026-09-10T17:47:52.843866+00:00
+45811839,abc250_d,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:53.090583+00:00
+44674065,abc250_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:54.248640+00:00
+46017900,abc250_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:54.497405+00:00
+31608048,abc250_g,6,2,8,0,True,,2026-09-10T17:47:54.765713+00:00
+44443990,abc251_b,4,4,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:55.463628+00:00
+45515530,abc251_b,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:56.379807+00:00
+45210558,abc251_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:47:56.414811+00:00
+45556624,abc251_e,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.110917+00:00
+31752648,abc251_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.210852+00:00
+40927285,abc251_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.252689+00:00
+46368168,abc251_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.476163+00:00
+45243368,abc252_b,5,3,8,0,True,,2026-09-10T17:47:57.532373+00:00
+45066699,abc252_e,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.560823+00:00
+45559213,abc253_e,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.780757+00:00
+32999272,abc253_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:47:57.947953+00:00
+38547671,abc253_g,7,1,8,0,True,,2026-09-10T17:47:58.321790+00:00
+52975596,abc253_g,6,2,8,0,True,,2026-09-10T17:47:58.841395+00:00
+52216169,abc254_d,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:47:59.941147+00:00
+53475713,abc254_d,0,8,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.330488+00:00
+48945628,abc254_f,0,2,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.561034+00:00
+49680019,abc254_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.619780+00:00
+32247391,abc254_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.806492+00:00
+45282104,abc255_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.834258+00:00
+50474364,abc255_f,0,5,0,5,False,fails frozen pass/fail precondition,2026-09-10T17:48:00.983487+00:00
+35788058,abc255_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.520085+00:00
+44864172,abc256_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.521107+00:00
+44868880,abc256_d,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.547612+00:00
+45516891,abc256_d,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.595653+00:00
+41932099,abc256_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.780277+00:00
+42749759,abc256_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:01.815601+00:00
+32688484,abc256_g,7,1,8,0,True,,2026-09-10T17:48:01.826689+00:00
+45289055,abc257_a,4,4,8,0,True,,2026-09-10T17:48:01.998161+00:00
+45044587,abc257_c,4,1,5,0,True,,2026-09-10T17:48:02.046847+00:00
+45255202,abc257_d,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:48:02.107230+00:00
+46215877,abc257_d,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:48:02.174120+00:00
+45053747,abc257_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:02.491267+00:00
+45331235,abc257_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:02.729258+00:00
+45698858,abc257_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:03.664354+00:00
+45897088,abc257_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:03.857018+00:00
+45268157,abc257_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.073243+00:00
+32762821,abc257_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.259440+00:00
+45041498,abc258_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.332999+00:00
+44667415,abc258_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.534270+00:00
+46182612,abc258_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.616002+00:00
+46362422,abc258_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.762095+00:00
+54437029,abc258_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.804469+00:00
+32929696,abc258_h,0,4,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:06.938289+00:00
+33045301,abc258_h,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.004445+00:00
+44929141,abc259_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.330426+00:00
+45350488,abc259_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.371720+00:00
+45537510,abc259_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.619915+00:00
+46054515,abc259_c,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.655846+00:00
+52382935,abc259_d,7,1,8,0,True,,2026-09-10T17:48:07.661379+00:00
+54723545,abc259_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.823938+00:00
+45515452,abc259_e,6,2,8,0,True,,2026-09-10T17:48:07.914388+00:00
+33161543,abc259_g,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:07.950117+00:00
+53041244,abc260_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:08.413744+00:00
+53719611,abc260_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:08.556872+00:00
+44419168,abc260_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:08.667576+00:00
+33361937,abc260_g,5,3,8,0,True,,2026-09-10T17:48:08.765047+00:00
+45506869,abc261_d,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:48:08.998810+00:00
+46034687,abc261_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.176383+00:00
+33560185,abc261_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.258023+00:00
+33475139,abc261_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.285852+00:00
+37948163,abc261_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.437676+00:00
+48707102,abc261_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.537540+00:00
+44381954,abc262_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.590202+00:00
+44831745,abc262_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:09.839307+00:00
+47638667,abc262_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.066578+00:00
+48961945,abc262_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.299291+00:00
+33776994,abc262_g,5,3,8,0,True,,2026-09-10T17:48:10.331317+00:00
+44705646,abc263_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.364566+00:00
+45558657,abc263_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.424429+00:00
+34042464,abc263_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.635201+00:00
+34500524,abc263_g,3,5,8,0,True,,2026-09-10T17:48:10.691696+00:00
+43726575,abc263_g,2,6,8,0,True,,2026-09-10T17:48:10.719505+00:00
+49799392,abc263_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:10.802265+00:00
+33881482,abc263_h,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:11.077024+00:00
+49039255,abc263_h,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:11.428996+00:00
+45504321,abc264_e,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:11.844340+00:00
+34040426,abc264_g,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:11.939579+00:00
+42294250,abc264_g,3,1,3,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:12.346108+00:00
+45798886,abc265_b,4,2,6,0,True,,2026-09-10T17:48:12.508050+00:00
+46016041,abc265_b,4,2,6,0,True,,2026-09-10T17:48:13.146294+00:00
+46154642,abc265_c,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:13.207632+00:00
+45966660,abc265_d,5,1,6,0,True,,2026-09-10T17:48:13.707217+00:00
+43487741,abc265_f,7,1,8,0,True,,2026-09-10T17:48:14.286296+00:00
+46700668,abc265_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:15.430460+00:00
+45028964,abc266_c,7,1,8,0,True,,2026-09-10T17:48:15.717035+00:00
+50709042,abc266_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:15.737813+00:00
+34423081,abc266_h,3,1,4,0,True,,2026-09-10T17:48:16.486685+00:00
+45233540,abc267_b,5,3,8,0,True,,2026-09-10T17:48:16.536893+00:00
+45974485,abc267_b,7,1,8,0,True,,2026-09-10T17:48:16.877338+00:00
+45068144,abc267_c,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:16.995396+00:00
+45076867,abc267_c,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:17.190949+00:00
+45550363,abc267_d,5,3,8,0,True,,2026-09-10T17:48:17.264562+00:00
+46128146,abc267_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:17.360158+00:00
+45545460,abc267_f,2,1,3,0,True,,2026-09-10T17:48:17.566306+00:00
+35794099,abc267_h,3,5,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:17.614208+00:00
+45037018,abc268_d,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:17.834539+00:00
+45092436,abc268_d,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.223379+00:00
+45999253,abc268_d,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.398809+00:00
+45999403,abc268_d,1,3,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.576143+00:00
+46151794,abc268_d,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.753744+00:00
+46188576,abc268_d,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.939676+00:00
+46052240,abc268_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:18.997833+00:00
+49241806,abc268_h,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:19.109399+00:00
+52213061,abc269_d,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:19.167194+00:00
+45214207,abc269_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:19.281482+00:00
+35978955,abc269_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:19.322494+00:00
+43509672,abc269_g,2,6,8,0,True,,2026-09-10T17:48:19.402003+00:00
+46011140,abc270_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:19.787355+00:00
+54301518,abc270_c,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:20.042842+00:00
+45974029,abc270_d,7,1,8,0,True,,2026-09-10T17:48:20.388916+00:00
+49178986,abc270_g,3,5,8,0,True,,2026-09-10T17:48:20.447862+00:00
+49185222,abc270_g,2,6,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:20.715977+00:00
+52785891,abc270_g,2,6,8,0,True,,2026-09-10T17:48:20.844331+00:00
+45793366,abc271_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:21.420235+00:00
+46008428,abc271_d,7,1,8,0,True,,2026-09-10T17:48:22.275775+00:00
+37700812,abc271_g,7,1,8,0,True,,2026-09-10T17:48:22.405607+00:00
+45282989,abc272_c,6,1,7,0,True,,2026-09-10T17:48:22.737890+00:00
+45575170,abc272_d,4,4,8,0,True,,2026-09-10T17:48:22.798578+00:00
+49227972,abc272_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:23.427139+00:00
+47192828,abc272_g,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:23.597533+00:00
+48246740,abc272_g,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:24.542063+00:00
+48974864,abc272_g,7,1,8,0,True,,2026-09-10T17:48:24.741371+00:00
+52009362,abc272_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:25.108201+00:00
+53473806,abc272_g,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:25.526760+00:00
+54704821,abc272_g,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:25.943028+00:00
+45461646,abc273_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:26.753080+00:00
+35719660,abc273_g,2,6,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:48:26.943467+00:00
+46033282,abc274_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:27.691676+00:00
+45512531,abc274_e,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:27.843797+00:00
+50475104,abc274_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:28.397202+00:00
+44917428,abc275_c,7,1,8,0,True,,2026-09-10T17:48:29.085825+00:00
+45458655,abc275_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:29.854405+00:00
+36145190,abc275_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:29.855081+00:00
+37220565,abc275_g,2,1,3,0,True,,2026-09-10T17:48:30.135164+00:00
+45303110,abc276_d,7,1,8,0,True,,2026-09-10T17:48:30.407891+00:00
+36291832,abc276_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:30.487990+00:00
+45302782,abc277_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:30.677710+00:00
+45573210,abc277_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:30.741605+00:00
+46193940,abc277_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:30.882395+00:00
+45112675,abc277_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.176070+00:00
+46166743,abc277_e,0,2,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.215632+00:00
+41713007,abc277_h,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.258104+00:00
+45577064,abc278_a,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.421397+00:00
+44926075,abc278_d,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.438248+00:00
+46190302,abc278_e,7,1,8,0,True,,2026-09-10T17:48:31.456535+00:00
+37231890,abc279_g,4,4,8,0,True,,2026-09-10T17:48:31.499762+00:00
+45699589,abc281_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.674647+00:00
+45944008,abc281_b,4,4,8,0,True,,2026-09-10T17:48:31.743125+00:00
+45096639,abc281_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:31.814070+00:00
+45038482,abc281_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.161665+00:00
+45472060,abc281_f,6,2,8,0,True,,2026-09-10T17:48:32.245995+00:00
+45514577,abc282_e,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.273914+00:00
+45960750,abc282_f,0,0,0,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.384716+00:00
+45462979,abc283_d,4,2,6,0,True,,2026-09-10T17:48:32.385377+00:00
+45759088,abc283_e,5,1,6,0,True,,2026-09-10T17:48:32.500448+00:00
+46910621,abc283_f,5,3,8,0,True,,2026-09-10T17:48:32.554163+00:00
+38648014,abc283_g,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.868540+00:00
+54268895,abc283_g,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.932869+00:00
+37533124,abc283_h,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.961101+00:00
+48880084,abc285_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:32.983190+00:00
+45471607,abc286_d,7,1,8,0,True,,2026-09-10T17:48:33.038689+00:00
+45787313,abc286_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:33.055229+00:00
+45479724,abc286_e,2,1,3,0,True,,2026-09-10T17:48:33.343420+00:00
+46169747,abc286_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:33.602831+00:00
+45090669,abc286_f,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:33.719205+00:00
+38302356,abc286_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:33.846076+00:00
+38690639,abc286_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:33.913757+00:00
+38346885,abc286_h,7,1,8,0,True,,2026-09-10T17:48:34.003770+00:00
+46785855,abc286_h,3,5,8,0,True,,2026-09-10T17:48:34.101873+00:00
+45520506,abc287_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:34.674834+00:00
+46180932,abc287_c,4,1,5,0,True,,2026-09-10T17:48:34.728294+00:00
+45092019,abc287_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:34.758395+00:00
+45533288,abc287_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:34.819058+00:00
+46181501,abc287_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.101454+00:00
+51264451,abc287_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.107658+00:00
+54006112,abc287_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.176413+00:00
+54495703,abc287_e,1,1,2,0,True,,2026-09-10T17:48:35.255617+00:00
+51238563,abc287_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.289223+00:00
+40891564,abc287_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.326428+00:00
+50037780,abc287_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.428188+00:00
+50462471,abc287_g,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.438847+00:00
+38508416,abc287_h,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.439232+00:00
+45491325,abc288_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.443626+00:00
+41523056,abc288_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.458847+00:00
+38697040,abc288_h,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:48:35.522903+00:00
+45332649,abc289_c,6,2,8,0,True,,2026-09-10T17:48:35.538597+00:00
+44672786,abc289_d,4,4,8,0,True,,2026-09-10T17:48:35.542200+00:00
+46033056,abc289_d,4,4,8,0,True,,2026-09-10T17:48:35.605647+00:00
+45463729,abc289_e,5,3,8,0,True,,2026-09-10T17:48:35.767145+00:00
+45270856,abc290_c,4,4,8,0,True,,2026-09-10T17:48:35.865541+00:00
+39047205,abc290_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.102283+00:00
+45313651,abc291_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.189611+00:00
+45489809,abc291_d,6,2,8,0,True,,2026-09-10T17:48:36.228515+00:00
+45519163,abc291_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.283046+00:00
+45954675,abc291_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.570183+00:00
+46206336,abc291_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.591353+00:00
+45325123,abc291_e,7,1,8,0,True,,2026-09-10T17:48:36.816150+00:00
+45488021,abc291_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.860260+00:00
+45788276,abc291_f,0,6,0,6,False,fails frozen pass/fail precondition,2026-09-10T17:48:36.946064+00:00
+46006070,abc291_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.010022+00:00
+51212589,abc291_h,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.278315+00:00
+45291809,abc292_c,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.362903+00:00
+45536157,abc292_c,5,3,8,0,True,,2026-09-10T17:48:37.487056+00:00
+44987159,abc292_d,5,3,8,0,True,,2026-09-10T17:48:37.492609+00:00
+45523633,abc292_f,3,5,8,0,True,,2026-09-10T17:48:37.517221+00:00
+39455718,abc292_h,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.619610+00:00
+40600464,abc292_h,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.635725+00:00
+52014767,abc292_h,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:37.769700+00:00
+45502821,abc293_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.062247+00:00
+45665153,abc293_f,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.096277+00:00
+45910052,abc294_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.235319+00:00
+47413656,abc294_f,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.244815+00:00
+49343974,abc294_f,0,7,0,7,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.249230+00:00
+53961424,abc294_f,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.409790+00:00
+53664226,abc294_g,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.431357+00:00
+45457264,abc295_b,3,5,8,0,True,,2026-09-10T17:48:38.490635+00:00
+42176175,abc295_e,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.509931+00:00
+42264948,abc295_e,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.678066+00:00
+54729841,abc295_e,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.796442+00:00
+40825469,abc295_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:38.919515+00:00
+45933759,abc296_d,3,5,8,0,True,,2026-09-10T17:48:39.114634+00:00
+45226037,abc296_f,3,1,4,0,True,,2026-09-10T17:48:39.127139+00:00
+45331429,abc296_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.289261+00:00
+50949566,abc296_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.345630+00:00
+52941375,abc296_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.474330+00:00
+40275095,abc296_h,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.549006+00:00
+45279577,abc298_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.677237+00:00
+45483068,abc298_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.706231+00:00
+45491531,abc298_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.858777+00:00
+45996525,abc298_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.963475+00:00
+45550904,abc298_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:39.968229+00:00
+45710768,abc298_d,2,2,4,0,True,,2026-09-10T17:48:40.126616+00:00
+46008577,abc298_e,4,4,8,0,True,,2026-09-10T17:48:40.131641+00:00
+41059627,abc298_g,6,2,8,0,True,,2026-09-10T17:48:40.482126+00:00
+45695018,abc299_c,6,2,8,0,True,,2026-09-10T17:48:40.582978+00:00
+45750635,abc299_c,5,3,8,0,True,,2026-09-10T17:48:41.125021+00:00
+46165545,abc299_c,7,1,8,0,True,,2026-09-10T17:48:41.258182+00:00
+45347612,abc299_e,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:41.331324+00:00
+40872561,abc299_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:41.904421+00:00
+41069355,abc299_f,7,1,8,0,True,,2026-09-10T17:48:42.037773+00:00
+45723196,abc300_b,7,1,8,0,True,,2026-09-10T17:48:42.097178+00:00
+45723345,abc300_c,7,1,8,0,True,,2026-09-10T17:48:42.147733+00:00
+45749744,abc300_c,7,1,8,0,True,,2026-09-10T17:48:42.638578+00:00
+45256387,abc300_d,0,8,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:42.761938+00:00
+45218169,abc300_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:42.813117+00:00
+45250612,abc300_e,6,2,8,0,True,,2026-09-10T17:48:42.892412+00:00
+45343856,abc300_f,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:43.330615+00:00
+45435689,abc300_f,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:43.505806+00:00
+45923968,abc300_f,4,1,5,0,True,,2026-09-10T17:48:43.611660+00:00
+45084922,abc300_g,4,4,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:48:43.819919+00:00
+45970658,abc301_b,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:43.937144+00:00
+45725346,abc301_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:44.017608+00:00
+45747617,abc301_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:44.412148+00:00
+45949713,abc301_e,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:48:44.543369+00:00
+51429838,abc301_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:44.654754+00:00
+53511062,abc301_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.011573+00:00
+45763953,abc302_b,7,1,8,0,True,,2026-09-10T17:48:45.062093+00:00
+51480791,abc302_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.132083+00:00
+41709058,abc302_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.343816+00:00
+41887698,abc302_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.411474+00:00
+45491344,abc303_c,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.411791+00:00
+45578518,abc303_c,0,2,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.530396+00:00
+46045444,abc303_c,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.584939+00:00
+45489398,abc303_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.601035+00:00
+48442381,abc303_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.723963+00:00
+48933165,abc303_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.776193+00:00
+50087974,abc303_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.815933+00:00
+41795359,abc303_g,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.911788+00:00
+41906923,abc303_g,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.966241+00:00
+45577481,abc304_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:45.987273+00:00
+45808253,abc304_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:46.263084+00:00
+45574429,abc304_d,1,1,2,0,True,,2026-09-10T17:48:46.353983+00:00
+45077270,abc304_f,6,2,8,0,True,,2026-09-10T17:48:46.710792+00:00
+41991921,abc304_g,5,1,6,0,True,,2026-09-10T17:48:46.797402+00:00
+41999726,abc304_g,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:46.958030+00:00
+42019155,abc304_h,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.364592+00:00
+42210009,abc304_h,0,2,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.492586+00:00
+48697427,abc304_h,1,1,1,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.536971+00:00
+46169156,abc305_b,6,2,8,0,True,,2026-09-10T17:48:47.665251+00:00
+46045921,abc305_e,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.675376+00:00
+46138524,abc306_e,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.707766+00:00
+46162555,abc307_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.731563+00:00
+45446603,abc307_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:47.952661+00:00
+48677305,abc307_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.404671+00:00
+51485146,abc307_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.493674+00:00
+53719250,abc307_f,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.494211+00:00
+42981473,abc307_g,5,1,5,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.684175+00:00
+42990129,abc307_g,5,1,5,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.705517+00:00
+51711769,abc307_g,5,1,5,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.794581+00:00
+43030329,abc307_h,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:48:48.840138+00:00
+45926524,abc308_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:51.059919+00:00
+54718266,abc308_d,6,1,7,0,True,,2026-09-10T17:48:51.175432+00:00
+43737866,abc308_g,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:51.402980+00:00
+45788753,abc309_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:51.448011+00:00
+45895898,abc309_c,7,1,8,0,True,,2026-09-10T17:48:51.528933+00:00
+45761344,abc309_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:51.817729+00:00
+45971969,abc309_e,3,5,8,0,True,,2026-09-10T17:48:52.296158+00:00
+46214263,abc309_e,3,5,8,0,True,,2026-09-10T17:48:52.500729+00:00
+51247653,abc309_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:52.607839+00:00
+51733804,abc309_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:52.759710+00:00
+52283209,abc309_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:52.875642+00:00
+55142933,abc309_f,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:48:53.026790+00:00
+46051370,abc310_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:53.039107+00:00
+46217262,abc310_b,7,1,8,0,True,,2026-09-10T17:48:53.139284+00:00
+53176077,abc310_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:53.220662+00:00
+45970897,abc311_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:48:53.443451+00:00
+43899768,abc311_g,4,4,8,0,True,,2026-09-10T17:48:53.790213+00:00
+45722066,abc312_c,3,5,8,0,True,,2026-09-10T17:48:53.915898+00:00
+45783776,abc312_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:54.227346+00:00
+45783787,abc312_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:54.245489+00:00
+45814496,abc312_c,1,7,8,0,True,,2026-09-10T17:48:54.306048+00:00
+46004421,abc312_c,7,1,8,0,True,,2026-09-10T17:48:54.549667+00:00
+46017936,abc312_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:54.564763+00:00
+46028780,abc312_c,7,1,8,0,True,,2026-09-10T17:48:54.688044+00:00
+52032093,abc312_d,5,3,8,0,True,,2026-09-10T17:48:54.800960+00:00
+46140996,abc312_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:55.069871+00:00
+45777524,abc313_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:55.080584+00:00
+45766127,abc313_e,5,3,8,0,True,,2026-09-10T17:48:55.080868+00:00
+46134579,abc313_g,7,1,8,0,True,,2026-09-10T17:48:55.353160+00:00
+45977913,abc314_b,7,1,8,0,True,,2026-09-10T17:48:55.357459+00:00
+45979954,abc314_b,5,3,8,0,True,,2026-09-10T17:48:55.496602+00:00
+54038840,abc314_c,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:55.861429+00:00
+46143343,abc314_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:56.066805+00:00
+46146276,abc314_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:56.103293+00:00
+45808089,abc314_e,5,3,8,0,True,,2026-09-10T17:48:56.133963+00:00
+45264890,abc314_g,4,1,5,0,True,,2026-09-10T17:48:56.227645+00:00
+47095184,abc314_g,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:56.267302+00:00
+46043300,abc315_f,3,5,8,0,True,,2026-09-10T17:48:56.289774+00:00
+46136201,abc315_f,6,2,8,0,True,,2026-09-10T17:48:56.517587+00:00
+44773178,abc315_h,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:56.727798+00:00
+54270366,abc317_a,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:56.766856+00:00
+52056192,abc317_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:57.073624+00:00
+51930031,abc317_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:57.114753+00:00
+52926276,abc317_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:57.303749+00:00
+45104583,abc317_f,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:57.345913+00:00
+46240679,abc317_f,2,1,3,0,True,,2026-09-10T17:48:57.432918+00:00
+53538516,abc318_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:57.497911+00:00
+45969465,abc319_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:58.400942+00:00
+45783074,abc319_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:48:58.437025+00:00
+45753057,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:58.775096+00:00
+45764630,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.055485+00:00
+45768613,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.148873+00:00
+45774151,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.331496+00:00
+45793373,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.422789+00:00
+45926522,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.504457+00:00
+45933392,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.610713+00:00
+45948664,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.690497+00:00
+45968743,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.702249+00:00
+45993248,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.791132+00:00
+46138292,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.875075+00:00
+46194473,abc319_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.963551+00:00
+45769357,abc319_f,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:48:59.997328+00:00
+55010802,abc320_c,6,2,8,0,True,,2026-09-10T17:49:00.067494+00:00
+54919763,abc320_d,3,1,4,0,True,,2026-09-10T17:49:00.159036+00:00
+46034926,abc320_f,4,4,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:00.198955+00:00
+47539324,abc320_f,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:00.265587+00:00
+48703794,abc320_f,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:00.442411+00:00
+51972231,abc320_f,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:00.529943+00:00
+45654657,abc320_g,6,1,7,0,True,,2026-09-10T17:49:00.843989+00:00
+55168667,abc321_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:01.445836+00:00
+54658079,abc321_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:01.580527+00:00
+54658110,abc321_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:01.797179+00:00
+50314783,abc321_f,5,3,8,0,True,,2026-09-10T17:49:01.874450+00:00
+46196763,abc322_b,7,1,8,0,True,,2026-09-10T17:49:01.890099+00:00
+46190250,abc322_d,4,4,8,0,True,,2026-09-10T17:49:02.024698+00:00
+53313253,abc322_d,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:02.302961+00:00
+53004931,abc322_e,5,3,8,0,True,,2026-09-10T17:49:02.597686+00:00
+52703822,abc322_f,1,3,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:02.970644+00:00
+54308429,abc323_c,5,3,8,0,True,,2026-09-10T17:49:03.356228+00:00
+54680187,abc323_c,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:03.428322+00:00
+54745257,abc323_c,3,5,8,0,True,,2026-09-10T17:49:03.529240+00:00
+54930796,abc323_c,2,6,8,0,True,,2026-09-10T17:49:04.097841+00:00
+50628101,abc323_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:04.162458+00:00
+53953051,abc324_d,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:04.254709+00:00
+54390162,abc324_d,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:04.763767+00:00
+54432109,abc324_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:04.794288+00:00
+54739961,abc324_d,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:05.060319+00:00
+52742757,abc324_e,3,2,5,0,True,,2026-09-10T17:49:06.806673+00:00
+54452348,abc325_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:07.288422+00:00
+52936269,abc325_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:07.295070+00:00
+53574782,abc325_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:07.578747+00:00
+47165263,abc325_f,4,4,8,0,True,,2026-09-10T17:49:07.652257+00:00
+47205844,abc325_f,3,5,8,0,True,,2026-09-10T17:49:07.667326+00:00
+47320684,abc325_f,7,1,8,0,True,,2026-09-10T17:49:07.928153+00:00
+47338119,abc325_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:09.276227+00:00
+52623489,abc325_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:09.826703+00:00
+46914169,abc325_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:10.005722+00:00
+54454360,abc326_c,6,2,8,0,True,,2026-09-10T17:49:10.071529+00:00
+52796362,abc326_d,7,1,8,0,True,,2026-09-10T17:49:10.409176+00:00
+52906322,abc326_d,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:10.467540+00:00
+53923236,abc326_d,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:10.659515+00:00
+53955700,abc326_d,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:10.742407+00:00
+54403865,abc326_d,4,4,8,0,True,,2026-09-10T17:49:10.749320+00:00
+54719711,abc326_f,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:10.758526+00:00
+55003503,abc327_c,6,2,8,0,True,,2026-09-10T17:49:11.368024+00:00
+54954766,abc327_e,4,4,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:11.461153+00:00
+47668625,abc327_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:11.466264+00:00
+54743139,abc328_b,6,2,8,0,True,,2026-09-10T17:49:11.495057+00:00
+51767048,abc328_e,2,6,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:12.127369+00:00
+51958155,abc329_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:12.324036+00:00
+52726801,abc329_e,7,1,8,0,True,,2026-09-10T17:49:13.020707+00:00
+54910018,abc330_c,5,3,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:13.083277+00:00
+48207650,abc330_f,7,1,8,0,True,,2026-09-10T17:49:13.455721+00:00
+48327716,abc330_f,1,7,8,0,True,,2026-09-10T17:49:13.677393+00:00
+52719206,abc331_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:13.738715+00:00
+53468592,abc331_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:13.793719+00:00
+52779261,abc331_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.117021+00:00
+54003123,abc331_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.118198+00:00
+54388604,abc331_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.173433+00:00
+54711529,abc332_c,7,1,8,0,True,,2026-09-10T17:49:14.207201+00:00
+49265039,abc332_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.223586+00:00
+50121141,abc332_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.372515+00:00
+50678043,abc332_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.404238+00:00
+51643425,abc332_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.426209+00:00
+52980637,abc332_g,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.471020+00:00
+54467069,abc333_b,6,2,8,0,True,,2026-09-10T17:49:14.520939+00:00
+52260050,abc333_e,1,4,2,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.691529+00:00
+52758263,abc333_e,3,2,3,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:14.755374+00:00
+54724339,abc334_c,6,2,8,0,True,,2026-09-10T17:49:14.843070+00:00
+55003175,abc334_c,6,2,8,0,True,,2026-09-10T17:49:14.953644+00:00
+52492868,abc334_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.136939+00:00
+49407992,abc334_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.176745+00:00
+50005734,abc334_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.233078+00:00
+53789974,abc334_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.273435+00:00
+54715880,abc335_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.421409+00:00
+54978942,abc335_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.590873+00:00
+55029036,abc335_e,7,1,8,0,True,,2026-09-10T17:49:15.599135+00:00
+53563069,abc335_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.636132+00:00
+54448133,abc335_f,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.651199+00:00
+54268398,abc336_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.694572+00:00
+54659671,abc336_d,2,1,3,0,True,,2026-09-10T17:49:15.776091+00:00
+54952831,abc336_f,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:15.992357+00:00
+54308671,abc337_d,5,2,7,0,True,,2026-09-10T17:49:16.061847+00:00
+54495605,abc337_d,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.069211+00:00
+55025649,abc337_d,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.092517+00:00
+53016983,abc337_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.460296+00:00
+53945275,abc337_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.524210+00:00
+49855272,abc337_f,2,1,3,0,True,,2026-09-10T17:49:16.561746+00:00
+54294909,abc338_c,0,8,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.750954+00:00
+54514586,abc338_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.762297+00:00
+52286746,abc338_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.810846+00:00
+52942487,abc338_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:16.836636+00:00
+54041010,abc338_e,4,1,5,0,True,,2026-09-10T17:49:16.904233+00:00
+52236687,abc338_f,5,3,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:17.397441+00:00
+53230147,abc338_f,4,4,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:17.433018+00:00
+53731825,abc338_f,4,4,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:17.438499+00:00
+54311169,abc339_b,3,5,8,0,True,,2026-09-10T17:49:17.503334+00:00
+54672032,abc339_b,3,5,8,0,True,,2026-09-10T17:49:17.653097+00:00
+54055907,abc339_e,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:17.889371+00:00
+53281757,abc339_f,7,1,8,0,True,,2026-09-10T17:49:17.963203+00:00
+53967299,abc339_f,7,1,8,0,True,,2026-09-10T17:49:18.169739+00:00
+55038628,abc340_d,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:18.204951+00:00
+52511513,abc340_f,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:18.335192+00:00
+53251643,abc340_f,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:18.396334+00:00
+55112719,abc340_f,2,6,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:18.673851+00:00
+50192467,abc340_g,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.062481+00:00
+53927639,abc341_d,7,1,8,0,True,,2026-09-10T17:49:19.126225+00:00
+53935483,abc341_e,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.129283+00:00
+54316816,abc341_e,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.324414+00:00
+54515840,abc341_e,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.416183+00:00
+54693725,abc342_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.617679+00:00
+55039384,abc342_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.805691+00:00
+52012139,abc342_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.923159+00:00
+52271105,abc342_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:19.986458+00:00
+54872777,abc342_e,0,4,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:20.077602+00:00
+55130298,abc342_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:20.271028+00:00
+50665510,abc342_f,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:21.682266+00:00
+54509689,abc342_f,2,6,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:21.904447+00:00
+50668241,abc342_g,2,1,3,0,True,,2026-09-10T17:49:22.100971+00:00
+50740919,abc342_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:22.174926+00:00
+54978258,abc343_c,3,5,8,0,True,,2026-09-10T17:49:22.399826+00:00
+54516497,abc343_e,0,8,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:22.490113+00:00
+53727420,abc345_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:22.790768+00:00
+54461819,abc345_d,5,3,8,0,True,,2026-09-10T17:49:22.874892+00:00
+51995381,abc345_e,7,1,8,0,True,,2026-09-10T17:49:23.272243+00:00
+52899692,abc345_e,7,1,8,0,True,,2026-09-10T17:49:23.554647+00:00
+51504279,abc345_f,2,2,3,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:24.921252+00:00
+52944760,abc345_f,2,2,2,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:25.061463+00:00
+54925895,abc346_b,5,3,8,0,True,,2026-09-10T17:49:25.370518+00:00
+55019091,abc346_b,3,5,8,0,True,,2026-09-10T17:49:25.546763+00:00
+55138933,abc346_b,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:25.930252+00:00
+53744023,abc346_d,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:26.094542+00:00
+53935383,abc346_d,4,1,5,0,True,,2026-09-10T17:49:26.268798+00:00
+54469627,abc346_d,3,2,5,0,True,,2026-09-10T17:49:26.550029+00:00
+54543042,abc346_d,4,1,5,0,True,,2026-09-10T17:49:26.985840+00:00
+54675380,abc346_d,3,2,5,0,True,,2026-09-10T17:49:27.419594+00:00
+54740445,abc346_d,4,1,5,0,True,,2026-09-10T17:49:27.674340+00:00
+52762677,abc346_e,2,1,3,0,True,,2026-09-10T17:49:27.906851+00:00
+54144246,abc346_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:28.140860+00:00
+53131253,abc346_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:28.160814+00:00
+53286789,abc346_f,6,2,8,0,True,,2026-09-10T17:49:28.319928+00:00
+54698915,abc346_f,7,1,8,0,True,,2026-09-10T17:49:28.459557+00:00
+55155622,abc347_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:28.938605+00:00
+54756307,abc347_d,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.087363+00:00
+55134495,abc347_d,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.104952+00:00
+55147936,abc347_d,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.511959+00:00
+53797654,abc347_e,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.755993+00:00
+55155569,abc347_e,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.850840+00:00
+51970859,abc347_f,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:29.851213+00:00
+52760025,abc347_f,3,2,5,0,True,,2026-09-10T17:49:30.027463+00:00
+51866544,abc347_g,2,6,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:30.258349+00:00
+54754604,abc348_d,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:30.314648+00:00
+54918141,abc349_b,6,2,8,0,True,,2026-09-10T17:49:30.385852+00:00
+54267102,abc349_d,5,3,8,0,True,,2026-09-10T17:49:30.516425+00:00
+53462819,abc349_f,6,2,8,0,True,,2026-09-10T17:49:30.729478+00:00
+52509388,abc349_g,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:31.130794+00:00
+54963583,abc350_c,0,5,0,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:31.258857+00:00
+54219104,abc350_f,0,7,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:31.487067+00:00
+54968121,abc351_c,5,1,6,0,True,,2026-09-10T17:49:31.581452+00:00
+55158545,abc353_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:31.950241+00:00
+53483883,abc353_f,6,2,8,0,True,,2026-09-10T17:49:32.107886+00:00
+53505050,abc353_f,6,2,8,0,True,,2026-09-10T17:49:32.108163+00:00
+53517874,abc353_f,6,2,8,0,True,,2026-09-10T17:49:32.293967+00:00
+53655550,abc353_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:32.763808+00:00
+54723688,abc353_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:32.778312+00:00
+53993648,abc353_g,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.004704+00:00
+54708447,abc354_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.074231+00:00
+53647241,abc354_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.111506+00:00
+54860926,abc355_c,7,1,8,0,True,,2026-09-10T17:49:33.224670+00:00
+54869003,abc355_c,7,1,8,0,True,,2026-09-10T17:49:33.357684+00:00
+55136098,abc355_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.448357+00:00
+54769975,abc355_d,2,1,3,0,True,,2026-09-10T17:49:33.453812+00:00
+54311444,abc355_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.719268+00:00
+54431130,abc355_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.806493+00:00
+54789032,abc355_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:33.954607+00:00
+54957150,abc356_b,5,3,8,0,True,,2026-09-10T17:49:34.050583+00:00
+54965405,abc356_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:34.161918+00:00
+54900882,abc356_c,7,1,8,0,True,,2026-09-10T17:49:34.331434+00:00
+55144138,abc356_c,7,1,8,0,True,,2026-09-10T17:49:34.488339+00:00
+54865160,abc356_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:34.770596+00:00
+54889247,abc356_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:34.867322+00:00
+54283471,abc356_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:34.988080+00:00
+54486041,abc356_f,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:34.994854+00:00
+54133842,abc356_g,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.049297+00:00
+54232515,abc356_g,1,2,3,0,True,,2026-09-10T17:49:35.058446+00:00
+55000126,abc357_c,7,1,8,0,True,,2026-09-10T17:49:35.208923+00:00
+54786782,abc358_g,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.274418+00:00
+54786893,abc358_g,0,8,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.332384+00:00
+54886527,abc358_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.350266+00:00
+55124422,abc359_e,0,5,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.374428+00:00
+54954031,abc359_f,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.387693+00:00
+54889351,abc359_g,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.518881+00:00
+55130899,abc360_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.705400+00:00
+55140371,abc360_e,7,1,8,0,True,,2026-09-10T17:49:35.859490+00:00
+55104098,abc360_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.890245+00:00
+55105382,abc360_f,0,2,0,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:35.968611+00:00
+55163164,abc360_f,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.097866+00:00
+55104573,abc360_g,7,1,8,0,True,,2026-09-10T17:49:36.211012+00:00
+55112153,abc360_g,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.280378+00:00
+44002402,agc055_a,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.289748+00:00
+27693193,agc056_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.488470+00:00
+39108897,agc057_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.826174+00:00
+41587952,agc057_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.871301+00:00
+31499069,agc057_b,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.906766+00:00
+31505448,agc057_b,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.946026+00:00
+41271287,agc057_b,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:36.955014+00:00
+34050152,agc058_b,4,4,8,0,True,,2026-09-10T17:49:37.393138+00:00
+34054427,agc058_b,4,4,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:37.411990+00:00
+37116120,agc059_a,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:37.649030+00:00
+37027269,agc059_b,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:37.691650+00:00
+37028649,agc059_b,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:37.701353+00:00
+37547592,agc060_b,2,6,8,0,True,,2026-09-10T17:49:37.745102+00:00
+38852158,agc061_a,1,4,5,0,True,,2026-09-10T17:49:37.768431+00:00
+38853475,agc061_a,1,4,5,0,True,,2026-09-10T17:49:37.785276+00:00
+41610915,agc062_c,5,3,8,0,True,,2026-09-10T17:49:38.308941+00:00
+41651640,agc062_c,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:38.335241+00:00
+44118621,agc063_c,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:38.513466+00:00
+44640326,agc064_a,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:38.896322+00:00
+48625380,agc065_c,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:39.279174+00:00
+51924137,agc066_a,0,8,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:39.474209+00:00
+52162543,agc066_c,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:39.648293+00:00
+40706832,arc128_b,3,3,6,0,True,,2026-09-10T17:49:39.731780+00:00
+29987786,arc128_c,6,2,8,0,True,,2026-09-10T17:49:40.022591+00:00
+26708943,arc128_d,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:40.255027+00:00
+27510550,arc128_e,6,2,8,0,True,,2026-09-10T17:49:40.348624+00:00
+38752586,arc129_a,5,3,8,0,True,,2026-09-10T17:49:40.710254+00:00
+34289751,arc129_c,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:40.782320+00:00
+43964198,arc129_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:41.435322+00:00
+27435812,arc129_d,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:41.534272+00:00
+27452332,arc129_d,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:41.998929+00:00
+27941784,arc129_d,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:42.183436+00:00
+27576444,arc130_f,7,1,8,0,True,,2026-09-10T17:49:42.378887+00:00
+27582246,arc130_f,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:42.503105+00:00
+27742025,arc131_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:42.898064+00:00
+27771010,arc131_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:42.968204+00:00
+33558182,arc131_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.160525+00:00
+27727642,arc131_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.258343+00:00
+27729425,arc131_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.640442+00:00
+27740591,arc131_e,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.917597+00:00
+27746730,arc131_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.946007+00:00
+32651833,arc131_e,4,4,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:43.988231+00:00
+38955195,arc131_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.007087+00:00
+42742272,arc131_e,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.432246+00:00
+43293149,arc132_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.677977+00:00
+38109909,arc132_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.763019+00:00
+40278857,arc132_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.771840+00:00
+40304207,arc132_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:44.778476+00:00
+40631011,arc132_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:45.114455+00:00
+44219174,arc132_b,3,1,4,0,True,,2026-09-10T17:49:45.155606+00:00
+31137799,arc132_c,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:45.184671+00:00
+28174907,arc132_d,2,1,3,0,True,,2026-09-10T17:49:45.188095+00:00
+28175955,arc132_d,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:45.212859+00:00
+41861434,arc133_a,4,1,5,0,True,,2026-09-10T17:49:45.447937+00:00
+34093512,arc133_b,4,1,5,0,True,,2026-09-10T17:49:45.503452+00:00
+41864112,arc133_b,4,1,5,0,True,,2026-09-10T17:49:45.508265+00:00
+28699500,arc133_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:45.913676+00:00
+44249322,arc133_d,5,3,8,0,True,,2026-09-10T17:49:45.957971+00:00
+45479683,arc134_a,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:45.958937+00:00
+40879387,arc134_b,4,4,8,0,True,,2026-09-10T17:49:45.995066+00:00
+45004334,arc134_b,5,3,8,0,True,,2026-09-10T17:49:46.038016+00:00
+36030496,arc134_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.433301+00:00
+43694743,arc135_a,1,7,8,0,True,,2026-09-10T17:49:46.596928+00:00
+39932705,arc135_b,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.698361+00:00
+40764615,arc135_b,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.754117+00:00
+41266489,arc135_b,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.783533+00:00
+45786471,arc135_b,1,7,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.822602+00:00
+29313863,arc135_d,2,6,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:46.825515+00:00
+29316406,arc135_d,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:47.229104+00:00
+29324173,arc135_d,3,5,8,0,True,,2026-09-10T17:49:47.508806+00:00
+36890038,arc136_b,6,2,8,0,True,,2026-09-10T17:49:47.514424+00:00
+37078962,arc136_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:47.558201+00:00
+31067656,arc136_d,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:47.566928+00:00
+44650081,arc137_b,5,3,8,0,True,,2026-09-10T17:49:47.589003+00:00
+32337261,arc137_c,2,2,4,0,True,,2026-09-10T17:49:47.662133+00:00
+30239419,arc137_d,3,1,3,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:47.778570+00:00
+36174552,arc137_d,3,1,3,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:47.979511+00:00
+43171788,arc138_a,2,2,4,0,True,,2026-09-10T17:49:48.047445+00:00
+45260317,arc138_a,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.261505+00:00
+39687485,arc138_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.334064+00:00
+30923012,arc138_c,1,3,3,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.410840+00:00
+31643804,arc138_c,1,3,1,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.467291+00:00
+30827068,arc138_d,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.621252+00:00
+30830027,arc138_d,3,5,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.775606+00:00
+30833301,arc138_d,3,5,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:48.875474+00:00
+30896644,arc138_d,4,4,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.086227+00:00
+31059522,arc138_d,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.155906+00:00
+34316813,arc138_d,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.390016+00:00
+38643909,arc139_b,1,7,8,0,True,,2026-09-10T17:49:49.590879+00:00
+39342455,arc139_b,3,5,8,0,True,,2026-09-10T17:49:49.616684+00:00
+44587414,arc139_b,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.838144+00:00
+31246555,arc139_c,3,5,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.855359+00:00
+31247940,arc139_c,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:49.881947+00:00
+31248584,arc139_c,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:49:50.108463+00:00
+31456138,arc139_c,7,1,8,0,True,,2026-09-10T17:49:50.850297+00:00
+31251082,arc139_d,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:50.855708+00:00
+40407040,arc140_b,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:50.978514+00:00
+43246102,arc140_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:51.271159+00:00
+45256391,arc140_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:51.280071+00:00
+45660608,arc140_b,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:51.294275+00:00
+37080781,arc140_c,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:51.335213+00:00
+39550972,arc140_c,4,4,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:49:51.566724+00:00
+31726462,arc140_d,3,5,8,0,True,,2026-09-10T17:49:51.577038+00:00
+31727307,arc140_d,3,5,8,0,True,,2026-09-10T17:49:51.723356+00:00
+31731857,arc140_d,3,5,8,0,True,,2026-09-10T17:49:52.225558+00:00
+31744615,arc140_e,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:52.265134+00:00
+41469868,arc141_a,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:52.727861+00:00
+43307420,arc141_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:52.816384+00:00
+43463915,arc141_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:52.906993+00:00
+36162097,arc141_b,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:52.998837+00:00
+38039113,arc141_b,6,2,8,0,True,,2026-09-10T17:49:53.110003+00:00
+44178563,arc141_b,7,1,8,0,True,,2026-09-10T17:49:53.159298+00:00
+34662508,arc141_c,3,1,4,0,True,,2026-09-10T17:49:53.264074+00:00
+40547162,arc141_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:53.707917+00:00
+32093401,arc141_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:53.958603+00:00
+44825978,arc142_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.019074+00:00
+40185010,arc142_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.097108+00:00
+43030313,arc142_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.254179+00:00
+43034425,arc142_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.555447+00:00
+32778317,arc143_d,1,7,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.620262+00:00
+32782351,arc143_d,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:54.869494+00:00
+32833945,arc143_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:55.354185+00:00
+34822438,arc143_d,2,6,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:49:55.481001+00:00
+39176273,arc144_a,6,2,8,0,True,,2026-09-10T17:49:55.607241+00:00
+37994644,arc144_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:55.870021+00:00
+41927392,arc144_b,3,5,8,0,True,,2026-09-10T17:49:55.961108+00:00
+41639432,arc145_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:55.999872+00:00
+34717448,arc145_c,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.243482+00:00
+33636883,arc145_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.425348+00:00
+34667900,arc145_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.493199+00:00
+34720181,arc145_d,0,8,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.697483+00:00
+40312293,arc146_b,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.770413+00:00
+41500955,arc146_b,1,1,2,0,True,,2026-09-10T17:49:56.801995+00:00
+42233391,arc146_b,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.815682+00:00
+42082334,arc147_b,5,3,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.885223+00:00
+45545981,arc147_b,5,3,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.981276+00:00
+34616740,arc147_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:56.992295+00:00
+40546012,arc147_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.006350+00:00
+44882552,arc148_a,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.188986+00:00
+43234248,arc148_b,6,2,8,0,True,,2026-09-10T17:49:57.517840+00:00
+38559514,arc148_c,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.552234+00:00
+34807717,arc148_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.666639+00:00
+40705107,arc148_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.793594+00:00
+41790396,arc148_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.814376+00:00
+42270342,arc148_d,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.825861+00:00
+34804387,arc148_e,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.884076+00:00
+35713028,arc148_e,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.887315+00:00
+42835406,arc149_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:57.999581+00:00
+43012792,arc149_a,7,1,8,0,True,,2026-09-10T17:49:58.025901+00:00
+37461602,arc149_c,1,7,1,7,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.032941+00:00
+35355978,arc149_d,1,7,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.188615+00:00
+42990587,arc150_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.189746+00:00
+43756504,arc150_b,0,8,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.267039+00:00
+37666166,arc150_e,4,1,5,0,True,,2026-09-10T17:49:58.280172+00:00
+44645744,arc151_a,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.348211+00:00
+44901492,arc151_a,2,1,3,0,True,,2026-09-10T17:49:58.638991+00:00
+45098095,arc151_a,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.755616+00:00
+45669333,arc151_a,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.794083+00:00
+36899282,arc151_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.809287+00:00
+41325604,arc151_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.826544+00:00
+45494468,arc151_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:58.914023+00:00
+36785462,arc151_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:59.058331+00:00
+41930310,arc151_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:59.070091+00:00
+35732545,arc151_e,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:49:59.192236+00:00
+37067201,arc152_b,7,1,8,0,True,,2026-09-10T17:49:59.210447+00:00
+38915061,arc152_c,5,3,8,0,True,,2026-09-10T17:49:59.316898+00:00
+38915312,arc152_c,5,3,8,0,True,,2026-09-10T17:49:59.624515+00:00
+44122587,arc152_c,6,2,8,0,True,,2026-09-10T17:49:59.845112+00:00
+36684114,arc152_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:49:59.859684+00:00
+45913281,arc153_a,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:00.025115+00:00
+43165491,arc153_b,7,1,8,0,True,,2026-09-10T17:50:00.077145+00:00
+38524622,arc153_c,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:00.432194+00:00
+38644891,arc153_c,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:00.760508+00:00
+41497158,arc153_c,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:00.801492+00:00
+40787964,arc154_b,3,2,5,0,True,,2026-09-10T17:50:01.035000+00:00
+40904177,arc154_b,2,3,5,0,True,,2026-09-10T17:50:01.205563+00:00
+43180385,arc154_b,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:01.564237+00:00
+43315013,arc154_b,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:01.569356+00:00
+43504981,arc154_b,4,1,5,0,True,,2026-09-10T17:50:01.696281+00:00
+43795529,arc154_b,3,2,5,0,True,,2026-09-10T17:50:01.724872+00:00
+38909905,arc154_c,4,4,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:50:01.825371+00:00
+39123866,arc154_c,7,1,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:02.056315+00:00
+38267983,arc154_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:02.056641+00:00
+38271304,arc154_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:02.171038+00:00
+38323187,arc154_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:02.211453+00:00
+38323705,arc154_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:03.312492+00:00
+38487427,arc154_d,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:03.338486+00:00
+40182881,arc155_a,3,2,4,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:03.426674+00:00
+44408199,arc155_a,0,5,0,5,False,fails frozen pass/fail precondition,2026-09-10T17:50:03.845401+00:00
+38465931,arc155_c,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:03.940215+00:00
+38467027,arc155_c,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.321754+00:00
+38471956,arc155_c,5,1,6,0,True,,2026-09-10T17:50:04.376759+00:00
+38489822,arc155_c,6,0,6,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.404023+00:00
+43775294,arc156_a,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.632186+00:00
+44009597,arc156_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.632765+00:00
+39326078,arc156_b,3,5,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.729923+00:00
+40932797,arc156_b,4,4,8,0,True,,2026-09-10T17:50:04.747983+00:00
+38986255,arc156_c,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:04.878405+00:00
+43019650,arc157_a,5,3,8,0,True,,2026-09-10T17:50:04.953856+00:00
+45521757,arc157_a,7,1,8,0,True,,2026-09-10T17:50:04.959378+00:00
+42828291,arc157_b,5,3,8,0,True,,2026-09-10T17:50:05.638391+00:00
+43050544,arc157_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:05.699330+00:00
+43416351,arc157_b,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:05.734998+00:00
+43913220,arc157_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:06.325095+00:00
+39194356,arc157_d,6,2,8,0,True,,2026-09-10T17:50:06.455509+00:00
+39202960,arc157_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:06.476092+00:00
+39201856,arc157_e,2,4,6,0,True,,2026-09-10T17:50:06.487977+00:00
+45550808,arc158_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:07.112244+00:00
+42045718,arc158_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:07.204778+00:00
+45756800,arc158_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:07.225274+00:00
+39679022,arc158_d,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:07.250361+00:00
+41991860,arc159_a,7,1,8,0,True,,2026-09-10T17:50:07.339997+00:00
+43997330,arc159_b,7,1,8,0,True,,2026-09-10T17:50:07.353366+00:00
+45431609,arc159_b,6,2,8,0,True,,2026-09-10T17:50:07.763794+00:00
+40556226,arc159_c,5,3,4,4,False,fails frozen pass/fail precondition,2026-09-10T17:50:07.772748+00:00
+40431476,arc159_d,5,3,8,0,True,,2026-09-10T17:50:07.805987+00:00
+41124657,arc159_d,7,1,8,0,True,,2026-09-10T17:50:08.077634+00:00
+45445288,arc159_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:08.139024+00:00
+42065409,arc160_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:08.675715+00:00
+43405529,arc160_a,5,3,8,0,True,,2026-09-10T17:50:08.779970+00:00
+45909573,arc160_a,0,8,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:08.845923+00:00
+41463787,arc160_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:08.939899+00:00
+41479555,arc160_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:08.947856+00:00
+42565675,arc160_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.099092+00:00
+42877627,arc160_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.477170+00:00
+44003371,arc160_c,8,0,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.512088+00:00
+43572863,arc161_b,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.585280+00:00
+45311674,arc161_b,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.650231+00:00
+42020807,arc161_c,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.743446+00:00
+42743947,arc161_c,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.851941+00:00
+42021171,arc161_d,2,6,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:09.947038+00:00
+43311492,arc161_d,7,1,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:10.551396+00:00
+44101361,arc161_d,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:10.790804+00:00
+43537557,arc162_b,3,5,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:50:11.139277+00:00
+45211703,arc162_b,2,6,3,5,False,fails frozen pass/fail precondition,2026-09-10T17:50:11.334778+00:00
+45772251,arc162_b,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:50:11.642647+00:00
+43234436,arc162_c,2,6,8,0,True,,2026-09-10T17:50:11.893970+00:00
+43399874,arc162_c,3,5,8,0,True,,2026-09-10T17:50:12.300401+00:00
+43410315,arc162_c,3,5,8,0,True,,2026-09-10T17:50:12.403861+00:00
+43723091,arc162_c,3,5,8,0,True,,2026-09-10T17:50:13.573299+00:00
+44163778,arc162_c,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:13.731226+00:00
+45802611,arc162_c,2,6,8,0,True,,2026-09-10T17:50:13.777307+00:00
+43020372,arc162_e,0,8,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:14.463765+00:00
+45308371,arc163_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:14.653589+00:00
+45954819,arc163_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:14.920197+00:00
+46203182,arc163_a,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:15.151002+00:00
+43716281,arc163_b,3,1,4,0,True,,2026-09-10T17:50:15.406106+00:00
+43944210,arc163_b,2,2,4,0,True,,2026-09-10T17:50:15.690622+00:00
+45533123,arc163_c,0,3,0,3,False,fails frozen pass/fail precondition,2026-09-10T17:50:15.805921+00:00
+45517397,arc164_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.030694+00:00
+45556032,arc164_a,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.098214+00:00
+43438224,arc164_e,7,1,8,0,True,,2026-09-10T17:50:16.125951+00:00
+43525175,arc164_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.188969+00:00
+45995987,arc165_b,2,4,6,0,True,,2026-09-10T17:50:16.263093+00:00
+45733476,arc165_c,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.361612+00:00
+45675161,arc165_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.825115+00:00
+45683063,arc165_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.922816+00:00
+45791883,arc165_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:16.964613+00:00
+48970771,arc166_a,2,0,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:17.625404+00:00
+50268055,arc166_a,0,2,2,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:17.704455+00:00
+49426497,arc166_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:17.760838+00:00
+51949905,arc166_b,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:17.780889+00:00
+50502972,arc167_b,7,1,8,0,True,,2026-09-10T17:50:17.829761+00:00
+55110212,arc167_b,6,2,8,0,True,,2026-09-10T17:50:17.887805+00:00
+47767454,arc168_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.245901+00:00
+54960940,arc170_a,3,1,4,0,True,,2026-09-10T17:50:18.575250+00:00
+49807049,arc170_b,5,0,5,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.610540+00:00
+50130200,arc170_c,1,7,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.669305+00:00
+51377709,arc170_c,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.751520+00:00
+52698796,arc170_c,7,1,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.829937+00:00
+49565151,arc170_d,0,1,0,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:18.959779+00:00
+49588055,arc170_d,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:19.018916+00:00
+55000897,arc171_a,0,1,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:19.149223+00:00
+50078211,arc171_b,0,4,0,4,False,fails frozen pass/fail precondition,2026-09-10T17:50:19.158557+00:00
+50136893,arc171_b,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:19.169731+00:00
+50018799,arc171_d,7,1,8,0,True,,2026-09-10T17:50:19.234273+00:00
+51665861,arc171_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:19.238782+00:00
+50474956,arc172_b,3,5,8,0,True,,2026-09-10T17:50:19.643326+00:00
+51141760,arc172_c,6,2,8,0,True,,2026-09-10T17:50:20.063898+00:00
+51750768,arc173_a,5,3,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:20.166957+00:00
+53255887,arc173_a,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:20.796171+00:00
+53665831,arc173_a,6,2,8,0,True,,2026-09-10T17:50:21.431258+00:00
+53784013,arc173_a,6,2,8,0,True,,2026-09-10T17:50:22.088359+00:00
+54010856,arc173_a,7,1,8,0,True,,2026-09-10T17:50:22.425135+00:00
+51157170,arc173_b,6,2,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:22.666334+00:00
+51178140,arc173_b,7,1,8,0,True,,2026-09-10T17:50:23.089053+00:00
+52906431,arc173_b,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:23.997467+00:00
+51460321,arc173_c,4,0,4,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:24.129825+00:00
+51134374,arc173_e,5,3,8,0,True,,2026-09-10T17:50:24.528741+00:00
+51138423,arc173_e,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.060266+00:00
+54196806,arc174_a,7,1,8,0,True,,2026-09-10T17:50:25.171678+00:00
+51500083,arc174_b,0,3,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.237901+00:00
+53660002,arc174_b,3,0,3,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.387243+00:00
+51898575,arc175_a,6,2,8,0,True,,2026-09-10T17:50:25.520243+00:00
+52650326,arc175_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.669280+00:00
+52661518,arc175_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.886511+00:00
+52999116,arc175_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:25.964791+00:00
+51713549,arc175_b,6,1,7,0,True,,2026-09-10T17:50:25.984162+00:00
+51749871,arc175_b,4,3,7,0,True,,2026-09-10T17:50:26.045016+00:00
+51792735,arc175_b,6,1,7,0,True,,2026-09-10T17:50:26.291382+00:00
+51933297,arc175_b,6,1,7,0,True,,2026-09-10T17:50:26.504477+00:00
+52484583,arc175_b,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:26.698745+00:00
+52710253,arc175_b,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:26.718538+00:00
+53758611,arc175_b,7,0,7,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:26.721246+00:00
+51662167,arc175_c,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:26.830735+00:00
+53001483,arc175_c,7,1,8,0,True,,2026-09-10T17:50:27.011900+00:00
+51662439,arc175_d,0,7,6,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:27.379216+00:00
+51701679,arc175_d,5,2,5,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:27.389541+00:00
+52191885,arc175_d,5,2,5,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:27.399600+00:00
+53668393,arc176_a,2,6,2,6,False,fails frozen pass/fail precondition,2026-09-10T17:50:27.452844+00:00
+55031190,arc176_a,1,7,5,3,False,fails frozen pass/fail precondition,2026-09-10T17:50:27.508713+00:00
+52671232,arc176_d,5,1,6,0,True,,2026-09-10T17:50:27.718885+00:00
+53706270,arc177_a,7,1,8,0,True,,2026-09-10T17:50:27.886898+00:00
+54236460,arc178_b,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.104557+00:00
+54290534,arc178_b,1,0,1,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.135760+00:00
+53680716,arc178_d,2,6,8,0,True,,2026-09-10T17:50:28.147158+00:00
+54889248,arc179_a,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.206826+00:00
+55011877,arc179_a,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.216959+00:00
+54187921,arc179_b,0,8,0,8,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.391554+00:00
+54190165,arc179_b,6,2,6,2,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.477370+00:00
+54184092,arc179_d,8,0,8,0,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.764248+00:00
+55028160,arc180_b,2,6,7,1,False,fails frozen pass/fail precondition,2026-09-10T17:50:28.992774+00:00
+55021276,arc180_c,5,3,8,0,True,,2026-09-10T17:50:29.071393+00:00
