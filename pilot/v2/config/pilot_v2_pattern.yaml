@@ -1,0 +1,35 @@
+# Pilot v2 -- PATTERN session (arms A vs C).
+# Runs the no-prior control against the frozen v1 pattern-specific prior.
+# Paired with pilot_v2_generic.yaml; the two sessions MUST use the same
+# manifest, system prompt, user template, provider, model, temperature,
+# and max_tokens. Only experiment_name, condition names, and the priors
+# file differ. See pilot/v2/PILOT_PROTOCOL_V2.md section 3.
+#
+# experiment_name MUST differ from the generic session's -- see the note
+# in pilot_v2_generic.yaml for why.
+
+experiment_name: algorythm_pattern_prior_pilot_v2_pattern
+
+dataset:
+  target: ConDefects-Python   # must equal the manifest's dataset_name exactly
+  target_n: 30
+
+conditions:
+  control: no_prior
+  treatment: pattern_prior
+
+metrics:
+  - top1
+  - top3
+  - top5
+  - exam
+
+repetitions: 5
+
+statistics:
+  primary: exact_mcnemar
+  bootstrap_iterations: 10000
+
+# Pattern vocabulary: pilot/PATTERN_VOCABULARY.md (frozen v1, unchanged).
+# Prior text for this session: pilot/pattern_priors.json (frozen v1, UNCHANGED --
+# see pilot/v2/CHANGELOG_V1_TO_V2.md, Change 8).

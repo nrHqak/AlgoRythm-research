@@ -1,0 +1,37 @@
+# Pilot v2 -- GENERIC session (arms A vs B).
+# Runs the no-prior control against the matched generic/placebo prior.
+# Paired with pilot_v2_pattern.yaml; the two sessions MUST use the same
+# manifest, system prompt, user template, provider, model, temperature,
+# and max_tokens. Only experiment_name, condition names, and the priors
+# file differ. See pilot/v2/PILOT_PROTOCOL_V2.md section 3.
+#
+# experiment_name MUST differ from the pattern session's: run_pilot.py
+# scans results/raw/<experiment_name>/ for existing execution keys, and
+# the arm-A execution key is otherwise identical across the two sessions
+# (prior_hash is None for a control run), which would abort the second
+# session as a duplicate.
+
+experiment_name: algorythm_pattern_prior_pilot_v2_generic
+
+dataset:
+  target: ConDefects-Python   # must equal the manifest's dataset_name exactly
+  target_n: 30
+
+conditions:
+  control: no_prior
+  treatment: generic_prior
+
+metrics:
+  - top1
+  - top3
+  - top5
+  - exam
+
+repetitions: 5
+
+statistics:
+  primary: exact_mcnemar
+  bootstrap_iterations: 10000
+
+# Pattern vocabulary: pilot/PATTERN_VOCABULARY.md (frozen v1, unchanged).
+# Prior text for this session: pilot/v2/generic_placebo_prior.json.
