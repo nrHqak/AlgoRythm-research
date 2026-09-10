@@ -1,0 +1,56 @@
+{
+  "recorded_at": "2026-09-10T18:46:09.201428+00:00",
+  "status": "PASS_FOR_REGISTERED_SMOKE",
+  "requested_generation_model": "gemini-3.8-flash",
+  "metadata_resource_name": "models/gemini-3.8-flash",
+  "native_version_field": "3.0",
+  "supports_generateContent": true,
+  "model_kind": "pinned",
+  "model_reference": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+  "version_convention_reference": "https://ai.google.dev/gemini-api/docs/models#model-version-name-patterns",
+  "resource_name_reference": "https://ai.google.dev/api/models",
+  "review_of_initial_lookup": "Initial literal bare-ID comparison marked BLOCK. Provider documentation and native metadata establish that models/ is the resource namespace, not a different model. This metadata-only review does not normalize or relax the frozen chat-completion echoed-model equality check. No generation occurred before this review.",
+  "pin_scope": "Provider-documented specific stable release identifier, not latest alias; no immutable weight/build digest exposed. Native version 3.0 is recorded literally, not interpreted as a build pin.",
+  "chat_completion_identity_requirement": "Response model must equal gemini-3.8-flash exactly; any missing identity or mismatch aborts.",
+  "metadata_requests_completed": 2,
+  "smoke_generation_calls_before_this_record": 0,
+  "intended_settings": {
+    "provider": "google_gemini",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "model": "gemini-3.8-flash",
+    "temperature": 0,
+    "max_tokens": 1024,
+    "timeout": 120,
+    "scientific_repetitions": 5
+  },
+  "request_parameters_sent": [
+    "model",
+    "temperature",
+    "max_tokens",
+    "messages"
+  ],
+  "parameters_deliberately_not_overridden": [
+    "top_p",
+    "top_k",
+    "reasoning_effort",
+    "thinking_config",
+    "response_format",
+    "seed",
+    "stop",
+    "tools",
+    "tool_choice",
+    "stream",
+    "n"
+  ],
+  "observed_native_defaults": {
+    "temperature": 1,
+    "topP": 0.95,
+    "topK": 64
+  },
+  "temperature_override": 0,
+  "documented_default_thinking_level": "medium",
+  "default_thinking_reference": "https://ai.google.dev/gemini-api/docs/latest-model",
+  "compatibility_default_reference": "https://ai.google.dev/gemini-api/docs/openai",
+  "defaults_limit": "Defaults are provider-reported/documented, not values echoed by generation responses. Preserve exact request omissions; do not silently add parameters.",
+  "full_pilot_authorized": false
+}

@@ -184,3 +184,13 @@ are BLOCK; zero authenticated API requests, smoke calls, candidate calls, or coi
 flips occurred. This supersedes the earlier statement that provider/model inputs
 were not supplied. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md) and its
 immutable precheck evidence. Full scientific execution remains unauthorized.
+
+## Gemini smoke attempt with supplied credential
+
+Authenticated model retrieval succeeded. The first registered smoke response
+matched `gemini-3.8-flash` exactly and parsed successfully; the second returned
+HTTP 503 / UNAVAILABLE (high demand). The smoke session is VOID. Gate 4 remains
+BLOCK and Gate 5 remains BLOCK with no coin flip. Two calls were attempted, one
+succeeded, zero parser failures occurred, and no scientific candidate was sent.
+No settings changed. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md) for the
+current result; the earlier credential-precheck record remains historical.

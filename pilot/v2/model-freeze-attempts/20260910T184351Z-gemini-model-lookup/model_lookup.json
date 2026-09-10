@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-09-10T18:43:51.653178+00:00",
+  "requested_model": "gemini-3.8-flash",
+  "provider": "Google Gemini API via OpenAI-compatible endpoint",
+  "request_method": "GET",
+  "request_url": "https://generativelanguage.googleapis.com/v1beta/openai/models/gemini-3.8-flash",
+  "credential_source": "User-supplied current task message loaded directly into process memory; not copied into command text or repository",
+  "metadata_requests": 1,
+  "generation_calls": 0,
+  "http_status": 200,
+  "response_body": {
+    "id": "models/gemini-3.8-flash",
+    "object": "model",
+    "owned_by": "google",
+    "display_name": "Gemini 3.8 Flash"
+  },
+  "returned_model_id": "models/gemini-3.8-flash",
+  "status": "BLOCK"
+}

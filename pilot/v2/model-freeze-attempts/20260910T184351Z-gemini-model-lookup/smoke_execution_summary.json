@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-09-10T18:46:09.521804+00:00",
+  "procedure": "experiments.model_preflight.run with the existing registered CLI arguments",
+  "observation": "requests.post observed without altering its arguments, response, or retry behavior; authorization header omitted from evidence",
+  "scientific_candidate_calls": 0,
+  "status": "BLOCK",
+  "error_type": "SafetyViolation",
+  "error_message": "smoke call failed: provider_failure/HTTPError",
+  "http_exchanges_attempted": 2,
+  "session_order": null,
+  "finished_at": "2026-09-10T18:46:17.004219+00:00"
+}

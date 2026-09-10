@@ -1,0 +1,13 @@
+{
+  "engineering_only": true,
+  "purpose": "SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "settings": {
+    "provider": "google_gemini",
+    "provider_type": "openai_compatible",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "model": "gemini-3.8-flash",
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "timeout": 120.0
+  }
+}
