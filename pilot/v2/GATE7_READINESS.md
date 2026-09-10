@@ -175,3 +175,12 @@ For a later separately authorized pilot, the manifest must be explicitly set to
 `data/manifests/pilot_manifest_v2_1.json`; the commands already prepared in the
 runbook must not use the obsolete v2.0 manifest. **None of the 600 scientific
 calls is authorized or executed by this Gate 7 task.**
+
+## Subsequent Gemini freeze attempt — 2026-09-10
+
+Provider, endpoint, and `gemini-3.8-flash` were supplied by the user. The credential
+was unavailable to both login and non-login execution processes. Gates 4 and 5
+are BLOCK; zero authenticated API requests, smoke calls, candidate calls, or coin
+flips occurred. This supersedes the earlier statement that provider/model inputs
+were not supplied. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md) and its
+immutable precheck evidence. Full scientific execution remains unauthorized.

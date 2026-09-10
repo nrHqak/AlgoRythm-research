@@ -1,0 +1,70 @@
+{
+  "attempt_id": "20260910T183315Z-gemini-credential-precheck",
+  "recorded_at": "2026-09-10T18:33:15.244741+00:00",
+  "engineering_only": true,
+  "status": "BLOCKED",
+  "gate4": "BLOCK",
+  "gate5": "BLOCK",
+  "base_commit": "8271949371e7e9999f3b0ac33fb3d8484d5f04ee",
+  "provider": "Google Gemini API via OpenAI-compatible endpoint",
+  "provider_label": "google_gemini",
+  "provider_type": "openai_compatible",
+  "base_url_supplied": "https://generativelanguage.googleapis.com/v1beta/openai/",
+  "base_url_normalized": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "model_id_supplied": "gemini-3.8-flash",
+  "model_id_sent_to_api": null,
+  "model_identity_returned_by_api": null,
+  "credential_variable": "LLM_API_KEY",
+  "credential_available_login_process": false,
+  "credential_available_nonlogin_process": false,
+  "credential_check_method": "Boolean presence/non-whitespace check only; no secret value or length printed or stored.",
+  "blocker": "LLM_API_KEY unavailable to the execution process; stopped before authenticated model retrieval/listing or generation.",
+  "api_connectivity": "NOT_TESTED",
+  "model_exists_in_authenticated_api": "NOT_VERIFIED",
+  "model_callable": "NOT_VERIFIED",
+  "pinned_identity_status": "NOT_VERIFIED",
+  "model_metadata_requests": 0,
+  "smoke_calls_attempted": 0,
+  "smoke_calls_completed": 0,
+  "parser_failures": 0,
+  "parser_check_status": "NOT_RUN",
+  "provider_health": "NOT_TESTED",
+  "nonempty_response_check": "NOT_RUN",
+  "structured_json_check": "NOT_RUN",
+  "all_zero_response_check": "NOT_RUN",
+  "scientific_candidate_calls": 0,
+  "intended_settings_unchanged": {
+    "temperature": 0,
+    "max_tokens": 1024,
+    "timeout_seconds": 120,
+    "scientific_repetitions": 5
+  },
+  "generation_parameters_accepted_by_api": null,
+  "other_transport_parameters": "Existing adapter sends only model, temperature, max_tokens, and system/user messages. No changes made.",
+  "session_order": null,
+  "session_order_coin_flips": 0,
+  "passing_model_freeze_created": false,
+  "full_pilot_authorized": false,
+  "public_documentation": [
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/openai",
+      "finding": "Documents supplied base URL, gemini-3.8-flash, model list and retrieve routes."
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "finding": "Lists gemini-3.8-flash as a stable model. This is not authenticated account-level access or callable-identity verification."
+    }
+  ],
+  "asset_sha256": {
+    "data/manifests/pilot_manifest_v2_1.json": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+    "data/smoke/manifest.json": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "experiments/providers/http.py": "76ff7e16f30e8310338e1173474cb8b71039b1a6d02dc6bba63ab6708cb163e9",
+    "experiments/model_preflight.py": "a1d07f08e7350e99f86f65179e6ad9d0c204b87187770243bcd7a743ae205e7e",
+    "analysis/compare_v2_sessions.py": "72c7e9cd0735cd9d087e05d9c57cd79209e79e8d07c0addb7b8fbb4a8698bda5"
+  },
+  "next_required_action": "Make LLM_API_KEY available to this task execution environment and request retry; do not paste or commit the credential."
+}
