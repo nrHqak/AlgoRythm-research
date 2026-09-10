@@ -1,0 +1,34 @@
+[
+  {
+    "input": "6 4\n2 3\n3 4\n2 4\n3 3\n",
+    "expected_output": "3 4\n"
+  },
+  {
+    "input": "12 6\n1 10\n2 7\n3 6\n4 9\n5 8\n11 12\n",
+    "expected_output": "4 4\n"
+  },
+  {
+    "input": "2 1\n1 1\n",
+    "expected_output": "1 2\n"
+  },
+  {
+    "input": "137 1\n9 131\n",
+    "expected_output": "2 2\n"
+  },
+  {
+    "input": "3 3\n1 1\n2 2\n2 3\n",
+    "expected_output": "2 2\n"
+  },
+  {
+    "input": "69 5\n4 68\n8 18\n2 54\n8 21\n15 19\n",
+    "expected_output": "4 4\n"
+  },
+  {
+    "input": "84 19\n57 80\n22 29\n11 24\n27 69\n18 45\n22 23\n14 48\n49 74\n53 78\n9 32\n15 47\n26 76\n25 31\n41 63\n59 79\n3 75\n57 70\n3 48\n4 36\n",
+    "expected_output": "6 2\n"
+  },
+  {
+    "input": "133 21\n56 97\n99 129\n91 130\n14 111\n20 81\n71 90\n16 68\n1 24\n15 27\n62 101\n80 119\n90 112\n70 73\n27 132\n28 92\n65 123\n36 88\n7 10\n49 89\n59 115\n6 6\n",
+    "expected_output": "6 12\n"
+  }
+]

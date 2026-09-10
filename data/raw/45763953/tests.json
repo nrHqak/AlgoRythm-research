@@ -1,0 +1,34 @@
+[
+  {
+    "input": "5 5\nezzzz\nzkzzz\nezuzs\nzzznz\nzzzzs\n",
+    "expected_output": "5 5\n4 4\n3 3\n2 2\n1 1\n"
+  },
+  {
+    "input": "6 6\nvgxgpu\namkxks\nzhkbpp\nhykink\nesnuke\nzplvfj\n",
+    "expected_output": "5 2\n5 3\n5 4\n5 5\n5 6\n"
+  },
+  {
+    "input": "10 10\nkseeusenuk\nusesenesnn\nkskekeeses\nnesnusnkkn\nsnenuuenke\nkukknkeuss\nneunnennue\nsknuessuku\nnksneekknk\nneeeuknenk\n",
+    "expected_output": "9 3\n8 3\n7 3\n6 3\n5 3\n"
+  },
+  {
+    "input": "5 5\nsunne\nunsuk\nuunse\nusnsu\nekuns\n",
+    "expected_output": "5 5\n5 4\n5 3\n5 2\n5 1\n"
+  },
+  {
+    "input": "5 95\nusknnsksussueuksuknukunsukneessneneeeuenkneeuksessusuesunnukknsnknsukuskeeskkuenseenkknnkeneuks\nuuknenkensksknkkusnnunnennskeueunsskekuuuueeknnekkesenunnkeeneuknksenukuuesekkeeeeunsueununsuee\nnsnensnkssnuksuknseeenseensnessunkseunsesnknukuneknsskueseukeeeskkeskeeneknusknesesnekuueeuesss\neeekknnssuuuseskenkunusssknsskssuukssuekeknkssssensunueeeeukenkskuksuuuueueesnskseskksuuuusuksu\nukukueksesksssnnneekksnnnnkenussunenneueuneeknskuskusuusneneunnusseuuseunkuukssnkennseskusknueu\n",
+    "expected_output": "1 47\n2 46\n3 45\n4 44\n5 43\n"
+  },
+  {
+    "input": "5 96\nxuvadgecswqwluhzzrslmzbkwyaslguyahbempkuxmvmwapyryjcoeptvifwxjlfnnffnjhekfupytmvcvwtbzaqvsdbbhwu\noyiqaekunsqkrxaumhqqyjwxtlnmzqhfcgqiseezekrscopbsucurufwhjgvkxtftfkjwvusxtgjzogciqzvjvnfpkearbeq\njmcssqmfzhnhewqrqrfpgnbwjagmwsrhuvluummbaxfxgmmigeceibtpufmxxwxhextmhzazzejrggkwrgfnitlfhehjpnit\ncjohxxslboylstgknzzatnycudotemvwhtlghwshycavmejynpsqpenddrmefybzbdjlirfezmvzcrvaosxchhjqtzgwntkc\nbosnwbdbnqxdewtcqlrvqwytfubogsmpffeipjfbmdpieaekzzuiffcszjwsktlxzwoyqjgfciaynvsiqusonehtbxzoveaq\n",
+    "expected_output": "2 10\n2 9\n2 8\n2 7\n2 6\n"
+  },
+  {
+    "input": "5 99\nkunnunkeuksnueeneekskekenkneskukuuennkeenunneuesekskssnnsneneknusekukunnskussnkunnsseeuuusekssksues\nuuueeuunueessuunenkkuknknkeenusknnnsskssnnueneueseuuuenuuneesseusenknuknunsksknkuesskeneksnkeknennn\nnuensesnnekssnnsukkunsssssksnssnkeeksnussseueuueesunnenunsseessuensnnskenekeskeuknsuenseukusskeuuuu\nusususunnnnenkssknnnkkeskseuunsukkusksssskuessuukeeukenuksknnenueskeeuuukneeennsuseunukkeuukuskneek\nkskuesensusesnnsksnknneuusenknseknsnkeeeseenuskueeesneeuknkkekuuenkeunssskkesukkukksesukusueeueusee\n",
+    "expected_output": "1 99\n2 99\n3 99\n4 99\n5 99\n"
+  },
+  {
+    "input": "95 5\nsssss\nkuunn\neenss\nneenu\nkueek\nneuke\nkueen\nususu\neunkn\nusuke\nnkkuk\nnunks\nesses\nkknun\nkskse\nkukek\nsuuek\neesee\nnnsnk\nesuee\nensek\nnenns\nskuun\nksuus\nsksnk\neussu\nnskks\nknusu\neekkk\nuseun\nekune\nkskeu\nsuusu\nnusse\nsknke\nkkuek\nuksun\nsuesn\neunse\nkunes\nkkunn\neekun\nuuuun\nsnnkn\neueku\nneeen\nnesnu\nssnek\nknnek\nuenee\nkssss\nkknes\nkunnu\nsukne\neskes\nssnsk\nenuns\nsuusu\nkeunu\nuskse\nkuunk\nksuue\nnukkn\nnknsu\nnkenu\nuuuus\nsnssk\nnskeu\nueeke\nkesen\nknssn\nseeke\neeees\nuenks\nnssus\nenene\nnnksu\nkueus\nknkue\neekuk\nsesnu\nnkeen\nuenen\nunkes\nkskss\nunnku\nuskuk\nussek\nkkuus\nnuees\nkusee\nkkees\nnkess\nnnuse\nkeukk\n",
+    "expected_output": "77 4\n76 4\n75 4\n74 4\n73 4\n"
+  }
+]

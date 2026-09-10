@@ -1,0 +1,30 @@
+[
+  {
+    "input": "2\n1 0\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "3\n2 3 4\n",
+    "expected_output": "6\n"
+  },
+  {
+    "input": "4\n0 7 9 10\n",
+    "expected_output": "16\n"
+  },
+  {
+    "input": "2\n526365659 322166182\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "2\n108590090 157331209\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "2\n1 3\n",
+    "expected_output": "4\n"
+  },
+  {
+    "input": "2\n11 1\n",
+    "expected_output": "12\n"
+  }
+]

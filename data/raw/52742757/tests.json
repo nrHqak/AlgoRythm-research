@@ -1,0 +1,22 @@
+[
+  {
+    "input": "1 y\nx\n",
+    "expected_output": "0\n"
+  },
+  {
+    "input": "5 xx\nx\nx\nx\nx\nx\n",
+    "expected_output": "25\n"
+  },
+  {
+    "input": "3 bac\nabba\nbcb\naaca\n",
+    "expected_output": "3\n"
+  },
+  {
+    "input": "10 ms\nmkgn\nm\nhlms\nvmsle\nmxsm\nnnzdhi\numsavxlb\nffnsybomr\nyvmm\nnaouel\n",
+    "expected_output": "68\n"
+  },
+  {
+    "input": "2 abcd\nbc\nad\n",
+    "expected_output": "0\n"
+  }
+]

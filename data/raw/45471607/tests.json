@@ -1,0 +1,34 @@
+[
+  {
+    "input": "1 50\n1 50\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "1 51\n1 50\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "1 10000\n1 1\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "2 19\n2 3\n5 6\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "2 18\n2 3\n5 6\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "3 1001\n1 1\n2 1\n100 10\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "3 10000\n97 50\n99 50\n95 48\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "3 10000\n97 50\n95 49\n99 50\n",
+    "expected_output": "Yes\n"
+  }
+]

@@ -8,7 +8,19 @@
     "expected_output": "Yes\n"
   },
   {
+    "input": "9 100 101 100\n31 41 59 26 53 58 97 93 23\n",
+    "expected_output": "No\n"
+  },
+  {
     "input": "3 1 1 1\n1 1 1\n",
     "expected_output": "Yes\n"
+  },
+  {
+    "input": "10 1 1 1\n100 1 100 100 1 100 100 1 100 100\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "11 1 1 1\n536870912 536870912 536870912 536870912 536870912 536870912 536870912 536870911 2 1 1\n",
+    "expected_output": "No\n"
   }
 ]

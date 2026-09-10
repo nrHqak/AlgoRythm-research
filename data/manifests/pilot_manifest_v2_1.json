@@ -1,0 +1,488 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "ConDefects-Python",
+  "created_at": "2026-09-10T17:51:43.488565+00:00",
+  "selection_frozen_at": "2026-09-10T17:51:43.488565+00:00",
+  "programs": [
+    {
+      "program_id": "38752586",
+      "task_id": "arc129_a",
+      "buggy_source_path": "../raw/38752586/buggy.py",
+      "fixed_source_path": "../raw/38752586/fixed.py",
+      "tests_path": "../raw/38752586/tests.json",
+      "faulty_lines": [
+        25
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 26,
+      "difficulty": "727",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "45028964",
+      "task_id": "abc266_c",
+      "buggy_source_path": "../raw/45028964/buggy.py",
+      "fixed_source_path": "../raw/45028964/fixed.py",
+      "tests_path": "../raw/45028964/tests.json",
+      "faulty_lines": [
+        40
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 46,
+      "difficulty": "516",
+      "inclusion_status": "included",
+      "evaluation_denominator": 46
+    },
+    {
+      "program_id": "37220565",
+      "task_id": "abc275_g",
+      "buggy_source_path": "../raw/37220565/buggy.py",
+      "fixed_source_path": "../raw/37220565/fixed.py",
+      "tests_path": "../raw/37220565/tests.json",
+      "faulty_lines": [
+        21
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 33,
+      "difficulty": "2522",
+      "inclusion_status": "included",
+      "evaluation_denominator": 33
+    },
+    {
+      "program_id": "40932797",
+      "task_id": "arc156_b",
+      "buggy_source_path": "../raw/40932797/buggy.py",
+      "fixed_source_path": "../raw/40932797/fixed.py",
+      "tests_path": "../raw/40932797/tests.json",
+      "faulty_lines": [
+        27
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 37,
+      "difficulty": "1415",
+      "inclusion_status": "included",
+      "evaluation_denominator": 37
+    },
+    {
+      "program_id": "54957150",
+      "task_id": "abc356_b",
+      "buggy_source_path": "../raw/54957150/buggy.py",
+      "fixed_source_path": "../raw/54957150/fixed.py",
+      "tests_path": "../raw/54957150/tests.json",
+      "faulty_lines": [
+        30
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 39,
+      "difficulty": "40",
+      "inclusion_status": "included",
+      "evaluation_denominator": 39
+    },
+    {
+      "program_id": "45763953",
+      "task_id": "abc302_b",
+      "buggy_source_path": "../raw/45763953/buggy.py",
+      "fixed_source_path": "../raw/45763953/fixed.py",
+      "tests_path": "../raw/45763953/tests.json",
+      "faulty_lines": [
+        39
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 46,
+      "difficulty": "352",
+      "inclusion_status": "included",
+      "evaluation_denominator": 46
+    },
+    {
+      "program_id": "55003503",
+      "task_id": "abc327_c",
+      "buggy_source_path": "../raw/55003503/buggy.py",
+      "fixed_source_path": "../raw/55003503/fixed.py",
+      "tests_path": "../raw/55003503/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 35,
+      "difficulty": "169",
+      "inclusion_status": "included",
+      "evaluation_denominator": 35
+    },
+    {
+      "program_id": "45723196",
+      "task_id": "abc300_b",
+      "buggy_source_path": "../raw/45723196/buggy.py",
+      "fixed_source_path": "../raw/45723196/fixed.py",
+      "tests_path": "../raw/45723196/tests.json",
+      "faulty_lines": [
+        1
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "AST rule",
+      "loc": 29,
+      "difficulty": "353",
+      "inclusion_status": "included",
+      "evaluation_denominator": 29
+    },
+    {
+      "program_id": "52671232",
+      "task_id": "arc176_d",
+      "buggy_source_path": "../raw/52671232/buggy.py",
+      "fixed_source_path": "../raw/52671232/fixed.py",
+      "tests_path": "../raw/52671232/tests.json",
+      "faulty_lines": [
+        140
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 155,
+      "difficulty": "2572",
+      "inclusion_status": "included",
+      "evaluation_denominator": 155
+    },
+    {
+      "program_id": "45471607",
+      "task_id": "abc286_d",
+      "buggy_source_path": "../raw/45471607/buggy.py",
+      "fixed_source_path": "../raw/45471607/fixed.py",
+      "tests_path": "../raw/45471607/tests.json",
+      "faulty_lines": [
+        43
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 51,
+      "difficulty": "607",
+      "inclusion_status": "included",
+      "evaluation_denominator": 51
+    },
+    {
+      "program_id": "28174907",
+      "task_id": "arc132_d",
+      "buggy_source_path": "../raw/28174907/buggy.py",
+      "fixed_source_path": "../raw/28174907/fixed.py",
+      "tests_path": "../raw/28174907/tests.json",
+      "faulty_lines": [
+        34
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 43,
+      "difficulty": "2221",
+      "inclusion_status": "included",
+      "evaluation_denominator": 43
+    },
+    {
+      "program_id": "34050152",
+      "task_id": "agc058_b",
+      "buggy_source_path": "../raw/34050152/buggy.py",
+      "fixed_source_path": "../raw/34050152/fixed.py",
+      "tests_path": "../raw/34050152/tests.json",
+      "faulty_lines": [
+        1
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 31,
+      "difficulty": "2053",
+      "inclusion_status": "included",
+      "evaluation_denominator": 31
+    },
+    {
+      "program_id": "43487741",
+      "task_id": "abc265_f",
+      "buggy_source_path": "../raw/43487741/buggy.py",
+      "fixed_source_path": "../raw/43487741/fixed.py",
+      "tests_path": "../raw/43487741/tests.json",
+      "faulty_lines": [
+        47
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 51,
+      "difficulty": "2290",
+      "inclusion_status": "included",
+      "evaluation_denominator": 51
+    },
+    {
+      "program_id": "53462819",
+      "task_id": "abc349_f",
+      "buggy_source_path": "../raw/53462819/buggy.py",
+      "fixed_source_path": "../raw/53462819/fixed.py",
+      "tests_path": "../raw/53462819/tests.json",
+      "faulty_lines": [
+        33
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 33,
+      "difficulty": "2169",
+      "inclusion_status": "included",
+      "evaluation_denominator": 33
+    },
+    {
+      "program_id": "41059627",
+      "task_id": "abc298_g",
+      "buggy_source_path": "../raw/41059627/buggy.py",
+      "fixed_source_path": "../raw/41059627/fixed.py",
+      "tests_path": "../raw/41059627/tests.json",
+      "faulty_lines": [
+        55
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 56,
+      "difficulty": "2418",
+      "inclusion_status": "included",
+      "evaluation_denominator": 56
+    },
+    {
+      "program_id": "46008577",
+      "task_id": "abc298_e",
+      "buggy_source_path": "../raw/46008577/buggy.py",
+      "fixed_source_path": "../raw/46008577/fixed.py",
+      "tests_path": "../raw/46008577/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "AST rule",
+      "loc": 25,
+      "difficulty": "1341",
+      "inclusion_status": "included",
+      "evaluation_denominator": 25
+    },
+    {
+      "program_id": "52742757",
+      "task_id": "abc324_e",
+      "buggy_source_path": "../raw/52742757/buggy.py",
+      "fixed_source_path": "../raw/52742757/fixed.py",
+      "tests_path": "../raw/52742757/tests.json",
+      "faulty_lines": [
+        25
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 27,
+      "difficulty": "1153",
+      "inclusion_status": "included",
+      "evaluation_denominator": 27
+    },
+    {
+      "program_id": "46165545",
+      "task_id": "abc299_c",
+      "buggy_source_path": "../raw/46165545/buggy.py",
+      "fixed_source_path": "../raw/46165545/fixed.py",
+      "tests_path": "../raw/46165545/tests.json",
+      "faulty_lines": [
+        98
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 114,
+      "difficulty": "280",
+      "inclusion_status": "included",
+      "evaluation_denominator": 114
+    },
+    {
+      "program_id": "45332649",
+      "task_id": "abc289_c",
+      "buggy_source_path": "../raw/45332649/buggy.py",
+      "fixed_source_path": "../raw/45332649/fixed.py",
+      "tests_path": "../raw/45332649/tests.json",
+      "faulty_lines": [
+        23
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 38,
+      "difficulty": "396",
+      "inclusion_status": "included",
+      "evaluation_denominator": 38
+    },
+    {
+      "program_id": "46026874",
+      "task_id": "abc237_c",
+      "buggy_source_path": "../raw/46026874/buggy.py",
+      "fixed_source_path": "../raw/46026874/fixed.py",
+      "tests_path": "../raw/46026874/tests.json",
+      "faulty_lines": [
+        17
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 30,
+      "difficulty": "267",
+      "inclusion_status": "included",
+      "evaluation_denominator": 30
+    },
+    {
+      "program_id": "39342455",
+      "task_id": "arc139_b",
+      "buggy_source_path": "../raw/39342455/buggy.py",
+      "fixed_source_path": "../raw/39342455/fixed.py",
+      "tests_path": "../raw/39342455/tests.json",
+      "faulty_lines": [
+        30
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 41,
+      "difficulty": "1719",
+      "inclusion_status": "included",
+      "evaluation_denominator": 41
+    },
+    {
+      "program_id": "45966660",
+      "task_id": "abc265_d",
+      "buggy_source_path": "../raw/45966660/buggy.py",
+      "fixed_source_path": "../raw/45966660/fixed.py",
+      "tests_path": "../raw/45966660/tests.json",
+      "faulty_lines": [
+        43
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 54,
+      "difficulty": "727",
+      "inclusion_status": "included",
+      "evaluation_denominator": 54
+    },
+    {
+      "program_id": "45104462",
+      "task_id": "abc249_a",
+      "buggy_source_path": "../raw/45104462/buggy.py",
+      "fixed_source_path": "../raw/45104462/fixed.py",
+      "tests_path": "../raw/45104462/tests.json",
+      "faulty_lines": [
+        54
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "AST rule",
+      "loc": 61,
+      "difficulty": "103",
+      "inclusion_status": "included",
+      "evaluation_denominator": 61
+    },
+    {
+      "program_id": "54769975",
+      "task_id": "abc355_d",
+      "buggy_source_path": "../raw/54769975/buggy.py",
+      "fixed_source_path": "../raw/54769975/fixed.py",
+      "tests_path": "../raw/54769975/tests.json",
+      "faulty_lines": [
+        26
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 26,
+      "difficulty": "735",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "43438224",
+      "task_id": "arc164_e",
+      "buggy_source_path": "../raw/43438224/buggy.py",
+      "fixed_source_path": "../raw/43438224/fixed.py",
+      "tests_path": "../raw/43438224/tests.json",
+      "faulty_lines": [
+        16
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 49,
+      "difficulty": "2651",
+      "inclusion_status": "included",
+      "evaluation_denominator": 49
+    },
+    {
+      "program_id": "45282989",
+      "task_id": "abc272_c",
+      "buggy_source_path": "../raw/45282989/buggy.py",
+      "fixed_source_path": "../raw/45282989/fixed.py",
+      "tests_path": "../raw/45282989/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 25,
+      "difficulty": "167",
+      "inclusion_status": "included",
+      "evaluation_denominator": 25
+    },
+    {
+      "program_id": "42828291",
+      "task_id": "arc157_b",
+      "buggy_source_path": "../raw/42828291/buggy.py",
+      "fixed_source_path": "../raw/42828291/fixed.py",
+      "tests_path": "../raw/42828291/tests.json",
+      "faulty_lines": [
+        37
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 63,
+      "difficulty": "1529",
+      "inclusion_status": "included",
+      "evaluation_denominator": 63
+    },
+    {
+      "program_id": "45270856",
+      "task_id": "abc290_c",
+      "buggy_source_path": "../raw/45270856/buggy.py",
+      "fixed_source_path": "../raw/45270856/fixed.py",
+      "tests_path": "../raw/45270856/tests.json",
+      "faulty_lines": [
+        26
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 26,
+      "difficulty": "225",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "46028780",
+      "task_id": "abc312_c",
+      "buggy_source_path": "../raw/46028780/buggy.py",
+      "fixed_source_path": "../raw/46028780/fixed.py",
+      "tests_path": "../raw/46028780/tests.json",
+      "faulty_lines": [
+        28
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 28,
+      "difficulty": "727",
+      "inclusion_status": "included",
+      "evaluation_denominator": 28
+    },
+    {
+      "program_id": "45044587",
+      "task_id": "abc257_c",
+      "buggy_source_path": "../raw/45044587/buggy.py",
+      "fixed_source_path": "../raw/45044587/fixed.py",
+      "tests_path": "../raw/45044587/tests.json",
+      "faulty_lines": [
+        33
+      ],
+      "pattern_label": "sorting_based",
+      "pattern_source": "AST rule",
+      "loc": 36,
+      "difficulty": "678",
+      "inclusion_status": "included",
+      "evaluation_denominator": 36
+    }
+  ]
+}

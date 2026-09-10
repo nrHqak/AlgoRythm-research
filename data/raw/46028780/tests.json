@@ -1,0 +1,34 @@
+[
+  {
+    "input": "3 2\n100 100 100\n80 120\n",
+    "expected_output": "100\n"
+  },
+  {
+    "input": "3 4\n110 90 120\n100 80 120 10000\n",
+    "expected_output": "110\n"
+  },
+  {
+    "input": "5 2\n100000 100000 100000 100000 100000\n100 200\n",
+    "expected_output": "201\n"
+  },
+  {
+    "input": "1 1\n1\n1\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "1 2\n1\n1 1\n",
+    "expected_output": "2\n"
+  },
+  {
+    "input": "2 1\n1 1\n1\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "2 2\n1 1\n1 1\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "1 1\n1000000000\n1000000000\n",
+    "expected_output": "1000000000\n"
+  }
+]

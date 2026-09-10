@@ -1,0 +1,22 @@
+[
+  {
+    "input": "a\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "z\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "php\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "kasaka\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "atcoder\n",
+    "expected_output": "No\n"
+  }
+]

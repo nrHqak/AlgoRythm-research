@@ -8,15 +8,27 @@
     "expected_output": "No\n"
   },
   {
-    "input": "-52 -52\n-61 -76\n-2 -54\n14 -11\n",
+    "input": "16 80\n8 -18\n93 -37\n34 64\n",
     "expected_output": "Yes\n"
   },
   {
-    "input": "42 -44\n71 -31\n66 -32\n9 -51\n",
+    "input": "91 -78\n75 52\n25 93\n4 -87\n",
     "expected_output": "Yes\n"
   },
   {
-    "input": "86 -52\n7 88\n25 -14\n90 -62\n",
+    "input": "-3 42\n-19 7\n67 -59\n86 45\n",
     "expected_output": "Yes\n"
+  },
+  {
+    "input": "19 -82\n98 -82\n16 87\n2 -6\n",
+    "expected_output": "Yes\n"
+  },
+  {
+    "input": "16 95\n7 76\n-83 55\n50 -93\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "-6 37\n-20 47\n-73 1\n61 -8\n",
+    "expected_output": "No\n"
   }
 ]

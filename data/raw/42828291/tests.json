@@ -1,0 +1,34 @@
+[
+  {
+    "input": "5 1\r\nXYXYX\r\n",
+    "expected_output": "2\n"
+  },
+  {
+    "input": "5 4\r\nXYXYX\r\n",
+    "expected_output": "2\n"
+  },
+  {
+    "input": "1 0\r\nY\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "1 0\r\nX\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "1 1\r\nY\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "1 1\r\nX\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "2 0\r\nXY\r\n",
+    "expected_output": "0\r\n"
+  },
+  {
+    "input": "2 0\r\nXX\r\n",
+    "expected_output": "0\r\n"
+  }
+]
