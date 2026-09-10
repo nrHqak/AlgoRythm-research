@@ -62,6 +62,7 @@ class OpenAICompatibleProvider(LLMProvider):
         metadata = {
             "provider_request_id": body.get("id"),
             "provider_created": body.get("created"),
+            "model_identity_exposed": bool(body.get("model")),
             "finish_reason": body.get("choices", [{}])[0].get("finish_reason"),
         }
         return ProviderReply(
@@ -69,7 +70,7 @@ class OpenAICompatibleProvider(LLMProvider):
             latency=latency,
             token_usage=usage,
             provider=self.name,
-            model=str(body.get("model") or request.model),
+            model=str(body.get("model") or ""),
             timestamp=datetime.now(timezone.utc),
             response_metadata=metadata,
         )

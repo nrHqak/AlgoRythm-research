@@ -1,0 +1,27 @@
+{
+  "function": "search",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          3,
+          5
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          1,
+          3,
+          5
+        ],
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

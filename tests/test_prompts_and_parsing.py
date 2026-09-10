@@ -41,7 +41,7 @@ def test_prompt_pair_differs_only_by_prior(tmp_path: Path) -> None:
     )
     assert pair.treatment_user_prompt.startswith(pair.control_user_prompt)
     assert pair.treatment_user_prompt[len(pair.control_user_prompt):] == (
-        f"\n\n{PRIOR_OPEN}\nfrozen prior\n</ALGORITHMIC_PATTERN_PRIOR>"
+        f"\n\n{PRIOR_OPEN}\nfrozen prior\n</DEBUGGING_PRIOR>"
     )
     assert "oracle-label" not in pair.control_user_prompt
 

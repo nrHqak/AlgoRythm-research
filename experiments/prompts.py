@@ -7,8 +7,8 @@ from dataclasses import dataclass
 from experiments.models import ProgramRecord
 
 
-PRIOR_OPEN = "<ALGORITHMIC_PATTERN_PRIOR>"
-PRIOR_CLOSE = "</ALGORITHMIC_PATTERN_PRIOR>"
+PRIOR_OPEN = "<DEBUGGING_PRIOR>"
+PRIOR_CLOSE = "</DEBUGGING_PRIOR>"
 ALLOWED_TEMPLATE_FIELDS = {
     "program_id",
     "task_id",

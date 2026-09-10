@@ -1,0 +1,20 @@
+{
+  "function": "total",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -19,6 +19,7 @@ from analysis.statistics import (
     leave_one_program_out_delta,
     paired_by_program,
 )
+from experiments.health import assert_session_health
 from experiments.models import ParsedRunRecord, load_manifest
 from experiments.safety import (
     SafetyViolation,
@@ -311,6 +312,9 @@ def run(args: argparse.Namespace) -> None:
     repetitions = int(session_manifest["repetitions"])
     config = {**config, "repetitions": repetitions}
 
+    if (session_dir / "VOID.json").exists():
+        raise SafetyViolation("VOID session cannot produce scientific reports")
+    assert_session_health(records)
     assert_unique_execution_keys(records)
     assert_condition_balance(
         records,
@@ -390,7 +394,7 @@ def run(args: argparse.Namespace) -> None:
     write_outputs(
         frame=frame,
         metrics=metrics,
-        results_root=args.results_root,
+        results_root=args.report_root or args.results_root,
         reproduce_command=command,
         control_name=control,
         treatment_name=treatment,
@@ -410,6 +414,7 @@ def parser() -> argparse.ArgumentParser:
         help="Must be chosen by the frozen protocol; count_as_failure sets Top-K=0 and EXAM=1.",
     )
     result.add_argument("--bootstrap-iterations", type=int, default=10000)
+    result.add_argument("--report-root", type=Path, help="Separate report directory; keeps v2 native session reports from overwriting each other")
     result.add_argument("--seed", type=int, default=20260908)
     result.add_argument("--allow-mock-analysis", action="store_true")
     return result

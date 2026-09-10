@@ -1,0 +1,53 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "created_at": "2026-09-10T12:02:13.976707+00:00",
+  "selection_frozen_at": "2026-09-10T12:02:13.976707+00:00",
+  "programs": [
+    {
+      "program_id": "smoke-sum",
+      "task_id": "smoke-sum",
+      "buggy_source_path": "smoke-sum/buggy.py",
+      "fixed_source_path": "smoke-sum/fixed.py",
+      "tests_path": "smoke-sum/tests.json",
+      "faulty_lines": [
+        2
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "Hand-written smoke metadata; NEVER scientific annotation",
+      "loc": 5,
+      "difficulty": "smoke-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "smoke-count",
+      "task_id": "smoke-count",
+      "buggy_source_path": "smoke-count/buggy.py",
+      "fixed_source_path": "smoke-count/fixed.py",
+      "tests_path": "smoke-count/tests.json",
+      "faulty_lines": [
+        4
+      ],
+      "pattern_label": "hash_map_counting",
+      "pattern_source": "Hand-written smoke metadata; NEVER scientific annotation",
+      "loc": 5,
+      "difficulty": "smoke-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "smoke-search",
+      "task_id": "smoke-search",
+      "buggy_source_path": "smoke-search/buggy.py",
+      "fixed_source_path": "smoke-search/fixed.py",
+      "tests_path": "smoke-search/tests.json",
+      "faulty_lines": [
+        3
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "Hand-written smoke metadata; NEVER scientific annotation",
+      "loc": 11,
+      "difficulty": "smoke-only",
+      "inclusion_status": "included"
+    }
+  ]
+}

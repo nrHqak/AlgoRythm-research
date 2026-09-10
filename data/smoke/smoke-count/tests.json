@@ -1,0 +1,22 @@
+{
+  "function": "counts",
+  "cases": [
+    {
+      "args": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "expected": {
+        "a": 2
+      }
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": {}
+    }
+  ]
+}

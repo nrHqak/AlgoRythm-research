@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 import yaml
 from dotenv import load_dotenv
 
+from experiments.health import assert_session_health
 from experiments.models import ParsedRunRecord, ProgramRecord, load_manifest
 from experiments.parsing import ResponseParseError, parse_ranking
 from experiments.prompts import build_prompt_pair, sha256_text
@@ -128,6 +129,8 @@ def shell_command(args: argparse.Namespace, session_id: str) -> str:
     if args.repetitions is not None:
         parts.extend(["--repetitions", str(args.repetitions)])
     parts.extend(["--session-id", session_id])
+    if getattr(args, "model_freeze", None):
+        parts.extend(["--model-freeze", str(args.model_freeze)])
     if args.allow_mock:
         parts.append("--allow-mock")
     return " ".join(shlex.quote(part) for part in parts)
@@ -298,6 +301,11 @@ def run_one(
         error_message = (
             f"requested {provider.name}/{model}, received {reply.provider}/{reply.model}"
         )
+    elif not reply.raw_response.strip() or reply.response_metadata.get("finish_reason") == "length":
+        parsed = None
+        status = "provider_failure"
+        error_type = "EmptyCompletion" if not reply.raw_response.strip() else "TruncatedCompletion"
+        error_message = "Operationally invalid completion; investigate provider/max_tokens"
     else:
         try:
             parsed = parse_ranking(
@@ -347,7 +355,8 @@ def condition_order(mode: str, program_index: int, repetition: int, names: tuple
 
 
 def run(args: argparse.Namespace) -> int:
-    load_dotenv(REPOSITORY_ROOT / ".env")
+    if args.provider != "mock":
+        load_dotenv(REPOSITORY_ROOT / ".env")
     config = load_yaml_object(args.config)
     experiment_name = str(config["experiment_name"])
     dataset_config = config["dataset"]
@@ -382,6 +391,23 @@ def run(args: argparse.Namespace) -> int:
     if missing_priors:
         raise SafetyViolation(f"included programs lack frozen priors: {missing_priors}")
 
+    is_v2 = control_name == "no_prior" and treatment_name in {"generic_prior", "pattern_prior"}
+    if is_v2 and args.provider != "mock":
+        from experiments.model_preflight import validate_freeze
+        validate_freeze(args, repetitions)
+        if target_n != 30 or manifest.dataset_name != "ConDefects-Python":
+            raise SafetyViolation("v2 scientific sample must be 30 ConDefects-Python programs")
+        expected_prior = REPOSITORY_ROOT / ("pilot/v2/generic_placebo_prior.json" if treatment_name == "generic_prior" else "pilot/pattern_priors.json")
+        if file_sha256(args.priors) != file_sha256(expected_prior):
+            raise SafetyViolation("v2 prior file does not match its condition")
+        if len({p.task_id for p in manifest.included}) != len(manifest.included):
+            raise SafetyViolation("v2 forbids multiple programs per task")
+        for p in manifest.included:
+            if (p.program_id.startswith("smoke-") or REPOSITORY_ROOT / "data/smoke" in p.buggy_source_path.parents
+                or p.problem_context_path is not None or len(p.faulty_lines) != 1
+                or not 25 <= p.source_line_count <= 300 or p.exam_denominator != p.source_line_count
+                or p.loc != p.source_line_count):
+                raise SafetyViolation("v2 sample violates frozen source/ground-truth/smoke exclusion rules")
     provider = make_provider(args)
     session_id = args.session_id or f"{run_started_at.strftime('%Y%m%dT%H%M%SZ')}-{uuid.uuid4().hex[:8]}"
     raw_root = args.output_root / "raw" / experiment_name
@@ -404,6 +430,9 @@ def run(args: argparse.Namespace) -> int:
         "model": args.model,
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
+        "timeout": args.timeout,
+        "base_url": args.base_url.rstrip("/"),
+        "model_freeze_hash": file_sha256(args.model_freeze) if getattr(args, "model_freeze", None) else None,
         "repetitions": repetitions,
         "condition_order": args.condition_order,
         "program_input_hashes": {
@@ -428,7 +457,27 @@ def run(args: argparse.Namespace) -> int:
             raise SafetyViolation("resume settings do not match the immutable session manifest")
     else:
         write_json_new(session_manifest_path, session_manifest)
+    if (processed_session_dir / "VOID.json").exists():
+        raise SafetyViolation("session is VOID; --resume is prohibited, document correction and use a new freeze")
+    # Include failed calls with no raw response in duplicate/resume detection.
     known_keys = existing_execution_keys(raw_root)
+    for record_path in processed_root.glob("*/*.json"):
+        payload = json.loads(record_path.read_text())
+        if "execution_key" in payload:
+            known_keys[payload["execution_key"]] = record_path
+    previous = [ParsedRunRecord.model_validate(json.loads(p.read_text()))
+                for p in processed_session_dir.glob("*.json")
+                if "run_id" in json.loads(p.read_text())]
+    def enforce_health(records, completed=False):
+        try:
+            assert_session_health(records, completed=completed)
+        except SafetyViolation as exc:
+            write_json_new(processed_session_dir / "VOID.json", {"status":"VOID", "reason":str(exc), "engineering_only":True})
+            with args.experiment_log.open("a") as log:
+                log.write(f"\nSession {session_id} VOID: {exc}. Do not resume; document a corrected freeze.\n")
+            raise
+    if previous:
+        enforce_health(previous)
     created: list[ParsedRunRecord] = []
 
     for program_index, program in enumerate(manifest.included):
@@ -486,7 +535,9 @@ def run(args: argparse.Namespace) -> int:
                 created.append(record)
                 known_keys[key] = raw_session_dir / f"{record.run_id}.json"
                 append_experiment_log(args.experiment_log, record)
+                enforce_health(previous + created)
 
+    enforce_health(previous + created, completed=True)
     summary = {
         "session_id": session_id,
         "experiment_name": experiment_name,
@@ -534,6 +585,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument(
         "--experiment-log", type=Path, default=REPOSITORY_ROOT / "EXPERIMENT_LOG.md"
     )
+    result.add_argument("--model-freeze", type=Path)
     result.add_argument("--resume", action="store_true")
     result.add_argument("--allow-mock", action="store_true")
     return result
