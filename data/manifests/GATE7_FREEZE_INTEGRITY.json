@@ -1,0 +1,192 @@
+{
+  "audited_at": "2026-09-10T18:03:43.524750+00:00",
+  "selection_frozen_at": "2026-09-10T17:51:43.488565+00:00",
+  "dataset_base_commit": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+  "branch_refs": {
+    "agent/antigravity-data-v2": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+    "agent/claude-science": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+    "agent/codex-v2-preflight": "96de08d9cf2c7cc40c7f3028da1f15b74a035a13"
+  },
+  "ancestry": {
+    "agent/antigravity-data-v2": true,
+    "agent/claude-science": true,
+    "agent/codex-v2-preflight": true
+  },
+  "assets": [
+    {
+      "path": "data/manifests/pilot_manifest_v2_1.json",
+      "sha256": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+      "first_commit": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+      "last_change_commit": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+      "last_change_committed_at": "2026-09-10T22:53:38+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "data/manifests/pilot_manifest_v2_1.csv",
+      "sha256": "9c5758e147a9cf9dda358d84b60121542e0dfa564f42e13b4c54ae3fb4ab03ce",
+      "first_commit": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+      "last_change_commit": "9c837677cd17f52f9b1c8f9cb664f28b84743fe1",
+      "last_change_committed_at": "2026-09-10T22:53:38+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "data/manifests/ground_truth_freeze_v2.csv",
+      "sha256": "2e5ef39ee663b48fb98097feaebd1f18a7ec7c709ef80fc1da763446c645dde2",
+      "first_commit": "60ddd8ab194f0b881c199e6ed4c0b4319a433763",
+      "last_change_commit": "60ddd8ab194f0b881c199e6ed4c0b4319a433763",
+      "last_change_committed_at": "2026-09-10T18:02:26+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/PATTERN_VOCABULARY.md",
+      "sha256": "bba2bfe5659f365eb48192d5c6c8c073139a11a8d4b468c564eb031ba8bd7d5b",
+      "first_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_committed_at": "2026-09-10T12:33:33+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/pattern_priors.json",
+      "sha256": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+      "first_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_committed_at": "2026-09-10T12:33:33+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/PATTERN_PRIORS.md",
+      "sha256": "645c72c5873581e2df4fbac681d300f7444f7e2e13a9952b5152af6d64f6ea1e",
+      "first_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_committed_at": "2026-09-10T12:33:33+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/v2/generic_placebo_prior.json",
+      "sha256": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+      "first_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_committed_at": "2026-09-10T15:30:34+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/v2/GENERIC_PLACEBO_PRIOR.md",
+      "sha256": "1122996b41b6c0fd48d19ff43960e764b6b1b7aead4f82410b7b21c0c375b02e",
+      "first_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_committed_at": "2026-09-10T15:30:34+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/v2/STATISTICAL_ANALYSIS_PLAN.md",
+      "sha256": "affeeafd7f56a66718ee59c94373f1d7740f5b2d8b96f6a3aa7c898469df0833",
+      "first_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_committed_at": "2026-09-10T15:30:34+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "analysis/compare_v2_sessions.py",
+      "sha256": "72c7e9cd0735cd9d087e05d9c57cd79209e79e8d07c0addb7b8fbb4a8698bda5",
+      "first_commit": "96de08d9cf2c7cc40c7f3028da1f15b74a035a13",
+      "last_change_commit": "96de08d9cf2c7cc40c7f3028da1f15b74a035a13",
+      "last_change_committed_at": "2026-09-10T17:03:09+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "analysis/statistics.py",
+      "sha256": "4ebe81ea0202373c2c6d1fd2654f577ecf12b038055c4e084dbfe54831453ed5",
+      "first_commit": "c5265d01ed44e89d83a0df4d6a5936b04df9755a",
+      "last_change_commit": "c5265d01ed44e89d83a0df4d6a5936b04df9755a",
+      "last_change_committed_at": "2026-09-08T23:14:31+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "analysis/metrics.py",
+      "sha256": "13eae2936d646640a6b6d49c4948f771e747d58f5112ad33003ef028c21e0708",
+      "first_commit": "c5265d01ed44e89d83a0df4d6a5936b04df9755a",
+      "last_change_commit": "c5265d01ed44e89d83a0df4d6a5936b04df9755a",
+      "last_change_committed_at": "2026-09-08T23:14:31+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/v2/prompts/system_v2.txt",
+      "sha256": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+      "first_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_commit": "579c68737ca4bd762bcbd7e57e3d28577e2c40bc",
+      "last_change_committed_at": "2026-09-10T15:30:34+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    },
+    {
+      "path": "pilot/prompts/control.txt",
+      "sha256": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+      "first_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_commit": "81fd51d5333b46ca2d5885437ace20c78e3a06c6",
+      "last_change_committed_at": "2026-09-10T12:33:33+05:00",
+      "identical_to_first_committed_bytes": true,
+      "unchanged_from_dataset_branch": true
+    }
+  ],
+  "reachable_historical_json_blob_count": 68,
+  "historical_candidate_result_hits": [],
+  "local_candidate_result_hits": [],
+  "historical_result_paths": [
+    "results/README.md",
+    "results/figures/README.md",
+    "results/processed/README.md",
+    "results/raw/README.md"
+  ],
+  "local_result_files": [
+    "results/README.md",
+    "results/figures/README.md",
+    "results/processed/README.md",
+    "results/raw/README.md"
+  ],
+  "experiment_log_placeholder_only": true,
+  "no_candidate_result_artifact_by_program": {
+    "28174907": true,
+    "34050152": true,
+    "37220565": true,
+    "38752586": true,
+    "39342455": true,
+    "40932797": true,
+    "41059627": true,
+    "42828291": true,
+    "43438224": true,
+    "43487741": true,
+    "45028964": true,
+    "45044587": true,
+    "45104462": true,
+    "45270856": true,
+    "45282989": true,
+    "45332649": true,
+    "45471607": true,
+    "45723196": true,
+    "45763953": true,
+    "45966660": true,
+    "46008577": true,
+    "46026874": true,
+    "46028780": true,
+    "46165545": true,
+    "52671232": true,
+    "52742757": true,
+    "53462819": true,
+    "54769975": true,
+    "54957150": true,
+    "55003503": true
+  },
+  "scope": "Current repository files (including untracked JSON), fetched branch history, and committed handoffs/log. Cannot attest to external or deleted/unrecorded provider activity."
+}

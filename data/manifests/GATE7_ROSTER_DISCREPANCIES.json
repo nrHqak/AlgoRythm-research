@@ -1,0 +1,334 @@
+[
+  {
+    "program_id": "38752586",
+    "task_id": "arc129_a",
+    "faulty_line": {
+      "audit": 13,
+      "manifest": 25
+    },
+    "difficulty": {
+      "audit": "884",
+      "manifest": "727"
+    }
+  },
+  {
+    "program_id": "37220565",
+    "task_id": "abc275_g",
+    "faulty_line": {
+      "audit": 16,
+      "manifest": 21
+    },
+    "difficulty": {
+      "audit": "2750",
+      "manifest": "2522"
+    }
+  },
+  {
+    "program_id": "40932797",
+    "task_id": "arc156_b",
+    "faulty_line": {
+      "audit": 25,
+      "manifest": 27
+    },
+    "difficulty": {
+      "audit": "1664",
+      "manifest": "1415"
+    }
+  },
+  {
+    "program_id": "54957150",
+    "task_id": "abc356_b",
+    "faulty_line": {
+      "audit": 36,
+      "manifest": 30
+    },
+    "difficulty": {
+      "audit": "108",
+      "manifest": "40"
+    }
+  },
+  {
+    "program_id": "45763953",
+    "task_id": "abc302_b",
+    "faulty_line": {
+      "audit": 36,
+      "manifest": 39
+    },
+    "difficulty": {
+      "audit": "425",
+      "manifest": "352"
+    }
+  },
+  {
+    "program_id": "55003503",
+    "task_id": "abc327_c",
+    "faulty_line": {
+      "audit": 31,
+      "manifest": 22
+    },
+    "difficulty": {
+      "audit": "339",
+      "manifest": "169"
+    }
+  },
+  {
+    "program_id": "45723196",
+    "task_id": "abc300_b",
+    "faulty_line": {
+      "audit": 24,
+      "manifest": 1
+    },
+    "difficulty": {
+      "audit": "413",
+      "manifest": "353"
+    }
+  },
+  {
+    "program_id": "52671232",
+    "task_id": "arc176_d",
+    "faulty_line": {
+      "audit": 96,
+      "manifest": 140
+    },
+    "difficulty": {
+      "audit": "2758",
+      "manifest": "2572"
+    }
+  },
+  {
+    "program_id": "45471607",
+    "task_id": "abc286_d",
+    "faulty_line": {
+      "audit": 48,
+      "manifest": 43
+    },
+    "difficulty": {
+      "audit": "436",
+      "manifest": "607"
+    }
+  },
+  {
+    "program_id": "28174907",
+    "task_id": "arc132_d",
+    "faulty_line": {
+      "audit": 12,
+      "manifest": 34
+    },
+    "difficulty": {
+      "audit": "2582",
+      "manifest": "2221"
+    }
+  },
+  {
+    "program_id": "34050152",
+    "task_id": "agc058_b",
+    "faulty_line": {
+      "audit": 24,
+      "manifest": 1
+    },
+    "difficulty": {
+      "audit": "2661",
+      "manifest": "2053"
+    }
+  },
+  {
+    "program_id": "43487741",
+    "task_id": "abc265_f",
+    "faulty_line": {
+      "audit": 39,
+      "manifest": 47
+    },
+    "difficulty": {
+      "audit": "2073",
+      "manifest": "2290"
+    }
+  },
+  {
+    "program_id": "53462819",
+    "task_id": "abc349_f",
+    "faulty_line": {
+      "audit": 25,
+      "manifest": 33
+    },
+    "difficulty": {
+      "audit": "2276",
+      "manifest": "2169"
+    }
+  },
+  {
+    "program_id": "41059627",
+    "task_id": "abc298_g",
+    "faulty_line": {
+      "audit": 54,
+      "manifest": 55
+    },
+    "difficulty": {
+      "audit": "2445",
+      "manifest": "2418"
+    }
+  },
+  {
+    "program_id": "46008577",
+    "task_id": "abc298_e",
+    "faulty_line": {
+      "audit": 16,
+      "manifest": 22
+    },
+    "difficulty": {
+      "audit": "1297",
+      "manifest": "1341"
+    }
+  },
+  {
+    "program_id": "52742757",
+    "task_id": "abc324_e",
+    "difficulty": {
+      "audit": "1146",
+      "manifest": "1153"
+    }
+  },
+  {
+    "program_id": "46165545",
+    "task_id": "abc299_c",
+    "faulty_line": {
+      "audit": 111,
+      "manifest": 98
+    },
+    "difficulty": {
+      "audit": "393",
+      "manifest": "280"
+    }
+  },
+  {
+    "program_id": "45332649",
+    "task_id": "abc289_c",
+    "faulty_line": {
+      "audit": 32,
+      "manifest": 23
+    },
+    "difficulty": {
+      "audit": "486",
+      "manifest": "396"
+    }
+  },
+  {
+    "program_id": "46026874",
+    "task_id": "abc237_c",
+    "faulty_line": {
+      "audit": 25,
+      "manifest": 17
+    },
+    "difficulty": {
+      "audit": "370",
+      "manifest": "267"
+    }
+  },
+  {
+    "program_id": "39342455",
+    "task_id": "arc139_b",
+    "faulty_line": {
+      "audit": 18,
+      "manifest": 30
+    },
+    "difficulty": {
+      "audit": "1842",
+      "manifest": "1719"
+    }
+  },
+  {
+    "program_id": "45104462",
+    "task_id": "abc249_a",
+    "faulty_line": {
+      "audit": 58,
+      "manifest": 54
+    },
+    "difficulty": {
+      "audit": "123",
+      "manifest": "103"
+    }
+  },
+  {
+    "program_id": "54769975",
+    "task_id": "abc355_d",
+    "faulty_line": {
+      "audit": 13,
+      "manifest": 26
+    },
+    "difficulty": {
+      "audit": "903",
+      "manifest": "735"
+    }
+  },
+  {
+    "program_id": "43438224",
+    "task_id": "arc164_e",
+    "faulty_line": {
+      "audit": 22,
+      "manifest": 16
+    },
+    "difficulty": {
+      "audit": "2617",
+      "manifest": "2651"
+    }
+  },
+  {
+    "program_id": "45282989",
+    "task_id": "abc272_c",
+    "faulty_line": {
+      "audit": 23,
+      "manifest": 22
+    },
+    "difficulty": {
+      "audit": "162",
+      "manifest": "167"
+    }
+  },
+  {
+    "program_id": "42828291",
+    "task_id": "arc157_b",
+    "faulty_line": {
+      "audit": 31,
+      "manifest": 37
+    },
+    "difficulty": {
+      "audit": "1320",
+      "manifest": "1529"
+    }
+  },
+  {
+    "program_id": "45270856",
+    "task_id": "abc290_c",
+    "faulty_line": {
+      "audit": 21,
+      "manifest": 26
+    },
+    "difficulty": {
+      "audit": "362",
+      "manifest": "225"
+    }
+  },
+  {
+    "program_id": "46028780",
+    "task_id": "abc312_c",
+    "faulty_line": {
+      "audit": 13,
+      "manifest": 28
+    },
+    "difficulty": {
+      "audit": "487",
+      "manifest": "727"
+    }
+  },
+  {
+    "program_id": "45044587",
+    "task_id": "abc257_c",
+    "faulty_line": {
+      "audit": 25,
+      "manifest": 33
+    },
+    "difficulty": {
+      "audit": "794",
+      "manifest": "678"
+    }
+  }
+]
