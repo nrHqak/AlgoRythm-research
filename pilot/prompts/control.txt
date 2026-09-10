@@ -1,0 +1,26 @@
+Program ID: {program_id}
+Task ID: {task_id}
+
+Problem statement (if available; may be empty):
+{problem_context}
+
+Below is the buggy source code. Each line is prefixed with its 1-indexed
+line number followed by a colon and a space; that numbering is for your
+reference only and is not part of the actual source code.
+
+{numbered_buggy_source}
+
+Task: identify which lines are most likely to contain the logical fault
+that makes this program fail its tests.
+
+Respond with exactly one JSON object and nothing else, in this shape:
+{{"ranking": [{{"line": 12, "score": 0.9, "reason": "short reason"}}, {{"line": 7, "score": 0.4, "reason": "short reason"}}]}}
+
+Rules for the ranking:
+- List only lines you have a genuine reason to suspect.
+- Order entries from most to least suspicious: scores must be
+  non-increasing down the list.
+- score is a number between 0 and 1.
+- line must be a real line number from the numbered source above.
+- Do not repeat a line number.
+- Do not include any text outside the single JSON object.

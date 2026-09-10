@@ -1,0 +1,65 @@
+FROZEN PRIOR-BLOCK AUTHORING TEMPLATE (v1)
+===========================================
+
+This file is NOT loaded by experiments/run_pilot.py at execution time. It is
+the authoring template that produced every value in ../pattern_priors.json,
+kept so the construction is auditable and so any future pattern (confirmatory
+corpus, vocabulary v2) is added the same way instead of by improvisation.
+See ../PROMPT_DIFF.md for how a value from pattern_priors.json is inserted
+into the treatment prompt, and ../PATTERN_PRIORS.md for the cited rationale
+behind each pattern's specific checkpoints.
+
+Template
+--------
+This program is intended to solve the task using {pattern_display_name}.
+Before ranking the full source, check these standard failure points for
+this pattern first, in order:
+1. {checkpoint_1}
+2. {checkpoint_2}
+3. {checkpoint_3}
+4. {checkpoint_4}
+These are hypotheses, not conclusions -- after checking them, still weigh
+every line of the source by the instructions above.
+
+(A pattern may use 5 checkpoints instead of 4 only when the dossier cites
+direct evidence for a 5th failure point specific to that pattern, e.g.
+two_pointers' dedup/write-pointer step. See PATTERN_PRIORS.md for which
+patterns use 5.)
+
+Placeholders
+------------
+- {pattern_display_name}: must be copied verbatim from the "Display name"
+  column of PATTERN_VOCABULARY.md for that pattern_label.
+- {checkpoint_N}: one sentence, imperative or interrogative ("check
+  whether..."), naming a *pattern-general* failure class, never a fact
+  about the specific program in the manifest.
+
+Hard rules (violating any of these invalidates the frozen prior and
+requires a new version)
+------------------------------------------------------------------
+1. A frozen prior string must never mention a line number, a variable
+   name from a specific program, the fixed/reference source, or any
+   fact derivable only from the ground-truth diff. It must read
+   identically sensibly for every program carrying that pattern_label.
+2. Checkpoint count is 4, or 5 only where PATTERN_PRIORS.md documents a
+   dossier-cited 5th failure point. This bounds the prompt-length
+   confound across patterns (see SCIENTIFIC_RISKS.md, "prior length").
+3. Target length per frozen string: keep every pattern within roughly
+   30% of the others; v1 achieved a 119-138 word band (spread 19 words,
+   ~15% of the mean). PATTERN_PRIORS.md records the actual word count
+   for each pattern so the spread is auditable rather than assumed --
+   check that document's "Length-confound audit" before adding a new
+   pattern so a v2 addition does not silently widen the band.
+4. Phrase checkpoints as things to check ("check whether the shrink
+   condition..."), never as assertions that the fault IS there
+   ("the bug is in the shrink condition"). The prior is a structural
+   hint, not an oracle answer -- it must remain true and useful even for
+   the (expected) subset of programs whose fault lies outside all listed
+   checkpoints.
+5. Every checkpoint must trace to a citation in PATTERN_PRIORS.md
+   (dossier Block 1, Block 3, or an explicitly reasoned extrapolation
+   labelled as such). No checkpoint is invented without a stated reason.
+6. The frozen string is inserted verbatim, byte-for-byte, into the
+   <ALGORITHMIC_PATTERN_PRIOR> block by experiments/prompts.py -- do not
+   add trailing punctuation, code fences, or formatting here that you do
+   not want to appear in the actual prompt.
