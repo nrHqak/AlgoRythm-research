@@ -1,0 +1,56 @@
+{
+  "status": "TECHNICAL DIAGNOSIS ONLY",
+  "scientific_output_observed": false,
+  "likely_cause": "The model exhausted max_tokens while generating internal reasoning and produced no final message.content.",
+  "failed_scientific_request": {
+    "recorded_error": "provider completion content must be a string",
+    "content_observed_by_adapter": null,
+    "prompt_chars": 4029,
+    "prompt_tokens_estimate": 1008,
+    "cost_usd": 0.002204,
+    "generation_id_recoverable": false,
+    "finish_reason_recoverable": false,
+    "reasoning_tokens_recoverable": false,
+    "input_tokens_recoverable": false,
+    "completion_tokens_recoverable": false
+  },
+  "frozen_zai_pricing_usd_per_token": {
+    "input": 1.5e-7,
+    "output": 5e-7,
+    "cache_read": 3e-8
+  },
+  "cost_fit": {
+    "inferred_input_tokens": 1040,
+    "inferred_completion_tokens": 4096,
+    "input_cost_usd": 0.000156,
+    "completion_cost_usd": 0.002048,
+    "total_cost_usd": 0.002204,
+    "arithmetic": "1040 * 0.00000015 + 4096 * 0.0000005 = 0.002204",
+    "assessment": "Exact fit to the observed charge and the 4096-token cap; 1040 input tokens is consistent with the local 1008-token character estimate. The pinned endpoint reported no implicit caching support at freeze time."
+  },
+  "prior_same_provider_signature": {
+    "max_tokens": 1024,
+    "prompt_tokens": 867,
+    "completion_tokens": 1024,
+    "reasoning_tokens": 1023,
+    "finish_reason": "length",
+    "native_finish_reason": "length",
+    "content": null,
+    "reasoning_present": true,
+    "cost_usd": 0.00055757,
+    "artifact": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/smoke_http_exchanges.json"
+  },
+  "passing_4096_smoke_context": {
+    "calls": 12,
+    "maximum_completion_tokens": 1146,
+    "all_finish_reasons": [
+      "stop"
+    ],
+    "note": "The passing smoke fixtures were only 5-11 source lines and did not exercise the real sample's prompt-length range."
+  },
+  "was_4096_exhausted": "YES",
+  "reasoning_only_response_possible": "YES",
+  "confidence_note": "The failed generation body was not retained, so the conclusion is an evidence-backed inference rather than direct inspection of that response's finish_reason and reasoning fields.",
+  "recommended_max_tokens": 16384,
+  "recommendation_status": "PROPOSED ONLY; no configuration amendment and no new model call were made"
+}

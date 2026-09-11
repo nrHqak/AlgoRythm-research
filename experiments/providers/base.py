@@ -17,13 +17,16 @@ class CompletionRequest:
 
 @dataclass(frozen=True)
 class ProviderReply:
-    raw_response: str
+    raw_response: str | None
     latency: float
     token_usage: dict[str, Any] = field(default_factory=dict)
     provider: str = "unknown"
     model: str = "unknown"
     timestamp: datetime | None = None
     response_metadata: dict[str, Any] = field(default_factory=dict)
+    raw_provider_response: Any | None = None
+    provider_response_redactions: int = 0
+    http_status: int | None = None
 
 
 class LLMProvider(ABC):
@@ -31,4 +34,4 @@ class LLMProvider(ABC):
 
     @abstractmethod
     def complete(self, request: CompletionRequest) -> ProviderReply:
-        """Return the exact unparsed model text and non-secret request metadata."""
+        """Return unvalidated model content and a credential-safe provider envelope."""

@@ -24,6 +24,7 @@ def args_for(tmp_path):
 
 def response(provider="Z.AI", model="z-ai/glm-5.3-flash"):
     result = Mock()
+    result.status_code = 200
     result.json.return_value = {
         "model": model, "provider": provider,
         "choices": [{"message": {"content": '{"ranking":[{"line":1,"score":1}]}'}, "finish_reason": "stop"}],
@@ -112,3 +113,95 @@ def test_http_503_stops_without_retry_or_coin(tmp_path, monkeypatch):
     assert post.call_count == 2
     coin.assert_not_called()
     assert not args.output.exists()
+
+
+def test_null_content_provider_body_is_saved_before_validation(tmp_path):
+    from experiments.models import load_manifest
+    from experiments.providers.http import OpenAICompatibleProvider
+    from experiments.run_pilot import run_one
+
+    program = load_manifest(ROOT / "data/smoke/manifest.json").included[0]
+    body = {
+        "id": "gen-null-content",
+        "model": "z-ai/glm-5.3-flash",
+        "provider": "Z.AI",
+        "choices": [{
+            "finish_reason": "length",
+            "native_finish_reason": "length",
+            "message": {"content": None, "reasoning": "synthetic reasoning retained"},
+        }],
+        "usage": {
+            "prompt_tokens": 1040,
+            "completion_tokens": 4096,
+            "completion_tokens_details": {"reasoning_tokens": 4095},
+            "cost": 0.002204,
+        },
+    }
+    http_response = Mock(status_code=200)
+    http_response.json.return_value = body
+    provider = OpenAICompatibleProvider(
+        base_url="https://openrouter.ai/api/v1",
+        api_key="synthetic-secret-not-for-storage",
+        provider_name="openrouter",
+        routing={
+            "provider_preferences": {
+                "only": ["z-ai/fp8"],
+                "order": ["z-ai/fp8"],
+                "allow_fallbacks": False,
+                "require_parameters": True,
+            },
+            "expected_provider_name": "Z.AI",
+        },
+    )
+    with patch("experiments.providers.http.requests.post", return_value=http_response):
+        record = run_one(
+            provider=provider,
+            program=program,
+            condition="generic_prior",
+            repetition=1,
+            experiment_name="synthetic-persistence-test",
+            session_id="synthetic-session",
+            system_prompt="synthetic system",
+            user_prompt="synthetic user",
+            shared_prompt_hash="synthetic-shared-hash",
+            prior_hash="synthetic-prior-hash",
+            manifest_hash="synthetic-manifest-hash",
+            model="z-ai/glm-5.3-flash",
+            temperature=0,
+            max_tokens=4096,
+            raw_session_dir=tmp_path / "raw",
+            processed_session_dir=tmp_path / "processed",
+        )
+
+    assert record.status == "provider_failure"
+    assert record.error_type == "MissingCompletionContent"
+    assert record.raw_response is None
+    assert record.raw_response_path is not None
+    raw = json.loads((ROOT / record.raw_response_path).read_text())
+    assert raw["raw_saved_before_parsing"] is True
+    assert raw["provider_response_json"] == body
+    assert raw["http_status"] == 200
+    assert raw["token_usage"]["completion_tokens"] == 4096
+    assert raw["response_metadata"]["finish_reason"] == "length"
+    assert raw["response_metadata"]["reasoning_present"] is True
+    assert "synthetic-secret-not-for-storage" not in json.dumps(raw)
+
+
+def test_provider_response_credential_echo_is_redacted():
+    from experiments.providers.base import CompletionRequest
+    from experiments.providers.http import OpenAICompatibleProvider
+
+    secret = "synthetic-secret-not-for-storage"
+    body = {
+        "model": "snapshot",
+        "choices": [{"message": {"content": "{}"}, "finish_reason": "stop"}],
+        "debug": {"authorization": f"Bearer {secret}", "note": f"echo:{secret}"},
+    }
+    http_response = Mock(status_code=200)
+    http_response.json.return_value = body
+    provider = OpenAICompatibleProvider(base_url="https://offline.invalid/v1", api_key=secret)
+    with patch("experiments.providers.http.requests.post", return_value=http_response):
+        reply = provider.complete(CompletionRequest("system", "user", "snapshot", 0, 1024))
+    retained = json.dumps(reply.raw_provider_response)
+    assert secret not in retained
+    assert reply.provider_response_redactions == 2

@@ -46,3 +46,9 @@ Evidence:
 No scientific metric is reported because there is no valid completed paired
 dataset. B Top-1, C Top-1, delta, Top-3, Top-5, EXAM*, McNemar p-value,
 bootstrap interval, per-pattern results, and null-control drift are unavailable.
+
+Post-VOID technical diagnosis is recorded in
+`pilot/v2/VOID_TECHNICAL_DIAGNOSIS.md`. It finds that 4,096-token exhaustion is
+the likely cause, recommends 16,384 subject to a new explicit amendment and
+stress smoke, and records the adapter persistence fix. No scientific rerun was
+performed.

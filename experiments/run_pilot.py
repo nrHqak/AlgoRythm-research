@@ -288,6 +288,9 @@ def run_one(
         "latency": reply.latency,
         "token_usage": reply.token_usage,
         "response_metadata": reply.response_metadata,
+        "http_status": reply.http_status,
+        "provider_response_json": reply.raw_provider_response,
+        "provider_response_redactions": reply.provider_response_redactions,
         "actual_provider": reply.provider,
         "actual_model": reply.model,
         "prompt_input_fields": [
@@ -314,6 +317,11 @@ def run_one(
         status = "provider_failure"
         error_type = "UnderlyingProviderMismatch"
         error_message = "OpenRouter response provider is missing or differs from the frozen provider pin"
+    elif not isinstance(reply.raw_response, str):
+        parsed = None
+        status = "provider_failure"
+        error_type = "MissingCompletionContent"
+        error_message = "Provider response was retained, but message.content was not a string"
     elif not reply.raw_response.strip() or reply.response_metadata.get("finish_reason") == "length":
         parsed = None
         status = "provider_failure"
