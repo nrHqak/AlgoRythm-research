@@ -202,3 +202,12 @@ Calls 1–3 passed; call 4 returned HTTP 503 UNAVAILABLE/high demand. The proced
 stopped and marked the session VOID. Gate 4: BLOCK; Gate 5: BLOCK; parser failures:
 0; coin flips: 0; scientific calls: 0. No automatic retry. Current evidence is in
 [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).
+
+## Latest OpenRouter attempt
+
+The user authorized OpenRouter / `z-ai/glm-5.3-flash`. Z.AI `z-ai/fp8` was pinned
+with fallbacks disabled before generation. All 12 responses matched the model and
+provider; 11 parsed successfully, while call 12 exhausted max_tokens=1024 and
+returned null completion text. The session is VOID. Gate 4: BLOCK; Gate 5: BLOCK;
+parser failures: 0; coin flips: 0; scientific calls: 0. Generation settings and
+scientific inputs remain unchanged. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).

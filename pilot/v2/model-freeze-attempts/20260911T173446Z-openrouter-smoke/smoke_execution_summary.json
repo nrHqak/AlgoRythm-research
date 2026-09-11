@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-09-11T17:39:58.166691+00:00",
+  "procedure": "Registered experiments.model_preflight.run; transport provider pin added by committed ac28ebf before live generation",
+  "observation": "HTTP arguments/responses unmodified by observer; authorization headers not retained",
+  "scientific_candidate_calls": 0,
+  "status": "BLOCK",
+  "error_type": "SafetyViolation",
+  "error_message": "smoke call failed: provider_failure/ValueError",
+  "http_exchanges_attempted": 12,
+  "session_order": null,
+  "coin_flips": 0,
+  "finished_at": "2026-09-11T17:41:14.466201+00:00",
+  "new_smoke_sessions": [
+    "20260911T173958167354Z"
+  ],
+  "assets_unchanged": true
+}

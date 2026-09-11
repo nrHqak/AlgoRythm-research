@@ -1,0 +1,67 @@
+{
+  "run_id": "0979b296-72b7-4a53-9d16-38a64b9818f6",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "576862a75e1b9bf9fef87d6c11fb08bf41efde608ab7119203d4f912f166078d",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-search",
+  "task_id": "smoke-search",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:32.894779Z",
+  "latency": 9.66312120796647,
+  "token_usage": {
+    "prompt_tokens": 870,
+    "completion_tokens": 722,
+    "total_tokens": 1592,
+    "cost": 0.00040702,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 704,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00040702,
+      "upstream_inference_prompt_cost": 4.602e-05,
+      "upstream_inference_completions_cost": 0.000361
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 659,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 3, \"score\": 0.95, \"reason\": \"Loop uses low < high, skipping the low == high case; single remaining element (e.g., last item) is never checked, returning -1 wrongly. Should be low <= high.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T173958167354Z/raw/0979b296-72b7-4a53-9d16-38a64b9818f6.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 3,
+        "score": 0.95,
+        "reason": "Loop uses low < high, skipping the low == high case; single remaining element (e.g., last item) is never checked, returning -1 wrongly. Should be low <= high."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 11,
+  "loc": 11,
+  "evaluation_denominator": 11,
+  "faulty_lines": [
+    3
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0defb5a5f213843a4cb79f72faa16217a411051b5697e955c1e2d368dd412c24",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3705,
+  "prompt_tokens_estimate": 927,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

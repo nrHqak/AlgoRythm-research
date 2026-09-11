@@ -1,0 +1,67 @@
+{
+  "run_id": "0b5d66b6-49c7-4f81-95c6-f9707d8941a1",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "e15d00e7c976edda8942df370ed469570cf92205bdcc28b5fd0df2fefc03218b",
+  "experiment_name": "smoke_freeze_P",
+  "program_id": "smoke-count",
+  "task_id": "smoke-count",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:48.237295Z",
+  "latency": 4.803790375008248,
+  "token_usage": {
+    "prompt_tokens": 809,
+    "completion_tokens": 448,
+    "total_tokens": 1257,
+    "cost": 0.00026855,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 640,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00026855,
+      "upstream_inference_prompt_cost": 4.455e-05,
+      "upstream_inference_completions_cost": 0.000224
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 395,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 4, \"score\": 0.97, \"reason\": \"Count increments by 2 instead of 1, so every value's count is doubled; get() default and lookup order are otherwise correct.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T173958167354Z/raw/0b5d66b6-49c7-4f81-95c6-f9707d8941a1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 4,
+        "score": 0.97,
+        "reason": "Count increments by 2 instead of 1, so every value's count is doubled; get() default and lookup order are otherwise correct."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "hash_map_counting",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "44653899ef3c3bd8044d694b36fb4a801b4b25bedd1411fa62ca3a1fd8e0acd2",
+  "prior_hash": "8eb5daf0768ff295cf803eca9b46cf3ad6476de95560fbbf7f6460e7638039c1",
+  "prompt_chars": 3497,
+  "prompt_tokens_estimate": 875,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

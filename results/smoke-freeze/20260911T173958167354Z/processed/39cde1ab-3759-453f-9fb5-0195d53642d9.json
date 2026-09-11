@@ -1,0 +1,67 @@
+{
+  "run_id": "39cde1ab-3759-453f-9fb5-0195d53642d9",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "fe2baca8c5126b1e1e5d504060825572a31a9e11c20517238fa4479693e2572a",
+  "experiment_name": "smoke_freeze_P",
+  "program_id": "smoke-sum",
+  "task_id": "smoke-sum",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:39.778907Z",
+  "latency": 3.9221199579769745,
+  "token_usage": {
+    "prompt_tokens": 804,
+    "completion_tokens": 364,
+    "total_tokens": 1168,
+    "cost": 0.00023348,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 576,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00023348,
+      "upstream_inference_prompt_cost": 5.148e-05,
+      "upstream_inference_completions_cost": 0.000182
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 313,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 2, \"score\": 0.95, \"reason\": \"Accumulator initialized to 1 instead of 0, so every sum is off by one (empty input returns 1).\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T173958167354Z/raw/39cde1ab-3759-453f-9fb5-0195d53642d9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 2,
+        "score": 0.95,
+        "reason": "Accumulator initialized to 1 instead of 0, so every sum is off by one (empty input returns 1)."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "643f4f7eb8e8beab99f27653804ccd9d432616615b9364afe2ad4a06193cfe69",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 3519,
+  "prompt_tokens_estimate": 880,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

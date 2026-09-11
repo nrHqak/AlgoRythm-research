@@ -1,0 +1,56 @@
+{
+  "recorded_at": "2026-09-11T17:39:58.159195+00:00",
+  "base_commit": "ac28ebf8e0c8047905788913a75c7d7d5fcc015d",
+  "authorization": "User explicitly authorized OpenRouter smoke/model freeze, one pinned provider and disabled fallbacks; no scientific calls.",
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "timeout": 120.0,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "scientific_repetitions": 5,
+  "registered_smoke_call_target": 12,
+  "asset_sha256": {
+    "data/smoke/manifest.json": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke/smoke-sum/buggy.py": "e95a2139e7a3cde614760c390f80e94d38da8b16e1bc2bcbd4426674ac2cd348",
+    "data/smoke/smoke-sum/fixed.py": "a014d6cc8899fdf216a1bd2dfe2646788aa8697beaa7f104fd72f9360717d11f",
+    "data/smoke/smoke-sum/tests.json": "559ede8f00f9d6b9d04627aaac3ab45a84bcf8b198778fd1b71e449c305d89a7",
+    "data/smoke/smoke-count/buggy.py": "01f7f3a707417977a58b57bfedf17108973db07adae39b8d26b7b44db3fbe7f2",
+    "data/smoke/smoke-count/fixed.py": "955c6466d575c9d7399cba3080ef696c5111344461fa31032be6afb49eca8fb4",
+    "data/smoke/smoke-count/tests.json": "62894549b1805bb64057425c9900d553b3298801e6a69f936f93cc43bbea3333",
+    "data/smoke/smoke-search/buggy.py": "8f876707b0c9f4350249d1a7ffdb38febae9ca2ce886a18baf8a378e4bf40770",
+    "data/smoke/smoke-search/fixed.py": "d69ae1a66eb9ef6ba4a612fe39e438bcb3adbe159d5f886088c7df2235266970",
+    "data/smoke/smoke-search/tests.json": "c29c82a8dc1439ee3e4c7c0a03d389a9e6ccb7a421c424c937a3fb955f40c1a1",
+    "data/manifests/pilot_manifest_v2_1.json": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+    "pilot/v2/config/pilot_v2_generic.yaml": "2b794605b89f854f0ad9968c71f7a9990c0ea7bd43b2c855f659004f871722a4",
+    "pilot/v2/config/pilot_v2_pattern.yaml": "54a554b5345b0591e4f831e02fd37df057d5b54827ba6f4ca3ec20329e6909e8",
+    "experiments/providers/http.py": "d66d6ce21543bdd38f8b60cf566786fb11819e2e98d1e31776a2ddf1e843fd44",
+    "experiments/providers/routing.py": "8dbb79323a264dd6046644c1a7552292a80ebfaa677fb6a59cfb4040ebdea020",
+    "experiments/model_preflight.py": "43724949b7c3e9fa622951482af8dcd5a4d576b2d1f2ac96b9d23f462062fff4",
+    "experiments/run_pilot.py": "af5a433b3988ffaf59cda2394225f19e426a981a4ab3f3ee7361449dac343554",
+    "experiments/health.py": "0ee361a1e3b05ddcb60dad38f3f61a80692b8a7e77f2659ebdbade4a66d30f05",
+    "analysis/compare_v2_sessions.py": "72c7e9cd0735cd9d087e05d9c57cd79209e79e8d07c0addb7b8fbb4a8698bda5"
+  },
+  "offline_tests": "74 passed in 8.78 seconds",
+  "provider_choice_before_generation": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json"
+}

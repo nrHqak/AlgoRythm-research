@@ -1,0 +1,97 @@
+{
+  "recorded_at": "2026-09-11T17:43:34.517235+00:00",
+  "status": "BLOCKED",
+  "gate4": "BLOCK",
+  "gate5": "BLOCK",
+  "provider": "OpenRouter",
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "timeout": 120.0,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "scientific_repetitions": 5,
+  "requested_model": "z-ai/glm-5.3-flash",
+  "returned_models": [
+    "z-ai/glm-5.3-flash"
+  ],
+  "underlying_provider": "Z.AI",
+  "endpoint_tag": "z-ai/fp8",
+  "returned_underlying_providers": [
+    "Z.AI"
+  ],
+  "authentication_verified": true,
+  "provider_fallbacks_disabled": true,
+  "require_all_parameters": true,
+  "smoke_calls_attempted": 12,
+  "smoke_calls_with_http_responses": 12,
+  "smoke_calls_completed_successfully": 11,
+  "parser_failures": 0,
+  "provider_failures": 1,
+  "blocker": "Call 12: finish_reason=length and content=null; completion_tokens=1024, reasoning_tokens=1023. Adapter rejected null content before parser. Registered smoke run stopped and marked VOID.",
+  "parameter_rejection_observed": false,
+  "parameters_changed_after_smoke": false,
+  "automatic_retries": 0,
+  "model_switches_during_smoke": 0,
+  "coin_flips": 0,
+  "frozen_session_order": null,
+  "passing_freeze_created": false,
+  "scientific_candidate_calls": 0,
+  "full_pilot_authorized": false,
+  "smoke_session_path": "results/smoke-freeze/20260911T173958167354Z",
+  "estimated_full_pilot_cost_usd": 0.401211,
+  "cost_assumptions": "No prompt caching discounts, extra tools, fees, tax, retries or price changes. Input tokenization is approximate; actual reasoning/output billing may vary. This is a planning estimate, not a guaranteed cap.",
+  "smoke_reported_cost_usd": 0.00365405,
+  "transport_guard_commit": "ac28ebf8e0c8047905788913a75c7d7d5fcc015d",
+  "offline_tests": "74 passed in 8.78 seconds before live smoke",
+  "assets_unchanged": true,
+  "evidence_sha256": {
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/full_pilot_cost_estimate.json": "01fa377e0af13276624b18ceee3d52a6ebd5fb956649789fc45343bd8175656b",
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json": "122bc517506b2e08c3df261af6baf17e89dda05db51d28a7ee0999a7e2f917b6",
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/attempt_start.json": "dc16935be9dbe46c7908a0a5e8fdaffac2cc3a78b99a47cdbbad195c734a88b0",
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/smoke_http_exchanges.json": "62034a594f81e56ff99d6e7f817e0350fd32c55a02db51f61d6096438dd47d1c",
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/provider_metadata.json": "cee4a7890dd516b1e6976cdd729e33af62199aa0b16aad991ed718ec40c4e5c5",
+    "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/smoke_execution_summary.json": "5f0f35f5a0b7cb321e01ff43a12841509234acdfa6305ba1eb55f32f361cff46",
+    "results/smoke-freeze/20260911T173958167354Z/session_manifest.json": "10df6e38dcd69864fbdf7fada87991d65342c1ab09a913f5a007a9f18b5c2a1b",
+    "results/smoke-freeze/20260911T173958167354Z/VOID.json": "84952d158acc8cb2ea6a88d0d0036206ceb11a0028fdfd6314be225a276497b6",
+    "results/smoke-freeze/20260911T173958167354Z/processed/0979b296-72b7-4a53-9d16-38a64b9818f6.json": "f83cee8a75ac6d0da6f859abfa8ac7eec2fdda299f9a0de5e26b19524f0d110a",
+    "results/smoke-freeze/20260911T173958167354Z/processed/6a3c48b9-3b97-4f6f-a7b0-df6db055b0e4.json": "89387467920db329bc8786014d28daa50fb1fff728bdf4aa30f437b5b6e83a6d",
+    "results/smoke-freeze/20260911T173958167354Z/processed/39cde1ab-3759-453f-9fb5-0195d53642d9.json": "d43f9aca4806e35331d1e63334fba650c28a0b268e8820f335fc8a8e48b58520",
+    "results/smoke-freeze/20260911T173958167354Z/processed/b0932639-1439-4502-a082-0556021ae0b1.json": "8b8065bc503561584075a82ce4c271c45c601cf26ad0aa8d894075c7c56b16a7",
+    "results/smoke-freeze/20260911T173958167354Z/processed/adf2875d-49d7-4ac9-9bc0-135e5a386c1f.json": "6a068661cef73c53f96dbab95474dde2ae7db88952f101c688469f7ebb5807f3",
+    "results/smoke-freeze/20260911T173958167354Z/processed/fc51c8be-e1fe-4e95-9f91-26010b4ba1ce.json": "7db5877b2981f61ce84227c28bc44aa765d8d19cfa51bbe2c0f5b7346c8edb04",
+    "results/smoke-freeze/20260911T173958167354Z/processed/4c548c94-440b-4fc5-aaf8-a1c0902faf29.json": "3e01123bbb63b4fd632e360a0b936b90ef8a8b53f3f901088c27b5bf1e3c8312",
+    "results/smoke-freeze/20260911T173958167354Z/processed/0b5d66b6-49c7-4f81-95c6-f9707d8941a1.json": "851643e5f2f3b81498aec4314ca051bb94203bf8770eabfae9d38b87d9bec525",
+    "results/smoke-freeze/20260911T173958167354Z/processed/30eb4992-8352-4cbe-acc8-0fba16c49b89.json": "f4c5e3770d3c4f91ca6d27903f23ee35ba5c0eae70d089e7a3d38e354f6cde64",
+    "results/smoke-freeze/20260911T173958167354Z/processed/87f68c80-5704-45d2-b263-0fd3de0635f0.json": "d6211dc0b4d0b1c4409d572ed6187f0d436f6bdc3f8a1df4a6e5c69d3479ea36",
+    "results/smoke-freeze/20260911T173958167354Z/processed/607c8f17-0934-4a31-9593-00a226a99d21.json": "ef074c78d872fc991f1d1f0777a7e846db8c1813f8df2b779c94824e55ee8dad",
+    "results/smoke-freeze/20260911T173958167354Z/processed/54de7396-1a1e-473d-ba21-f9d72c825ee7.json": "a81a2e26d800cfb04eaa7f2da6562ed530a6b3413c374ff252dee3f2f76b0063",
+    "results/smoke-freeze/20260911T173958167354Z/raw/0979b296-72b7-4a53-9d16-38a64b9818f6.json": "da6943fe8c386bb4bacc9fe9cad58167450c86d455fd8d8e91206fb840862e2f",
+    "results/smoke-freeze/20260911T173958167354Z/raw/6a3c48b9-3b97-4f6f-a7b0-df6db055b0e4.json": "92bc75a9c55061d4870f7135a5e9a328bd9a290fbe72b041021061cffce053c0",
+    "results/smoke-freeze/20260911T173958167354Z/raw/39cde1ab-3759-453f-9fb5-0195d53642d9.json": "26fd61203e1518b59810ac1dd45758129d0a991ba7405dd600f10e90d0ec86cf",
+    "results/smoke-freeze/20260911T173958167354Z/raw/b0932639-1439-4502-a082-0556021ae0b1.json": "2446be00fe412c72a74faccb3a8cdb0a0ee29278195a76f9c9e1d5ea324142b2",
+    "results/smoke-freeze/20260911T173958167354Z/raw/adf2875d-49d7-4ac9-9bc0-135e5a386c1f.json": "ca867e76615064b0c8c084f9d57eed7f3f8d408cd4dd89a33aabca273eb8a7fd",
+    "results/smoke-freeze/20260911T173958167354Z/raw/fc51c8be-e1fe-4e95-9f91-26010b4ba1ce.json": "adf3d9cfd2fff91dfdb3fb19137e70fc6c137795ade1bac0d93093d63c93fa3f",
+    "results/smoke-freeze/20260911T173958167354Z/raw/0b5d66b6-49c7-4f81-95c6-f9707d8941a1.json": "63d9ad76da9460ab474088cb52654c455dedd297112a0d21cc7f18e21b3a15d3",
+    "results/smoke-freeze/20260911T173958167354Z/raw/30eb4992-8352-4cbe-acc8-0fba16c49b89.json": "82c3a0f7bbdc6d4c5ab961712dc10e1c1c292c6544c2a4c50c7615a4dc6a4c42",
+    "results/smoke-freeze/20260911T173958167354Z/raw/87f68c80-5704-45d2-b263-0fd3de0635f0.json": "f861fd31340aedf6fee3edc492c74ca95546032f7480bc101b8934a267a92ad8",
+    "results/smoke-freeze/20260911T173958167354Z/raw/607c8f17-0934-4a31-9593-00a226a99d21.json": "4b1262b5c95d09715f5dd538a617cea7ecf29d5a775e220e42485a980956c7da",
+    "results/smoke-freeze/20260911T173958167354Z/raw/54de7396-1a1e-473d-ba21-f9d72c825ee7.json": "9ce0b8ed14262df35216007594e69a2d3978cbb37cabc4e0d4d61339871a8f51"
+  }
+}

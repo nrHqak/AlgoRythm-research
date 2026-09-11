@@ -1,0 +1,67 @@
+{
+  "run_id": "6a3c48b9-3b97-4f6f-a7b0-df6db055b0e4",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "6d0fe7bee75fd060acebd6bac44f7c7c929ff42d25f1934cd3edbd8247a4a83d",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-sum",
+  "task_id": "smoke-sum",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:08.729324Z",
+  "latency": 5.167370792012662,
+  "token_usage": {
+    "prompt_tokens": 800,
+    "completion_tokens": 401,
+    "total_tokens": 1201,
+    "cost": 0.00025138,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 576,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00025138,
+      "upstream_inference_prompt_cost": 5.088e-05,
+      "upstream_inference_completions_cost": 0.0002005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 357,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 2, \"score\": 0.98, \"reason\": \"result initialized to 1 instead of 0, so sum includes a spurious extra 1\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T173958167354Z/raw/6a3c48b9-3b97-4f6f-a7b0-df6db055b0e4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 2,
+        "score": 0.98,
+        "reason": "result initialized to 1 instead of 0, so sum includes a spurious extra 1"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 5,
+  "loc": 5,
+  "evaluation_denominator": 5,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "643f4f7eb8e8beab99f27653804ccd9d432616615b9364afe2ad4a06193cfe69",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3492,
+  "prompt_tokens_estimate": 873,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "b0932639-1439-4502-a082-0556021ae0b1",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "3957c0aad0ad486b7c91679ff533719673011157b920dd85b3ef76bdef3bf26d",
+  "experiment_name": "smoke_freeze_G",
+  "program_id": "smoke-search",
+  "task_id": "smoke-search",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:23.225660+00:00",
+  "source_line_count": 11,
+  "loc": 11,
+  "evaluation_denominator": 11,
+  "faulty_lines": [
+    3
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0defb5a5f213843a4cb79f72faa16217a411051b5697e955c1e2d368dd412c24",
+  "prior_hash": null,
+  "prompt_chars": 2861,
+  "prompt_tokens_estimate": 716,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: smoke-search\nTask ID: smoke-search\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def search(values, target):\n2:     low, high = 0, len(values) - 1\n3:     while low < high:\n4:         mid = (low + high) // 2\n5:         if values[mid] == target:\n6:             return mid\n7:         if values[mid] < target:\n8:             low = mid + 1\n9:         else:\n10:             high = mid - 1\n11:     return -1\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 3, \"score\": 0.95, \"reason\": \"Loop uses low < high, so the case low == high never checks values[low]; misses target when it's the last remaining candidate.\"}, {\"line\": 2, \"score\": 0.3, \"reason\": \"Inclusive high = len-1 pairs with '<=' condition; with '<' it leaves one element unchecked, though line 3 is the usual fix point.\"}]}",
+  "latency": 6.397752917022444,
+  "token_usage": {
+    "prompt_tokens": 707,
+    "completion_tokens": 630,
+    "total_tokens": 1337,
+    "cost": 0.00038265,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00038265,
+      "upstream_inference_prompt_cost": 6.765e-05,
+      "upstream_inference_completions_cost": 0.000315
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 526,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789148417-PRaz0FxVvTCjw43ZZrGT",
+    "provider_created": 1789148417,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

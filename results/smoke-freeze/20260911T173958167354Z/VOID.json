@@ -1,0 +1,6 @@
+{
+  "status": "VOID",
+  "engineering_only": true,
+  "reason": "smoke call failed: provider_failure/ValueError",
+  "calls": 12
+}

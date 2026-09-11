@@ -1,0 +1,72 @@
+{
+  "run_id": "adf2875d-49d7-4ac9-9bc0-135e5a386c1f",
+  "session_id": "20260911T173958167354Z",
+  "execution_key": "51f464b987d2c22b73a62132d666edbc9db2c72c1c090b400df51c74c00ab64e",
+  "experiment_name": "smoke_freeze_P",
+  "program_id": "smoke-search",
+  "task_id": "smoke-search",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timestamp": "2026-09-11T17:40:59.092085Z",
+  "latency": 10.847710375033785,
+  "token_usage": {
+    "prompt_tokens": 707,
+    "completion_tokens": 973,
+    "total_tokens": 1680,
+    "cost": 0.00050807,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 704,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00050807,
+      "upstream_inference_prompt_cost": 2.157e-05,
+      "upstream_inference_completions_cost": 0.0004865
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 873,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 3, \"score\": 0.95, \"reason\": \"Loop exits when low == high, skipping the last remaining element; inclusive bounds need low <= high, so present targets are missed.\"}, {\"line\": 2, \"score\": 0.15, \"reason\": \"high = len(values) - 1 sets inclusive bounds; if a half-open scheme was intended this line would be wrong instead of line 3.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T173958167354Z/raw/adf2875d-49d7-4ac9-9bc0-135e5a386c1f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 3,
+        "score": 0.95,
+        "reason": "Loop exits when low == high, skipping the last remaining element; inclusive bounds need low <= high, so present targets are missed."
+      },
+      {
+        "line": 2,
+        "score": 0.15,
+        "reason": "high = len(values) - 1 sets inclusive bounds; if a half-open scheme was intended this line would be wrong instead of line 3."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 11,
+  "loc": 11,
+  "evaluation_denominator": 11,
+  "faulty_lines": [
+    3
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0defb5a5f213843a4cb79f72faa16217a411051b5697e955c1e2d368dd412c24",
+  "prior_hash": null,
+  "prompt_chars": 2861,
+  "prompt_tokens_estimate": 716,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}
