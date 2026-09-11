@@ -73,3 +73,9 @@ For the fresh post-amendment smoke, generation settings differ from the earlier
 VOID attempt only in `max_tokens=4096`. Temperature remains zero. A passing
 freeze must record 4,096 and the later generic and pattern sessions must both
 use 4,096 exactly.
+
+The fresh attempt passed 12/12 calls with zero parser failures. Every response
+reported exact model `z-ai/glm-5.3-flash`, provider `Z.AI`, and finish reason
+`stop`. Gate 5 then executed its single registered coin flip and froze order
+`G`, then `P`. The passing record is `MODEL_FREEZE_RECORD.json`; the full pilot
+remains unauthorized.

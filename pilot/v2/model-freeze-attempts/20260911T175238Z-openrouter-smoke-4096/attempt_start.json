@@ -1,0 +1,31 @@
+{
+  "status": "STARTED",
+  "engineering_only": true,
+  "purpose": "SMOKE DATA - NEVER SCIENTIFIC DATA",
+  "started_at": "2026-09-11T17:52:38.590550+00:00",
+  "pre_smoke_amendment_commit": "99e7c86fe3b77e4d81e0c116a0258110c5252fef",
+  "amendment": {
+    "old_max_tokens": 1024,
+    "new_max_tokens": 4096,
+    "reason": "1024 output tokens caused a valid smoke response to terminate before a usable completion was produced."
+  },
+  "settings": {
+    "provider": "OpenRouter",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "underlying_provider": "Z.AI",
+    "underlying_provider_endpoint": "z-ai/fp8",
+    "allow_fallbacks": false,
+    "require_parameters": true,
+    "temperature": 0,
+    "max_tokens": 4096,
+    "scientific_repetitions": 5,
+    "timeout_seconds": 120
+  },
+  "smoke_manifest": "data/smoke/manifest.json",
+  "smoke_manifest_sha256": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+  "routing_decision": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json",
+  "routing_decision_sha256": "122bc517506b2e08c3df261af6baf17e89dda05db51d28a7ee0999a7e2f917b6",
+  "automatic_retries": 0,
+  "scientific_candidates_authorized": false
+}

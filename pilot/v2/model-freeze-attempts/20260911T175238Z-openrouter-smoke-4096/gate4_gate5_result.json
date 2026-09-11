@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-09-11T17:53:51.172389+00:00",
+  "http_calls_attempted": 12,
+  "http_200_responses": 12,
+  "parser_successes": 12,
+  "parser_failures": 0,
+  "echoed_models": [
+    "z-ai/glm-5.3-flash"
+  ],
+  "echoed_underlying_providers": [
+    "Z.AI"
+  ],
+  "finish_reasons": [
+    "stop"
+  ],
+  "session_order": [
+    "G",
+    "P"
+  ],
+  "coin_flip_calls": 1,
+  "coin_flip_result": 0,
+  "automatic_retries": 0,
+  "scientific_candidate_calls": 0,
+  "freeze_record": "pilot/v2/MODEL_FREEZE_RECORD.json",
+  "smoke_artifacts": "/Users/sadibeknurmuhambet/Documents/ChatGPT/Algorythm Research/results/smoke-freeze/20260911T175238631073Z"
+}

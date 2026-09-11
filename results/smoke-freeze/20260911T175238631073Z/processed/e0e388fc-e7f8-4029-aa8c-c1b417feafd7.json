@@ -1,0 +1,72 @@
+{
+  "run_id": "e0e388fc-e7f8-4029-aa8c-c1b417feafd7",
+  "session_id": "20260911T175238631073Z",
+  "execution_key": "a6937c3aa6807f715483bbd9a4a72ced34a8237d772f00da794b7eeb28826b5d",
+  "experiment_name": "smoke_freeze_P",
+  "program_id": "smoke-search",
+  "task_id": "smoke-search",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 4096,
+  "timestamp": "2026-09-11T17:53:51.160259Z",
+  "latency": 10.134398666967172,
+  "token_usage": {
+    "prompt_tokens": 867,
+    "completion_tokens": 988,
+    "total_tokens": 1855,
+    "cost": 0.00052421,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00052421,
+      "upstream_inference_prompt_cost": 3.021e-05,
+      "upstream_inference_completions_cost": 0.000494
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 891,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 3, \"score\": 0.95, \"reason\": \"Loop condition low < high should be low <= high; a narrowed single-element range is never checked, so targets there return -1.\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"high = mid - 1 is the closed-interval update; only worth noting as alternative off-by-one fix, otherwise correct.\"}]}",
+  "raw_response_path": "results/smoke-freeze/20260911T175238631073Z/raw/e0e388fc-e7f8-4029-aa8c-c1b417feafd7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 3,
+        "score": 0.95,
+        "reason": "Loop condition low < high should be low <= high; a narrowed single-element range is never checked, so targets there return -1."
+      },
+      {
+        "line": 10,
+        "score": 0.2,
+        "reason": "high = mid - 1 is the closed-interval update; only worth noting as alternative off-by-one fix, otherwise correct."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 11,
+  "loc": 11,
+  "evaluation_denominator": 11,
+  "faulty_lines": [
+    3
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "smoke-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0defb5a5f213843a4cb79f72faa16217a411051b5697e955c1e2d368dd412c24",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3680,
+  "prompt_tokens_estimate": 920,
+  "manifest_hash": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066"
+}

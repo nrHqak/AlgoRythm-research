@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "engineering_only": true,
+  "smoke_session_id": "20260911T175238631073Z",
+  "calls_required": 12,
+  "calls_attempted": 12,
+  "http_200_responses": 12,
+  "non_empty_responses": 12,
+  "structured_json_responses": 12,
+  "parser_successes": 12,
+  "parser_failures": 0,
+  "finish_reasons": [
+    "stop"
+  ],
+  "exact_model_requested": "z-ai/glm-5.3-flash",
+  "exact_models_returned": [
+    "z-ai/glm-5.3-flash"
+  ],
+  "pinned_underlying_provider_endpoint": "z-ai/fp8",
+  "underlying_providers_returned": [
+    "Z.AI"
+  ],
+  "fallbacks_enabled": false,
+  "temperature": 0,
+  "max_tokens": 4096,
+  "prompt_tokens_billed": 8939,
+  "completion_tokens_billed": 5801,
+  "smoke_cost_usd": 0.00331207,
+  "automatic_retries": 0,
+  "scientific_candidate_calls": 0,
+  "coin_flip_calls": 1,
+  "frozen_session_order": [
+    "G",
+    "P"
+  ]
+}

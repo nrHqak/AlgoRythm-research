@@ -1,0 +1,15 @@
+{
+  "method": "Offline character-count estimate of all 600 frozen scientific prompts; ceil((system+user chars)/4), matching the repository estimator. No scientific prompt was sent to a provider, and no source or prompt text is retained in this cost artifact.",
+  "scientific_calls": 600,
+  "prompt_tokens_estimated_total": 626740,
+  "prompt_tokens_estimated_mean": 1044.5666666666666,
+  "max_completion_tokens_per_call": 4096,
+  "max_completion_tokens_total": 2457600,
+  "price_usd_per_input_token": 1.5e-7,
+  "price_usd_per_output_token": 5e-7,
+  "estimated_input_cost_usd": 0.094011,
+  "output_cost_at_4096_tokens_each_usd": 1.2288,
+  "planning_estimate_at_output_cap_usd": 1.322811,
+  "assumptions": "No prompt caching discounts, extra tools, fees, tax, retries or price changes. Input tokenization is approximate; actual reasoning and output billing may vary. This is a planning estimate, not a guaranteed cap.",
+  "price_source": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/provider_metadata.json: Z.AI z-ai/fp8 endpoint"
+}

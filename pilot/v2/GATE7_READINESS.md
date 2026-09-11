@@ -2,14 +2,15 @@
 
 Dataset base: `9c837677cd17f52f9b1c8f9cb664f28b84743fe1` on
 `origin/agent/antigravity-data-v2`. Work branch: `agent/codex-gate7`.
-Audit date: 2026-09-10 UTC. No provider selected and no live model calls made.
+Dataset audit date: 2026-09-10 UTC. Model freeze completed 2026-09-11 UTC
+using only the registered smoke fixtures.
 
 | Gate | Result |
 |---|---|
 | Dataset sanity | **PASS** |
 | Test provenance | **PASS** — reproducible third-party archive/mirror |
 | Scientific freeze integrity | **PASS**, within the repository evidence scope below |
-| Model freeze | **WAITING FOR USER** |
+| Model freeze | **READY** — Gate 4 and Gate 5 PASS |
 | Full pilot | **NOT YET AUTHORIZED** |
 
 ## Complete starting state
@@ -117,7 +118,7 @@ establishes the ground-truth commit precedes selection. Its CSV's literal
 postdate v2.1's timestamp, so those row timestamps are not used as chronological
 proof and have been preserved rather than silently corrected.
 
-## Model freeze: waiting for user information
+## Initial model-freeze state before provider selection
 
 Read and retained the requirements in
 [MODEL_FREEZE_PROTOCOL.md](MODEL_FREEZE_PROTOCOL.md) and
@@ -211,3 +212,18 @@ provider; 11 parsed successfully, while call 12 exhausted max_tokens=1024 and
 returned null completion text. The session is VOID. Gate 4: BLOCK; Gate 5: BLOCK;
 parser failures: 0; coin flips: 0; scientific calls: 0. Generation settings and
 scientific inputs remain unchanged. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).
+
+## Passing OpenRouter freeze after pre-results amendment
+
+The authorized pre-results amendment raised only max_tokens from 1,024 to 4,096
+and was committed as `99e7c86fe3b77e4d81e0c116a0258110c5252fef` before a fresh
+smoke attempt. The reason and unchanged settings are frozen in
+[PRE_RESULTS_AMENDMENT_MAX_TOKENS_4096.md](PRE_RESULTS_AMENDMENT_MAX_TOKENS_4096.md).
+
+The fresh registered smoke made exactly 12 calls using only `data/smoke/`.
+All 12 returned non-empty parser-valid JSON with exact model
+`z-ai/glm-5.3-flash`, underlying provider `Z.AI`, temperature 0, max_tokens 4096,
+the pinned `z-ai/fp8` route, and no fallback. Parser failures: 0. After all 12
+passed, one registered coin flip froze session order `G` then `P`. Gate 4: PASS;
+Gate 5: PASS; scientific calls: 0. The model freeze is ready for a separately
+authorized full pilot. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).
