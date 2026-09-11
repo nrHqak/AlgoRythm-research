@@ -11,7 +11,7 @@ using only the registered smoke fixtures.
 | Test provenance | **PASS** — reproducible third-party archive/mirror |
 | Scientific freeze integrity | **PASS**, within the repository evidence scope below |
 | Model freeze | **READY** — Gate 4 and Gate 5 PASS |
-| Full pilot | **NOT YET AUTHORIZED** |
+| Full pilot | **VOID** — stopped after first provider failure |
 
 ## Complete starting state
 
@@ -227,3 +227,12 @@ the pinned `z-ai/fp8` route, and no fallback. Parser failures: 0. After all 12
 passed, one registered coin flip froze session order `G` then `P`. Gate 4: PASS;
 Gate 5: PASS; scientific calls: 0. The model freeze is ready for a separately
 authorized full pilot. See [GATE4_GATE5_STATUS.md](GATE4_GATE5_STATUS.md).
+
+## Full scientific pilot attempt
+
+The later authorized run started session G under the committed freeze. Its first
+call produced null completion content, recorded as a provider failure. The frozen
+first-50 health gate marked the session VOID and stopped execution. Session P did
+not start, no call was retried, and no analysis was run. See
+[FULL_PILOT_STATUS.md](FULL_PILOT_STATUS.md). The experiment is **NOT READY** for
+scientific review.

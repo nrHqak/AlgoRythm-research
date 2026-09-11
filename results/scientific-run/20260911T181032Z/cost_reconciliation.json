@@ -1,0 +1,26 @@
+{
+  "method": "OpenRouter key-level cumulative usage after the stopped scientific attempt, minus the exact billed costs retained for the two earlier OpenRouter smoke attempts made with this key.",
+  "openrouter_key_usage_after_usd": 0.00917012,
+  "openrouter_key_usage_daily_after_usd": 0.00917012,
+  "openrouter_key_usage_weekly_after_usd": 0.00917012,
+  "openrouter_key_usage_monthly_after_usd": 0.00917012,
+  "known_prior_usage": [
+    {
+      "artifact": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/smoke_http_exchanges.json",
+      "calls": 12,
+      "cost_usd": 0.00365405
+    },
+    {
+      "artifact": "pilot/v2/model-freeze-attempts/20260911T175238Z-openrouter-smoke-4096/smoke_http_exchanges.json",
+      "calls": 12,
+      "cost_usd": 0.00331207
+    }
+  ],
+  "known_prior_usage_total_usd": 0.00696612,
+  "scientific_attempt_cost_usd": 0.002204,
+  "arithmetic": "0.00917012 - 0.00365405 - 0.00331207 = 0.00220400",
+  "scientific_calls_attempted": 1,
+  "scientific_calls_successful": 0,
+  "token_usage": null,
+  "limitation": "The provider response body and its usage object were not retained because null completion content caused the frozen adapter to raise before raw-response persistence. The cost reconciliation assumes no unrecorded concurrent use of this API key between the committed smoke attempts and this snapshot."
+}

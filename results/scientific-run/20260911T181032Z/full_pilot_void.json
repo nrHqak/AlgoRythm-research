@@ -1,0 +1,61 @@
+{
+  "status": "VOID",
+  "final_status": "NOT READY",
+  "pre_results_freeze_commit": "ba57dbebf1e03d5e09b9f2c3a6b3255f7633ae64",
+  "scientific_manifest": "data/manifests/pilot_manifest_v2_1.json",
+  "manifest_sha256": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+  "settings": {
+    "provider": "OpenRouter",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "underlying_provider": "Z.AI",
+    "underlying_provider_endpoint": "z-ai/fp8",
+    "fallbacks": false,
+    "temperature": 0,
+    "max_tokens": 4096,
+    "repetitions": 5,
+    "condition_order": "counterbalanced",
+    "session_order": [
+      "G",
+      "P"
+    ]
+  },
+  "session_G": {
+    "session_id": "20260911T181032Z-G",
+    "status": "VOID",
+    "calls_planned": 300,
+    "calls_attempted": 1,
+    "successful_calls": 0,
+    "provider_failures": 1,
+    "parser_failures": 0,
+    "failure_record": "results/processed/algorythm_pattern_prior_pilot_v2_generic/20260911T181032Z-G/177cea9f-c6b3-48a4-b957-b60336875f25.json",
+    "failure_record_sha256": "54e0bef850486215e45fda0e178c9792ecd1a9e1ff7c46da0c0d8e61a714ff49",
+    "failure_type": "ValueError",
+    "failure_message": "provider completion content must be a string",
+    "void_reason": "provider_failure rate >5% within first 50 calls; session is void",
+    "void_record": "results/processed/algorythm_pattern_prior_pilot_v2_generic/20260911T181032Z-G/VOID.json",
+    "void_record_sha256": "10bd8894f094d47c2842400b40246180f009c62272aa2664e6652589ffce7d0a",
+    "raw_response_retained": false,
+    "raw_response_note": "The frozen HTTP adapter rejected null completion content before returning a ProviderReply, so the runner could not write the HTTP response body. The processed failure record was retained. This is a material evidence limitation and the session remains VOID."
+  },
+  "session_P": {
+    "session_id": null,
+    "status": "NOT STARTED",
+    "calls_attempted": 0,
+    "reason": "Frozen policy required stopping after session G became VOID."
+  },
+  "total_scientific_calls_planned": 600,
+  "total_scientific_calls_attempted": 1,
+  "total_successful_calls": 0,
+  "total_provider_failures": 1,
+  "total_parser_failures": 0,
+  "selective_retries": 0,
+  "analysis_executed": false,
+  "analysis_reason": "Both sessions did not complete successfully; scientific analysis of a VOID session is prohibited.",
+  "actual_total_token_usage": null,
+  "actual_token_usage_note": "Unavailable because the frozen adapter discarded the provider response metadata when completion content was null.",
+  "actual_cost_usd": 0.002204,
+  "actual_cost_note": "Reconciled as the post-attempt OpenRouter key usage minus the exact costs of the two earlier committed OpenRouter smoke attempts; see cost_reconciliation.json.",
+  "scientific_inputs_modified": false,
+  "statistical_code_modified": false
+}

@@ -1,0 +1,218 @@
+{
+  "session_id": "20260911T181032Z-G",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "manifest_path": "data/manifests/pilot_manifest_v2_1.json",
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+  "system_prompt_path": "pilot/v2/prompts/system_v2.txt",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "user_template_path": "pilot/prompts/control.txt",
+  "user_template_hash": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+  "priors_path": "pilot/v2/generic_placebo_prior.json",
+  "priors_hash": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 4096,
+  "timeout": 120.0,
+  "base_url": "https://openrouter.ai/api/v1",
+  "model_freeze_hash": "5f3ac0ac8dcab586d4951f6ed07bb04794766797b6f99a91e60d3dc57f9da47e",
+  "repetitions": 5,
+  "condition_order": "counterbalanced",
+  "program_input_hashes": {
+    "38752586": {
+      "buggy_source": "0b14baf7420254ac5c4745d0217501936cd972ca762906b34614ee15f20e85b7",
+      "fixed_source": "b0501b21c64d04d62e758a8e6c855c4337d3aef12aa22f317a73b509c9cb75a3",
+      "tests": "5460b4f679294bc31f9e4b9c6d832a38ee3f5787eb164ba035e883700129424a",
+      "problem_context": null
+    },
+    "45028964": {
+      "buggy_source": "adf8b596968067f4fbba5ce974dc1b495deb147ffe0ee3e919e138d0e755feb3",
+      "fixed_source": "a0779dde63e379dcc66d8e30fb52f58d4b3a7549add11e264c76b4bf9ab49274",
+      "tests": "2db0b2572a90dbcd89585cdd297a6e24af1c44500b92d1fbcbcd18a2df998b37",
+      "problem_context": null
+    },
+    "37220565": {
+      "buggy_source": "87fa216f5e9f2a6345056f6d87d2e9cc593a1be7b1698acdd72a7845847bd70e",
+      "fixed_source": "97042e41c4de210433718d3811e686e53d94e6c787d69616c6797a5f9059910f",
+      "tests": "b478d625b50d749303a841135884f686c957719fd15540d8943f0db7c252c0b5",
+      "problem_context": null
+    },
+    "40932797": {
+      "buggy_source": "c87a8ef1f154963305047274fef610f64f28e02dfec80784a1d09e56b8dd0fd4",
+      "fixed_source": "d3a0b36b8cc3bffe5dd2d072b0638adbc8f4ef7d840f9b64eaa47df95ee1217d",
+      "tests": "0a9dc57039f7d1a404720fd67c1ba86cb18abe0a0491c855ace26001e2e562c6",
+      "problem_context": null
+    },
+    "54957150": {
+      "buggy_source": "7b2b3461db8fdb52e546efea077d31b292ef3365c02d806243a126aff3a39e94",
+      "fixed_source": "95138068f24d89d33c8935228c6e31b2f5af068b0f65d92ad405da023eceec18",
+      "tests": "d2d52f9c4570fe91374760c5f2a285ceb708e419adfea65d613a418122436f37",
+      "problem_context": null
+    },
+    "45763953": {
+      "buggy_source": "6977ab3c7c881446a082168d668c6a1dd0019a27c9fd805adfa4f9d33b693c29",
+      "fixed_source": "224efac1f7d5dd0b1dc26c1b779fe0c72463ad17ada6bba728690498c68bffff",
+      "tests": "eacc1629d37ea4b5a29baf0dc796fdcec4967b7e1d8c85b2d598fec4a373af02",
+      "problem_context": null
+    },
+    "55003503": {
+      "buggy_source": "f2a4420a8799aae515fdce08c56b40611158daeb82ace6936db0440e72c97b30",
+      "fixed_source": "eb4c1217d319c86310b5297377ab90e79a306da50a6d8e3f8cbfa2deb7395deb",
+      "tests": "df27893dacae72a83118cf85d5940bdbf56362f7be1b5e410ad7967807a07107",
+      "problem_context": null
+    },
+    "45723196": {
+      "buggy_source": "c9c261813d2c556d42dd145c5d78ce8f1e2660701827c8a0b6e9bad7c28e786c",
+      "fixed_source": "181484bbaff80db83803abc73ed59832517fceac4f40a88b0f238d405df622eb",
+      "tests": "dcd9ea5eb0e7a3329acd5c0f291b3f4b720d0ba1503f472ba6d1501669bd07a3",
+      "problem_context": null
+    },
+    "52671232": {
+      "buggy_source": "b116d872a36da32a86bb189c8f34277855f8d568bdfc4355f275893deee0abab",
+      "fixed_source": "e0c8ffa036116d1269767c682a68626e5856f2630926354a4ffd78ffc15c2c61",
+      "tests": "f20d725116484d7baf3b95dee6302a4adba2d5bb8c95da4ab4851407a245c6e6",
+      "problem_context": null
+    },
+    "45471607": {
+      "buggy_source": "f0fc893e86cbb87328c06349bf6915ff146367276ca857fa6bc6647fc2243f74",
+      "fixed_source": "b8558429c26e0320237a6dd46db3dd787761b25b8195494b82f5259fd54f6b63",
+      "tests": "f1266b3e753e5ffa29b8572617de4bc2d35c5e549f1130e387c3edd9c4901351",
+      "problem_context": null
+    },
+    "28174907": {
+      "buggy_source": "311e5b51e7a830b8108a3a224bd757bfaa8708a1081cf94382c2cf4149f51283",
+      "fixed_source": "0c72fc8436be31cdbb76c29615719c5ae649b5f29dde44ee551891a223dc14e6",
+      "tests": "bcfb6d2c45ac160c44dde9d00223732c025c71fc3d0c3d9b473be76b80a55012",
+      "problem_context": null
+    },
+    "34050152": {
+      "buggy_source": "d50f2b696a8ca341a88faddec1693d8126707a910e4a4a460b5d08ebf17a4137",
+      "fixed_source": "88d8bda1c357cf5673af602f770eb2e1d4fbc609fafd5bafe3e286cfafd65a6e",
+      "tests": "50c48a143bff48c5badcaabdd2fdf2b914f6bdee0c24710b758e263645253231",
+      "problem_context": null
+    },
+    "43487741": {
+      "buggy_source": "058a8a18dc0fa37431434532750bbcf6bfa4e1c7b3aab1e15d39661342a6b790",
+      "fixed_source": "145d77fdd26c31d37e77811f87e3d823ae7ec614f9980ad9c93505e8f57ef3b7",
+      "tests": "ab9fb89bb6342bd6fa99c7667e9f1260d0876111e4b7604e1aad5289cd980b15",
+      "problem_context": null
+    },
+    "53462819": {
+      "buggy_source": "0e14844d6f9fe29fda927c776c0d7879d5f42dc0c7cf4fa966ccfd98c97e6f87",
+      "fixed_source": "3d7415fb7d532c9508cb520247c3e14036c8975d673ce08593b4aeae599bb6d8",
+      "tests": "3f9ff5a2cfff30e1c62ca946a3e2f6bd93f060aeeea33ccef9e1de45b1a59cf4",
+      "problem_context": null
+    },
+    "41059627": {
+      "buggy_source": "eaa4443cd7a6aabe828c07bfc9132c3c45511543b02bcff2624b6b9b2c1ed5b6",
+      "fixed_source": "52b7941e70b23f77e831d227058745416b051165bc6febd5b2110b250a2abe18",
+      "tests": "ddca29fb931f1a07bf49462df35ffc3899171c535a0ad9dcffbffafa612612c4",
+      "problem_context": null
+    },
+    "46008577": {
+      "buggy_source": "2488dc433e5acc3ee00b5236771f3c2aecc3a8a95a6f145b58a34928b4bead7e",
+      "fixed_source": "6c1e7747fee3c0b594992f33be8afdce5f4ba54ca95dd537106990b9048d1993",
+      "tests": "a85a7d4e39f79cc8b209ecbed7e364261454f082758af4ebe5405c95c069eea9",
+      "problem_context": null
+    },
+    "52742757": {
+      "buggy_source": "080304a5b787a2de4d14f886e873487ee1ba4cc44263bbbc8dfd3a2c83e3f9b2",
+      "fixed_source": "bbdb61cbb18466cd7864c1851222bd0d16e4dcada7adf74a8d50225570e6fd9d",
+      "tests": "2b799a486c09ecbba5c3215431a5305334525de921d249334c0345b79dd5bbbc",
+      "problem_context": null
+    },
+    "46165545": {
+      "buggy_source": "e04269935776c65a8f5a5eeb6268149ebf6170ea2b85979bba184af6c9332c21",
+      "fixed_source": "f3c8e366013cc046a5bc3a615c5123e6b2ed58a62d2be012cc067f53aaaaa2ca",
+      "tests": "bafb5c86eecad408ece8d634fb603b413dd01147e94760856ea3dcb0241aea22",
+      "problem_context": null
+    },
+    "45332649": {
+      "buggy_source": "a615622ebded51d60633637de96e17e0a3b7599616b678a8647fae2712f24b2b",
+      "fixed_source": "9fe35bb0338b7a7d2fd1de86e3f0097ba4fa7859cab31b1d8e049f35a79fb57f",
+      "tests": "455687cc916ff5c40ad8cf04ff9c5ba377faa482030d63d910f26081382c78a9",
+      "problem_context": null
+    },
+    "46026874": {
+      "buggy_source": "7d4c34a9b0d787bff04a5452156284d81724df31df3001da4e84c5c59a60a2fa",
+      "fixed_source": "c68013a036c8022c2cac915555d248c249c3f0aa9784df7d06c4cb3af67ddb82",
+      "tests": "f712a7b21c304752c1b3f3cb4edb89171e4a62a03ab4fa140f72a12e64a2eee9",
+      "problem_context": null
+    },
+    "39342455": {
+      "buggy_source": "914e368ec32883e36ca39a128c979d889529b641c5a42b7002ec521443c819d5",
+      "fixed_source": "26f1a27a3aa61eefd7adab64476c35a53e25e44f66734f57c27862f1f4d191e9",
+      "tests": "c300e666f89e9f6d51783e0860e0170022510df66553fef7861d0abdc0d608f1",
+      "problem_context": null
+    },
+    "45966660": {
+      "buggy_source": "d0fc0b51893f81c9d33ce3820155ec7e4fef0e261a649932f789d29efade3403",
+      "fixed_source": "9eb19b3249734fa397b2b72d7256a714e180c27c81b47c4e620b1e483b3b28f9",
+      "tests": "3c6fde9d69f14ec1d551438ca34b3085db1860ba30bfa0dbde793ad6af2b071c",
+      "problem_context": null
+    },
+    "45104462": {
+      "buggy_source": "01d73fb67fa36b8ef99b6b50335b7473ff2e19e2bcd3e2ec7530c1a02d1bf76a",
+      "fixed_source": "14b32c7d70f8174d3057545a9d59653f031951b154471b67518d3e0ed54dd75f",
+      "tests": "c37f2169f109b6a96a5e5b31ae306ea209b1f6f349f9243cc04b002e3a307b32",
+      "problem_context": null
+    },
+    "54769975": {
+      "buggy_source": "a866c52445807d1586ab63c359065022bf1847e2b67b7de755eed0d269cb6976",
+      "fixed_source": "1821371250c7ac76f0e42dc80dae00deeb739a74f4466fe804125378253bec55",
+      "tests": "1382c7ee412e8d2749732b126226f54f5ebb6e6b91a8f44c1da3d2312dedd3c3",
+      "problem_context": null
+    },
+    "43438224": {
+      "buggy_source": "87b5c4a6ba56eb7607f7594289fd4dc25b5c04ccd2c946fd43662bf2645d9f81",
+      "fixed_source": "191fa390e7e5105d396ab5315a5c18008e00f32d2907f6e8e8c04c8386d87247",
+      "tests": "49e9217cffc53d9a4613f6175d6164c17bfbf552b2d3068951e3a960bdbc68bb",
+      "problem_context": null
+    },
+    "45282989": {
+      "buggy_source": "0bfa4b0951bffb98c493632496a168ce0bf1caf2e65ee8dc94e5c828938b72b4",
+      "fixed_source": "e65120adbf153a83df7e2462213f8c62b09ad5fa367f3201a0f439b9b4f946b2",
+      "tests": "513ed8bb4cc3922f7fdea8bc25a889dcc5b4129accfd288a7c6af1f13bdf278d",
+      "problem_context": null
+    },
+    "42828291": {
+      "buggy_source": "45279ed573bc33e90a813ffc771a22543396ec12cd2202e2fa9ac973888e17ea",
+      "fixed_source": "60dbe26eb631b8f93d6b8778489efa24bd8ad32dcdbdbcbb8e099777bb5cbe5d",
+      "tests": "4fd5a6cd015fafca0733c4a49640acb4b21de1574cd2cae87ba606f64c9b40da",
+      "problem_context": null
+    },
+    "45270856": {
+      "buggy_source": "7a50bf57ee182bd62fa70c0f75da4ecd1814539b0d270c018f7d1421cd8fdb5e",
+      "fixed_source": "cb2f8d3bc709c56fddad3baf08f927dd48b880a7bee394d1b24ec543a2ef4ee6",
+      "tests": "fe1be2faf7a725221c427aff0934f12085a343e223d97e4c5eaa765a7bc47c05",
+      "problem_context": null
+    },
+    "46028780": {
+      "buggy_source": "3819a4573ec1dbf177f75a67c38d1b2cff8100451c6cbcbbe26a648af9623a16",
+      "fixed_source": "ceb72e607f13aa04970d0c3292bba0ec79e56583b40d644cd8bb032c771533ad",
+      "tests": "4a6f4085c9a0fa5b19e59fb01ab2e1e5f6293c67ed66030ce5f0d4fccb7ddf3d",
+      "problem_context": null
+    },
+    "45044587": {
+      "buggy_source": "2ed1ec09a4299444a0d62d5a8a26bc5c28b3183d7ac34217eeaf4ff1aa18c92d",
+      "fixed_source": "08b907e78cf3997e51af1812149c9e60872e56940b334d040993f32600d71efd",
+      "tests": "8fe4482d62bde808ef4280bd317ce12b294930303f8f5a6c95db0b36957ab6c3",
+      "problem_context": null
+    }
+  },
+  "run_command": ".venv/bin/python -m experiments.run_pilot --config pilot/v2/config/pilot_v2_generic.yaml --manifest data/manifests/pilot_manifest_v2_1.json --system-prompt pilot/v2/prompts/system_v2.txt --user-template pilot/prompts/control.txt --priors pilot/v2/generic_placebo_prior.json --provider openai_compatible --model z-ai/glm-5.3-flash --temperature 0.0 --max-tokens 4096 --condition-order counterbalanced --timeout 120.0 --output-root '/Users/sadibeknurmuhambet/Documents/ChatGPT/Algorythm Research/results' --experiment-log '/Users/sadibeknurmuhambet/Documents/ChatGPT/Algorythm Research/EXPERIMENT_LOG.md' --provider-label openrouter --base-url https://openrouter.ai/api/v1 --repetitions 5 --session-id 20260911T181032Z-G --model-freeze pilot/v2/MODEL_FREEZE_RECORD.json --openrouter-provider z-ai/fp8 --openrouter-provider-name Z.AI",
+  "engineering_only": false,
+  "openrouter_routing": {
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_provider_name": "Z.AI"
+  }
+}
