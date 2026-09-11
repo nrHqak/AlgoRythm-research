@@ -1,9 +1,15 @@
 # OpenRouter model freeze
 
 The user authorized changing provider from Gemini to OpenRouter and requesting
-`z-ai/glm-5.3-flash`, while retaining temperature 0, max_tokens 1024, five
+`z-ai/glm-5.3-flash`, while retaining temperature 0, five
 scientific repetitions, the registered 12-call smoke procedure, and all frozen
 scientific inputs. Earlier Gemini VOID attempts remain preserved.
+
+The first OpenRouter smoke attempt then demonstrated mechanical truncation at
+1,024 output tokens. The pre-results amendment in
+`PRE_RESULTS_AMENDMENT_MAX_TOKENS_4096.md` raises only `max_tokens` to 4,096.
+It was authorized and committed before any scientific candidate call. This
+provider runbook now uses that amended value.
 
 Authenticated registry evidence and the provider choice made before generation
 are in `model-freeze-attempts/20260911T173446Z-openrouter-smoke/`.
@@ -40,7 +46,7 @@ Use a credential provided securely through `OPENROUTER_API_KEY`. No automatic
   --model z-ai/glm-5.3-flash --model-kind pinned \
   --model-reference pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json \
   --openrouter-provider z-ai/fp8 --openrouter-provider-name Z.AI \
-  --temperature 0 --max-tokens 1024 --timeout 120 \
+  --temperature 0 --max-tokens 4096 --timeout 120 \
   --output pilot/v2/MODEL_FREEZE_RECORD.json
 ```
 
@@ -62,3 +68,8 @@ including provider pinning across 12 fixture calls, missing/changed identity,
 changed freeze routing, late provider drift, and HTTP 503 without retries or a
 coin flip. Frozen prompts, priors, datasets, scientific configurations, statistical
 analysis code, and generation settings were not changed.
+
+For the fresh post-amendment smoke, generation settings differ from the earlier
+VOID attempt only in `max_tokens=4096`. Temperature remains zero. A passing
+freeze must record 4,096 and the later generic and pattern sessions must both
+use 4,096 exactly.
