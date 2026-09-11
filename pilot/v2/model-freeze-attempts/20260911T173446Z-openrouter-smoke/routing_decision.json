@@ -1,0 +1,99 @@
+{
+  "recorded_at": "2026-09-11T17:37:52.603835+00:00",
+  "requested_model": "z-ai/glm-5.3-flash",
+  "provider": "openrouter",
+  "selected_endpoint": {
+    "name": "Z.AI | z-ai/glm-5.3-flash-20260826",
+    "model_id": "z-ai/glm-5.3-flash",
+    "model_name": "Z.ai: GLM 5.3 Flash",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.00000015",
+      "completion": "0.0000005",
+      "input_cache_read": "0.00000003",
+      "discount": 0
+    },
+    "provider_name": "Z.AI",
+    "tag": "z-ai/fp8",
+    "quantization": "fp8",
+    "max_completion_tokens": 131072,
+    "max_prompt_tokens": null,
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "tools",
+      "tool_choice",
+      "top_k",
+      "response_format",
+      "reasoning_effort"
+    ],
+    "supports_tool_choice": {
+      "none": false,
+      "auto": true,
+      "required": false,
+      "function": false
+    },
+    "status": 0,
+    "uptime_last_30m": 99.71246006389777,
+    "uptime_last_5m": 99.96720505042224,
+    "uptime_last_1d": 89.41600925504044,
+    "supports_implicit_caching": false,
+    "supports_voice_cloning": false,
+    "latency_last_30m": {
+      "p50": 3368.5,
+      "p75": 5462.75,
+      "p90": 8351.7,
+      "p99": 22513.320000000007
+    },
+    "throughput_last_30m": {
+      "p50": 48,
+      "p75": 68,
+      "p90": 99,
+      "p99": 134
+    },
+    "perf_last_30m_by_workload": {
+      "text_generation": {
+        "latency": {
+          "p50": 3409.5,
+          "p75": 5535.25,
+          "p90": 8225.800000000007,
+          "p99": 26823.840000000026
+        },
+        "throughput": {
+          "p50": 47,
+          "p75": 68,
+          "p90": 101,
+          "p99": 135
+        },
+        "request_count": 112302
+      }
+    }
+  },
+  "selection_reason": "Pin the model publisher Z.AI endpoint, which advertises temperature and max_tokens support; choice made before any OpenRouter smoke generation.",
+  "provider_preferences": {
+    "only": [
+      "z-ai/fp8"
+    ],
+    "order": [
+      "z-ai/fp8"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "expected_completion_provider": "Z.AI",
+  "expected_completion_model": "z-ai/glm-5.3-flash",
+  "model_identity_reference": "https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints",
+  "routing_reference": "https://openrouter.ai/docs/guides/routing/provider-selection",
+  "pin_limit": "Specific model registry ID and exact endpoint tag selected; endpoint name records dated upstream release 20260826. No immutable weights digest is exposed.",
+  "generation_calls_so_far": 0,
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1024,
+    "timeout": 120,
+    "scientific_repetitions": 5
+  },
+  "extra_generation_parameters": []
+}

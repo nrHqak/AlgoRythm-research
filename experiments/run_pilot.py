@@ -23,6 +23,7 @@ from experiments.providers import (
     MockProvider,
     OpenAICompatibleProvider,
 )
+from experiments.providers.routing import routing_settings, add_routing_settings, add_routing_arguments
 from experiments.safety import SafetyViolation, validate_manifest_for_run
 from experiments.storage import (
     canonical_hash,
@@ -72,11 +73,13 @@ def make_provider(args: argparse.Namespace) -> LLMProvider:
             raise SafetyViolation(
                 "base URL must not contain credentials, query parameters, or fragments"
             )
+        routing = routing_settings(args)
         return OpenAICompatibleProvider(
             base_url=args.base_url,
-            api_key=os.environ.get("LLM_API_KEY", ""),
+            api_key=os.environ.get("OPENROUTER_API_KEY" if routing else "LLM_API_KEY", ""),
             provider_name=args.provider_label or args.provider,
             timeout_seconds=args.timeout,
+            routing=routing,
         )
     raise ValueError(f"unsupported provider: {args.provider}")
 
@@ -131,6 +134,9 @@ def shell_command(args: argparse.Namespace, session_id: str) -> str:
     parts.extend(["--session-id", session_id])
     if getattr(args, "model_freeze", None):
         parts.extend(["--model-freeze", str(args.model_freeze)])
+    if getattr(args, "openrouter_provider", None):
+        parts.extend(["--openrouter-provider", args.openrouter_provider,
+                      "--openrouter-provider-name", args.openrouter_provider_name])
     if args.allow_mock:
         parts.append("--allow-mock")
     return " ".join(shlex.quote(part) for part in parts)
@@ -301,6 +307,13 @@ def run_one(
         error_message = (
             f"requested {provider.name}/{model}, received {reply.provider}/{reply.model}"
         )
+    elif (reply.response_metadata.get("expected_underlying_provider") is not None
+          and reply.response_metadata.get("actual_underlying_provider")
+          != reply.response_metadata["expected_underlying_provider"]):
+        parsed = None
+        status = "provider_failure"
+        error_type = "UnderlyingProviderMismatch"
+        error_message = "OpenRouter response provider is missing or differs from the frozen provider pin"
     elif not reply.raw_response.strip() or reply.response_metadata.get("finish_reason") == "length":
         parsed = None
         status = "provider_failure"
@@ -451,6 +464,7 @@ def run(args: argparse.Namespace) -> int:
         "run_command": shell_command(args, session_id),
         "engineering_only": provider.name == "mock",
     }
+    add_routing_settings(session_manifest, args)
     if session_manifest_path.exists():
         existing_session = json.loads(session_manifest_path.read_text(encoding="utf-8"))
         if existing_session != session_manifest:
@@ -564,6 +578,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--priors", type=Path, required=True)
     result.add_argument("--provider", default=os.environ.get("LLM_PROVIDER") or "")
     result.add_argument("--provider-label")
+    add_routing_arguments(result)
     result.add_argument("--base-url", default="")
     result.add_argument("--model", default=os.environ.get("LLM_MODEL") or "")
     result.add_argument(

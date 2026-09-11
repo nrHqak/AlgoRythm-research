@@ -1,0 +1,1988 @@
+{
+  "recorded_at": "2026-09-11T17:34:46.908898+00:00",
+  "credential_source": "Explicit credential in current task user message loaded directly into process memory",
+  "provider": "OpenRouter",
+  "base_url": "https://openrouter.ai/api/v1",
+  "requested_model": "z-ai/glm-5.3-flash",
+  "generation_calls": 0,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://openrouter.ai/api/v1/key",
+      "http_status": 200,
+      "authentication_verified": true,
+      "response_body_retained": false
+    },
+    {
+      "method": "GET",
+      "url": "https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints",
+      "http_status": 200,
+      "response_body": {
+        "data": {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "Z.ai: GLM 5.3 Flash",
+          "created": 1787752741,
+          "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
+          "architecture": {
+            "tokenizer": "Other",
+            "instruct_type": null,
+            "modality": "text+image+video->text",
+            "input_modalities": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output_modalities": [
+              "text"
+            ]
+          },
+          "endpoints": [
+            {
+              "name": "DeepInfra | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.000000075",
+                "completion": "0.00000025",
+                "input_cache_read": "0.000000015",
+                "discount": 0.5
+              },
+              "provider_name": "DeepInfra",
+              "tag": "deepinfra/fp4",
+              "quantization": "fp4",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "repetition_penalty",
+                "top_k",
+                "seed",
+                "min_p",
+                "response_format",
+                "logit_bias",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": null,
+              "uptime_last_5m": null,
+              "uptime_last_1d": 97.19967175376505,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1454,
+                "p75": 2502.5,
+                "p90": 4231,
+                "p99": 11312.500000000013
+              },
+              "throughput_last_30m": {
+                "p50": 21,
+                "p75": 31,
+                "p90": 39,
+                "p99": 51
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1432,
+                    "p75": 2482.5,
+                    "p90": 4171.5,
+                    "p99": 11251.750000000007
+                  },
+                  "throughput": {
+                    "p50": 22,
+                    "p75": 31,
+                    "p90": 39,
+                    "p99": 51
+                  },
+                  "request_count": 1256
+                }
+              }
+            },
+            {
+              "name": "Relace | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000009",
+                "completion": "0.0000003",
+                "input_cache_read": "0.000000018",
+                "discount": 0
+              },
+              "provider_name": "Relace",
+              "tag": "relace/fp4",
+              "quantization": "fp4",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "seed",
+                "top_k",
+                "repetition_penalty",
+                "tools",
+                "tool_choice",
+                "response_format",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.53639402676271,
+              "uptime_last_5m": 99.39878342056868,
+              "uptime_last_1d": 99.48263260705707,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1364,
+                "p75": 2948.25,
+                "p90": 7392.900000000001,
+                "p99": 23995.980000000018
+              },
+              "throughput_last_30m": {
+                "p50": 52,
+                "p75": 72,
+                "p90": 96,
+                "p99": 156
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1345,
+                    "p75": 2930.5,
+                    "p90": 7547.9000000000115,
+                    "p99": 24161.310000000023
+                  },
+                  "throughput": {
+                    "p50": 52,
+                    "p75": 72,
+                    "p90": 97,
+                    "p99": 159.09000000000015
+                  },
+                  "request_count": 103709
+                }
+              }
+            },
+            {
+              "name": "Morph | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.0000001",
+                "completion": "0.00000035",
+                "input_cache_read": "0.00000002",
+                "discount": 0
+              },
+              "provider_name": "Morph",
+              "tag": "morph/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "stop",
+                "top_p",
+                "top_k",
+                "min_p",
+                "frequency_penalty",
+                "presence_penalty",
+                "repetition_penalty",
+                "seed",
+                "logit_bias",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 96.95817490494296,
+              "uptime_last_5m": 99.53488372093024,
+              "uptime_last_1d": 95.07192799164189,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2272,
+                "p75": 3790,
+                "p90": 9603.2,
+                "p99": 44546.57999999998
+              },
+              "throughput_last_30m": {
+                "p50": 13,
+                "p75": 28,
+                "p90": 43,
+                "p99": 68
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2274,
+                    "p75": 3810,
+                    "p90": 9536.000000000004,
+                    "p99": 41286.00000000012
+                  },
+                  "throughput": {
+                    "p50": 13,
+                    "p75": 28,
+                    "p90": 43,
+                    "p99": 68
+                  },
+                  "request_count": 1779
+                }
+              }
+            },
+            {
+              "name": "Wafer | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.0000001",
+                "completion": "0.00000035",
+                "input_cache_read": "0.00000002",
+                "discount": 0
+              },
+              "provider_name": "Wafer",
+              "tag": "wafer",
+              "quantization": "unknown",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "top_k",
+                "min_p",
+                "frequency_penalty",
+                "presence_penalty",
+                "repetition_penalty",
+                "stop",
+                "seed",
+                "max_tokens",
+                "logit_bias",
+                "response_format",
+                "tools",
+                "tool_choice",
+                "structured_outputs",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.75810700771184,
+              "uptime_last_5m": 99.79385307346327,
+              "uptime_last_1d": 99.51995521039959,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 928,
+                "p75": 2520.25,
+                "p90": 5756.700000000002,
+                "p99": 23897.560000000027
+              },
+              "throughput_last_30m": {
+                "p50": 30,
+                "p75": 39,
+                "p90": 47,
+                "p99": 57
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 937,
+                    "p75": 2499,
+                    "p90": 5772.800000000007,
+                    "p99": 23177.75000000001
+                  },
+                  "throughput": {
+                    "p50": 30,
+                    "p75": 39,
+                    "p90": 47,
+                    "p99": 57
+                  },
+                  "request_count": 41548
+                }
+              }
+            },
+            {
+              "name": "StreamLake | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1024000,
+              "pricing": {
+                "prompt": "0.00000011235",
+                "completion": "0.0000003745",
+                "input_cache_read": "0.00000002247",
+                "discount": 0.251
+              },
+              "provider_name": "StreamLake",
+              "tag": "streamlake/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 128000,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "response_format",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.08321249824594,
+              "uptime_last_5m": 99.32907348242811,
+              "uptime_last_1d": 99.12175026219225,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2061.5,
+                "p75": 4676.25,
+                "p90": 7877.700000000002,
+                "p99": 30203.150000000107
+              },
+              "throughput_last_30m": {
+                "p50": 41,
+                "p75": 63,
+                "p90": 91,
+                "p99": 129
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2006.5,
+                    "p75": 4659.25,
+                    "p90": 7825.800000000001,
+                    "p99": 29847.330000000005
+                  },
+                  "throughput": {
+                    "p50": 42,
+                    "p75": 63,
+                    "p90": 91,
+                    "p99": 127
+                  },
+                  "request_count": 20853
+                }
+              }
+            },
+            {
+              "name": "GMICloud | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.0000001125",
+                "completion": "0.000000375",
+                "input_cache_read": "0.0000000225",
+                "discount": 0.25
+              },
+              "provider_name": "GMICloud",
+              "tag": "gmicloud/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "seed",
+                "response_format",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.14582062233069,
+              "uptime_last_5m": 99.44375772558715,
+              "uptime_last_1d": 98.48686716387952,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2694,
+                "p75": 4199,
+                "p90": 6830.700000000002,
+                "p99": 17834.600000000006
+              },
+              "throughput_last_30m": {
+                "p50": 21,
+                "p75": 38,
+                "p90": 56,
+                "p99": 110
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2689.5,
+                    "p75": 4165.75,
+                    "p90": 6784.700000000002,
+                    "p99": 17615.930000000026
+                  },
+                  "throughput": {
+                    "p50": 21,
+                    "p75": 38,
+                    "p90": 57,
+                    "p99": 109
+                  },
+                  "request_count": 11310
+                }
+              }
+            },
+            {
+              "name": "Novita | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.000000132",
+                "completion": "0.00000044",
+                "input_cache_read": "0.0000000264",
+                "discount": 0.12
+              },
+              "provider_name": "Novita",
+              "tag": "novita/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "seed",
+                "top_k",
+                "repetition_penalty",
+                "response_format",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.41583837779937,
+              "uptime_last_5m": 99.39559368297914,
+              "uptime_last_1d": 99.49437257911276,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2399.5,
+                "p75": 4417.25,
+                "p90": 7603.500000000008,
+                "p99": 23812.390000000025
+              },
+              "throughput_last_30m": {
+                "p50": 31,
+                "p75": 49,
+                "p90": 79.90000000000055,
+                "p99": 151
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2463,
+                    "p75": 4588,
+                    "p90": 7938.800000000001,
+                    "p99": 21699.510000000006
+                  },
+                  "throughput": {
+                    "p50": 31,
+                    "p75": 49,
+                    "p90": 79,
+                    "p99": 150
+                  },
+                  "request_count": 96664
+                }
+              }
+            },
+            {
+              "name": "Makora | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000014",
+                "completion": "0.00000047",
+                "input_cache_read": "0.000000024",
+                "discount": 0
+              },
+              "provider_name": "Makora",
+              "tag": "makora",
+              "quantization": "unknown",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "top_k",
+                "frequency_penalty",
+                "presence_penalty",
+                "repetition_penalty",
+                "stop",
+                "max_tokens",
+                "seed",
+                "min_p",
+                "logit_bias",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": false,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.71655328798185,
+              "uptime_last_5m": 99.01558654634947,
+              "uptime_last_1d": 95.99048285514345,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 649,
+                "p75": 1135,
+                "p90": 2069.9000000000005,
+                "p99": 8359.45
+              },
+              "throughput_last_30m": {
+                "p50": 38,
+                "p75": 66,
+                "p90": 86,
+                "p99": 117
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 652.5,
+                    "p75": 1132.25,
+                    "p90": 2057.9000000000005,
+                    "p99": 8246.350000000002
+                  },
+                  "throughput": {
+                    "p50": 38,
+                    "p75": 66,
+                    "p90": 86,
+                    "p99": 118
+                  },
+                  "request_count": 8783
+                }
+              }
+            },
+            {
+              "name": "Crusoe | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Crusoe",
+              "tag": "crusoe/fp4",
+              "quantization": "fp4",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "seed",
+                "min_p",
+                "repetition_penalty",
+                "top_k",
+                "logit_bias",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": -2,
+              "uptime_last_30m": 86.16780045351474,
+              "uptime_last_5m": 86.66666666666667,
+              "uptime_last_1d": 97.41005839141081,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1083,
+                "p75": 3672,
+                "p90": 10746.600000000006,
+                "p99": 41962.62000000001
+              },
+              "throughput_last_30m": {
+                "p50": 114,
+                "p75": 181.5,
+                "p90": 232,
+                "p99": 340.12
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1054,
+                    "p75": 3654,
+                    "p90": 10825,
+                    "p99": 42295.39999999997
+                  },
+                  "throughput": {
+                    "p50": 115,
+                    "p75": 182,
+                    "p90": 232,
+                    "p99": 340.4
+                  },
+                  "request_count": 381
+                }
+              }
+            },
+            {
+              "name": "CoreWeave | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000005",
+                "discount": 0
+              },
+              "provider_name": "CoreWeave",
+              "tag": "coreweave/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "top_k",
+                "repetition_penalty",
+                "frequency_penalty",
+                "presence_penalty",
+                "stop",
+                "seed",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 100,
+              "uptime_last_5m": null,
+              "uptime_last_1d": 99.34598615029495,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 829,
+                "p75": 1636,
+                "p90": 3401.0000000000045,
+                "p99": 14874.20000000007
+              },
+              "throughput_last_30m": {
+                "p50": 129,
+                "p75": 201.5,
+                "p90": 234.20000000000005,
+                "p99": 319.2400000000001
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 821.5,
+                    "p75": 1638,
+                    "p90": 3441.5000000000023,
+                    "p99": 14975.599999999977
+                  },
+                  "throughput": {
+                    "p50": 129,
+                    "p75": 199,
+                    "p90": 230.8,
+                    "p99": 319.41999999999996
+                  },
+                  "request_count": 182
+                }
+              }
+            },
+            {
+              "name": "Sail Research | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Sail Research",
+              "tag": "sail-research/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "top_k",
+                "frequency_penalty",
+                "presence_penalty",
+                "stop",
+                "seed",
+                "max_tokens",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.27066450567261,
+              "uptime_last_5m": 100,
+              "uptime_last_1d": 99.25456542233194,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1528,
+                "p75": 2375.5,
+                "p90": 5066.400000000001,
+                "p99": 12259.370000000023
+              },
+              "throughput_last_30m": {
+                "p50": 22,
+                "p75": 27,
+                "p90": 29,
+                "p99": 32
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1533,
+                    "p75": 2373,
+                    "p90": 5032,
+                    "p99": 11778.6
+                  },
+                  "throughput": {
+                    "p50": 22,
+                    "p75": 27,
+                    "p90": 30,
+                    "p99": 32
+                  },
+                  "request_count": 2441
+                }
+              }
+            },
+            {
+              "name": "NextBit | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "NextBit",
+              "tag": "nextbit/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 128000,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "response_format",
+                "structured_outputs",
+                "repetition_penalty",
+                "seed",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.85846831262776,
+              "uptime_last_5m": 100,
+              "uptime_last_1d": 99.76192687014512,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2156,
+                "p75": 4154.5,
+                "p90": 6722,
+                "p99": 15881.700000000004
+              },
+              "throughput_last_30m": {
+                "p50": 35,
+                "p75": 48,
+                "p90": 79,
+                "p99": 110
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2155.5,
+                    "p75": 4084.75,
+                    "p90": 6619.4000000000015,
+                    "p99": 15675.66
+                  },
+                  "throughput": {
+                    "p50": 35,
+                    "p75": 48,
+                    "p90": 79,
+                    "p99": 110
+                  },
+                  "request_count": 6330
+                }
+              }
+            },
+            {
+              "name": "Fireworks | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Fireworks",
+              "tag": "fireworks",
+              "quantization": "unknown",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "top_k",
+                "repetition_penalty",
+                "logit_bias",
+                "logprobs",
+                "top_logprobs",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 100,
+              "uptime_last_5m": 100,
+              "uptime_last_1d": 99.90108203192437,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1630,
+                "p75": 2922.5,
+                "p90": 4770.900000000001,
+                "p99": 18863.010000000042
+              },
+              "throughput_last_30m": {
+                "p50": 56,
+                "p75": 85,
+                "p90": 98,
+                "p99": 125
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1641,
+                    "p75": 2949.75,
+                    "p90": 4809.900000000001,
+                    "p99": 19248.660000000025
+                  },
+                  "throughput": {
+                    "p50": 57,
+                    "p75": 85,
+                    "p90": 98,
+                    "p99": 125
+                  },
+                  "request_count": 8329
+                }
+              }
+            },
+            {
+              "name": "Phala | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Phala",
+              "tag": "phala/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "seed",
+                "top_k",
+                "min_p",
+                "repetition_penalty",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.568655643422,
+              "uptime_last_5m": 99.76945244956772,
+              "uptime_last_1d": 98.54321835306058,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 4276,
+                "p75": 5982,
+                "p90": 7644,
+                "p99": 16031.879999999983
+              },
+              "throughput_last_30m": {
+                "p50": 20,
+                "p75": 34,
+                "p90": 49,
+                "p99": 104
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 4316,
+                    "p75": 5984.5,
+                    "p90": 7644,
+                    "p99": 15630.600000000084
+                  },
+                  "throughput": {
+                    "p50": 20,
+                    "p75": 34,
+                    "p90": 49,
+                    "p99": 104
+                  },
+                  "request_count": 5471
+                }
+              }
+            },
+            {
+              "name": "Friendli | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Friendli",
+              "tag": "friendli",
+              "quantization": "unknown",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "seed",
+                "top_k",
+                "min_p",
+                "repetition_penalty",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": -5,
+              "uptime_last_30m": 79.19421805320621,
+              "uptime_last_5m": 76.40117994100295,
+              "uptime_last_1d": 93.57879473432799,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2640,
+                "p75": 5344,
+                "p90": 6153,
+                "p99": 8019.879999999999
+              },
+              "throughput_last_30m": {
+                "p50": 76,
+                "p75": 111,
+                "p90": 143,
+                "p99": 225.9399999999996
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2821,
+                    "p75": 5397.75,
+                    "p90": 6166,
+                    "p99": 8022.089999999994
+                  },
+                  "throughput": {
+                    "p50": 75.5,
+                    "p75": 110,
+                    "p90": 142,
+                    "p99": 223.10999999999967
+                  },
+                  "request_count": 5290
+                }
+              }
+            },
+            {
+              "name": "SiliconFlow | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "SiliconFlow",
+              "tag": "siliconflow/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 262144,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "top_k",
+                "frequency_penalty",
+                "max_tokens",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.86043265875784,
+              "uptime_last_5m": 99.59677419354838,
+              "uptime_last_1d": 99.60555149744339,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2339,
+                "p75": 3843.75,
+                "p90": 6185,
+                "p99": 20299.44999999976
+              },
+              "throughput_last_30m": {
+                "p50": 37,
+                "p75": 48,
+                "p90": 71,
+                "p99": 109.34999999999991
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2318,
+                    "p75": 3776,
+                    "p90": 6171.9,
+                    "p99": 21297.71000000005
+                  },
+                  "throughput": {
+                    "p50": 37,
+                    "p75": 48,
+                    "p90": 71,
+                    "p99": 109.73000000000002
+                  },
+                  "request_count": 1428
+                }
+              }
+            },
+            {
+              "name": "DigitalOcean | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "DigitalOcean",
+              "tag": "digitalocean",
+              "quantization": "unknown",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "max_tokens",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 98.30388692579504,
+              "uptime_last_5m": 99.33333333333333,
+              "uptime_last_1d": 95.68388179865336,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2933,
+                "p75": 4332,
+                "p90": 7104,
+                "p99": 36987.7999999999
+              },
+              "throughput_last_30m": {
+                "p50": 12,
+                "p75": 17,
+                "p90": 24,
+                "p99": 42
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2933,
+                    "p75": 4343,
+                    "p90": 7126.000000000005,
+                    "p99": 37516.04000000005
+                  },
+                  "throughput": {
+                    "p50": 12,
+                    "p75": 17,
+                    "p90": 25,
+                    "p99": 42
+                  },
+                  "request_count": 1385
+                }
+              }
+            },
+            {
+              "name": "Together | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048575,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Together",
+              "tag": "together",
+              "quantization": "unknown",
+              "max_completion_tokens": 943717,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "top_k",
+                "repetition_penalty",
+                "logit_bias",
+                "min_p",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.71416289775628,
+              "uptime_last_5m": 99.75749877305927,
+              "uptime_last_1d": 99.7835344814924,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 684,
+                "p75": 1255,
+                "p90": 4170.500000000008,
+                "p99": 35568.420000000006
+              },
+              "throughput_last_30m": {
+                "p50": 63,
+                "p75": 83,
+                "p90": 99,
+                "p99": 125
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 679,
+                    "p75": 1247,
+                    "p90": 4086.9000000000005,
+                    "p99": 36997.060000000005
+                  },
+                  "throughput": {
+                    "p50": 65,
+                    "p75": 84,
+                    "p90": 99,
+                    "p99": 126
+                  },
+                  "request_count": 280826
+                }
+              }
+            },
+            {
+              "name": "Reka | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 262144,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Reka",
+              "tag": "reka/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 235929,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "top_k",
+                "max_tokens",
+                "stop",
+                "seed",
+                "frequency_penalty",
+                "presence_penalty",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.81160956081479,
+              "uptime_last_5m": 99.51807228915662,
+              "uptime_last_1d": 99.4629929194622,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1204,
+                "p75": 2178,
+                "p90": 4011.9000000000005,
+                "p99": 14431.730000000087
+              },
+              "throughput_last_30m": {
+                "p50": 39,
+                "p75": 54,
+                "p90": 69,
+                "p99": 112.09000000000015
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1207,
+                    "p75": 2199.25,
+                    "p90": 4010.800000000001,
+                    "p99": 15018.83000000007
+                  },
+                  "throughput": {
+                    "p50": 39,
+                    "p75": 53,
+                    "p90": 68,
+                    "p99": 112
+                  },
+                  "request_count": 8432
+                }
+              }
+            },
+            {
+              "name": "Parasail | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Parasail",
+              "tag": "parasail/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "frequency_penalty",
+                "presence_penalty",
+                "repetition_penalty",
+                "seed",
+                "stop",
+                "top_k",
+                "logit_bias",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.45075064079091,
+              "uptime_last_5m": 99.93356585284836,
+              "uptime_last_1d": 99.48962069380883,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1047,
+                "p75": 1704,
+                "p90": 3531.600000000002,
+                "p99": 12507.18
+              },
+              "throughput_last_30m": {
+                "p50": 54,
+                "p75": 83,
+                "p90": 114,
+                "p99": 177
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1052,
+                    "p75": 1733,
+                    "p90": 3580,
+                    "p99": 12047.370000000014
+                  },
+                  "throughput": {
+                    "p50": 53,
+                    "p75": 83,
+                    "p90": 113,
+                    "p99": 174.09000000000015
+                  },
+                  "request_count": 54432
+                }
+              }
+            },
+            {
+              "name": "BaseTen | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "BaseTen",
+              "tag": "baseten/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.93344425956738,
+              "uptime_last_5m": 100,
+              "uptime_last_1d": 99.79039483279509,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 899,
+                "p75": 1393,
+                "p90": 2328.9000000000005,
+                "p99": 8190.690000000006
+              },
+              "throughput_last_30m": {
+                "p50": 79,
+                "p75": 114,
+                "p90": 150,
+                "p99": 226.09000000000015
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 903,
+                    "p75": 1390,
+                    "p90": 2291.9000000000005,
+                    "p99": 7833.540000000015
+                  },
+                  "throughput": {
+                    "p50": 81,
+                    "p75": 114.25,
+                    "p90": 150,
+                    "p99": 222
+                  },
+                  "request_count": 11313
+                }
+              }
+            },
+            {
+              "name": "Venice | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Venice",
+              "tag": "venice",
+              "quantization": "unknown",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "stop",
+                "frequency_penalty",
+                "presence_penalty",
+                "top_k",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.43046986236355,
+              "uptime_last_5m": 99.6875,
+              "uptime_last_1d": 97.84341025565068,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 2523,
+                "p75": 4471,
+                "p90": 6770.6,
+                "p99": 21253.199999999968
+              },
+              "throughput_last_30m": {
+                "p50": 21,
+                "p75": 29,
+                "p90": 36,
+                "p99": 69.7199999999998
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 2500,
+                    "p75": 4454.25,
+                    "p90": 6682,
+                    "p99": 19196.44999999991
+                  },
+                  "throughput": {
+                    "p50": 21,
+                    "p75": 29,
+                    "p90": 36,
+                    "p99": 70.44999999999982
+                  },
+                  "request_count": 2156
+                }
+              }
+            },
+            {
+              "name": "Io Net | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 262144,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Io Net",
+              "tag": "io-net/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "tools",
+                "tool_choice",
+                "logprobs",
+                "top_logprobs",
+                "seed",
+                "stop",
+                "min_p",
+                "top_k",
+                "top_p",
+                "presence_penalty",
+                "frequency_penalty",
+                "repetition_penalty",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": null,
+              "uptime_last_5m": null,
+              "uptime_last_1d": null,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": null,
+              "throughput_last_30m": null
+            },
+            {
+              "name": "Cloudflare | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1310720,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Cloudflare",
+              "tag": "cloudflare",
+              "quantization": "unknown",
+              "max_completion_tokens": 1179648,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "top_k",
+                "seed",
+                "repetition_penalty",
+                "frequency_penalty",
+                "presence_penalty",
+                "min_p",
+                "stop",
+                "logit_bias",
+                "logprobs",
+                "top_logprobs",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "tool_choice",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": true,
+                "auto": true,
+                "required": true,
+                "function": true
+              },
+              "status": 0,
+              "uptime_last_30m": 99.50177935943061,
+              "uptime_last_5m": 99.55947136563876,
+              "uptime_last_1d": 99.34613287238531,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 1470,
+                "p75": 2159,
+                "p90": 3880.8,
+                "p99": 12661.67999999995
+              },
+              "throughput_last_30m": {
+                "p50": 47,
+                "p75": 54,
+                "p90": 59,
+                "p99": 64
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 1459,
+                    "p75": 2154.75,
+                    "p90": 3943.4000000000033,
+                    "p99": 12749.690000000006
+                  },
+                  "throughput": {
+                    "p50": 47,
+                    "p75": 54,
+                    "p90": 59,
+                    "p99": 64
+                  },
+                  "request_count": 4838
+                }
+              }
+            },
+            {
+              "name": "Z.AI | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000015",
+                "completion": "0.0000005",
+                "input_cache_read": "0.00000003",
+                "discount": 0
+              },
+              "provider_name": "Z.AI",
+              "tag": "z-ai/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 131072,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "max_tokens",
+                "temperature",
+                "top_p",
+                "tools",
+                "tool_choice",
+                "top_k",
+                "response_format",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": true,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.71246006389777,
+              "uptime_last_5m": 99.96720505042224,
+              "uptime_last_1d": 89.41600925504044,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 3368.5,
+                "p75": 5462.75,
+                "p90": 8351.7,
+                "p99": 22513.320000000007
+              },
+              "throughput_last_30m": {
+                "p50": 48,
+                "p75": 68,
+                "p90": 99,
+                "p99": 134
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 3409.5,
+                    "p75": 5535.25,
+                    "p90": 8225.800000000007,
+                    "p99": 26823.840000000026
+                  },
+                  "throughput": {
+                    "p50": 47,
+                    "p75": 68,
+                    "p90": 101,
+                    "p99": 135
+                  },
+                  "request_count": 112302
+                }
+              }
+            },
+            {
+              "name": "Modal | z-ai/glm-5.3-flash-20260826",
+              "model_id": "z-ai/glm-5.3-flash",
+              "model_name": "Z.ai: GLM 5.3 Flash",
+              "context_length": 1048576,
+              "pricing": {
+                "prompt": "0.00000045",
+                "completion": "0.0000015",
+                "input_cache_read": "0.00000009",
+                "discount": 0
+              },
+              "provider_name": "Modal",
+              "tag": "modal/fp8",
+              "quantization": "fp8",
+              "max_completion_tokens": 943718,
+              "max_prompt_tokens": null,
+              "supported_parameters": [
+                "reasoning",
+                "include_reasoning",
+                "temperature",
+                "top_p",
+                "stop",
+                "max_tokens",
+                "response_format",
+                "structured_outputs",
+                "tools",
+                "reasoning_effort"
+              ],
+              "supports_tool_choice": {
+                "none": false,
+                "auto": false,
+                "required": false,
+                "function": false
+              },
+              "status": 0,
+              "uptime_last_30m": 99.88301813218952,
+              "uptime_last_5m": 99.88851727982163,
+              "uptime_last_1d": 99.89716611583835,
+              "supports_implicit_caching": false,
+              "supports_voice_cloning": false,
+              "latency_last_30m": {
+                "p50": 573,
+                "p75": 948.5,
+                "p90": 1834.800000000001,
+                "p99": 5863.4800000000105
+              },
+              "throughput_last_30m": {
+                "p50": 75,
+                "p75": 97.25,
+                "p90": 121,
+                "p99": 190
+              },
+              "perf_last_30m_by_workload": {
+                "text_generation": {
+                  "latency": {
+                    "p50": 572,
+                    "p75": 939,
+                    "p90": 1826.6000000000022,
+                    "p99": 6738.550000000014
+                  },
+                  "throughput": {
+                    "p50": 74,
+                    "p75": 97,
+                    "p90": 121,
+                    "p99": 189
+                  },
+                  "request_count": 15117
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "status": "PASS"
+}

@@ -19,6 +19,7 @@ class OpenAICompatibleProvider(LLMProvider):
         api_key: str,
         provider_name: str = "openai_compatible",
         timeout_seconds: float = 120.0,
+        routing: dict[str, Any] | None = None,
     ) -> None:
         if not base_url.strip():
             raise ValueError("base_url is required")
@@ -28,6 +29,7 @@ class OpenAICompatibleProvider(LLMProvider):
         self.api_key = api_key
         self.name = provider_name
         self.timeout_seconds = timeout_seconds
+        self.routing = routing
 
     def complete(self, request: CompletionRequest) -> ProviderReply:
         payload = {
@@ -39,6 +41,8 @@ class OpenAICompatibleProvider(LLMProvider):
                 {"role": "user", "content": request.user_prompt},
             ],
         }
+        if self.routing is not None:
+            payload["provider"] = self.routing["provider_preferences"]
         started = time.perf_counter()
         response = requests.post(
             f"{self.base_url}/chat/completions",
@@ -65,6 +69,12 @@ class OpenAICompatibleProvider(LLMProvider):
             "model_identity_exposed": bool(body.get("model")),
             "finish_reason": body.get("choices", [{}])[0].get("finish_reason"),
         }
+        if self.routing is not None:
+            metadata.update(
+                provider_preferences=self.routing["provider_preferences"],
+                expected_underlying_provider=self.routing["expected_provider_name"],
+                actual_underlying_provider=body.get("provider"),
+            )
         return ProviderReply(
             raw_response=raw_response,
             latency=latency,

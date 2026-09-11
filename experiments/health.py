@@ -7,6 +7,8 @@ def assert_session_health(records, *, completed=True):
         raise SafetyViolation('empty session is void')
     if any(r.error_type == 'ModelIdentityMismatch' for r in records):
         raise SafetyViolation('ModelIdentityMismatch: session is void; do not resume')
+    if any(r.error_type == 'UnderlyingProviderMismatch' for r in records):
+        raise SafetyViolation('UnderlyingProviderMismatch: session is void; do not resume')
     # The first-50 gate is evaluated on each chronological prefix, as during execution.
     first = sorted(records, key=lambda r: (r.timestamp, r.run_id))[:50]
     failures = 0

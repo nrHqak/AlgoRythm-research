@@ -13,6 +13,7 @@ from experiments.prompts import build_prompt_pair
 from experiments.run_pilot import make_provider, run_one, load_prior_map, utc_now, append_experiment_log
 from experiments.storage import file_sha256, write_json_new
 from experiments.safety import SafetyViolation
+from experiments.providers.routing import add_routing_settings, add_routing_arguments
 
 ROOT = Path(__file__).resolve().parents[1]
 SMOKE = ROOT / 'data/smoke/manifest.json'
@@ -58,6 +59,7 @@ def validate_freeze(args, repetitions):
     expected = dict(provider=args.provider_label or args.provider, provider_type=args.provider,
                     base_url=args.base_url.rstrip('/'), model=args.model, temperature=args.temperature,
                     max_tokens=args.max_tokens, timeout=args.timeout)
+    add_routing_settings(expected, args)
     if freeze.get('settings') != expected:
         raise SafetyViolation('model/provider/settings differ from committed freeze')
     validate_identity_choice(args.model, freeze['model_kind'], freeze['model_reference'], freeze['accepted_alias_risk'])
@@ -65,6 +67,10 @@ def validate_freeze(args, repetitions):
         raise SafetyViolation('frozen v2 requires temperature 0, >=1024 tokens, 5 repetitions, counterbalanced order')
     if freeze.get('echoed_models') != [args.model] or freeze.get('calls',0) < 10 or freeze.get('parse_successes') != freeze.get('calls'):
         raise SafetyViolation('freeze has insufficient or invalid smoke evidence')
+    if 'openrouter_routing' in expected:
+        name = expected['openrouter_routing']['expected_provider_name']
+        if freeze.get('echoed_underlying_providers') != [name]:
+            raise SafetyViolation('freeze lacks exact underlying provider identity evidence')
     if freeze.get('session_order') not in (['G','P'], ['P','G']):
         raise SafetyViolation('missing session-order coin flip')
     for source in freeze_asset_paths():
@@ -103,9 +109,10 @@ def run(args):
     session_dir = args.artifacts / stamp
     session_dir.mkdir(parents=True, exist_ok=False)
     system, template = SYSTEM.read_text(), TEMPLATE.read_text()
-    records, echoed, finish_reasons = [], set(), set()
+    records, echoed, finish_reasons, underlying = [], set(), set(), set()
     settings = dict(provider=provider.name, provider_type=args.provider, base_url=args.base_url.rstrip('/'),
                     model=args.model, temperature=args.temperature, max_tokens=args.max_tokens, timeout=args.timeout)
+    add_routing_settings(settings, args)
     write_json_new(session_dir/'session_manifest.json', {'engineering_only':True,'purpose':'SMOKE DATA — NEVER SCIENTIFIC DATA','settings':settings})
     try:
         for prior_path, suffix in zip(PRIORS, ('G','P')):
@@ -123,6 +130,12 @@ def run(args):
                     append_experiment_log(args.experiment_log,record)
                     raw = json.loads((ROOT/record.raw_response_path).read_text()) if record.raw_response_path else {}
                     check_smoke_record(record, raw)
+                    if 'openrouter_routing' in settings:
+                        actual = raw['response_metadata'].get('actual_underlying_provider')
+                        expected = settings['openrouter_routing']['expected_provider_name']
+                        if actual != expected:
+                            raise SafetyViolation('underlying provider identity missing or mismatched')
+                        underlying.add(actual)
                     echoed.add(raw['actual_model'])
                     finish_reasons.add(raw['response_metadata'].get('finish_reason'))
     except (ValueError, OSError, KeyError) as exc:
@@ -138,6 +151,8 @@ def run(args):
         'session_order':['G','P'] if secrets.randbits(1)==0 else ['P','G'],
         'coin_flip_method':'one secrets.randbits(1), 0=G first; recorded once after successful mechanical check',
         'asset_hashes':{str(p.relative_to(ROOT)):file_sha256(p) for p in freeze_asset_paths()}}
+    if 'openrouter_routing' in settings:
+        freeze['echoed_underlying_providers'] = sorted(underlying)
     write_json_new(args.output,freeze)
     return freeze
 
@@ -146,6 +161,7 @@ def parser():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--provider',choices=['openai_compatible'],required=True)
     p.add_argument('--provider-label',required=True)
+    add_routing_arguments(p)
     p.add_argument('--base-url',required=True)
     p.add_argument('--model',required=True)
     p.add_argument('--model-kind',choices=['pinned','alias_only'],required=True)
