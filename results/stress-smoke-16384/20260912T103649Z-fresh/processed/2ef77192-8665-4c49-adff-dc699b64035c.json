@@ -1,0 +1,87 @@
+{
+  "run_id": "2ef77192-8665-4c49-adff-dc699b64035c",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "1806f8e835d01121d6bd0bc68c3afea17a06566397ab03d06c5ec0c40bcb6ebf",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "C",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:46:39.280427Z",
+  "latency": 45.51380725001218,
+  "token_usage": {
+    "prompt_tokens": 2623,
+    "completion_tokens": 3801,
+    "total_tokens": 6424,
+    "cost": 0.00200211,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00200211,
+      "upstream_inference_prompt_cost": 0.00010161,
+      "upstream_inference_completions_cost": 0.0019005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3578,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Guard 'used > 1' skips used==1, so a single coupon can never be spent on a non-start cell; should be 'used > 0'.\"}, {\"line\": 91, \"score\": 0.3, \"reason\": \"Coupon transition call sits behind the faulty guard, so discounted option is wrongly unavailable for used==1 states.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Coupon transition reads used-1 predecessor; suspicious-looking, though correct if the guard above is fixed.\"}, {\"line\": 83, \"score\": 0.15, \"reason\": \"Sets all start coupon states to 0, allowing all coupons spent at start; only wrong if spec forbids coupons there.\"}, {\"line\": 75, \"score\": 0.1, \"reason\": \"Strict '<' tie-breaks toward ordinary on equal cost; unlikely fault but affects which path is reconstructed.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/2ef77192-8665-4c49-adff-dc699b64035c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Guard 'used > 1' skips used==1, so a single coupon can never be spent on a non-start cell; should be 'used > 0'."
+      },
+      {
+        "line": 91,
+        "score": 0.3,
+        "reason": "Coupon transition call sits behind the faulty guard, so discounted option is wrongly unavailable for used==1 states."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Coupon transition reads used-1 predecessor; suspicious-looking, though correct if the guard above is fixed."
+      },
+      {
+        "line": 83,
+        "score": 0.15,
+        "reason": "Sets all start coupon states to 0, allowing all coupons spent at start; only wrong if spec forbids coupons there."
+      },
+      {
+        "line": 75,
+        "score": 0.1,
+        "reason": "Strict '<' tie-breaks toward ordinary on equal cost; unlikely fault but affects which path is reconstructed."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 10399,
+  "prompt_tokens_estimate": 2600,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

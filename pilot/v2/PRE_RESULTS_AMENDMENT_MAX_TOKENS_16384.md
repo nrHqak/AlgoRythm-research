@@ -1,7 +1,6 @@
 # Pre-results technical amendment: max_tokens 16384
 
-**Status:** authorized for validation; stress smoke BLOCKED, so this amendment
-is not cleared for a clean scientific rerun.
+**Status:** authorized and validated before any clean scientific rerun.
 
 **Date:** 2026-09-12
 
@@ -9,7 +8,7 @@ is not cleared for a clean scientific rerun.
 
 **Supersedes:** `max_tokens = 4096`
 
-**Proposed amended value:** `max_tokens = 16384`
+**New frozen value:** `max_tokens = 16384`
 
 ## Reason
 
@@ -60,9 +59,18 @@ scientific candidate call.
 
 ## Validation outcome
 
-The single no-retry stress attempt on 2026-09-12 stopped after call 18. Calls
-1-17 completed and parsed; call 18 failed during response transport with
-`ChunkedEncodingError`. No complete response existed for that call, so it was
-not a `content=null` response. Because the registered rule requires 20/20, the
-stress smoke and amendment validation are BLOCKED. Calls 19-20 were not sent,
-and no scientific candidate was sent.
+The attempt at `results/stress-smoke-16384/20260912T090056Z/` is preserved as
+historical evidence and classified as ABORTED / INCOMPLETE DUE TO LOCAL
+EXECUTION INTERRUPTION. Its 17 completed calls are not reused.
+
+One completely fresh attempt at
+`results/stress-smoke-16384/20260912T103649Z-fresh/` then completed all 20
+registered calls. All 20 responses used the exact model and pinned provider,
+reported `finish_reason=stop`, contained non-null content, and parsed
+successfully. Parser, content-null, length, transport, identity, and fallback
+failures were all zero. No scientific candidate was sent.
+
+Average observed cost was US$0.0020021095 per call. The resulting 600-call
+projection is US$1.2012657, below the US$4.50 cost gate. The 16,384-token
+allowance is therefore frozen for the next clean scientific rerun. This
+readiness result does not itself execute any scientific call.

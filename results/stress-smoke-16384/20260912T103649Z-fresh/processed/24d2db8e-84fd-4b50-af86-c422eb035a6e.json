@@ -1,0 +1,82 @@
+{
+  "run_id": "24d2db8e-84fd-4b50-af86-c422eb035a6e",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "b5784e9d783a19f32bcacf5cc64c62fea7dad8a7b31f565b4f99e1a659ed6199",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "C",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:47:53.593296Z",
+  "latency": 36.015373957983684,
+  "token_usage": {
+    "prompt_tokens": 2623,
+    "completion_tokens": 3233,
+    "total_tokens": 5856,
+    "cost": 0.00170275,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00170275,
+      "upstream_inference_prompt_cost": 8.625e-05,
+      "upstream_inference_completions_cost": 0.0016165
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3061,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.96, \"reason\": \"Coupon transition is gated by `used > 1`, so using exactly one coupon is never considered; should be `used > 0`.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Coupon transition reads state used-1; only correct if the faulty used>1 guard feeding it is fixed.\"}, {\"line\": 83, \"score\": 0.12, \"reason\": \"Start cell with coupons initialized to 0; plausible design but could mask or skew coupon usage if unintended.\"}, {\"line\": 75, \"score\": 0.05, \"reason\": \"Tie-break prefers ordinary over discounted transition; cost stays optimal, so unlikely the fault.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/24d2db8e-84fd-4b50-af86-c422eb035a6e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.96,
+        "reason": "Coupon transition is gated by `used > 1`, so using exactly one coupon is never considered; should be `used > 0`."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Coupon transition reads state used-1; only correct if the faulty used>1 guard feeding it is fixed."
+      },
+      {
+        "line": 83,
+        "score": 0.12,
+        "reason": "Start cell with coupons initialized to 0; plausible design but could mask or skew coupon usage if unintended."
+      },
+      {
+        "line": 75,
+        "score": 0.05,
+        "reason": "Tie-break prefers ordinary over discounted transition; cost stays optimal, so unlikely the fault."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 10399,
+  "prompt_tokens_estimate": 2600,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

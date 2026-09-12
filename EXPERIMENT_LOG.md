@@ -87,3 +87,32 @@ provisional projection from 17 completed calls was US$1.238168118, but the
 registered cost gate remains incomplete because the required 20/20 smoke did
 not complete. Evidence: `results/stress-smoke-16384/20260912T090056Z/` and
 `pilot/v2/STRESS_SMOKE_16384_STATUS.md`.
+| 2026-09-12T10:37:26.235501+00:00 | d0119b2a-4eea-4a1c-b40e-a3b01571aa11 | stress_smoke_G/A_G/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/d0119b2a-4eea-4a1c-b40e-a3b01571aa11.json | - |
+| 2026-09-12T10:39:41.294499+00:00 | 07ea4b08-7bdc-4608-9676-db08598609c3 | stress_smoke_G/B/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/07ea4b08-7bdc-4608-9676-db08598609c3.json | - |
+| 2026-09-12T10:40:19.325840+00:00 | 4ff17ed2-9fe9-4614-8186-92331face70b | stress_smoke_G/A_G/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/4ff17ed2-9fe9-4614-8186-92331face70b.json | - |
+| 2026-09-12T10:40:56.416295+00:00 | d48c825c-2e0c-48e0-9d01-efe854405f2d | stress_smoke_G/B/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/d48c825c-2e0c-48e0-9d01-efe854405f2d.json | - |
+| 2026-09-12T10:41:40.169295+00:00 | 7ffe6524-da2d-4e8b-a070-eb6caf919ba5 | stress_smoke_G/A_G/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/7ffe6524-da2d-4e8b-a070-eb6caf919ba5.json | - |
+| 2026-09-12T10:42:01.320829+00:00 | 56bcbb55-0829-4802-b785-b0cfc1f1f6f1 | stress_smoke_G/B/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/56bcbb55-0829-4802-b785-b0cfc1f1f6f1.json | - |
+| 2026-09-12T10:42:24.307265+00:00 | 0f9c94ae-ef6c-4bba-a1cb-3a52f62c0a9c | stress_smoke_G/A_G/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/0f9c94ae-ef6c-4bba-a1cb-3a52f62c0a9c.json | - |
+| 2026-09-12T10:43:14.457275+00:00 | 18dd910f-3b0a-44a6-8de7-a784e42a6231 | stress_smoke_G/B/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/18dd910f-3b0a-44a6-8de7-a784e42a6231.json | - |
+| 2026-09-12T10:44:39.986452+00:00 | 50e01315-57dc-4b3d-85f0-a606dab6bf1c | stress_smoke_G/A_G/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/50e01315-57dc-4b3d-85f0-a606dab6bf1c.json | - |
+| 2026-09-12T10:45:19.056715+00:00 | 62a8e07a-852f-4467-85ef-e43f412bc423 | stress_smoke_G/B/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/62a8e07a-852f-4467-85ef-e43f412bc423.json | - |
+| 2026-09-12T10:45:53.721368+00:00 | 7623bca2-8e75-4819-8102-f9f7bb52729c | stress_smoke_P/A_P/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/7623bca2-8e75-4819-8102-f9f7bb52729c.json | - |
+| 2026-09-12T10:46:39.280427+00:00 | 2ef77192-8665-4c49-adff-dc699b64035c | stress_smoke_P/C/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/2ef77192-8665-4c49-adff-dc699b64035c.json | - |
+| 2026-09-12T10:47:17.570652+00:00 | 7d3311af-4f0f-4da9-9289-6fde81e3302f | stress_smoke_P/A_P/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/7d3311af-4f0f-4da9-9289-6fde81e3302f.json | - |
+| 2026-09-12T10:47:53.593296+00:00 | 24d2db8e-84fd-4b50-af86-c422eb035a6e | stress_smoke_P/C/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/24d2db8e-84fd-4b50-af86-c422eb035a6e.json | - |
+| 2026-09-12T10:48:32.425179+00:00 | a8ba983f-50ad-40a6-88cd-7158dc4687f5 | stress_smoke_P/A_P/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/a8ba983f-50ad-40a6-88cd-7158dc4687f5.json | - |
+| 2026-09-12T10:48:57.197520+00:00 | 76d9ba84-47db-40a4-9e0b-b131ae0f3e25 | stress_smoke_P/C/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/76d9ba84-47db-40a4-9e0b-b131ae0f3e25.json | - |
+| 2026-09-12T10:49:42.261697+00:00 | 68fd6429-4f71-4c7c-880c-b46660fc7276 | stress_smoke_P/A_P/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/68fd6429-4f71-4c7c-880c-b46660fc7276.json | - |
+| 2026-09-12T10:50:12.070886+00:00 | bd22cae3-5002-41d5-aaed-76cfeddc5a97 | stress_smoke_P/C/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/bd22cae3-5002-41d5-aaed-76cfeddc5a97.json | - |
+| 2026-09-12T10:50:58.242287+00:00 | 08205b68-dd34-4726-99ad-382a0be4906d | stress_smoke_P/A_P/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/08205b68-dd34-4726-99ad-382a0be4906d.json | - |
+| 2026-09-12T10:51:46.780888+00:00 | d7fbc862-8c53-4f63-86e0-b075c51b2d2c | stress_smoke_P/C/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T103649Z-fresh/raw/d7fbc862-8c53-4f63-86e0-b075c51b2d2c.json | - |
+
+Fresh stress smoke `20260912T103649Z-fresh` PASS: 20/20 new calls completed in
+frozen G-then-P order with zero parser, content-null, length, transport,
+identity, or fallback failures. Exact model `z-ai/glm-5.3-flash`; pinned
+underlying provider Z.AI (`z-ai/fp8`); temperature 0; max_tokens 16,384. No
+scientific candidate was sent. Average observed cost was US$0.0020021095 per
+call; the 600-call projection is US$1.2012657, below the US$4.50 gate. The
+earlier attempt is preserved and reclassified by user direction as ABORTED /
+INCOMPLETE DUE TO LOCAL EXECUTION INTERRUPTION; none of its calls were reused.

@@ -1,0 +1,82 @@
+{
+  "run_id": "0f9c94ae-ef6c-4bba-a1cb-3a52f62c0a9c",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "37468571f76724514a9667afc3db4d5bced7f59c664b14bdd12f4f0f0044a0cd",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_G",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:42:24.307265Z",
+  "latency": 22.98020649998216,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 1946,
+    "total_tokens": 4400,
+    "cost": 0.00104926,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00104926,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.000973
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1722,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: should be 'if used >= 1'; with 'used > 1' exactly one coupon can never be spent, so states used==1 stay inf for all non-start cells and single-coupon optimal routes are missed.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Sets start cell free for every used>=1; assumes coupon can be spent at start, which interacts with the used==1 gap and may not match intended semantics.\"}, {\"line\": 68, \"score\": 0.12, \"reason\": \"Coupon transition reads predecessor at used-1; correct in itself but is the guarded branch tied to the line 90 off-by-one, so worth checking.\"}, {\"line\": 61, \"score\": 0.1, \"reason\": \"Parent state reuses the queried 'used' level; correct given callers, but a plausible place for state-level mix-ups during coupon bookkeeping.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/0f9c94ae-ef6c-4bba-a1cb-3a52f62c0a9c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: should be 'if used >= 1'; with 'used > 1' exactly one coupon can never be spent, so states used==1 stay inf for all non-start cells and single-coupon optimal routes are missed."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Sets start cell free for every used>=1; assumes coupon can be spent at start, which interacts with the used==1 gap and may not match intended semantics."
+      },
+      {
+        "line": 68,
+        "score": 0.12,
+        "reason": "Coupon transition reads predecessor at used-1; correct in itself but is the guarded branch tied to the line 90 off-by-one, so worth checking."
+      },
+      {
+        "line": 61,
+        "score": 0.1,
+        "reason": "Parent state reuses the queried 'used' level; correct given callers, but a plausible place for state-level mix-ups during coupon bookkeeping."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

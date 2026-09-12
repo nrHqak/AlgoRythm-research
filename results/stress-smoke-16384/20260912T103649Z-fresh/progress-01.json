@@ -1,0 +1,16 @@
+{
+  "session": "G",
+  "arm": "A_G",
+  "repetition": 1,
+  "input_tokens": 2454,
+  "output_tokens": 3161,
+  "reasoning_tokens": 3013,
+  "finish_reason": "stop",
+  "latency_seconds": 36.87822083296487,
+  "cost_usd": 0.0019486,
+  "model": "z-ai/glm-5.3-flash",
+  "provider": "Z.AI",
+  "content_is_null": false,
+  "transport_failure": false,
+  "parser_status": "ok"
+}

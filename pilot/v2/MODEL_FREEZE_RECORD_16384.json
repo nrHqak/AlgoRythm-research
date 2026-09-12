@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "engineering_only": true,
+  "purpose": "STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "date": "2026-09-12T10:53:23.403992+00:00",
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 16384,
+    "timeout": 120.0,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "model_kind": "pinned",
+  "model_reference": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json",
+  "accepted_alias_risk": "",
+  "echoed_models": [
+    "z-ai/glm-5.3-flash"
+  ],
+  "calls": 20,
+  "parse_successes": 20,
+  "finish_reasons": [
+    "stop"
+  ],
+  "artifacts": "/Users/sadibeknurmuhambet/Documents/ChatGPT/Algorythm Research/results/stress-smoke-16384/20260912T103649Z-fresh",
+  "session_order": [
+    "G",
+    "P"
+  ],
+  "coin_flip_method": "inherited unchanged from the committed Gate 5 freeze; no new coin flip performed",
+  "asset_hashes": {
+    "data/smoke/manifest.json": "79b0b96e5e519874fb364be61897b969ec383e504ad24f54372fdd557ccdc066",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke/smoke-sum/buggy.py": "e95a2139e7a3cde614760c390f80e94d38da8b16e1bc2bcbd4426674ac2cd348",
+    "data/smoke/smoke-sum/fixed.py": "a014d6cc8899fdf216a1bd2dfe2646788aa8697beaa7f104fd72f9360717d11f",
+    "data/smoke/smoke-sum/tests.json": "559ede8f00f9d6b9d04627aaac3ab45a84bcf8b198778fd1b71e449c305d89a7",
+    "data/smoke/smoke-count/buggy.py": "01f7f3a707417977a58b57bfedf17108973db07adae39b8d26b7b44db3fbe7f2",
+    "data/smoke/smoke-count/fixed.py": "955c6466d575c9d7399cba3080ef696c5111344461fa31032be6afb49eca8fb4",
+    "data/smoke/smoke-count/tests.json": "62894549b1805bb64057425c9900d553b3298801e6a69f936f93cc43bbea3333",
+    "data/smoke/smoke-search/buggy.py": "8f876707b0c9f4350249d1a7ffdb38febae9ca2ce886a18baf8a378e4bf40770",
+    "data/smoke/smoke-search/fixed.py": "d69ae1a66eb9ef6ba4a612fe39e438bcb3adbe159d5f886088c7df2235266970",
+    "data/smoke/smoke-search/tests.json": "c29c82a8dc1439ee3e4c7c0a03d389a9e6ccb7a421c424c937a3fb955f40c1a1"
+  },
+  "echoed_underlying_providers": [
+    "Z.AI"
+  ],
+  "stress_asset_hashes": {
+    "data/smoke-stress/manifest.json": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
+    "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae"
+  },
+  "stress_result": {
+    "fresh_attempt": "results/stress-smoke-16384/20260912T103649Z-fresh/PASS.json",
+    "historical_incomplete_attempt": "results/stress-smoke-16384/20260912T090056Z/",
+    "historical_classification": "ABORTED / INCOMPLETE DUE TO LOCAL EXECUTION INTERRUPTION",
+    "calls_successful": 20,
+    "parser_failures": 0,
+    "content_null_failures": 0,
+    "length_truncations": 0,
+    "transport_failures": 0,
+    "maximum_output_tokens": 12455,
+    "average_cost_per_call_usd": 0.0020021095,
+    "projected_600_call_cost_usd": 1.2012657,
+    "cost_gate_usd": 4.5,
+    "scientific_candidates_sent": 0
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "run_id": "18dd910f-3b0a-44a6-8de7-a784e42a6231",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "0849bcfe3b007e96380339711ca27f22fc23b8efb915b5ccaabc9105d5d22e0e",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:43:14.457275Z",
+  "latency": 50.14102045900654,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 4238,
+    "total_tokens": 6874,
+    "cost": 0.00219952,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00219952,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.002119
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4043,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Gate `used > 1` blocks spending the first coupon: coupon use needs used >= 1, so used==1 never gets a discounted transition; should be `used > 0`.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Start states for used>=1 all set to cost 0, claiming phantom coupon usage at start; benign for min cost but suspicious initialization.\"}, {\"line\": 127, \"score\": 0.1, \"reason\": \"Manual used decrement while stored predecessor used is discarded; currently consistent, but a fragile state-update ordering worth checking.\"}, {\"line\": 75, \"score\": 0.05, \"reason\": \"Strict comparison favors ordinary on ties; direction looks correct but tie-handling is a classic spot for subtle DP errors.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/18dd910f-3b0a-44a6-8de7-a784e42a6231.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Gate `used > 1` blocks spending the first coupon: coupon use needs used >= 1, so used==1 never gets a discounted transition; should be `used > 0`."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Start states for used>=1 all set to cost 0, claiming phantom coupon usage at start; benign for min cost but suspicious initialization."
+      },
+      {
+        "line": 127,
+        "score": 0.1,
+        "reason": "Manual used decrement while stored predecessor used is discarded; currently consistent, but a fragile state-update ordering worth checking."
+      },
+      {
+        "line": 75,
+        "score": 0.05,
+        "reason": "Strict comparison favors ordinary on ties; direction looks correct but tie-handling is a classic spot for subtle DP errors."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

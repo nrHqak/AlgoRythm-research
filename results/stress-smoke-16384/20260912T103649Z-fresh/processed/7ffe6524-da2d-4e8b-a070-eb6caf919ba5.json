@@ -1,0 +1,82 @@
+{
+  "run_id": "7ffe6524-da2d-4e8b-a070-eb6caf919ba5",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "2f0a1019bd5fd95672f336b68e4e0a89484152d70a23132197aab8c524edcf45",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_G",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:41:40.169295Z",
+  "latency": 43.74246620800113,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 3707,
+    "total_tokens": 6161,
+    "cost": 0.00192976,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00192976,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.0018535
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3504,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one guard: coupon transition is skipped when used==1, so using exactly one coupon on a non-start cell is never considered; should be used > 0.\"}, {\"line\": 68, \"score\": 0.25, \"reason\": \"Coupon transition reads predecessor state used-1, which is only valid if line 90's guard permits used==1; tightly coupled to the off-by-one.\"}, {\"line\": 83, \"score\": 0.15, \"reason\": \"Start cell with used>=1 is set to 0, assuming a coupon may be spent on the start; if tests forbid that, these states are wrong.\"}, {\"line\": 75, \"score\": 0.05, \"reason\": \"Strict < prefers ordinary on ties; usually harmless, but could pick a different path than expected on equal costs.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/7ffe6524-da2d-4e8b-a070-eb6caf919ba5.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one guard: coupon transition is skipped when used==1, so using exactly one coupon on a non-start cell is never considered; should be used > 0."
+      },
+      {
+        "line": 68,
+        "score": 0.25,
+        "reason": "Coupon transition reads predecessor state used-1, which is only valid if line 90's guard permits used==1; tightly coupled to the off-by-one."
+      },
+      {
+        "line": 83,
+        "score": 0.15,
+        "reason": "Start cell with used>=1 is set to 0, assuming a coupon may be spent on the start; if tests forbid that, these states are wrong."
+      },
+      {
+        "line": 75,
+        "score": 0.05,
+        "reason": "Strict < prefers ordinary on ties; usually harmless, but could pick a different path than expected on equal costs."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

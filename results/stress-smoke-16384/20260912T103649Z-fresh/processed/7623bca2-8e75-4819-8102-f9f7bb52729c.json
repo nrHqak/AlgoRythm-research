@@ -1,0 +1,77 @@
+{
+  "run_id": "7623bca2-8e75-4819-8102-f9f7bb52729c",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "80bc99447a176531f2f2a7cca9d8d611a1b8aecc047213426605b71b5ec16a51",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_P",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:45:53.721368Z",
+  "latency": 34.655722083,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 2858,
+    "total_tokens": 5312,
+    "cost": 0.00150526,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00150526,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.001429
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2712,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: discount considered only when used > 1, so a state with exactly one coupon left can never spend it; should be used > 0.\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Start cell is set to cost 0 for any used coupon, waiving weights[0][0]; tests may require start entry to always cost start_weight.\"}, {\"line\": 75, \"score\": 0.1, \"reason\": \"Ties favor ordinary transition, which can steer path reconstruction away from coupon-using optima.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/7623bca2-8e75-4819-8102-f9f7bb52729c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: discount considered only when used > 1, so a state with exactly one coupon left can never spend it; should be used > 0."
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Start cell is set to cost 0 for any used coupon, waiving weights[0][0]; tests may require start entry to always cost start_weight."
+      },
+      {
+        "line": 75,
+        "score": 0.1,
+        "reason": "Ties favor ordinary transition, which can steer path reconstruction away from coupon-using optima."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

@@ -1,0 +1,87 @@
+{
+  "run_id": "50e01315-57dc-4b3d-85f0-a606dab6bf1c",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "514338635083ecd8d7c481c8d9e9a8485b1000c1af3e1892e772f9169daf342a",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_G",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:44:39.986452Z",
+  "latency": 85.52014204196166,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 6937,
+    "total_tokens": 9391,
+    "cost": 0.00354476,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00354476,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.0034685
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6709,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one guard: discounted transition only when used > 1, so state used == 1 can never apply a coupon; should be used > 0.\"}, {\"line\": 83, \"score\": 0.35, \"reason\": \"Seeds start cell with cost 0 for every used >= 1, letting multiple coupons be consumed on the start cell.\"}, {\"line\": 82, \"score\": 0.3, \"reason\": \"Loop initializes coupon states 1..coupons at start; only used == 1 is semantically valid for one waived cell.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Reads used-1 predecessor state; correct only if the line 90 guard is fixed to permit used == 1.\"}, {\"line\": 75, \"score\": 0.1, \"reason\": \"Strict comparison ties break toward ordinary; only affects reconstructed parent choice, not the reported cost.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/50e01315-57dc-4b3d-85f0-a606dab6bf1c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one guard: discounted transition only when used > 1, so state used == 1 can never apply a coupon; should be used > 0."
+      },
+      {
+        "line": 83,
+        "score": 0.35,
+        "reason": "Seeds start cell with cost 0 for every used >= 1, letting multiple coupons be consumed on the start cell."
+      },
+      {
+        "line": 82,
+        "score": 0.3,
+        "reason": "Loop initializes coupon states 1..coupons at start; only used == 1 is semantically valid for one waived cell."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Reads used-1 predecessor state; correct only if the line 90 guard is fixed to permit used == 1."
+      },
+      {
+        "line": 75,
+        "score": 0.1,
+        "reason": "Strict comparison ties break toward ordinary; only affects reconstructed parent choice, not the reported cost."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

@@ -1,0 +1,77 @@
+{
+  "run_id": "d7fbc862-8c53-4f63-86e0-b075c51b2d2c",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "834e17a48149a7d0305a57c7ccbd96e00f4487578cf3f1237618674711bf5363",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "C",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:51:46.780888Z",
+  "latency": 48.528558125020936,
+  "token_usage": {
+    "prompt_tokens": 2623,
+    "completion_tokens": 4135,
+    "total_tokens": 6758,
+    "cost": 0.00215375,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00215375,
+      "upstream_inference_prompt_cost": 8.625e-05,
+      "upstream_inference_completions_cost": 0.0020675
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3987,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Guard 'used > 1' skips the coupon transition when used == 1; should be 'used >= 1', so paths using exactly one coupon are never found.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Coupon recurrence reads predecessor with used-1; off-by-one here would break all coupon states, so it warranted scrutiny, though it appears consistent.\"}, {\"line\": 75, \"score\": 0.12, \"reason\": \"Strict '<' lets ordinary win ties, only affecting reconstructed parents, not the returned cost; low suspicion.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/d7fbc862-8c53-4f63-86e0-b075c51b2d2c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Guard 'used > 1' skips the coupon transition when used == 1; should be 'used >= 1', so paths using exactly one coupon are never found."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Coupon recurrence reads predecessor with used-1; off-by-one here would break all coupon states, so it warranted scrutiny, though it appears consistent."
+      },
+      {
+        "line": 75,
+        "score": 0.12,
+        "reason": "Strict '<' lets ordinary win ties, only affecting reconstructed parents, not the returned cost; low suspicion."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 10399,
+  "prompt_tokens_estimate": 2600,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

@@ -1,24 +1,44 @@
 # 16,384-token stress-smoke status
 
-**Status: BLOCKED**
+**Status: PASS**
 
-The single registered no-retry attempt used only the synthetic fixture in
-`data/smoke-stress/`. It sent no scientific candidate.
+## Historical incomplete attempt
 
-Seventeen calls completed successfully with exact model
+The attempt at `results/stress-smoke-16384/20260912T090056Z/` is preserved
+unchanged as historical evidence. By explicit user direction it is classified
+as **ABORTED / INCOMPLETE DUE TO LOCAL EXECUTION INTERRUPTION**, rather than a
+model/provider scientific failure. Its 17 completed calls were not reused.
+
+## Fresh registered attempt
+
+The one fresh attempt at
+`results/stress-smoke-16384/20260912T103649Z-fresh/` used only the synthetic
+fixture in `data/smoke-stress/`. It sent no ConDefects or other scientific
+candidate.
+
+All 20 registered calls completed in frozen G-then-P order: A_G, B, A_P, and C
+five times each. Every response reported exact model
 `z-ai/glm-5.3-flash`, pinned underlying provider Z.AI (`z-ai/fp8`), disabled
 fallbacks, temperature 0, max_tokens 16,384, non-null content,
-`finish_reason=stop`, and parser success. Call 18, arm C repetition 4, failed
-during HTTP response transport with `ChunkedEncodingError`. It produced no
-complete provider envelope and therefore is not classified as a
-`content=null` response. The call was not retried. Calls 19 and 20 were not
-sent.
+`finish_reason=stop`, and parser success.
 
-Across the 17 completed calls, average usage was 2,537.352941 input tokens,
-3,929.823529 output tokens, and 3,762.176471 reasoning tokens. Maximum output
-was 5,224 tokens. Average observed cost was US$0.002063613529 per completed
-call, giving a provisional 600-call projection of US$1.238168118. The
-registered cost gate is incomplete because it requires all 20 calls.
+| Check | Result |
+|---|---:|
+| Calls successful | 20/20 |
+| Parser failures | 0 |
+| Content-null failures | 0 |
+| Length truncations | 0 |
+| Transport failures | 0 |
+| Model/provider mismatches | 0 |
+| Scientific candidates sent | 0 |
+| Average input tokens | 2,541.75 |
+| Average output tokens | 3,811.55 |
+| Average reasoning tokens | 3,641.00 |
+| Maximum output tokens | 12,455 |
+| Average cost per call | US$0.0020021095 |
+| Projected 600-call cost | US$1.2012657 |
+| Cost gate | PASS (≤ US$4.50) |
 
-The 20/20 acceptance threshold was not met. The amended token allowance is not
-cleared for scientific execution, and the scientific pilot must not run.
+The pre-results max_tokens amendment is validated and frozen. The repository is
+ready for a separately authorized clean scientific rerun; no scientific call
+was made in this step.

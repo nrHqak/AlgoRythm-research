@@ -1,0 +1,82 @@
+{
+  "run_id": "62a8e07a-852f-4467-85ef-e43f412bc423",
+  "session_id": "20260912T103649Z-fresh",
+  "execution_key": "9f99ccdd08a92f93eff6a858377d8215e1c95634d4f85fc8a26a648484ac32fc",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:45:19.056715Z",
+  "latency": 39.05876504100161,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 3366,
+    "total_tokens": 6002,
+    "cost": 0.00176352,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00176352,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.001683
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3167,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: should be 'used > 0'; with 'used > 1' the first coupon can never be applied at any non-start cell, so one-coupon answers are wrong.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Pre-setting start states 1..coupons to 0 assumes coupons apply at start; if disallowed, higher states should stay inf.\"}, {\"line\": 84, \"score\": 0.15, \"reason\": \"Marks start coupon states with parent (None, True); suspicious only if coupons cannot be spent on the start cell.\"}, {\"line\": 68, \"score\": 0.1, \"reason\": \"Coupon transition reads state used-1; correct only if line 90's guard allows used>=1, otherwise unreachable states propagate.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T103649Z-fresh/raw/62a8e07a-852f-4467-85ef-e43f412bc423.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: should be 'used > 0'; with 'used > 1' the first coupon can never be applied at any non-start cell, so one-coupon answers are wrong."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Pre-setting start states 1..coupons to 0 assumes coupons apply at start; if disallowed, higher states should stay inf."
+      },
+      {
+        "line": 84,
+        "score": 0.15,
+        "reason": "Marks start coupon states with parent (None, True); suspicious only if coupons cannot be spent on the start cell."
+      },
+      {
+        "line": 68,
+        "score": 0.1,
+        "reason": "Coupon transition reads state used-1; correct only if line 90's guard allows used>=1, otherwise unreachable states propagate."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}
