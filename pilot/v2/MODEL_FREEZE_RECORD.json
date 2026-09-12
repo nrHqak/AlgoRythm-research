@@ -46,6 +46,25 @@
     "P"
   ],
   "coin_flip_method": "inherited unchanged from the committed Gate 5 freeze; no new coin flip performed",
+  "execution": {
+    "workers": 4,
+    "maximum_concurrent_api_requests": 4,
+    "concurrency_scope": "within_session_only",
+    "session_barrier": "complete and validate all G calls before starting P",
+    "run_id_derivation": "sha256(canonical JSON of program_id, scientific arm, repetition)",
+    "result_order": "registered call-plan order, independent of completion order",
+    "raw_persistence": "atomic immutable publish before parsing",
+    "selective_retries": false,
+    "preflight": {
+      "status": "PASS",
+      "path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/PASS.json",
+      "sha256": "0e9f0e41479a1af7c7188c22c76b781a7604f99214bdff51d17cec95a246043a",
+      "calls_valid": 20,
+      "failures": 0,
+      "observed_throughput_calls_per_minute": 4.8676687752755,
+      "projected_600_call_runtime_hours": 2.054371499308521
+    }
+  },
   "scientific_manifest": {
     "path": "data/manifests/pilot_manifest_v2_2.json",
     "sha256": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",

@@ -1,0 +1,87 @@
+{
+  "run_id": "9c6c00fe1546ed540eecfe4b7847481b720c3701545d344f862ff15a36f2310e",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "60725bde3d6d3ddfc6f131b5db61a225532345e11f800f96f0809c86d1eeb67b",
+  "experiment_name": "concurrency_preflight_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:28:33.518910Z",
+  "latency": 43.95982566697057,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 3614,
+    "total_tokens": 6250,
+    "cost": 0.00191056,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00191056,
+      "upstream_inference_prompt_cost": 0.00010356,
+      "upstream_inference_completions_cost": 0.001807
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3384,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: coupon transition requires used > 1, so state used==1 can never apply a coupon mid-path; should be used > 0 (used >= 1).\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Start cell pre-set to 0 for every used>=1 hardcodes a coupon on start; wrong if coupons only apply to non-start cells.\"}, {\"line\": 68, \"score\": 0.15, \"reason\": \"Coupon transition reads used-1 state; only correct if used==1 discount is reachable, which line 90 prevents.\"}, {\"line\": 127, \"score\": 0.1, \"reason\": \"Decrements used before following previous; safe only because previous carries its own used, but order is fragile.\"}, {\"line\": 75, \"score\": 0.05, \"reason\": \"Strict < means ties favor ordinary transition; unlikely to change optimal cost but a boundary choice.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/G/9c6c00fe1546ed540eecfe4b7847481b720c3701545d344f862ff15a36f2310e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: coupon transition requires used > 1, so state used==1 can never apply a coupon mid-path; should be used > 0 (used >= 1)."
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Start cell pre-set to 0 for every used>=1 hardcodes a coupon on start; wrong if coupons only apply to non-start cells."
+      },
+      {
+        "line": 68,
+        "score": 0.15,
+        "reason": "Coupon transition reads used-1 state; only correct if used==1 discount is reachable, which line 90 prevents."
+      },
+      {
+        "line": 127,
+        "score": 0.1,
+        "reason": "Decrements used before following previous; safe only because previous carries its own used, but order is fragile."
+      },
+      {
+        "line": 75,
+        "score": 0.05,
+        "reason": "Strict < means ties favor ordinary transition; unlikely to change optimal cost but a boundary choice."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

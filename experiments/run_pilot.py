@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -31,6 +32,7 @@ from experiments.storage import (
     file_sha256,
     path_sha256,
     write_json_new,
+    write_json_new_atomic,
 )
 
 
@@ -116,6 +118,8 @@ def shell_command(args: argparse.Namespace, session_id: str) -> str:
         str(args.temperature),
         "--max-tokens",
         str(args.max_tokens),
+        "--workers",
+        str(args.workers),
         "--condition-order",
         args.condition_order,
         "--timeout",
@@ -175,6 +179,17 @@ def execution_key_for(
     )
 
 
+def deterministic_run_id_for(*, program_id: str, condition: str, repetition: int) -> str:
+    """Derive an immutable request ID solely from the registered call identity."""
+    return canonical_hash(
+        {
+            "program_id": program_id,
+            "condition": condition,
+            "repetition": repetition,
+        }
+    )
+
+
 def append_experiment_log(path: Path, record: ParsedRunRecord) -> None:
     status_note = record.error_type or "-"
     output = record.raw_response_path or "-"
@@ -205,8 +220,9 @@ def run_one(
     max_tokens: int,
     raw_session_dir: Path,
     processed_session_dir: Path,
+    run_id: str | None = None,
 ) -> ParsedRunRecord:
-    run_id = str(uuid.uuid4())
+    run_id = run_id or str(uuid.uuid4())
     timestamp = utc_now()
     execution_key = execution_key_for(
         experiment_name=experiment_name,
@@ -301,7 +317,7 @@ def run_one(
         ],
         "raw_saved_before_parsing": True,
     }
-    write_json_new(raw_path, raw_payload)
+    write_json_new_atomic(raw_path, raw_payload)
 
     if reply.provider != provider.name or reply.model != model:
         parsed = None
@@ -393,6 +409,8 @@ def run(args: argparse.Namespace) -> int:
         raise SafetyViolation("pilot primary statistic must be exact_mcnemar")
     if repetitions < 1 or args.max_tokens < 1:
         raise SafetyViolation("repetitions and max_tokens must be positive")
+    if args.workers < 1 or args.workers > 4:
+        raise SafetyViolation("workers must be between 1 and the frozen maximum of 4")
 
     manifest = load_manifest(args.manifest)
     run_started_at = utc_now()
@@ -429,6 +447,8 @@ def run(args: argparse.Namespace) -> int:
                 or not 25 <= p.source_line_count <= 300 or p.exam_denominator != p.source_line_count
                 or p.loc != p.source_line_count):
                 raise SafetyViolation("v2 sample violates frozen source/ground-truth/smoke exclusion rules")
+        if args.resume:
+            raise SafetyViolation("selective resume/retry is prohibited for the v2 scientific execution")
     provider = make_provider(args)
     session_id = args.session_id or f"{run_started_at.strftime('%Y%m%dT%H%M%SZ')}-{uuid.uuid4().hex[:8]}"
     raw_root = args.output_root / "raw" / experiment_name
@@ -436,6 +456,39 @@ def run(args: argparse.Namespace) -> int:
     raw_session_dir = raw_root / session_id
     processed_session_dir = processed_root / session_id
     session_manifest_path = processed_session_dir / "session_manifest.json"
+    arm_labels = {
+        control_name: "A_G" if treatment_name == "generic_prior" else "A_P",
+        treatment_name: "B" if treatment_name == "generic_prior" else "C",
+    }
+    call_plan = []
+    for program_index, program in enumerate(manifest.included):
+        pair = build_prompt_pair(system_prompt, user_template, program, priors[program.pattern_label])
+        for repetition in range(1, repetitions + 1):
+            order = condition_order(
+                args.condition_order,
+                program_index,
+                repetition,
+                (control_name, treatment_name),
+            )
+            for condition in order:
+                is_treatment = condition == treatment_name
+                arm_label = arm_labels[condition]
+                call_plan.append({
+                    "program": program,
+                    "condition": condition,
+                    "arm_label": arm_label,
+                    "repetition": repetition,
+                    "user_prompt": pair.treatment_user_prompt if is_treatment else pair.control_user_prompt,
+                    "shared_prompt_hash": pair.shared_prompt_hash,
+                    "prior_hash": pair.prior_hash if is_treatment else None,
+                    "run_id": deterministic_run_id_for(
+                        program_id=program.program_id,
+                        condition=arm_label,
+                        repetition=repetition,
+                    ),
+                })
+    if len({item["run_id"] for item in call_plan}) != len(call_plan):
+        raise SafetyViolation("deterministic run-ID collision in registered call plan")
     session_manifest = {
         "session_id": session_id,
         "experiment_name": experiment_name,
@@ -456,6 +509,9 @@ def run(args: argparse.Namespace) -> int:
         "model_freeze_hash": file_sha256(args.model_freeze) if getattr(args, "model_freeze", None) else None,
         "repetitions": repetitions,
         "condition_order": args.condition_order,
+        "workers": args.workers,
+        "run_id_derivation": "sha256(canonical JSON of program_id, scientific arm, repetition)",
+        "result_order": [item["run_id"] for item in call_plan],
         "program_input_hashes": {
             program.program_id: {
                 "buggy_source": path_sha256(program.buggy_source_path),
@@ -500,64 +556,69 @@ def run(args: argparse.Namespace) -> int:
             raise
     if previous:
         enforce_health(previous)
-    created: list[ParsedRunRecord] = []
-
-    for program_index, program in enumerate(manifest.included):
-        pair = build_prompt_pair(system_prompt, user_template, program, priors[program.pattern_label])
-        for repetition in range(1, repetitions + 1):
-            order = condition_order(
-                args.condition_order,
-                program_index,
-                repetition,
-                (control_name, treatment_name),
+    pending = []
+    for item in call_plan:
+        key = execution_key_for(
+            experiment_name=experiment_name,
+            manifest_hash=manifest_hash,
+            program=item["program"],
+            condition=item["condition"],
+            repetition=item["repetition"],
+            provider=provider.name,
+            model=args.model,
+            temperature=args.temperature,
+            max_tokens=args.max_tokens,
+            system_prompt_hash=sha256_text(system_prompt),
+            shared_prompt_hash=item["shared_prompt_hash"],
+            prior_hash=item["prior_hash"],
+        )
+        if key in known_keys:
+            if args.resume:
+                continue
+            raise SafetyViolation(
+                f"duplicate run detected for {item['program'].program_id}/{item['condition']}/"
+                f"rep-{item['repetition']}; existing record: {known_keys[key]}"
             )
-            for condition in order:
-                is_treatment = condition == treatment_name
-                user_prompt = pair.treatment_user_prompt if is_treatment else pair.control_user_prompt
-                prior_hash = pair.prior_hash if is_treatment else None
-                key = execution_key_for(
-                    experiment_name=experiment_name,
-                    manifest_hash=manifest_hash,
-                    program=program,
-                    condition=condition,
-                    repetition=repetition,
-                    provider=provider.name,
-                    model=args.model,
-                    temperature=args.temperature,
-                    max_tokens=args.max_tokens,
-                    system_prompt_hash=sha256_text(system_prompt),
-                    shared_prompt_hash=pair.shared_prompt_hash,
-                    prior_hash=prior_hash,
-                )
-                if key in known_keys:
-                    if args.resume:
-                        continue
-                    raise SafetyViolation(
-                        f"duplicate run detected for {program.program_id}/{condition}/rep-{repetition}; "
-                        f"existing raw record: {known_keys[key]}"
-                    )
-                record = run_one(
+        pending.append((item, key))
+
+    created: list[ParsedRunRecord] = []
+    with ThreadPoolExecutor(max_workers=args.workers, thread_name_prefix="pilot") as executor:
+        for offset in range(0, len(pending), args.workers):
+            batch = pending[offset:offset + args.workers]
+            futures = [
+                executor.submit(
+                    run_one,
                     provider=provider,
-                    program=program,
-                    condition=condition,
-                    repetition=repetition,
+                    program=item["program"],
+                    condition=item["condition"],
+                    repetition=item["repetition"],
                     experiment_name=experiment_name,
                     session_id=session_id,
-                    system_prompt=pair.system_prompt,
-                    user_prompt=user_prompt,
-                    shared_prompt_hash=pair.shared_prompt_hash,
-                    prior_hash=prior_hash,
+                    system_prompt=system_prompt,
+                    user_prompt=item["user_prompt"],
+                    shared_prompt_hash=item["shared_prompt_hash"],
+                    prior_hash=item["prior_hash"],
                     manifest_hash=manifest_hash,
                     model=args.model,
                     temperature=args.temperature,
                     max_tokens=args.max_tokens,
                     raw_session_dir=raw_session_dir,
                     processed_session_dir=processed_session_dir,
+                    run_id=item["run_id"],
                 )
+                for item, _key in batch
+            ]
+            # Resolve and record in registered plan order, never completion order.
+            batch_records = [future.result() for future in futures]
+            for (item, key), record in zip(batch, batch_records, strict=True):
                 created.append(record)
-                known_keys[key] = raw_session_dir / f"{record.run_id}.json"
+                known_keys[key] = (
+                    raw_session_dir / f"{record.run_id}.json"
+                    if record.raw_response_path
+                    else processed_session_dir / f"{record.run_id}.json"
+                )
                 append_experiment_log(args.experiment_log, record)
-                enforce_health(previous + created)
+            enforce_health(previous + created)
 
     enforce_health(previous + created, completed=True)
     summary = {
@@ -596,6 +657,7 @@ def parser() -> argparse.ArgumentParser:
         "--max-tokens", type=int, default=int(os.environ.get("LLM_MAX_TOKENS") or "1024")
     )
     result.add_argument("--repetitions", type=int)
+    result.add_argument("--workers", type=int, default=1)
     result.add_argument(
         "--condition-order",
         choices=("control_first", "treatment_first", "counterbalanced"),

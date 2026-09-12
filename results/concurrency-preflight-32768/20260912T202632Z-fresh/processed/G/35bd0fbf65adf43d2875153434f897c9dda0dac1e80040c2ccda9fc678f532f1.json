@@ -1,0 +1,82 @@
+{
+  "run_id": "35bd0fbf65adf43d2875153434f897c9dda0dac1e80040c2ccda9fc678f532f1",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "50b6190f3adc3dd25b50f711db3f91eebc7c0e92a92b5e5d5c02e3950c6b6b92",
+  "experiment_name": "concurrency_preflight_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:27:18.564446Z",
+  "latency": 45.59724662499502,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 4306,
+    "total_tokens": 6942,
+    "cost": 0.0025484,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0025484,
+      "upstream_inference_prompt_cost": 0.0003954,
+      "upstream_inference_completions_cost": 0.002153
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4115,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.96, \"reason\": \"Coupon transition is gated by `used > 1`, so state used==1 can never spend its first coupon on a cell; should be `used >= 1`.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Coupon transition reads predecessor level used-1; if the gating off-by-one were not the fault, this level shift is next most suspect.\"}, {\"line\": 75, \"score\": 0.12, \"reason\": \"Strict `<` makes ties prefer ordinary over discounted; a tie-breaking expectation mismatch could alter chosen parents.\"}, {\"line\": 83, \"score\": 0.08, \"reason\": \"Start initialized to 0 for every used>=1, implicitly allowing multiple coupons at the start cell; may not match intended semantics.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/G/35bd0fbf65adf43d2875153434f897c9dda0dac1e80040c2ccda9fc678f532f1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.96,
+        "reason": "Coupon transition is gated by `used > 1`, so state used==1 can never spend its first coupon on a cell; should be `used >= 1`."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Coupon transition reads predecessor level used-1; if the gating off-by-one were not the fault, this level shift is next most suspect."
+      },
+      {
+        "line": 75,
+        "score": 0.12,
+        "reason": "Strict `<` makes ties prefer ordinary over discounted; a tie-breaking expectation mismatch could alter chosen parents."
+      },
+      {
+        "line": 83,
+        "score": 0.08,
+        "reason": "Start initialized to 0 for every used>=1, implicitly allowing multiple coupons at the start cell; may not match intended semantics."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

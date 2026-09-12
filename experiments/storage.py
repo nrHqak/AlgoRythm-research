@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +42,25 @@ def write_json_new(path: Path, payload: dict[str, Any]) -> None:
         handle.write("\n")
         handle.flush()
         os.fsync(handle.fileno())
+
+
+def write_json_new_atomic(path: Path, payload: dict[str, Any]) -> None:
+    """Atomically publish a new immutable JSON file without overwriting evidence."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.parent / f".{path.name}.{uuid.uuid4().hex}.tmp"
+    try:
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL
+        descriptor = os.open(temporary, flags, 0o644)
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2, ensure_ascii=False, default=str)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        # Linking is atomic and fails if path already exists; unlike replace(), it
+        # preserves the repository's immutable-evidence rule under concurrency.
+        os.link(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def write_json_atomic(path: Path, payload: Any) -> None:

@@ -1,0 +1,77 @@
+{
+  "run_id": "09e81395ae273f2b896fe08070eb94fc9ce07849f42624dae3f30c9e6f3e5581",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "b74fb6d4e22458b11dff1a3707130937984222f8737121b63598dc45d5fa53a8",
+  "experiment_name": "concurrency_preflight_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "C",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:30:04.108587Z",
+  "latency": 18.83851729199523,
+  "token_usage": {
+    "prompt_tokens": 2189,
+    "completion_tokens": 1749,
+    "total_tokens": 3938,
+    "cost": 0.00094173,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00094173,
+      "upstream_inference_prompt_cost": 6.723e-05,
+      "upstream_inference_completions_cost": 0.0008745
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1604,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.95, \"reason\": \"Uses maximum + minimum instead of range (maximum - minimum), contradicting docstring 'range-plus-penalty' and _recompute's formula.\"}, {\"line\": 121, \"score\": 0.3, \"reason\": \"Uses max - min while DP uses max + min; one of these two formulas must be wrong for consistency, though docstring supports this one.\"}, {\"line\": 138, \"score\": 0.15, \"reason\": \"Consistency check where the DP/recompute formula mismatch surfaces as a RuntimeError; symptom location, not the fault itself.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/P/09e81395ae273f2b896fe08070eb94fc9ce07849f42624dae3f30c9e6f3e5581.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.95,
+        "reason": "Uses maximum + minimum instead of range (maximum - minimum), contradicting docstring 'range-plus-penalty' and _recompute's formula."
+      },
+      {
+        "line": 121,
+        "score": 0.3,
+        "reason": "Uses max - min while DP uses max + min; one of these two formulas must be wrong for consistency, though docstring supports this one."
+      },
+      {
+        "line": 138,
+        "score": 0.15,
+        "reason": "Consistency check where the DP/recompute formula mismatch surfaces as a RuntimeError; symptom location, not the fault itself."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8758,
+  "prompt_tokens_estimate": 2190,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

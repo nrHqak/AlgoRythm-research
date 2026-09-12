@@ -73,9 +73,20 @@ def validate_freeze(args, repetitions):
             raise SafetyViolation('freeze lacks exact underlying provider identity evidence')
     if freeze.get('session_order') not in (['G','P'], ['P','G']):
         raise SafetyViolation('missing session-order coin flip')
-    for source in freeze_asset_paths():
-        if freeze['asset_hashes'].get(str(source.relative_to(ROOT))) != file_sha256(source):
+    workers = getattr(args, 'workers', 1)
+    frozen_workers = freeze.get('execution', {}).get('workers', 1)
+    if workers != frozen_workers:
+        raise SafetyViolation('worker count differs from committed execution freeze')
+    asset_hashes = freeze.get('asset_hashes', {})
+    if not isinstance(asset_hashes, dict) or not asset_hashes:
+        raise SafetyViolation('freeze lacks immutable smoke asset hashes')
+    for relative, expected_hash in asset_hashes.items():
+        source = ROOT / relative
+        if not source.is_file() or file_sha256(source) != expected_hash:
             raise SafetyViolation('smoke/prompt/prior changed after model freeze')
+    for source in (SYSTEM, TEMPLATE, *PRIORS):
+        if asset_hashes.get(str(source.relative_to(ROOT))) != file_sha256(source):
+            raise SafetyViolation('freeze lacks current frozen prompt/prior evidence')
     if file_sha256(args.system_prompt) != file_sha256(SYSTEM) or file_sha256(args.user_template) != file_sha256(TEMPLATE):
         raise SafetyViolation('real v2 must use frozen v2 system and shared template')
     return freeze

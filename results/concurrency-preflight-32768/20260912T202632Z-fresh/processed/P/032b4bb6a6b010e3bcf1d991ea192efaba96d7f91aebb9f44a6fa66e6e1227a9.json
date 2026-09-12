@@ -1,0 +1,77 @@
+{
+  "run_id": "032b4bb6a6b010e3bcf1d991ea192efaba96d7f91aebb9f44a6fa66e6e1227a9",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "d153cf80ed16aef315bc324eb4d7503b77ba44dcb0435ac5d8c2532f254bccef",
+  "experiment_name": "concurrency_preflight_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_P",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:29:35.211762Z",
+  "latency": 15.889438082987908,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 1329,
+    "total_tokens": 3349,
+    "cost": 0.0009291,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0009291,
+      "upstream_inference_prompt_cost": 0.0002646,
+      "upstream_inference_completions_cost": 0.0006645
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1199,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.97, \"reason\": \"Uses maximum + minimum instead of maximum - minimum; contradicts range cost in _recompute and docstring.\"}, {\"line\": 121, \"score\": 0.12, \"reason\": \"Reference cost uses max-min range; correct per docstring, but part of the mismatch with line 39, so low residual suspicion.\"}, {\"line\": 82, \"score\": 0.05, \"reason\": \"Tuple min compares groups on cost ties; plausible tie-break concern but consistent with expected behavior.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/P/032b4bb6a6b010e3bcf1d991ea192efaba96d7f91aebb9f44a6fa66e6e1227a9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.97,
+        "reason": "Uses maximum + minimum instead of maximum - minimum; contradicts range cost in _recompute and docstring."
+      },
+      {
+        "line": 121,
+        "score": 0.12,
+        "reason": "Reference cost uses max-min range; correct per docstring, but part of the mismatch with line 39, so low residual suspicion."
+      },
+      {
+        "line": 82,
+        "score": 0.05,
+        "reason": "Tuple min compares groups on cost ties; plausible tie-break concern but consistent with expected behavior."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

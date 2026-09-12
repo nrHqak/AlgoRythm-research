@@ -1,0 +1,72 @@
+{
+  "run_id": "09cb3e0038907dda7f21616590a3d9c856b79459cf07b1a090406f16ac1bc21e",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "c4afd8bf250eebb8978a0aec2c4a3468b346e706539987e24d2f1424085c5dd5",
+  "experiment_name": "concurrency_preflight_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "C",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:30:17.457331Z",
+  "latency": 32.190831290965434,
+  "token_usage": {
+    "prompt_tokens": 2189,
+    "completion_tokens": 2744,
+    "total_tokens": 4933,
+    "cost": 0.00143923,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00143923,
+      "upstream_inference_prompt_cost": 6.723e-05,
+      "upstream_inference_completions_cost": 0.001372
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2644,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.96, \"reason\": \"Segment cost adds max+min, but docstring and _recompute use range (max-min); DP minimizes wrong objective, so self-check raises.\"}, {\"line\": 121, \"score\": 0.18, \"reason\": \"Uses max-minus-min, matching the docstring; only suspicious as the counterpart conflicting with _segment_cost at line 39.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/P/09cb3e0038907dda7f21616590a3d9c856b79459cf07b1a090406f16ac1bc21e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.96,
+        "reason": "Segment cost adds max+min, but docstring and _recompute use range (max-min); DP minimizes wrong objective, so self-check raises."
+      },
+      {
+        "line": 121,
+        "score": 0.18,
+        "reason": "Uses max-minus-min, matching the docstring; only suspicious as the counterpart conflicting with _segment_cost at line 39."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8758,
+  "prompt_tokens_estimate": 2190,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}
