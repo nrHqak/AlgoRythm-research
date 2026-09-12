@@ -1,0 +1,140 @@
+{
+  "status": "RUNNING",
+  "engineering_only": true,
+  "purpose": "STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "scientific_candidates_sent": 0,
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 16384,
+    "timeout": 120.0,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "call_plan": [
+    {
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 1
+    },
+    {
+      "session": "G",
+      "arm": "B",
+      "repetition": 1
+    },
+    {
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 2
+    },
+    {
+      "session": "G",
+      "arm": "B",
+      "repetition": 2
+    },
+    {
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 3
+    },
+    {
+      "session": "G",
+      "arm": "B",
+      "repetition": 3
+    },
+    {
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 4
+    },
+    {
+      "session": "G",
+      "arm": "B",
+      "repetition": 4
+    },
+    {
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 5
+    },
+    {
+      "session": "G",
+      "arm": "B",
+      "repetition": 5
+    },
+    {
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 1
+    },
+    {
+      "session": "P",
+      "arm": "C",
+      "repetition": 1
+    },
+    {
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 2
+    },
+    {
+      "session": "P",
+      "arm": "C",
+      "repetition": 2
+    },
+    {
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 3
+    },
+    {
+      "session": "P",
+      "arm": "C",
+      "repetition": 3
+    },
+    {
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 4
+    },
+    {
+      "session": "P",
+      "arm": "C",
+      "repetition": 4
+    },
+    {
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 5
+    },
+    {
+      "session": "P",
+      "arm": "C",
+      "repetition": 5
+    }
+  ],
+  "asset_hashes": {
+    "data/smoke-stress/manifest.json": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
+    "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "run_id": "f05d785f-5721-4c8d-902f-8ab956f49af2",
+  "session_id": "20260912T090056Z",
+  "execution_key": "8e4af2e8fc447a861be7d6993f991d6a8e3e58920908c0279eb7b69f3e2d5942",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_P",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:10:50.729581Z",
+  "latency": 49.84614895796403,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 4260,
+    "total_tokens": 6714,
+    "cost": 0.00220626,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00220626,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.00213
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4022,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one guard: `used > 1` skips the coupon transition for used==1, so paths using exactly one coupon off-start are never considered\"}, {\"line\": 68, \"score\": 0.35, \"reason\": \"Coupon transition reads used-1; correct only if called with used>=1, which the buggy guard at line 90 prevents for used==1\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Start cells with used>=1 are set to cost 0, baking a start-coupon into the DP; suspicious if coupons should apply only via transitions\"}, {\"line\": 91, \"score\": 0.2, \"reason\": \"Coupon transition call site inherits the wrong guard; it never runs for used==1, hiding the missing discounted option\"}, {\"line\": 128, \"score\": 0.1, \"reason\": \"Discards previous used from parent tuple while relying on decremented used; consistent today but fragile if line 90 is fixed\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/f05d785f-5721-4c8d-902f-8ab956f49af2.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one guard: `used > 1` skips the coupon transition for used==1, so paths using exactly one coupon off-start are never considered"
+      },
+      {
+        "line": 68,
+        "score": 0.35,
+        "reason": "Coupon transition reads used-1; correct only if called with used>=1, which the buggy guard at line 90 prevents for used==1"
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Start cells with used>=1 are set to cost 0, baking a start-coupon into the DP; suspicious if coupons should apply only via transitions"
+      },
+      {
+        "line": 91,
+        "score": 0.2,
+        "reason": "Coupon transition call site inherits the wrong guard; it never runs for used==1, hiding the missing discounted option"
+      },
+      {
+        "line": 128,
+        "score": 0.1,
+        "reason": "Discards previous used from parent tuple while relying on decremented used; consistent today but fragile if line 90 is fixed"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

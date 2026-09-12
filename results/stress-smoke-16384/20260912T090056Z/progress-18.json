@@ -1,0 +1,15 @@
+{
+  "session": "P",
+  "arm": "C",
+  "repetition": 4,
+  "input_tokens": null,
+  "output_tokens": null,
+  "reasoning_tokens": null,
+  "finish_reason": null,
+  "latency_seconds": null,
+  "cost_usd": null,
+  "model": null,
+  "provider": null,
+  "content_is_null": true,
+  "parser_status": "provider_failure"
+}

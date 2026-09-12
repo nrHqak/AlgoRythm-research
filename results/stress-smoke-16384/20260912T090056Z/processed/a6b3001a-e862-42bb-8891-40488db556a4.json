@@ -1,0 +1,77 @@
+{
+  "run_id": "a6b3001a-e862-42bb-8891-40488db556a4",
+  "session_id": "20260912T090056Z",
+  "execution_key": "eb1db62dc6462f46ceecfad8df99f2cd2ea3af6e580e392fbeb2972ceac688e9",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_P",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:12:27.200989Z",
+  "latency": 49.95611824997468,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 4584,
+    "total_tokens": 7038,
+    "cost": 0.00236826,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00236826,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.002292
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4428,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: coupon transition requires used > 1, so exactly one coupon can never be applied to any cell; should be used >= 1.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Start states with used >= 1 are hardcoded to 0; if coupons should not apply to the start cell, all results are skewed low.\"}, {\"line\": 68, \"score\": 0.15, \"reason\": \"Coupon path reads used-1 state; unreachable for used == 1 given line 90's guard, making the used==1 state only reachable without coupon benefit.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/a6b3001a-e862-42bb-8891-40488db556a4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: coupon transition requires used > 1, so exactly one coupon can never be applied to any cell; should be used >= 1."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Start states with used >= 1 are hardcoded to 0; if coupons should not apply to the start cell, all results are skewed low."
+      },
+      {
+        "line": 68,
+        "score": 0.15,
+        "reason": "Coupon path reads used-1 state; unreachable for used == 1 given line 90's guard, making the used==1 state only reachable without coupon benefit."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

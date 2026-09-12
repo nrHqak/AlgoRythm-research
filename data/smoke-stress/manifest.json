@@ -1,0 +1,22 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "created_at": "2026-09-12T08:00:00+00:00",
+  "selection_frozen_at": "2026-09-12T08:00:00+00:00",
+  "programs": [
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "task_id": "synthetic-stress-dp-route-v1",
+      "buggy_source_path": "synthetic-dp-route/buggy.py",
+      "fixed_source_path": "synthetic-dp-route/fixed.py",
+      "tests_path": "synthetic-dp-route/tests.json",
+      "faulty_lines": [90],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 149,
+      "evaluation_denominator": 159,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    }
+  ]
+}

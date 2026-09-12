@@ -1,0 +1,77 @@
+{
+  "run_id": "076d48b0-9641-490f-a37e-ff483c9a06ae",
+  "session_id": "20260912T090056Z",
+  "execution_key": "0849bcfe3b007e96380339711ca27f22fc23b8efb915b5ccaabc9105d5d22e0e",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:07:00.959485Z",
+  "latency": 49.07171720900806,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 3914,
+    "total_tokens": 6550,
+    "cost": 0.00203752,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00203752,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.001957
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3777,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.96, \"reason\": \"Coupon transition is gated on used > 1, so states that used exactly one coupon are never filled; condition should be used >= 1.\"}, {\"line\": 91, \"score\": 0.33, \"reason\": \"Coupon transition call only executes under the faulty guard, making single-coupon paths unreachable except at the start.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Start initialized to 0 for all used states, including unreachable multi-coupon ones; over-permissive though likely benign.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/076d48b0-9641-490f-a37e-ff483c9a06ae.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.96,
+        "reason": "Coupon transition is gated on used > 1, so states that used exactly one coupon are never filled; condition should be used >= 1."
+      },
+      {
+        "line": 91,
+        "score": 0.33,
+        "reason": "Coupon transition call only executes under the faulty guard, making single-coupon paths unreachable except at the start."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Start initialized to 0 for all used states, including unreachable multi-coupon ones; over-permissive though likely benign."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

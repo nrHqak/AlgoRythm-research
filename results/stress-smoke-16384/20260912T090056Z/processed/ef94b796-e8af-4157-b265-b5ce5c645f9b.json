@@ -1,0 +1,77 @@
+{
+  "run_id": "ef94b796-e8af-4157-b265-b5ce5c645f9b",
+  "session_id": "20260912T090056Z",
+  "execution_key": "9f99ccdd08a92f93eff6a858377d8215e1c95634d4f85fc8a26a648484ac32fc",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:08:31.901537Z",
+  "latency": 42.71029145800276,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 3526,
+    "total_tokens": 6162,
+    "cost": 0.00184352,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00184352,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.001763
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3380,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Guard 'used > 1' skips coupon transition for used=1; should be 'used > 0', so first coupon can never be spent at any non-start cell.\"}, {\"line\": 68, \"score\": 0.12, \"reason\": \"Uses 'used - 1' state; correct only if caller guards used >= 1, so verify boundary interplay.\"}, {\"line\": 80, \"score\": 0.08, \"reason\": \"Charging the start cell's weight in state 0 could mismatch spec, though docstring implies entry cost.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/ef94b796-e8af-4157-b265-b5ce5c645f9b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Guard 'used > 1' skips coupon transition for used=1; should be 'used > 0', so first coupon can never be spent at any non-start cell."
+      },
+      {
+        "line": 68,
+        "score": 0.12,
+        "reason": "Uses 'used - 1' state; correct only if caller guards used >= 1, so verify boundary interplay."
+      },
+      {
+        "line": 80,
+        "score": 0.08,
+        "reason": "Charging the start cell's weight in state 0 could mismatch spec, though docstring implies entry cost."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

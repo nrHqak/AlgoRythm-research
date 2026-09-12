@@ -1,0 +1,77 @@
+{
+  "run_id": "e4444a5e-dc39-43ae-84e8-fb7519e28786",
+  "session_id": "20260912T090056Z",
+  "execution_key": "57e269a18728a90b8cde565cd654c6f38a83695afc46bbc9448b79d12fe89c5b",
+  "experiment_name": "stress_smoke_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:05:16.202665Z",
+  "latency": 36.03742000000784,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 2959,
+    "total_tokens": 5595,
+    "cost": 0.00156002,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00156002,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.0014795
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2809,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.97, \"reason\": \"Coupon transition requires used > 1 but should be used >= 1, so a state with exactly one coupon can never spend it outside the start cell.\"}, {\"line\": 68, \"score\": 0.22, \"reason\": \"Reads state used-1; correct in isolation but only reachable when line 90's wrong guard allows it, masking single-coupon paths.\"}, {\"line\": 82, \"score\": 0.12, \"reason\": \"Start initialization for used >= 1 assumes coupons spent at start; interacts with the off-by-one guard, though dominated states are harmless.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/e4444a5e-dc39-43ae-84e8-fb7519e28786.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.97,
+        "reason": "Coupon transition requires used > 1 but should be used >= 1, so a state with exactly one coupon can never spend it outside the start cell."
+      },
+      {
+        "line": 68,
+        "score": 0.22,
+        "reason": "Reads state used-1; correct in isolation but only reachable when line 90's wrong guard allows it, masking single-coupon paths."
+      },
+      {
+        "line": 82,
+        "score": 0.12,
+        "reason": "Start initialization for used >= 1 assumes coupons spent at start; interacts with the off-by-one guard, though dominated states are harmless."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

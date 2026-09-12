@@ -60,3 +60,30 @@ Session 20260911T181032Z-G VOID: provider_failure rate >5% within first 50 calls
 Full scientific pilot attempt finalized 2026-09-11: Session G stopped after its first call recorded provider_failure/ValueError (`provider completion content must be a string`). The frozen first-50 health rule marked session `20260911T181032Z-G` VOID. Session P was not started, no call was retried, and no scientific analysis was run. Calls attempted: 1/600; successful: 0; provider failures: 1; parser failures: 0. Reconciled OpenRouter cost: US$0.002204; exact token usage unavailable because the null-content provider response was rejected before raw-response persistence. Evidence: pilot/v2/FULL_PILOT_STATUS.md and results/scientific-run/20260911T181032Z/full_pilot_void.json.
 
 Post-VOID technical diagnosis 2026-09-11: no new provider or candidate call was made. US$0.002204 exactly fits 1,040 input tokens plus the full 4,096-token completion allowance at frozen Z.AI pricing. The earlier direct 1,024-token failure had `finish_reason=length`, 1,023 reasoning tokens, reasoning present, and `content=null`; therefore 4,096 exhaustion by reasoning is the likely cause, though the failed generation body is unrecoverable. Recommended max_tokens: 16,384, proposal only. The adapter now retains credential-scrubbed complete provider JSON before content validation. Evidence: pilot/v2/VOID_TECHNICAL_DIAGNOSIS.md.
+| 2026-09-12T09:01:34.089071+00:00 | d3e6356b-f080-4faa-887e-39f482b08542 | stress_smoke_G/A_G/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/d3e6356b-f080-4faa-887e-39f482b08542.json | - |
+| 2026-09-12T09:02:23.999254+00:00 | e2e4380f-523c-48d8-a1e7-680937b3175e | stress_smoke_G/B/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/e2e4380f-523c-48d8-a1e7-680937b3175e.json | - |
+| 2026-09-12T09:03:01.559232+00:00 | 13b86974-273e-44d5-93ff-1ab9f551d4fc | stress_smoke_G/A_G/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/13b86974-273e-44d5-93ff-1ab9f551d4fc.json | - |
+| 2026-09-12T09:03:38.092828+00:00 | 99ed207b-16b7-4302-a626-32fc4dc3dc43 | stress_smoke_G/B/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/99ed207b-16b7-4302-a626-32fc4dc3dc43.json | - |
+| 2026-09-12T09:04:40.152319+00:00 | 8d8f8736-f796-4b04-8c44-6dd40fb2ecec | stress_smoke_G/A_G/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/8d8f8736-f796-4b04-8c44-6dd40fb2ecec.json | - |
+| 2026-09-12T09:05:16.202665+00:00 | e4444a5e-dc39-43ae-84e8-fb7519e28786 | stress_smoke_G/B/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/e4444a5e-dc39-43ae-84e8-fb7519e28786.json | - |
+| 2026-09-12T09:06:11.878998+00:00 | 5b794fbe-e9bc-491c-87f0-a4e8ab9914c0 | stress_smoke_G/A_G/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/5b794fbe-e9bc-491c-87f0-a4e8ab9914c0.json | - |
+| 2026-09-12T09:07:00.959485+00:00 | 076d48b0-9641-490f-a37e-ff483c9a06ae | stress_smoke_G/B/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/076d48b0-9641-490f-a37e-ff483c9a06ae.json | - |
+| 2026-09-12T09:07:49.182274+00:00 | fa789531-7512-4f55-a2d5-e4d6b7e096bb | stress_smoke_G/A_G/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/fa789531-7512-4f55-a2d5-e4d6b7e096bb.json | - |
+| 2026-09-12T09:08:31.901537+00:00 | ef94b796-e8af-4157-b265-b5ce5c645f9b | stress_smoke_G/B/rep-5 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/ef94b796-e8af-4157-b265-b5ce5c645f9b.json | - |
+| 2026-09-12T09:09:10.306160+00:00 | ed784cea-173c-460b-a2b0-c9445a36f0ce | stress_smoke_P/A_P/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/ed784cea-173c-460b-a2b0-c9445a36f0ce.json | - |
+| 2026-09-12T09:10:00.872675+00:00 | 8fc07179-5bfa-4b5b-a0d5-0a7ddb5fe1bd | stress_smoke_P/C/rep-1 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/8fc07179-5bfa-4b5b-a0d5-0a7ddb5fe1bd.json | - |
+| 2026-09-12T09:10:50.729581+00:00 | f05d785f-5721-4c8d-902f-8ab956f49af2 | stress_smoke_P/A_P/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/f05d785f-5721-4c8d-902f-8ab956f49af2.json | - |
+| 2026-09-12T09:11:37.230962+00:00 | 14b8e2f2-fdf4-4a34-80a2-6089f61b4977 | stress_smoke_P/C/rep-2 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/14b8e2f2-fdf4-4a34-80a2-6089f61b4977.json | - |
+| 2026-09-12T09:12:27.200989+00:00 | a6b3001a-e862-42bb-8891-40488db556a4 | stress_smoke_P/A_P/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/a6b3001a-e862-42bb-8891-40488db556a4.json | - |
+| 2026-09-12T09:13:25.938825+00:00 | 13aba349-5c86-49ad-a601-3111e62d4abd | stress_smoke_P/C/rep-3 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/13aba349-5c86-49ad-a601-3111e62d4abd.json | - |
+| 2026-09-12T09:14:29.282327+00:00 | 86408524-a293-4ca9-b341-c3bedd9992f5 | stress_smoke_P/A_P/rep-4 | 1403c7a87bda | ok | results/stress-smoke-16384/20260912T090056Z/raw/86408524-a293-4ca9-b341-c3bedd9992f5.json | - |
+| 2026-09-12T09:14:29.294850+00:00 | 92afdb66-41fb-413a-9034-1ece976d032b | stress_smoke_P/C/rep-4 | 1403c7a87bda | provider_failure | - | ChunkedEncodingError |
+
+Stress smoke `20260912T090056Z` BLOCKED: 17/20 calls completed successfully;
+call 18 failed during response transport with `ChunkedEncodingError`, was not
+retried, and calls 19-20 were not sent. Completed responses had zero parser,
+content-null, and length failures. No scientific candidate was sent. The
+provisional projection from 17 completed calls was US$1.238168118, but the
+registered cost gate remains incomplete because the required 20/20 smoke did
+not complete. Evidence: `results/stress-smoke-16384/20260912T090056Z/` and
+`pilot/v2/STRESS_SMOKE_16384_STATUS.md`.

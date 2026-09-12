@@ -1,0 +1,82 @@
+{
+  "run_id": "14b8e2f2-fdf4-4a34-80a2-6089f61b4977",
+  "session_id": "20260912T090056Z",
+  "execution_key": "b5784e9d783a19f32bcacf5cc64c62fea7dad8a7b31f565b4f99e1a659ed6199",
+  "experiment_name": "stress_smoke_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "C",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T09:11:37.230962Z",
+  "latency": 46.491060583037324,
+  "token_usage": {
+    "prompt_tokens": 2623,
+    "completion_tokens": 4143,
+    "total_tokens": 6766,
+    "cost": 0.00215775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00215775,
+      "upstream_inference_prompt_cost": 8.625e-05,
+      "upstream_inference_completions_cost": 0.0020715
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3956,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Coupon option gated by 'used > 1', so state used==1 never considers spending the first coupon; should be used >= 1 (off-by-one).\"}, {\"line\": 91, \"score\": 0.3, \"reason\": \"Coupon transition invoked only under the wrong 'used > 1' condition, so first-coupon states stay unreachable/wrong.\"}, {\"line\": 128, \"score\": 0.15, \"reason\": \"Trace ignores parent's stored used index and trusts local decrement; would desync coupon count if bookkeeping differs.\"}, {\"line\": 83, \"score\": 0.1, \"reason\": \"Start cell set to 0 for every used level assumes surplus coupons; only valid under 'at most k coupons' semantics.\"}]}",
+  "raw_response_path": "results/stress-smoke-16384/20260912T090056Z/raw/14b8e2f2-fdf4-4a34-80a2-6089f61b4977.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Coupon option gated by 'used > 1', so state used==1 never considers spending the first coupon; should be used >= 1 (off-by-one)."
+      },
+      {
+        "line": 91,
+        "score": 0.3,
+        "reason": "Coupon transition invoked only under the wrong 'used > 1' condition, so first-coupon states stay unreachable/wrong."
+      },
+      {
+        "line": 128,
+        "score": 0.15,
+        "reason": "Trace ignores parent's stored used index and trusts local decrement; would desync coupon count if bookkeeping differs."
+      },
+      {
+        "line": 83,
+        "score": 0.1,
+        "reason": "Start cell set to 0 for every used level assumes surplus coupons; only valid under 'at most k coupons' semantics."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 10399,
+  "prompt_tokens_estimate": 2600,
+  "manifest_hash": "1403c7a87bdab05d9b34b77f6a332723096483311fe953b584266479f43e983a"
+}

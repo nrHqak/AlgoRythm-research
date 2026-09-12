@@ -1,0 +1,52 @@
+{
+  "status": "BLOCK",
+  "engineering_only": true,
+  "purpose": "STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "scientific_candidates_sent": 0,
+  "calls_expected": 20,
+  "calls_attempted": 18,
+  "calls_successful": 17,
+  "calls_not_sent_after_stop": 2,
+  "parser_failures": 0,
+  "content_null_failures": 0,
+  "length_truncations": 0,
+  "transport_failures": 1,
+  "failure": {
+    "call_number": 18,
+    "session": "P",
+    "arm": "C",
+    "repetition": 4,
+    "error_type": "ChunkedEncodingError",
+    "complete_provider_response_available": false,
+    "retried": false
+  },
+  "observed_successful_call_aggregate": {
+    "usage_observations": 17,
+    "average_input_tokens": 2537.3529411764707,
+    "average_output_tokens": 3929.823529411765,
+    "average_reasoning_tokens": 3762.176470588235,
+    "maximum_output_tokens": 5224,
+    "average_cost_per_call_usd": 0.0020636135294117646,
+    "observed_cost_usd": 0.03508143,
+    "provisional_600_call_projection_usd": 1.2381681176470587
+  },
+  "cost_gate": {
+    "threshold_usd": 4.5,
+    "complete": false,
+    "reason": "The registered cost gate requires all 20 stress calls; the projection from 17 completed calls is provisional only."
+  },
+  "identity_on_all_completed_responses": {
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "OpenRouter",
+    "underlying_provider": "Z.AI",
+    "underlying_provider_endpoint": "z-ai/fp8",
+    "fallbacks": false
+  },
+  "generation_parameters": {
+    "temperature": 0,
+    "max_tokens": 16384,
+    "repetitions": 5,
+    "session_order": ["G", "P"]
+  },
+  "conclusion": "BLOCKED: the 20/20 stress acceptance rule was not met. Do not run the scientific pilot."
+}
