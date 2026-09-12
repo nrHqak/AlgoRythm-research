@@ -17,7 +17,7 @@ from experiments.storage import file_sha256, write_json_new
 
 ROOT = Path(__file__).resolve().parents[1]
 STRESS_MANIFEST = ROOT / "data/smoke-stress/manifest_32768.json"
-SCIENTIFIC_MANIFEST = ROOT / "data/manifests/pilot_manifest_v2_1.json"
+SCIENTIFIC_MANIFEST = ROOT / "data/manifests/pilot_manifest_v2_2.json"
 SYSTEM = ROOT / "pilot/v2/prompts/system_v2.txt"
 TEMPLATE = ROOT / "pilot/prompts/control.txt"
 GENERIC_PRIORS = ROOT / "pilot/v2/generic_placebo_prior.json"

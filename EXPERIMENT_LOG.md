@@ -196,3 +196,14 @@ US$0.07752965. Evidence: `pilot/v2/CLEAN_SCIENTIFIC_RERUN_STATUS.md` and
 | 2026-09-12T13:00:38.220390+00:00 | 7560e8c0-aaeb-4eca-b7fc-2434ac55568c | stress_smoke_32768_P/C/rep-4 | f9a6ef86af7a | ok | results/stress-smoke-32768/20260912T122827Z/raw/7560e8c0-aaeb-4eca-b7fc-2434ac55568c.json | - |
 | 2026-09-12T13:00:56.810253+00:00 | f325e001-f464-4cb7-8cf6-79bee2d80e1e | stress_smoke_32768_P/A_P/rep-5 | f9a6ef86af7a | ok | results/stress-smoke-32768/20260912T122827Z/raw/f325e001-f464-4cb7-8cf6-79bee2d80e1e.json | - |
 | 2026-09-12T13:01:18.863825+00:00 | 042677d9-e53f-4505-80c8-3aaed6def228 | stress_smoke_32768_P/C/rep-5 | f9a6ef86af7a | ok | results/stress-smoke-32768/20260912T122827Z/raw/042677d9-e53f-4505-80c8-3aaed6def228.json | - |
+
+V2.2 pre-results revalidation 2026-09-12: the registered 32,768-token
+synthetic stress run remains PASS after the consensus sample freeze. All 50
+retained raw exchanges were independently rechecked: exact model
+`z-ai/glm-5.3-flash`, pinned Z.AI endpoint (`z-ai/fp8`), fallbacks disabled,
+temperature 0, G-then-P order, non-null content, `finish_reason=stop`, and
+parser success. No authoritative v2.2 program ID occurs in the stress
+evidence. Maximum output was 10,069 tokens; projected equal-arm 600-call cost
+is US$1.0849793 and projected serial runtime is 6.3656019 hours. Scientific
+calls in this revalidation: 0. The active model-freeze record now freezes only
+the authorized max_tokens change, 16,384 to 32,768, for v2.2.
