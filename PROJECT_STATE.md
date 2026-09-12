@@ -35,6 +35,7 @@ All of the following are frozen and must not be altered before the pilot runs:
 - Model freeze after several recorded aborts (Gemini credential/HTTP 503 attempts, OpenRouter truncation aborts) — all preserved as audit history under `pilot/v2/model-freeze-attempts/`.
 - Pre-results amendments to `max_tokens` (4096 → 16384), recorded before any result existed.
 - Fresh 16384-token stress smoke passed (`pilot/v2/STRESS_SMOKE_16384_STATUS.md`).
+- **Pre-results APA 7 paper draft** written from the frozen protocol, dataset audits, and literature dossier only — `paper/APA7_PAPER_DRAFT.md`, with `paper/RESULT_INSERTION_MAP.md`, `paper/APA7_COMPLIANCE_CHECKLIST.md`, and `paper/PAPER_SOURCE_AUDIT.md`. No result, effect direction, or comparative claim is asserted anywhere in it; every Results table cell is an explicit `[RESULT PENDING]` placeholder. The source audit surfaces one open data-integrity item that blocks any future Results section independent of experiment completion: the frozen manifest records `pattern_source: "AST rule"` for all 30 programs, which is inconsistent with the blinded human-annotation provenance `pilot/ANNOTATION_GUIDE.md` §2 and `pilot/v2/CLAIM_BOUNDARIES_V2.md` §4.1 require — see `paper/PAPER_SOURCE_AUDIT.md` and `paper/RESULT_INSERTION_MAP.md` §11.
 
 # In Progress
 
