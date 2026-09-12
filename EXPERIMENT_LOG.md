@@ -236,3 +236,19 @@ pinned Z.AI endpoint `z-ai/fp8`; fallbacks disabled; temperature 0;
 max_tokens 32,768. Observed throughput was 4.8676688 calls/minute, projecting
 2.0543715 hours for 600 calls. Actual preflight cost was US$0.03163337. No
 scientific candidate was sent and no retry occurred.
+| 2026-09-12T20:39:17.423982+00:00 | dddb8e504a61ece99ecc7ab6d6c1bfa92f240bcc32678a69098babd3b99d4199 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-1 | 9f2db14bd386 | provider_failure | results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/dddb8e504a61ece99ecc7ab6d6c1bfa92f240bcc32678a69098babd3b99d4199.json | MissingCompletionContent |
+| 2026-09-12T20:38:47.992615+00:00 | 1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-1 | 9f2db14bd386 | provider_failure | results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac.json | MissingCompletionContent |
+| 2026-09-12T20:38:58.312564+00:00 | e59d1d653f050f0ed1dba28f77aa4a62eeca631dfffc4d0dfc50c0a0ad85b7c4 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-2 | 9f2db14bd386 | provider_failure | results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/e59d1d653f050f0ed1dba28f77aa4a62eeca631dfffc4d0dfc50c0a0ad85b7c4.json | MissingCompletionContent |
+| 2026-09-12T20:39:01.549685+00:00 | bee2120fb930c191739e4db6ceaa768cafe0ab046685cbfec1cd85cd0e1c9c23 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-2 | 9f2db14bd386 | ok | results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/bee2120fb930c191739e4db6ceaa768cafe0ab046685cbfec1cd85cd0e1c9c23.json | - |
+
+Session 20260912T203200Z-G-final VOID: provider_failure rate >5% within first 50 calls; session is void. Do not resume; document a corrected freeze.
+
+Final v2.2 scientific pilot attempt `20260912T203200Z-G-final` is VOID. The
+first four Session G requests were the only scientific calls submitted. One
+parsed successfully; three reached exactly 32,768 completion tokens with
+`finish_reason=length`, null content, and `MissingCompletionContent`. All four
+reported exact model `z-ai/glm-5.3-flash` and pinned underlying provider Z.AI.
+The frozen first-50 health rule stopped execution after the first concurrent
+batch; no fifth G call, no Session P call, no retry, and no statistical
+analysis occurred. Runtime was 366.981338 seconds and actual cost was
+US$0.0657428. No valid scientific result exists.
