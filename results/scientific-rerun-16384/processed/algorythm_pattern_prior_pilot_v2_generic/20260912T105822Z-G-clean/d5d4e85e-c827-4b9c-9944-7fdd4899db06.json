@@ -1,0 +1,87 @@
+{
+  "run_id": "d5d4e85e-c827-4b9c-9944-7fdd4899db06",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "90bb236a777b3650ac63bc5a40e6ed90a2f91cb5920caa44d75f713bd96c71b2",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45028964",
+  "task_id": "abc266_c",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:20:36.838643Z",
+  "latency": 77.84803362499224,
+  "token_usage": {
+    "prompt_tokens": 1123,
+    "completion_tokens": 6932,
+    "total_tokens": 8055,
+    "cost": 0.00350389,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00350389,
+      "upstream_inference_prompt_cost": 3.789e-05,
+      "upstream_inference_completions_cost": 0.003466
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6680,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.93, \"reason\": \"Uses float division inside Fraction: Fraction(-(y1-y2)/(x1-x2)) rounds the slope, so exact collinear/degenerate cases get wrong signs; should be Fraction(-(y1-y2), (x1-x2)).\"}, {\"line\": 29, \"score\": 0.25, \"reason\": \"b inherits the float-rounded slope error from line 28, shifting the signed-side value for points near or on the line.\"}, {\"line\": 39, \"score\": 0.2, \"reason\": \"Strict product<0 test is correct in exact math, but with the imprecise slope it can wrongly accept/reject degenerate (collinear) quadrilaterals.\"}, {\"line\": 40, \"score\": 0.18, \"reason\": \"Same strict cross-line test for the other diagonal; sensitive to the float slope error introduced on line 28.\"}, {\"line\": 12, \"score\": 0.08, \"reason\": \"split(' ') would misparse repeated spaces, though AtCoder input is normally clean; low suspicion.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/d5d4e85e-c827-4b9c-9944-7fdd4899db06.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.93,
+        "reason": "Uses float division inside Fraction: Fraction(-(y1-y2)/(x1-x2)) rounds the slope, so exact collinear/degenerate cases get wrong signs; should be Fraction(-(y1-y2), (x1-x2))."
+      },
+      {
+        "line": 29,
+        "score": 0.25,
+        "reason": "b inherits the float-rounded slope error from line 28, shifting the signed-side value for points near or on the line."
+      },
+      {
+        "line": 39,
+        "score": 0.2,
+        "reason": "Strict product<0 test is correct in exact math, but with the imprecise slope it can wrongly accept/reject degenerate (collinear) quadrilaterals."
+      },
+      {
+        "line": 40,
+        "score": 0.18,
+        "reason": "Same strict cross-line test for the other diagonal; sensitive to the float slope error introduced on line 28."
+      },
+      {
+        "line": 12,
+        "score": 0.08,
+        "reason": "split(' ') would misparse repeated spaces, though AtCoder input is normally clean; low suspicion."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 46,
+  "loc": 46,
+  "evaluation_denominator": 46,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "516",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "f20ba32e0c01e86a8f42a7e72a3eb36da0e7c3f3a57be3b07f48de22891c9b4f",
+  "prior_hash": null,
+  "prompt_chars": 3741,
+  "prompt_tokens_estimate": 936,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

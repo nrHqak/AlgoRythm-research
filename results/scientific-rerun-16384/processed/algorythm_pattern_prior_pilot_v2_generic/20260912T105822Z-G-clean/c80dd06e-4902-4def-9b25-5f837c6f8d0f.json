@@ -1,0 +1,72 @@
+{
+  "run_id": "c80dd06e-4902-4def-9b25-5f837c6f8d0f",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "fe94c7add082251634c255b14a9824181d4d73f9d011a9dfaff2e6e9efbd8b01",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:09:52.026676Z",
+  "latency": 68.10171041596914,
+  "token_usage": {
+    "prompt_tokens": 877,
+    "completion_tokens": 6796,
+    "total_tokens": 7673,
+    "cost": 0.00342971,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00342971,
+      "upstream_inference_prompt_cost": 3.171e-05,
+      "upstream_inference_completions_cost": 0.003398
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6681,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.95, \"reason\": \"Term can be negative when [2^i,2^(i+1)-1] lies outside [l,r]; needs a max(0,...) clamp before adding to ans.\"}, {\"line\": 16, \"score\": 0.85, \"reason\": \"Early exit is wrong: valid x can exceed n (n=4,l=5,r=5 -> answer 1), so returning 0 drops legitimate answers.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/c80dd06e-4902-4def-9b25-5f837c6f8d0f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.95,
+        "reason": "Term can be negative when [2^i,2^(i+1)-1] lies outside [l,r]; needs a max(0,...) clamp before adding to ans."
+      },
+      {
+        "line": 16,
+        "score": 0.85,
+        "reason": "Early exit is wrong: valid x can exceed n (n=4,l=5,r=5 -> answer 1), so returning 0 drops legitimate answers."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": null,
+  "prompt_chars": 3185,
+  "prompt_tokens_estimate": 797,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

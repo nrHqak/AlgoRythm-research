@@ -1,0 +1,5 @@
+{
+  "status": "VOID",
+  "reason": "provider_failure rate >5% within first 50 calls; session is void",
+  "engineering_only": true
+}

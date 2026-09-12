@@ -1,0 +1,143 @@
+{
+  "run_id": "ca25fc42-973f-48b0-a965-1d001729d51b",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "91f4644d4e024f209e79f7967f5ebbb3011b0233960a84ab3836584b07c54f7d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45028964",
+  "task_id": "abc266_c",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:19:18.984038+00:00",
+  "source_line_count": 46,
+  "loc": 46,
+  "evaluation_denominator": 46,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "516",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "f20ba32e0c01e86a8f42a7e72a3eb36da0e7c3f3a57be3b07f48de22891c9b4f",
+  "prior_hash": null,
+  "prompt_chars": 3741,
+  "prompt_tokens_estimate": 936,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45028964\nTask ID: abc266_c\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: # coding: utf-8\n2: \n3: from fractions import Fraction\n4: \n5: from functools import partial\n6: try:\n7:     dummy = src\n8:     minp = partial(src.pop, 0)\n9: except NameError:\n10:     minp = input\n11: def ints():\n12:     return list(map(int, minp().rstrip().split(' ')))\n13: def int1():\n14:     return int(minp().rstrip())\n15: \n16: def above_below(p, p1, p2):\n17:     '''\n18:     点(x, y)が２点(x1, y1),(x2, y2)を通る直線の上にあるか下にあるか\n19:     　0なら直線上、正なら+y領域、負なら-y領域\n20:     '''\n21:     (x, y), (x1, y1), (x2, y2) = p, p1, p2\n22:     \n23:     # 鉛直線の場合\n24:     if x1 == x2:\n25:         return x - x1\n26: \n27:     # 直線 a x + y + b = 0 を求める\n28:     a = Fraction(-(y1 - y2) / (x1 - x2))\n29:     b = - (a * x1 + y1)\n30:     # x, yを代入して返す\n31:     return a * x + y + b\n32: \n33: #@psecs\n34: def main():\n35:     pts = [tuple(ints()) for _ in range(4)]\n36: #    print(locals())\n37:     \n38:     # 対角線が作る直線に対して残りの２点が反対側にあれば凸\n39:     if above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 and \\\n40:         above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0:\n41:             print('Yes')\n42:     else:\n43:         print('No')\n44:     \n45: if __name__ == '__main__':\n46:     main()\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Second call checks pts[3] against line pts[1]-pts[2], not diagonal pts[0]-pts[2]; should reuse pts[0], pts[2], breaking convexity check for even a square.\"}, {\"line\": 28, \"score\": 0.25, \"reason\": \"Fraction constructed from float division loses exactness; collinear integer points may not yield exactly 0, affecting sign test in edge cases.\"}]}",
+  "latency": 22.068310750008095,
+  "token_usage": {
+    "prompt_tokens": 1123,
+    "completion_tokens": 1965,
+    "total_tokens": 3088,
+    "cost": 0.00115095,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00115095,
+      "upstream_inference_prompt_cost": 0.00016845,
+      "upstream_inference_completions_cost": 0.0009825
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1848,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789211937-9u3qh85XyhVWuT43CBoX",
+    "provider_created": 1789211937,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 6097,
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789211937-9u3qh85XyhVWuT43CBoX",
+    "object": "chat.completion",
+    "created": 1789211937,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Second call checks pts[3] against line pts[1]-pts[2], not diagonal pts[0]-pts[2]; should reuse pts[0], pts[2], breaking convexity check for even a square.\"}, {\"line\": 28, \"score\": 0.25, \"reason\": \"Fraction constructed from float division loses exactness; collinear integer points may not yield exactly 0, affecting sign test in edge cases.\"}]}",
+          "refusal": null,
+          "reasoning": "Let me analyze this code. It's ABC266 C problem: determine if a quadrilateral is convex.\n\nThe approach: for a convex quadrilateral, for each diagonal, the other two vertices must be on opposite sides of the line containing the diagonal.\n\nThe code checks:\n- Diagonal formed by pts[1] and pts[3]: check pts[0] and pts[2] are on opposite sides.\n- Diagonal formed by pts[0] and pts[2]: check pts[1] and pts[3] are on opposite sides.\n\nWait, let me check line 40: `above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0`\n\nThe diagonal here is pts[0] and pts[2], so the line is through pts[0] and pts[2]. We need to check pts[1] and pts[3] are on opposite sides. The first call is `above_below(pts[1], pts[0], pts[2])` — correct. The second call is `above_below(pts[3], pts[1], pts[2])` — that's checking pts[3] against the line through pts[1] and pts[2], not through pts[0] and pts[2]! That's the bug. It should be `above_below(pts[3], pts[0], pts[2])`.\n\nSo line 40 contains the bug: the second call uses pts[1] instead of pts[0] for the line definition.\n\nLet me double-check line 39: `above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0` — diagonal pts[1]-pts[3], checking pts[0] and pts[2]. Both calls correctly use line (pts[1], pts[3]). Correct.\n\nLine 40: diagonal pts[0]-pts[2], checking pts[1] and pts[3]. First call uses (pts[0], pts[2]) — correct. Second call uses (pts[1], pts[2]) — incorrect, should be (pts[0], pts[2]).\n\nSo the bug is on line 40, specifically the second `pts[1]` should be `pts[0]`.\n\nAlso check the `above_below` function for potential issues:\n\nLine 28: `a = Fraction(-(y1 - y2) / (x1 - x2))` — Hmm, using floats with Fraction. `-(y1 - y2) / (x1 - x2)` is float division in Python 3 (since these are ints). Fraction of a float gives exact binary representation of the float, which could have precision issues but usually fine for small integer coordinates. Actually, a better approach would be `Fraction(-(y1 - y2), (x1 - x2))`. But since the coordinates are small integers (up to 100 in abs value), the float division could introduce tiny errors. However, the sign check (product < 0) would rarely be affected by tiny float errors unless a point is nearly on the line. Since inputs are integers, exact arithmetic would give exact zero for collinear cases, but float might give small nonzero values... Actually for collinear points with integer coordinates, slope computed as float: y1-y2 over x1-x2, then a*x + y + b. For example, points (0,0), (2,1), (4,2): slope = 1/2 = 0.5 exactly representable. But (0,0), (3,1), (6,2): 1/3 is not exactly representable. Then a*x + y + b: a = Fraction(1/3 as float). a*x1 + y1... Let me think: b = -(a*x1 + y1). For point (6,2): a*6 + 2 + b = a*6 + 2 - (a*3 + 0)... wait let me recompute. Line through (0,0) and (3,1): a = Fraction(-1/3 as float). Actually -(y1-y2)/(x1-x2) = -(0-1)/(0-3) = 1/(-3) = -0.3333... a = Fraction(-1/3 float). b = -(a*0 + 0) = 0. Check point (6,2): a*6 + 2 = -6/3_float + 2. In exact float arithmetic, Fraction(-1/3 as float)*6 + 2 — the float -1/3 times 6: since Fraction is exact arithmetic on the binary float value, a*6 = -6 * (nearest float to -1/3). Is that exactly -2? Not necessarily. The float nearest to -1/3 is some value v ≈ -0.333333333333333314829616256247... times 6 = -1.999999999999999888977... which in Fraction arithmetic is exact, so a*6 + 2 ≈ 1.110223e-16 > 0, not zero. But this only matters when a point is exactly on the line (collinear). In the convex check, if three points are collinear, the quadrilateral isn't convex (per problem, answer should be \"No\"). With float error, the product might be... hmm, for the collinear case: if pts[1] is on diagonal pts[0]-pts[2], then product would be tiny negative or positive randomly, changing the answer. But actually with strict convexity (problem says interior angles all less than 180), collinear means not convex, answer \"No\". The float error could make product positive (wrongly \"Yes\") — e.g., product of two tiny values of the same sign being positive, or opposite signs being negative... For collinear point on the diagonal line, above_below returns ~0, and the product of two small values would be tiny positive or negative depending on signs. Actually if one point is collinear on the diagonal, the other point is on one side; product = (tiny)*(some value) whose sign depends on tiny's sign. This could produce wrong answer. But it's a precision concern, and this is line 28.\n\nHowever, the primary clear logical bug is line 40. The precision issue in line 28 could also cause failures, but the main structural bug is line 40.\n\nActually wait — let me reconsider whether the whole check with the buggy line 40 would fail typical test cases. Yes, for a convex square: pts (0,0), (1,0), (1,1), (0,1). Line 39: above_below(pts[0]=(0,0), line pts[1](1,0)-pts[3](0,1)) and above_below(pts[2]=(1,1), same line). Line through (1,0),(0,1): x+y-1=0 side: (0,0) → -1, (1,1) → 1. Product -1 < 0 ✓. Line 40: above_below(pts[1]=(1,0), line pts[0](0,0)-pts[2](1,1)): line y=x, signed value y - x = -1. above_below(pts[3]=(0,1), line pts[1](1,0)-pts[2](1,1)): vertical line x=1, return x - 1 = -1. Product = 1 > 0, so condition fails → \"No\" for a convex square! So yes, this bug fails even the sample \"Yes\" cases.\n\nSo line 40 is definitively the bug.\n\nSecondary suspicion: line 28 float-to-Fraction conversion could cause precision issues in edge cases (collinear). Score maybe 0.2-0.3.\n\nLet me also consider line 39 vs 40 — the difference between them strongly points to line 40 as the typo.\n\nRanking:\n1. Line 40: score ~0.95 — second above_below call uses pts[1] as line point instead of pts[0]; wrong diagonal.\n2. Line 28: score ~0.25 — Fraction from float division can lose exactness for collinear points; should use Fraction(numerator, denominator).\n\nMaybe also line 39? No, line 39 is correct. Line 31? Correct. Line 24-25 vertical case correct.\n\nI'll include just these two, or maybe three with line 39 at low score? Line 39 is correct as written. No genuine suspicion. I'll keep two entries.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Let me analyze this code. It's ABC266 C problem: determine if a quadrilateral is convex.\n\nThe approach: for a convex quadrilateral, for each diagonal, the other two vertices must be on opposite sides of the line containing the diagonal.\n\nThe code checks:\n- Diagonal formed by pts[1] and pts[3]: check pts[0] and pts[2] are on opposite sides.\n- Diagonal formed by pts[0] and pts[2]: check pts[1] and pts[3] are on opposite sides.\n\nWait, let me check line 40: `above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0`\n\nThe diagonal here is pts[0] and pts[2], so the line is through pts[0] and pts[2]. We need to check pts[1] and pts[3] are on opposite sides. The first call is `above_below(pts[1], pts[0], pts[2])` — correct. The second call is `above_below(pts[3], pts[1], pts[2])` — that's checking pts[3] against the line through pts[1] and pts[2], not through pts[0] and pts[2]! That's the bug. It should be `above_below(pts[3], pts[0], pts[2])`.\n\nSo line 40 contains the bug: the second call uses pts[1] instead of pts[0] for the line definition.\n\nLet me double-check line 39: `above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0` — diagonal pts[1]-pts[3], checking pts[0] and pts[2]. Both calls correctly use line (pts[1], pts[3]). Correct.\n\nLine 40: diagonal pts[0]-pts[2], checking pts[1] and pts[3]. First call uses (pts[0], pts[2]) — correct. Second call uses (pts[1], pts[2]) — incorrect, should be (pts[0], pts[2]).\n\nSo the bug is on line 40, specifically the second `pts[1]` should be `pts[0]`.\n\nAlso check the `above_below` function for potential issues:\n\nLine 28: `a = Fraction(-(y1 - y2) / (x1 - x2))` — Hmm, using floats with Fraction. `-(y1 - y2) / (x1 - x2)` is float division in Python 3 (since these are ints). Fraction of a float gives exact binary representation of the float, which could have precision issues but usually fine for small integer coordinates. Actually, a better approach would be `Fraction(-(y1 - y2), (x1 - x2))`. But since the coordinates are small integers (up to 100 in abs value), the float division could introduce tiny errors. However, the sign check (product < 0) would rarely be affected by tiny float errors unless a point is nearly on the line. Since inputs are integers, exact arithmetic would give exact zero for collinear cases, but float might give small nonzero values... Actually for collinear points with integer coordinates, slope computed as float: y1-y2 over x1-x2, then a*x + y + b. For example, points (0,0), (2,1), (4,2): slope = 1/2 = 0.5 exactly representable. But (0,0), (3,1), (6,2): 1/3 is not exactly representable. Then a*x + y + b: a = Fraction(1/3 as float). a*x1 + y1... Let me think: b = -(a*x1 + y1). For point (6,2): a*6 + 2 + b = a*6 + 2 - (a*3 + 0)... wait let me recompute. Line through (0,0) and (3,1): a = Fraction(-1/3 as float). Actually -(y1-y2)/(x1-x2) = -(0-1)/(0-3) = 1/(-3) = -0.3333... a = Fraction(-1/3 float). b = -(a*0 + 0) = 0. Check point (6,2): a*6 + 2 = -6/3_float + 2. In exact float arithmetic, Fraction(-1/3 as float)*6 + 2 — the float -1/3 times 6: since Fraction is exact arithmetic on the binary float value, a*6 = -6 * (nearest float to -1/3). Is that exactly -2? Not necessarily. The float nearest to -1/3 is some value v ≈ -0.333333333333333314829616256247... times 6 = -1.999999999999999888977... which in Fraction arithmetic is exact, so a*6 + 2 ≈ 1.110223e-16 > 0, not zero. But this only matters when a point is exactly on the line (collinear). In the convex check, if three points are collinear, the quadrilateral isn't convex (per problem, answer should be \"No\"). With float error, the product might be... hmm, for the collinear case: if pts[1] is on diagonal pts[0]-pts[2], then product would be tiny negative or positive randomly, changing the answer. But actually with strict convexity (problem says interior angles all less than 180), collinear means not convex, answer \"No\". The float error could make product positive (wrongly \"Yes\") — e.g., product of two tiny values of the same sign being positive, or opposite signs being negative... For collinear point on the diagonal line, above_below returns ~0, and the product of two small values would be tiny positive or negative depending on signs. Actually if one point is collinear on the diagonal, the other point is on one side; product = (tiny)*(some value) whose sign depends on tiny's sign. This could produce wrong answer. But it's a precision concern, and this is line 28.\n\nHowever, the primary clear logical bug is line 40. The precision issue in line 28 could also cause failures, but the main structural bug is line 40.\n\nActually wait — let me reconsider whether the whole check with the buggy line 40 would fail typical test cases. Yes, for a convex square: pts (0,0), (1,0), (1,1), (0,1). Line 39: above_below(pts[0]=(0,0), line pts[1](1,0)-pts[3](0,1)) and above_below(pts[2]=(1,1), same line). Line through (1,0),(0,1): x+y-1=0 side: (0,0) → -1, (1,1) → 1. Product -1 < 0 ✓. Line 40: above_below(pts[1]=(1,0), line pts[0](0,0)-pts[2](1,1)): line y=x, signed value y - x = -1. above_below(pts[3]=(0,1), line pts[1](1,0)-pts[2](1,1)): vertical line x=1, return x - 1 = -1. Product = 1 > 0, so condition fails → \"No\" for a convex square! So yes, this bug fails even the sample \"Yes\" cases.\n\nSo line 40 is definitively the bug.\n\nSecondary suspicion: line 28 float-to-Fraction conversion could cause precision issues in edge cases (collinear). Score maybe 0.2-0.3.\n\nLet me also consider line 39 vs 40 — the difference between them strongly points to line 40 as the typo.\n\nRanking:\n1. Line 40: score ~0.95 — second above_below call uses pts[1] as line point instead of pts[0]; wrong diagonal.\n2. Line 28: score ~0.25 — Fraction from float division can lose exactness for collinear points; should use Fraction(numerator, denominator).\n\nMaybe also line 39? No, line 39 is correct. Line 31? Correct. Line 24-25 vertical case correct.\n\nI'll include just these two, or maybe three with line 39 at low score? Line 39 is correct as written. No genuine suspicion. I'll keep two entries.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1123,
+      "completion_tokens": 1965,
+      "total_tokens": 3088,
+      "cost": 0.00115095,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00115095,
+        "upstream_inference_prompt_cost": 0.00016845,
+        "upstream_inference_completions_cost": 0.0009825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1848,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

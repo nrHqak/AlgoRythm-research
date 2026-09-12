@@ -1,0 +1,82 @@
+{
+  "run_id": "21e5943a-c3f5-424d-b4f7-acd03c0d6745",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "5f95d0872ff7f49b54104a09efa204ccda5593ce59f077092f6da38409cd0cd9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:05:21.991362Z",
+  "latency": 107.97500425000908,
+  "token_usage": {
+    "prompt_tokens": 1040,
+    "completion_tokens": 10155,
+    "total_tokens": 11195,
+    "cost": 0.00513366,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00513366,
+      "upstream_inference_prompt_cost": 5.616e-05,
+      "upstream_inference_completions_cost": 0.0050775
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 9918,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.95, \"reason\": \"Wrong early exit: valid x can exceed n (any x whose MSB is a set bit of n), so n<l does not imply answer 0; falsely prints 0.\"}, {\"line\": 25, \"score\": 0.88, \"reason\": \"Missing max(0,...) clamp: a set bit's interval [2^i,2^(i+1)-1] can lie entirely below l, adding a negative term and undercounting ans.\"}, {\"line\": 21, \"score\": 0.12, \"reason\": \"Bound min(n.bit_length(), r.bit_length()) must build powers for all counted bits; looks correct but off-by-one here would break line 25.\"}, {\"line\": 23, \"score\": 0.1, \"reason\": \"Loop must cover every set bit i with 2^i <= r; the min bound seems right but is boundary-sensitive and worth rechecking.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/21e5943a-c3f5-424d-b4f7-acd03c0d6745.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.95,
+        "reason": "Wrong early exit: valid x can exceed n (any x whose MSB is a set bit of n), so n<l does not imply answer 0; falsely prints 0."
+      },
+      {
+        "line": 25,
+        "score": 0.88,
+        "reason": "Missing max(0,...) clamp: a set bit's interval [2^i,2^(i+1)-1] can lie entirely below l, adding a negative term and undercounting ans."
+      },
+      {
+        "line": 21,
+        "score": 0.12,
+        "reason": "Bound min(n.bit_length(), r.bit_length()) must build powers for all counted bits; looks correct but off-by-one here would break line 25."
+      },
+      {
+        "line": 23,
+        "score": 0.1,
+        "reason": "Loop must cover every set bit i with 2^i <= r; the min bound seems right but is boundary-sensitive and worth rechecking."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4029,
+  "prompt_tokens_estimate": 1008,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

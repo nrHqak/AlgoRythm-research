@@ -116,3 +116,33 @@ scientific candidate was sent. Average observed cost was US$0.0020021095 per
 call; the 600-call projection is US$1.2012657, below the US$4.50 gate. The
 earlier attempt is preserved and reclassified by user direction as ABORTED /
 INCOMPLETE DUE TO LOCAL EXECUTION INTERRUPTION; none of its calls were reused.
+| 2026-09-12T10:59:13.636018+00:00 | 0b5694ff-6340-40b0-9230-f4cdcf021e60 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-1 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/0b5694ff-6340-40b0-9230-f4cdcf021e60.json | - |
+| 2026-09-12T11:01:49.320368+00:00 | 4b061c24-1153-459c-a8f9-31530687bb42 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-1 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/4b061c24-1153-459c-a8f9-31530687bb42.json | - |
+| 2026-09-12T11:03:34.005577+00:00 | b8bacf6e-c4be-4c85-a01d-cfaec053d6e6 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-2 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/b8bacf6e-c4be-4c85-a01d-cfaec053d6e6.json | - |
+| 2026-09-12T11:05:21.991362+00:00 | 21e5943a-c3f5-424d-b4f7-acd03c0d6745 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-2 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/21e5943a-c3f5-424d-b4f7-acd03c0d6745.json | - |
+| 2026-09-12T11:06:49.106263+00:00 | 71a8738e-73dd-44d7-bdd9-812e7f746cf6 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-3 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/71a8738e-73dd-44d7-bdd9-812e7f746cf6.json | - |
+| 2026-09-12T11:08:43.902030+00:00 | 6b954fda-489f-49ae-a6d5-8d20eead1e95 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-3 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/6b954fda-489f-49ae-a6d5-8d20eead1e95.json | - |
+| 2026-09-12T11:09:52.026676+00:00 | c80dd06e-4902-4def-9b25-5f837c6f8d0f | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-4 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/c80dd06e-4902-4def-9b25-5f837c6f8d0f.json | - |
+| 2026-09-12T11:11:27.476073+00:00 | 1bf082dd-f929-4d5f-92d4-4cdd31eb93a2 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-4 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/1bf082dd-f929-4d5f-92d4-4cdd31eb93a2.json | - |
+| 2026-09-12T11:12:43.899118+00:00 | 7f1be757-0475-4703-8889-9089758e7a6b | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-5 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/7f1be757-0475-4703-8889-9089758e7a6b.json | - |
+| 2026-09-12T11:15:00.552551+00:00 | ddc35ac9-5c0c-4386-a332-27a62ab12479 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-5 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/ddc35ac9-5c0c-4386-a332-27a62ab12479.json | - |
+| 2026-09-12T11:16:04.732602+00:00 | a6ff2d87-afcc-4d6a-ad1b-fbcaed57cef4 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-1 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/a6ff2d87-afcc-4d6a-ad1b-fbcaed57cef4.json | - |
+| 2026-09-12T11:18:37.782528+00:00 | aeafcf59-3092-4c3b-bb4a-b238e83d3dd8 | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-1 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/aeafcf59-3092-4c3b-bb4a-b238e83d3dd8.json | - |
+| 2026-09-12T11:18:56.910026+00:00 | 3ae6cb55-9426-4767-91e4-300ae7015fce | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-2 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/3ae6cb55-9426-4767-91e4-300ae7015fce.json | - |
+| 2026-09-12T11:19:18.984038+00:00 | ca25fc42-973f-48b0-a965-1d001729d51b | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-2 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/ca25fc42-973f-48b0-a965-1d001729d51b.json | - |
+| 2026-09-12T11:20:36.838643+00:00 | d5d4e85e-c827-4b9c-9944-7fdd4899db06 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-3 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/d5d4e85e-c827-4b9c-9944-7fdd4899db06.json | - |
+| 2026-09-12T11:21:17.975830+00:00 | 3e78c511-deea-4e4a-8ef4-bf1ba8423ecc | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-3 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/3e78c511-deea-4e4a-8ef4-bf1ba8423ecc.json | - |
+| 2026-09-12T11:22:21.361549+00:00 | 557b9a43-7ad5-46c9-8301-5f5738f2efeb | algorythm_pattern_prior_pilot_v2_generic/generic_prior/rep-4 | d53bcdc232f7 | ok | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/557b9a43-7ad5-46c9-8301-5f5738f2efeb.json | - |
+| 2026-09-12T11:25:18.106696+00:00 | 3d75cf85-f2d8-464c-b41e-9c1a4f979e07 | algorythm_pattern_prior_pilot_v2_generic/no_prior/rep-4 | d53bcdc232f7 | provider_failure | results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/3d75cf85-f2d8-464c-b41e-9c1a4f979e07.json | MissingCompletionContent |
+
+Session 20260912T105822Z-G-clean VOID: provider_failure rate >5% within first 50 calls; session is void. Do not resume; document a corrected freeze.
+
+Clean scientific rerun finalized VOID: Session G stopped after call 18. The
+first 17 calls completed; call 18 returned HTTP 200 with exact model/provider
+identity but `content=null`, `finish_reason=length`, 16,384 output tokens, and
+16,383 reasoning tokens. The first-50 provider-failure rate was 1/18 (5.56%),
+so the frozen health rule invalidated the session. No retry occurred; Session P
+and all analyses were not run. Total usage was 19,221 input, 152,365 output,
+149,590 reasoning, and 171,586 total tokens; actual OpenRouter cost was
+US$0.07752965. Evidence: `pilot/v2/CLEAN_SCIENTIFIC_RERUN_STATUS.md` and
+`results/scientific-rerun-16384/`.

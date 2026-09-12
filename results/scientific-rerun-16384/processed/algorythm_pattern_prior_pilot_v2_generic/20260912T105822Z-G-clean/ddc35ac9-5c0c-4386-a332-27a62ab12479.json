@@ -1,0 +1,82 @@
+{
+  "run_id": "ddc35ac9-5c0c-4386-a332-27a62ab12479",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "0d3f9361d553de5a56d0b252b2df27a0873fe366d332b03e05f6476d73185992",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:15:00.552551Z",
+  "latency": 136.6482580419979,
+  "token_usage": {
+    "prompt_tokens": 877,
+    "completion_tokens": 12674,
+    "total_tokens": 13551,
+    "cost": 0.00636871,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00636871,
+      "upstream_inference_prompt_cost": 3.171e-05,
+      "upstream_inference_completions_cost": 0.006337
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 12434,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.9, \"reason\": \"Wrong early exit: x in [l,r] with x>n can still satisfy n xor x < n (e.g. n=2, l=3, r=3 gives answer 1, code prints 0).\"}, {\"line\": 25, \"score\": 0.82, \"reason\": \"Per-bit count can be negative when [2^i, 2^(i+1)-1] lies outside [l,r]; missing max(0,...) clamp (e.g. n=10, l=5, r=20 gives 7 not 8).\"}, {\"line\": 21, \"score\": 0.22, \"reason\": \"min(len(n_l), r_d) bound sizes power too; an off-by-one here would break the power[i+1] index used on line 25.\"}, {\"line\": 23, \"score\": 0.18, \"reason\": \"Loop cap r_d could theoretically skip set-bit blocks at the boundary, though blocks above r contribute zero.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/ddc35ac9-5c0c-4386-a332-27a62ab12479.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.9,
+        "reason": "Wrong early exit: x in [l,r] with x>n can still satisfy n xor x < n (e.g. n=2, l=3, r=3 gives answer 1, code prints 0)."
+      },
+      {
+        "line": 25,
+        "score": 0.82,
+        "reason": "Per-bit count can be negative when [2^i, 2^(i+1)-1] lies outside [l,r]; missing max(0,...) clamp (e.g. n=10, l=5, r=20 gives 7 not 8)."
+      },
+      {
+        "line": 21,
+        "score": 0.22,
+        "reason": "min(len(n_l), r_d) bound sizes power too; an off-by-one here would break the power[i+1] index used on line 25."
+      },
+      {
+        "line": 23,
+        "score": 0.18,
+        "reason": "Loop cap r_d could theoretically skip set-bit blocks at the boundary, though blocks above r contribute zero."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": null,
+  "prompt_chars": 3185,
+  "prompt_tokens_estimate": 797,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

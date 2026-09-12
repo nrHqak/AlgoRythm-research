@@ -1,0 +1,143 @@
+{
+  "run_id": "3ae6cb55-9426-4767-91e4-300ae7015fce",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "d266693732ed12eedb15f6a7c207e21a266e4a6e876bc518efbedbd381c8b1c6",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45028964",
+  "task_id": "abc266_c",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:18:56.910026+00:00",
+  "source_line_count": 46,
+  "loc": 46,
+  "evaluation_denominator": 46,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "516",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "f20ba32e0c01e86a8f42a7e72a3eb36da0e7c3f3a57be3b07f48de22891c9b4f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4585,
+  "prompt_tokens_estimate": 1147,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45028964\nTask ID: abc266_c\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: # coding: utf-8\n2: \n3: from fractions import Fraction\n4: \n5: from functools import partial\n6: try:\n7:     dummy = src\n8:     minp = partial(src.pop, 0)\n9: except NameError:\n10:     minp = input\n11: def ints():\n12:     return list(map(int, minp().rstrip().split(' ')))\n13: def int1():\n14:     return int(minp().rstrip())\n15: \n16: def above_below(p, p1, p2):\n17:     '''\n18:     点(x, y)が２点(x1, y1),(x2, y2)を通る直線の上にあるか下にあるか\n19:     　0なら直線上、正なら+y領域、負なら-y領域\n20:     '''\n21:     (x, y), (x1, y1), (x2, y2) = p, p1, p2\n22:     \n23:     # 鉛直線の場合\n24:     if x1 == x2:\n25:         return x - x1\n26: \n27:     # 直線 a x + y + b = 0 を求める\n28:     a = Fraction(-(y1 - y2) / (x1 - x2))\n29:     b = - (a * x1 + y1)\n30:     # x, yを代入して返す\n31:     return a * x + y + b\n32: \n33: #@psecs\n34: def main():\n35:     pts = [tuple(ints()) for _ in range(4)]\n36: #    print(locals())\n37:     \n38:     # 対角線が作る直線に対して残りの２点が反対側にあれば凸\n39:     if above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 and \\\n40:         above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0:\n41:             print('Yes')\n42:     else:\n43:         print('No')\n44:     \n45: if __name__ == '__main__':\n46:     main()\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program contains a logical fault. Before ranking the full source, check these standard failure points for buggy programs first, in order:\n1. check whether every loop's start and end bounds are correct, including whether an endpoint should be inclusive or exclusive\n2. check whether each comparison or conditional test uses the right operator and the right direction, including strict versus non-strict comparisons\n3. check whether variables that accumulate or track state are initialized correctly and updated in the right order relative to their use\n4. check whether the boundary cases are handled, such as the first item, the last item, or an empty or single-element input\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Second diagonal check should use line through pts[0] and pts[2] for pts[3], but pts[1] is passed, testing a side, not the diagonal.\"}, {\"line\": 28, \"score\": 0.2, \"reason\": \"Float division before Fraction() loses exactness; minor, but a non-exact slope could theoretically perturb side signs.\"}]}",
+  "latency": 19.11719674995402,
+  "token_usage": {
+    "prompt_tokens": 1286,
+    "completion_tokens": 1834,
+    "total_tokens": 3120,
+    "cost": 0.0009563,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0009563,
+      "upstream_inference_prompt_cost": 3.93e-05,
+      "upstream_inference_completions_cost": 0.000917
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1728,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789211918-BgTNkgc8pn7vy5cF5It2",
+    "provider_created": 1789211918,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 5590,
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789211918-BgTNkgc8pn7vy5cF5It2",
+    "object": "chat.completion",
+    "created": 1789211918,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Second diagonal check should use line through pts[0] and pts[2] for pts[3], but pts[1] is passed, testing a side, not the diagonal.\"}, {\"line\": 28, \"score\": 0.2, \"reason\": \"Float division before Fraction() loses exactness; minor, but a non-exact slope could theoretically perturb side signs.\"}]}",
+          "refusal": null,
+          "reasoning": "Let me analyze this code. It's ABC266_C, which asks whether four points form a convex quadrilateral.\n\nThe approach: check that the two diagonals' endpoints have the other two points on opposite sides of each diagonal line. That's a valid approach for convexity of a quadrilateral (with vertices in order).\n\nLet me check the `above_below` function:\n\n```python\ndef above_below(p, p1, p2):\n    (x, y), (x1, y1), (x2, y2) = p, p1, p2\n    \n    # 鉛直線の場合\n    if x1 == x2:\n        return x - x1\n\n    # 直線 a x + y + b = 0 を求める\n    a = Fraction(-(y1 - y2) / (x1 - x2))\n    b = - (a * x1 + y1)\n    # x, yを代入して返す\n    return a * x + y + b\n```\n\nLine 28: `a = Fraction(-(y1 - y2) / (x1 - x2))`. This is a float division first, then converting to Fraction. This loses precision — Fraction of a float. That's a floating point precision issue, but with integer coordinates up to 100 in absolute value, float division would be exact enough? Actually, `Fraction(float)` gives the exact binary representation of the float, which may be slightly off from the true rational slope. This could cause precision issues, but typically for small integer coordinates, the product computed from a slightly-off slope times integer x might still have correct sign... Not necessarily guaranteed but usually fine.\n\nBut wait, the bigger issue: the slope computation. The line through (x1,y1) and (x2,y2): y = m x + b where m = (y2-y1)/(x2-x1). The code computes a = -(y1-y2)/(x1-x2) = (y2-y1)/(x2-x1)... wait let me compute: -(y1 - y2) = y2 - y1. (x1 - x2) = x1 - x2. So a = (y2-y1)/(x1-x2) = -(y2-y1)/(x2-x1). Hmm, so a is the negative of the slope? Wait, the line is \"a x + y + b = 0\". If we write the line as y = m x + c, then in form a x + y + b = 0, we'd have a = -m, b = -c. The code computes a = -(y1-y2)/(x1-x2) = (y2-y1)/(x1-x2). Let m = (y2-y1)/(x2-x1). Then a = (y2-y1)/(x1-x2) = -m. Yes, so a = -m, which is correct for the form a x + y + b = 0.\n\nThen b = -(a*x1 + y1), which makes the line pass through (x1, y1). Good.\n\nThen return a*x + y + b. This is the signed value of plugging point p into the line equation. Good.\n\nThe vertical line case: if x1 == x2, return x - x1, which is positive if p is to the right, negative if left. That's fine for sign comparison purposes (opposite sides).\n\nMain:\n```python\npts = [tuple(ints()) for _ in range(4)]\n\n# check diagonal\nif above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 and \\\n    above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0:\n    print('Yes')\nelse:\n    print('No')\n```\n\nThe quadrilateral has vertices pts[0], pts[1], pts[2], pts[3] in order. Diagonals are (pts[0], pts[2]) and (pts[1], pts[3]).\n\nFirst condition: line through pts[1] and pts[3] (a diagonal). The other two points are pts[0] and pts[2]. Correct.\n\nSecond condition: line through pts[0] and pts[2] (other diagonal). The other two points are pts[1] and pts[3]. The code checks above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) — wait! The second call uses pts[1] and pts[2] as the line's defining points: `above_below(pts[3], pts[1], pts[2])`. That's a bug! It should be `above_below(pts[3], pts[0], pts[2])`.\n\nSo line 40 has the bug: the second point for the second call is pts[1] instead of pts[0]. The line through pts[1] and pts[2] is a side of the quadrilateral, not the diagonal. The check should use pts[0] and pts[2].\n\nLet me verify: `above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0`. The intended check is: points pts[1] and pts[3] on opposite sides of the line through pts[0] and pts[2]. The first factor correctly computes the side of pts[1] relative to line pts[0]-pts[2]. The second factor computes the side of pts[3] relative to line through pts[1] and pts[2] — wrong line. Should be pts[0], pts[2].\n\nSo line 40 is the culprit.\n\nAlso potential issue with line 28: Fraction of a float division — precision loss. `Fraction(-(y1 - y2) / (x1 - x2))` performs true division producing a float, then Fraction of that float gives exact binary expansion, not the rational value. This could theoretically cause sign errors for points extremely close to the line, but for integer coordinates, the value a*x + y + b would be a non-integer rational whose sign... Actually the true value a*x+y+b with exact rational a is (something)/ (x1-x2) which is a rational with denominator at most 200. The float approximation error is about 1e-16 relative, times x (up to 100) and slope magnitude — errors ~1e-14. True nonzero values are at least 1/200 = 0.005 in magnitude. So no sign error in practice. Still, using Fraction on a float is sloppy but wouldn't fail tests. The main bug is line 40.\n\nSo ranking: line 40 with high score (~0.95). Then maybe line 28 with low score (~0.2) as secondary suspicion. Line 39 is correct. Line 24-25 vertical case is fine.\n\nAny other issues? Input parsing: `ints()` splits on ' ' — fine. The `minp` weirdness is boilerplate.\n\nLine 39: above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 — correct: line through pts[1] (p1) and pts[3] (p2); points pts[0] and pts[2] evaluated. Correct.\n\nLine 40: wrong as noted.\n\nSo ranking:\n- line 40: score 0.95, reason: second factor uses line pts[1]-pts[2] instead of diagonal pts[0]-pts[2].\n- line 28: score 0.2, reason: float division before Fraction loses exactness (minor, unlikely to fail).\n\nMaybe also line 39 score 0.1? No, it's correct. I'll include line 28 only, and maybe line 25 vertical case — returning x - x1 for vertical line: sign is correct for opposite sides, fine.\n\nFinal JSON.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Let me analyze this code. It's ABC266_C, which asks whether four points form a convex quadrilateral.\n\nThe approach: check that the two diagonals' endpoints have the other two points on opposite sides of each diagonal line. That's a valid approach for convexity of a quadrilateral (with vertices in order).\n\nLet me check the `above_below` function:\n\n```python\ndef above_below(p, p1, p2):\n    (x, y), (x1, y1), (x2, y2) = p, p1, p2\n    \n    # 鉛直線の場合\n    if x1 == x2:\n        return x - x1\n\n    # 直線 a x + y + b = 0 を求める\n    a = Fraction(-(y1 - y2) / (x1 - x2))\n    b = - (a * x1 + y1)\n    # x, yを代入して返す\n    return a * x + y + b\n```\n\nLine 28: `a = Fraction(-(y1 - y2) / (x1 - x2))`. This is a float division first, then converting to Fraction. This loses precision — Fraction of a float. That's a floating point precision issue, but with integer coordinates up to 100 in absolute value, float division would be exact enough? Actually, `Fraction(float)` gives the exact binary representation of the float, which may be slightly off from the true rational slope. This could cause precision issues, but typically for small integer coordinates, the product computed from a slightly-off slope times integer x might still have correct sign... Not necessarily guaranteed but usually fine.\n\nBut wait, the bigger issue: the slope computation. The line through (x1,y1) and (x2,y2): y = m x + b where m = (y2-y1)/(x2-x1). The code computes a = -(y1-y2)/(x1-x2) = (y2-y1)/(x2-x1)... wait let me compute: -(y1 - y2) = y2 - y1. (x1 - x2) = x1 - x2. So a = (y2-y1)/(x1-x2) = -(y2-y1)/(x2-x1). Hmm, so a is the negative of the slope? Wait, the line is \"a x + y + b = 0\". If we write the line as y = m x + c, then in form a x + y + b = 0, we'd have a = -m, b = -c. The code computes a = -(y1-y2)/(x1-x2) = (y2-y1)/(x1-x2). Let m = (y2-y1)/(x2-x1). Then a = (y2-y1)/(x1-x2) = -m. Yes, so a = -m, which is correct for the form a x + y + b = 0.\n\nThen b = -(a*x1 + y1), which makes the line pass through (x1, y1). Good.\n\nThen return a*x + y + b. This is the signed value of plugging point p into the line equation. Good.\n\nThe vertical line case: if x1 == x2, return x - x1, which is positive if p is to the right, negative if left. That's fine for sign comparison purposes (opposite sides).\n\nMain:\n```python\npts = [tuple(ints()) for _ in range(4)]\n\n# check diagonal\nif above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 and \\\n    above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0:\n    print('Yes')\nelse:\n    print('No')\n```\n\nThe quadrilateral has vertices pts[0], pts[1], pts[2], pts[3] in order. Diagonals are (pts[0], pts[2]) and (pts[1], pts[3]).\n\nFirst condition: line through pts[1] and pts[3] (a diagonal). The other two points are pts[0] and pts[2]. Correct.\n\nSecond condition: line through pts[0] and pts[2] (other diagonal). The other two points are pts[1] and pts[3]. The code checks above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) — wait! The second call uses pts[1] and pts[2] as the line's defining points: `above_below(pts[3], pts[1], pts[2])`. That's a bug! It should be `above_below(pts[3], pts[0], pts[2])`.\n\nSo line 40 has the bug: the second point for the second call is pts[1] instead of pts[0]. The line through pts[1] and pts[2] is a side of the quadrilateral, not the diagonal. The check should use pts[0] and pts[2].\n\nLet me verify: `above_below(pts[1], pts[0], pts[2]) * above_below(pts[3], pts[1], pts[2]) < 0`. The intended check is: points pts[1] and pts[3] on opposite sides of the line through pts[0] and pts[2]. The first factor correctly computes the side of pts[1] relative to line pts[0]-pts[2]. The second factor computes the side of pts[3] relative to line through pts[1] and pts[2] — wrong line. Should be pts[0], pts[2].\n\nSo line 40 is the culprit.\n\nAlso potential issue with line 28: Fraction of a float division — precision loss. `Fraction(-(y1 - y2) / (x1 - x2))` performs true division producing a float, then Fraction of that float gives exact binary expansion, not the rational value. This could theoretically cause sign errors for points extremely close to the line, but for integer coordinates, the value a*x + y + b would be a non-integer rational whose sign... Actually the true value a*x+y+b with exact rational a is (something)/ (x1-x2) which is a rational with denominator at most 200. The float approximation error is about 1e-16 relative, times x (up to 100) and slope magnitude — errors ~1e-14. True nonzero values are at least 1/200 = 0.005 in magnitude. So no sign error in practice. Still, using Fraction on a float is sloppy but wouldn't fail tests. The main bug is line 40.\n\nSo ranking: line 40 with high score (~0.95). Then maybe line 28 with low score (~0.2) as secondary suspicion. Line 39 is correct. Line 24-25 vertical case is fine.\n\nAny other issues? Input parsing: `ints()` splits on ' ' — fine. The `minp` weirdness is boilerplate.\n\nLine 39: above_below(pts[0], pts[1], pts[3]) * above_below(pts[2], pts[1], pts[3]) < 0 — correct: line through pts[1] (p1) and pts[3] (p2); points pts[0] and pts[2] evaluated. Correct.\n\nLine 40: wrong as noted.\n\nSo ranking:\n- line 40: score 0.95, reason: second factor uses line pts[1]-pts[2] instead of diagonal pts[0]-pts[2].\n- line 28: score 0.2, reason: float division before Fraction loses exactness (minor, unlikely to fail).\n\nMaybe also line 39 score 0.1? No, it's correct. I'll include line 28 only, and maybe line 25 vertical case — returning x - x1 for vertical line: sign is correct for opposite sides, fine.\n\nFinal JSON.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1286,
+      "completion_tokens": 1834,
+      "total_tokens": 3120,
+      "cost": 0.0009563,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009563,
+        "upstream_inference_prompt_cost": 3.93e-05,
+        "upstream_inference_completions_cost": 0.000917
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1728,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

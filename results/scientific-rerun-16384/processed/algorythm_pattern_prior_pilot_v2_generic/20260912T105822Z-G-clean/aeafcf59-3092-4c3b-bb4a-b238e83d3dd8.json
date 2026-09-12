@@ -1,0 +1,77 @@
+{
+  "run_id": "aeafcf59-3092-4c3b-bb4a-b238e83d3dd8",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "71cbd9648df7465c4f6e22def2c0b48f3257b8d5b42a9b1a76c90e2123505056",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45028964",
+  "task_id": "abc266_c",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:18:37.782528Z",
+  "latency": 153.04341691697482,
+  "token_usage": {
+    "prompt_tokens": 1286,
+    "completion_tokens": 15821,
+    "total_tokens": 17107,
+    "cost": 0.008065,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008065,
+      "upstream_inference_prompt_cost": 0.0001545,
+      "upstream_inference_completions_cost": 0.0079105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 15662,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.97, \"reason\": \"Second call tests pts[3] against line pts[1]-pts[2] (edge BC), not diagonal pts[0]-pts[2]; the two signs use different lines, so opposite-side test breaks (fails square case).\"}, {\"line\": 28, \"score\": 0.3, \"reason\": \"Float division done before Fraction wrapper; slope is inexact. Harmless for small coords but a fragile way to build the line.\"}, {\"line\": 39, \"score\": 0.1, \"reason\": \"Partner diagonal condition; args verified correct, but recheck pairing since the failing condition is its sibling.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/aeafcf59-3092-4c3b-bb4a-b238e83d3dd8.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 40,
+        "score": 0.97,
+        "reason": "Second call tests pts[3] against line pts[1]-pts[2] (edge BC), not diagonal pts[0]-pts[2]; the two signs use different lines, so opposite-side test breaks (fails square case)."
+      },
+      {
+        "line": 28,
+        "score": 0.3,
+        "reason": "Float division done before Fraction wrapper; slope is inexact. Harmless for small coords but a fragile way to build the line."
+      },
+      {
+        "line": 39,
+        "score": 0.1,
+        "reason": "Partner diagonal condition; args verified correct, but recheck pairing since the failing condition is its sibling."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 46,
+  "loc": 46,
+  "evaluation_denominator": 46,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "516",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "f20ba32e0c01e86a8f42a7e72a3eb36da0e7c3f3a57be3b07f48de22891c9b4f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4585,
+  "prompt_tokens_estimate": 1147,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

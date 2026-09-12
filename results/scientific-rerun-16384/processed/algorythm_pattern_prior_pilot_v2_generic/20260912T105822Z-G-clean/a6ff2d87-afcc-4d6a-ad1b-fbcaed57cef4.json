@@ -1,0 +1,77 @@
+{
+  "run_id": "a6ff2d87-afcc-4d6a-ad1b-fbcaed57cef4",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "a10fce6d83ca3d84226757fc2d252ee9538fe068912750133461c4f36143a32c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45028964",
+  "task_id": "abc266_c",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:16:04.732602Z",
+  "latency": 64.16837075003423,
+  "token_usage": {
+    "prompt_tokens": 1123,
+    "completion_tokens": 5657,
+    "total_tokens": 6780,
+    "cost": 0.00299695,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00299695,
+      "upstream_inference_prompt_cost": 0.00016845,
+      "upstream_inference_completions_cost": 0.0028285
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5521,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.95, \"reason\": \"Divides ints as floats before Fraction(), losing exactness; Fraction(float) makes side-sign tests fail for points exactly on the diagonal (collinear cases)\"}, {\"line\": 29, \"score\": 0.3, \"reason\": \"b is derived from the imprecise float slope a, propagating the precision loss into the signed-distance result\"}, {\"line\": 31, \"score\": 0.15, \"reason\": \"Return value inherits float slope error; exact Fraction arithmetic here would give correct zero for on-line points\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/a6ff2d87-afcc-4d6a-ad1b-fbcaed57cef4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.95,
+        "reason": "Divides ints as floats before Fraction(), losing exactness; Fraction(float) makes side-sign tests fail for points exactly on the diagonal (collinear cases)"
+      },
+      {
+        "line": 29,
+        "score": 0.3,
+        "reason": "b is derived from the imprecise float slope a, propagating the precision loss into the signed-distance result"
+      },
+      {
+        "line": 31,
+        "score": 0.15,
+        "reason": "Return value inherits float slope error; exact Fraction arithmetic here would give correct zero for on-line points"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 46,
+  "loc": 46,
+  "evaluation_denominator": 46,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "516",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "f20ba32e0c01e86a8f42a7e72a3eb36da0e7c3f3a57be3b07f48de22891c9b4f",
+  "prior_hash": null,
+  "prompt_chars": 3741,
+  "prompt_tokens_estimate": 936,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

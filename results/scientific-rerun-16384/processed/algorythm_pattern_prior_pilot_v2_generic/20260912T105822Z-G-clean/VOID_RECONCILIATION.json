@@ -1,0 +1,64 @@
+{
+  "status": "VOID",
+  "scientific_session": true,
+  "session_id": "20260912T105822Z-G-clean",
+  "session": "G",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "failure_policy_reason": "provider_failure rate >5% within first 50 calls; session is void",
+  "calls_targeted_in_session": 300,
+  "calls_attempted": 18,
+  "calls_successful": 17,
+  "calls_not_sent_in_session": 282,
+  "calls_not_sent_total_pilot": 582,
+  "session_p_started": false,
+  "analysis_run": false,
+  "provider_failures": 1,
+  "parser_failures": 0,
+  "failed_call": {
+    "run_id": "3d75cf85-f2d8-464c-b41e-9c1a4f979e07",
+    "program_id": "45028964",
+    "condition": "no_prior",
+    "repetition": 4,
+    "error_type": "MissingCompletionContent",
+    "http_status": 200,
+    "content_is_null": true,
+    "finish_reason": "length",
+    "native_finish_reason": "length",
+    "input_tokens": 1123,
+    "output_tokens": 16384,
+    "reasoning_tokens": 16383,
+    "cost_usd": 0.00836045,
+    "raw_saved_before_parsing": true,
+    "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/3d75cf85-f2d8-464c-b41e-9c1a4f979e07.json"
+  },
+  "actual_usage_all_18_attempts": {
+    "input_tokens": 19221,
+    "output_tokens": 152365,
+    "reasoning_tokens": 149590,
+    "total_tokens": 171586,
+    "cost_usd": 0.07752965
+  },
+  "identity": {
+    "provider": "OpenRouter",
+    "model": "z-ai/glm-5.3-flash",
+    "underlying_provider": "Z.AI",
+    "underlying_provider_endpoint": "z-ai/fp8",
+    "fallbacks": false,
+    "identity_stable_on_all_responses": true
+  },
+  "generation_parameters": {
+    "temperature": 0,
+    "max_tokens": 16384,
+    "repetitions": 5,
+    "session_order": ["G", "P"]
+  },
+  "frozen_hashes": {
+    "scientific_manifest": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3",
+    "model_freeze": "259d0b0de8f1d478c0d5dd68c94b058a4100f91352f6879fde3b4ebd9ff1d1a6",
+    "system_prompt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "user_template": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "generic_prior": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc"
+  },
+  "artifact_note": "The automatically written VOID.json contains engineering_only=true as a generic VOID marker. The committed session_manifest.json is authoritative and records engineering_only=false; this reconciliation identifies the run as scientific.",
+  "conclusion": "Session G is VOID. Do not resume or selectively retry. Session P and all statistical analyses were not run."
+}

@@ -1,0 +1,77 @@
+{
+  "run_id": "71a8738e-73dd-44d7-bdd9-812e7f746cf6",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "cf4e9f794583ba2a4e5c780bd5ae425e4df9fc70f1392b690bbd1660f3a96ca7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:06:49.106263Z",
+  "latency": 87.10633279103786,
+  "token_usage": {
+    "prompt_tokens": 1040,
+    "completion_tokens": 7815,
+    "total_tokens": 8855,
+    "cost": 0.00394062,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00394062,
+      "upstream_inference_prompt_cost": 3.312e-05,
+      "upstream_inference_completions_cost": 0.0039075
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 7652,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.9, \"reason\": \"Wrong early exit: n<l does not imply no valid x (e.g. n=8,l=9,r=10: x=9 gives 8^9=1<8).\"}, {\"line\": 25, \"score\": 0.85, \"reason\": \"min-max count can be negative when a set-bit interval misses [l,r] entirely; needs clamping with max(0, ...).\"}, {\"line\": 21, \"score\": 0.15, \"reason\": \"Unusual loop bound min(len(n_l), r_d); checked it only skips bits with 2^i>r, so likely harmless.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/71a8738e-73dd-44d7-bdd9-812e7f746cf6.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.9,
+        "reason": "Wrong early exit: n<l does not imply no valid x (e.g. n=8,l=9,r=10: x=9 gives 8^9=1<8)."
+      },
+      {
+        "line": 25,
+        "score": 0.85,
+        "reason": "min-max count can be negative when a set-bit interval misses [l,r] entirely; needs clamping with max(0, ...)."
+      },
+      {
+        "line": 21,
+        "score": 0.15,
+        "reason": "Unusual loop bound min(len(n_l), r_d); checked it only skips bits with 2^i>r, so likely harmless."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4029,
+  "prompt_tokens_estimate": 1008,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

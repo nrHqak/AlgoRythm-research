@@ -1,0 +1,72 @@
+{
+  "run_id": "4b061c24-1153-459c-a8f9-31530687bb42",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "2dcd09c74c3d3aadb731ccf6c187e43f05c46ad6e68d89d8a86f958891f4e75e",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T11:01:49.320368Z",
+  "latency": 155.67304954200517,
+  "token_usage": {
+    "prompt_tokens": 877,
+    "completion_tokens": 15371,
+    "total_tokens": 16248,
+    "cost": 0.00777865,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00777865,
+      "upstream_inference_prompt_cost": 9.315e-05,
+      "upstream_inference_completions_cost": 0.0076855
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 15243,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.95, \"reason\": \"Wrong early exit: x>n can still satisfy N xor x<N (e.g. N=4,L=7,R=7 answers 1, code prints 0).\"}, {\"line\": 25, \"score\": 0.7, \"reason\": \"Overlap count can go negative when [2^i, 2^(i+1)-1] lies entirely below l; needs max(0, ...) clamp.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/4b061c24-1153-459c-a8f9-31530687bb42.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.95,
+        "reason": "Wrong early exit: x>n can still satisfy N xor x<N (e.g. N=4,L=7,R=7 answers 1, code prints 0)."
+      },
+      {
+        "line": 25,
+        "score": 0.7,
+        "reason": "Overlap count can go negative when [2^i, 2^(i+1)-1] lies entirely below l; needs max(0, ...) clamp."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": null,
+  "prompt_chars": 3185,
+  "prompt_tokens_estimate": 797,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}

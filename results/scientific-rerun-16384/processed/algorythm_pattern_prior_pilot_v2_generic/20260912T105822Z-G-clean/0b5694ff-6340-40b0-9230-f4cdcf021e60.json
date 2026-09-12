@@ -1,0 +1,87 @@
+{
+  "run_id": "0b5694ff-6340-40b0-9230-f4cdcf021e60",
+  "session_id": "20260912T105822Z-G-clean",
+  "execution_key": "04856cb3cbb905f7581a6b75383dbb492200de4aa7ed3068f6a153ff5009e32a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "38752586",
+  "task_id": "arc129_a",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 16384,
+  "timestamp": "2026-09-12T10:59:13.636018Z",
+  "latency": 50.767012499971315,
+  "token_usage": {
+    "prompt_tokens": 1040,
+    "completion_tokens": 4913,
+    "total_tokens": 5953,
+    "cost": 0.0026125,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0026125,
+      "upstream_inference_prompt_cost": 0.000156,
+      "upstream_inference_completions_cost": 0.0024565
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4644,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.9, \"reason\": \"Premature 'if n < l: print(0)' is wrong: valid x can exceed n (up to 2^(i+1)-1 above a set bit), e.g. n=4,l=7,r=9 yields 1, not 0.\"}, {\"line\": 25, \"score\": 0.8, \"reason\": \"Interval overlap lacks a max(0,...) clamp; when [2^i,2^(i+1)-1] lies below l the term is negative and corrupts ans.\"}, {\"line\": 17, \"score\": 0.5, \"reason\": \"Prints 0 for the incorrect early-exit branch; part of the faulty n<l special case that discards valid answers.\"}, {\"line\": 18, \"score\": 0.45, \"reason\": \"exit() terminates before the main loop for the wrong condition; removing this whole block is required for correctness.\"}, {\"line\": 21, \"score\": 0.2, \"reason\": \"Capping bits at r_d only works if negative overlaps are clamped; interacts with the missing clamp on line 25.\"}]}",
+  "raw_response_path": "results/scientific-rerun-16384/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T105822Z-G-clean/0b5694ff-6340-40b0-9230-f4cdcf021e60.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.9,
+        "reason": "Premature 'if n < l: print(0)' is wrong: valid x can exceed n (up to 2^(i+1)-1 above a set bit), e.g. n=4,l=7,r=9 yields 1, not 0."
+      },
+      {
+        "line": 25,
+        "score": 0.8,
+        "reason": "Interval overlap lacks a max(0,...) clamp; when [2^i,2^(i+1)-1] lies below l the term is negative and corrupts ans."
+      },
+      {
+        "line": 17,
+        "score": 0.5,
+        "reason": "Prints 0 for the incorrect early-exit branch; part of the faulty n<l special case that discards valid answers."
+      },
+      {
+        "line": 18,
+        "score": 0.45,
+        "reason": "exit() terminates before the main loop for the wrong condition; removing this whole block is required for correctness."
+      },
+      {
+        "line": 21,
+        "score": 0.2,
+        "reason": "Capping bits at r_d only works if negative overlaps are clamped; interacts with the missing clamp on line 25."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "727",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c65c3194889f771e3b03da9f4fa2784e28c84c74cb727cd00c444b4af5fd515",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4029,
+  "prompt_tokens_estimate": 1008,
+  "manifest_hash": "d53bcdc232f7e4daebca3248e53e060143a32e2638bb99959fda4c0db38e6ca3"
+}
