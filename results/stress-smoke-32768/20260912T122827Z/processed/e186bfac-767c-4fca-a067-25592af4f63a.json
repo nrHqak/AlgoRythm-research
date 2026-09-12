@@ -1,0 +1,77 @@
+{
+  "run_id": "e186bfac-767c-4fca-a067-25592af4f63a",
+  "session_id": "20260912T122827Z",
+  "execution_key": "8a07950a5361adb732b3f3c2b1b4a55c93368106491c230da0908a31d236e1f8",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "C",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:59:57.954119Z",
+  "latency": 16.154966291971505,
+  "token_usage": {
+    "prompt_tokens": 2189,
+    "completion_tokens": 1440,
+    "total_tokens": 3629,
+    "cost": 0.00078723,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00078723,
+      "upstream_inference_prompt_cost": 6.723e-05,
+      "upstream_inference_completions_cost": 0.00072
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1305,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.96, \"reason\": \"Segment cost uses maximum + minimum, but the intended range cost is maximum - minimum; disagrees with _recompute and the docstring.\"}, {\"line\": 121, \"score\": 0.18, \"reason\": \"Recompute uses max-min; only suspicious if the DP formula were intended, but docstring supports max-min.\"}, {\"line\": 34, \"score\": 0.08, \"reason\": \"Stores (minimum, maximum); correct order, minor chance of swap, but unpacking at line 38 matches.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/e186bfac-767c-4fca-a067-25592af4f63a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.96,
+        "reason": "Segment cost uses maximum + minimum, but the intended range cost is maximum - minimum; disagrees with _recompute and the docstring."
+      },
+      {
+        "line": 121,
+        "score": 0.18,
+        "reason": "Recompute uses max-min; only suspicious if the DP formula were intended, but docstring supports max-min."
+      },
+      {
+        "line": 34,
+        "score": 0.08,
+        "reason": "Stores (minimum, maximum); correct order, minor chance of swap, but unpacking at line 38 matches."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8758,
+  "prompt_tokens_estimate": 2190,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

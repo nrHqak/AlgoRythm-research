@@ -1,0 +1,87 @@
+{
+  "run_id": "e821d91f-a0bb-4738-acfb-51276330c4b0",
+  "session_id": "20260912T122827Z",
+  "execution_key": "f6e9c41e6045d33e4276ef473d78ffb1c4e52d8b79746ded2bc6e6d419e5318a",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "B",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:37:11.156699Z",
+  "latency": 65.88735412497772,
+  "token_usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 5939,
+    "total_tokens": 8575,
+    "cost": 0.00305002,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00305002,
+      "upstream_inference_prompt_cost": 8.052e-05,
+      "upstream_inference_completions_cost": 0.0029695
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5711,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Coupon transition gated to used > 1, so the first coupon can never be applied to a non-start cell; mid-path single-coupon plans are missed.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Sets every used level at start to 0, pre-using coupons at start and masking that used=1 states are unreachable elsewhere.\"}, {\"line\": 68, \"score\": 0.12, \"reason\": \"Looks up used-1 predecessor state; correct only when callers allow used>=1, so tied to the line 90 gate.\"}, {\"line\": 127, \"score\": 0.1, \"reason\": \"Locally decrements used although parent state already stores its own used; redundant and fragile if they ever diverge.\"}, {\"line\": 75, \"score\": 0.08, \"reason\": \"Strict '<' prefers the ordinary move on ties; safe, but worth checking tie-breaking intent.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/e821d91f-a0bb-4738-acfb-51276330c4b0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Coupon transition gated to used > 1, so the first coupon can never be applied to a non-start cell; mid-path single-coupon plans are missed."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Sets every used level at start to 0, pre-using coupons at start and masking that used=1 states are unreachable elsewhere."
+      },
+      {
+        "line": 68,
+        "score": 0.12,
+        "reason": "Looks up used-1 predecessor state; correct only when callers allow used>=1, so tied to the line 90 gate."
+      },
+      {
+        "line": 127,
+        "score": 0.1,
+        "reason": "Locally decrements used although parent state already stores its own used; redundant and fragile if they ever diverge."
+      },
+      {
+        "line": 75,
+        "score": 0.08,
+        "reason": "Strict '<' prefers the ordinary move on ties; safe, but worth checking tie-breaking intent."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10461,
+  "prompt_tokens_estimate": 2616,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

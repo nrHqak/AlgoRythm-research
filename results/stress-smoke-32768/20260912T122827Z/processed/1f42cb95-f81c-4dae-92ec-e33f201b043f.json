@@ -1,0 +1,77 @@
+{
+  "run_id": "1f42cb95-f81c-4dae-92ec-e33f201b043f",
+  "session_id": "20260912T122827Z",
+  "execution_key": "d49cb9e19cf172cb5a12b691e77dfac33141abf2c9a3b5bf9673b4619860da3e",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_P",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:59:41.788956Z",
+  "latency": 26.63901695801178,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 2386,
+    "total_tokens": 4406,
+    "cost": 0.00125792,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1984,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00125792,
+      "upstream_inference_prompt_cost": 6.492e-05,
+      "upstream_inference_completions_cost": 0.001193
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2238,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.93, \"reason\": \"Uses maximum + minimum + penalty, but docstring and _recompute define cost as range (max - min) + penalty; DP cost contradicts recomputation.\"}, {\"line\": 121, \"score\": 0.22, \"reason\": \"Counterpart formula using max - min; only wrong if intended cost were max+min, but docstring says range-plus-penalty, so less likely.\"}, {\"line\": 82, \"score\": 0.05, \"reason\": \"Tuple min() breaks ties by smaller groups count; harmless for correctness but could mask alternative optima.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/1f42cb95-f81c-4dae-92ec-e33f201b043f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.93,
+        "reason": "Uses maximum + minimum + penalty, but docstring and _recompute define cost as range (max - min) + penalty; DP cost contradicts recomputation."
+      },
+      {
+        "line": 121,
+        "score": 0.22,
+        "reason": "Counterpart formula using max - min; only wrong if intended cost were max+min, but docstring says range-plus-penalty, so less likely."
+      },
+      {
+        "line": 82,
+        "score": 0.05,
+        "reason": "Tuple min() breaks ties by smaller groups count; harmless for correctness but could mask alternative optima."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

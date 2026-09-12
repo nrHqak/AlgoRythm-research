@@ -1,0 +1,77 @@
+{
+  "run_id": "0b777dd4-a9a5-4747-b412-5c4a7aa4ebca",
+  "session_id": "20260912T122827Z",
+  "execution_key": "a9711137e91681ea4849290f7edbe34d1d1a2b50ecb00c8d2c796d9cc2bb6451",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "C",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:54:24.083185Z",
+  "latency": 42.395664541982114,
+  "token_usage": {
+    "prompt_tokens": 2623,
+    "completion_tokens": 3724,
+    "total_tokens": 6347,
+    "cost": 0.00194825,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00194825,
+      "upstream_inference_prompt_cost": 8.625e-05,
+      "upstream_inference_completions_cost": 0.001862
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3570,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Guard 'used > 1' skips coupon transitions when used==1, so a path spending exactly one coupon is unreachable; should be 'used > 0'.\"}, {\"line\": 68, \"score\": 0.35, \"reason\": \"Coupon recurrence reads used-1 states; correct logic, but only ever fires for used>=2 due to the faulty guard, hiding single-coupon paths.\"}, {\"line\": 83, \"score\": 0.15, \"reason\": \"Zero-cost start states for used>0 are reachable only via this init once line 90 blocks real coupon usage; verify intent.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/0b777dd4-a9a5-4747-b412-5c4a7aa4ebca.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Guard 'used > 1' skips coupon transitions when used==1, so a path spending exactly one coupon is unreachable; should be 'used > 0'."
+      },
+      {
+        "line": 68,
+        "score": 0.35,
+        "reason": "Coupon recurrence reads used-1 states; correct logic, but only ever fires for used>=2 due to the faulty guard, hiding single-coupon paths."
+      },
+      {
+        "line": 83,
+        "score": 0.15,
+        "reason": "Zero-cost start states for used>0 are reachable only via this init once line 90 blocks real coupon usage; verify intent."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 10399,
+  "prompt_tokens_estimate": 2600,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

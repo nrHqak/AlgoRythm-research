@@ -1,0 +1,82 @@
+{
+  "run_id": "4235c41c-89e4-47da-8118-a8909f3646d2",
+  "session_id": "20260912T122827Z",
+  "execution_key": "e711b0cae5183e09ef3b3a87d4eda277c7e26eeaef40691107e3281524bdb142",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-route-tail-v1",
+  "task_id": "synthetic-stress-dp-route-tail-v1",
+  "condition": "A_G",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:47:31.693111Z",
+  "latency": 44.54855016700458,
+  "token_usage": {
+    "prompt_tokens": 2458,
+    "completion_tokens": 3506,
+    "total_tokens": 5964,
+    "cost": 0.0021217,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0021217,
+      "upstream_inference_prompt_cost": 0.0003687,
+      "upstream_inference_completions_cost": 0.001753
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3297,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.97, \"reason\": \"Coupon transition guarded by `used > 1`, so a path using its first coupon at any non-start cell is impossible; should be `used > 0`. Starts can only apply coupons at (0,0), giving suboptimal costs.\"}, {\"line\": 83, \"score\": 0.2, \"reason\": \"Start states with used>=1 all set cost 0, modeling multiple coupons spent on the start cell itself; harmless for min cost but semantically off.\"}, {\"line\": 84, \"score\": 0.15, \"reason\": \"Parent flags every initialized start state as coupon-used; consistent with line 83's design but shares its questionable semantics.\"}, {\"line\": 75, \"score\": 0.05, \"reason\": \"Tie-breaking prefers ordinary on equal costs; benign since costs are equal, only affects which valid parent is stored.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/4235c41c-89e4-47da-8118-a8909f3646d2.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.97,
+        "reason": "Coupon transition guarded by `used > 1`, so a path using its first coupon at any non-start cell is impossible; should be `used > 0`. Starts can only apply coupons at (0,0), giving suboptimal costs."
+      },
+      {
+        "line": 83,
+        "score": 0.2,
+        "reason": "Start states with used>=1 all set cost 0, modeling multiple coupons spent on the start cell itself; harmless for min cost but semantically off."
+      },
+      {
+        "line": 84,
+        "score": 0.15,
+        "reason": "Parent flags every initialized start state as coupon-used; consistent with line 83's design but shares its questionable semantics."
+      },
+      {
+        "line": 75,
+        "score": 0.05,
+        "reason": "Tie-breaking prefers ordinary on equal costs; benign since costs are equal, only affects which valid parent is stored."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "22180ed5146fb33d49156ac8a874bd4d490a745341fb72ab6d27fac0ff590650",
+  "prior_hash": null,
+  "prompt_chars": 9536,
+  "prompt_tokens_estimate": 2384,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

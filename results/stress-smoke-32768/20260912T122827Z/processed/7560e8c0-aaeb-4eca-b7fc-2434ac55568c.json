@@ -1,0 +1,77 @@
+{
+  "run_id": "7560e8c0-aaeb-4eca-b7fc-2434ac55568c",
+  "session_id": "20260912T122827Z",
+  "execution_key": "5a8fe7467d793f9a007a07d75ccddc7d3c5a6a3321878df637f703ced17ae9e7",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "C",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T13:00:38.220390Z",
+  "latency": 22.765422666969243,
+  "token_usage": {
+    "prompt_tokens": 2189,
+    "completion_tokens": 1780,
+    "total_tokens": 3969,
+    "cost": 0.00095723,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00095723,
+      "upstream_inference_prompt_cost": 6.723e-05,
+      "upstream_inference_completions_cost": 0.00089
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1638,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.97, \"reason\": \"Segment cost adds minimum instead of subtracting: should be maximum - minimum (range), contradicting _recompute and the docstring.\"}, {\"line\": 121, \"score\": 0.3, \"reason\": \"Recompute uses max-min while DP uses max+min; one of these mismatches, but docstring says range, so this line is likely correct.\"}, {\"line\": 138, \"score\": 0.12, \"reason\": \"Where the max/min inconsistency surfaces as a RuntimeError; logic itself is sound, fault originates in cost formula.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/7560e8c0-aaeb-4eca-b7fc-2434ac55568c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.97,
+        "reason": "Segment cost adds minimum instead of subtracting: should be maximum - minimum (range), contradicting _recompute and the docstring."
+      },
+      {
+        "line": 121,
+        "score": 0.3,
+        "reason": "Recompute uses max-min while DP uses max+min; one of these mismatches, but docstring says range, so this line is likely correct."
+      },
+      {
+        "line": 138,
+        "score": 0.12,
+        "reason": "Where the max/min inconsistency surfaces as a RuntimeError; logic itself is sound, fault originates in cost formula."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8758,
+  "prompt_tokens_estimate": 2190,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

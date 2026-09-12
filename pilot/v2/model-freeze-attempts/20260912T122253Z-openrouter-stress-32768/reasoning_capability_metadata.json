@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-09-12T12:22:53.084446+00:00",
+  "query": {
+    "method": "GET",
+    "url": "https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints",
+    "http_status": 200,
+    "generation_calls": 0
+  },
+  "requested_model": "z-ai/glm-5.3-flash",
+  "selected_endpoint": {
+    "name": "Z.AI | z-ai/glm-5.3-flash-20260826",
+    "model_id": "z-ai/glm-5.3-flash",
+    "model_name": "Z.ai: GLM 5.3 Flash",
+    "provider_name": "Z.AI",
+    "tag": "z-ai/fp8",
+    "quantization": "fp8",
+    "context_length": 1048576,
+    "max_completion_tokens": 131072,
+    "pricing": {
+      "prompt": "0.00000015",
+      "completion": "0.0000005",
+      "input_cache_read": "0.00000003",
+      "discount": 0
+    },
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "tools",
+      "tool_choice",
+      "top_k",
+      "response_format",
+      "reasoning_effort"
+    ]
+  },
+  "model_metadata_response_sha256": "234d27e116e93a05c5c5f6ab4e9c66e9213761885d8e57dbb22ee1c3d4465d75",
+  "reasoning_effort_control_supported": true,
+  "reasoning_effort_changed": false,
+  "interpretation": "The exact pinned Z.AI endpoint advertises configurable reasoning and reasoning_effort parameters. This is information only; no generation parameter was changed or added."
+}

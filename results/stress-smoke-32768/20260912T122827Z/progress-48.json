@@ -1,0 +1,17 @@
+{
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "session": "P",
+  "arm": "C",
+  "repetition": 4,
+  "input_tokens": 2189,
+  "output_tokens": 1780,
+  "reasoning_tokens": 1638,
+  "finish_reason": "stop",
+  "latency_seconds": 22.765422666969243,
+  "cost_usd": 0.00095723,
+  "model": "z-ai/glm-5.3-flash",
+  "provider": "Z.AI",
+  "content_is_null": false,
+  "transport_failure": false,
+  "parser_status": "ok"
+}

@@ -1,0 +1,77 @@
+{
+  "run_id": "37a138fc-0340-47ae-b467-25955eede4bc",
+  "session_id": "20260912T122827Z",
+  "execution_key": "0f4db7e0a629dcb120c85780943c80eb9456c905f000c72788876929247e90c6",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_G",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:30:55.771216Z",
+  "latency": 65.25106137502007,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 5710,
+    "total_tokens": 8164,
+    "cost": 0.00293126,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00293126,
+      "upstream_inference_prompt_cost": 7.626e-05,
+      "upstream_inference_completions_cost": 0.002855
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5550,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Gating coupon transition on `used > 1` skips used==1, so the first coupon can never be applied off-start; should be `used >= 1`.\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Start set to 0 for every used count, letting multiple coupons 'fire' at start; only used==1 should be free, higher states should stay inf.\"}, {\"line\": 68, \"score\": 0.1, \"reason\": \"Coupon reads used-1 predecessors; correct once gating is fixed, but it is the off-by-one-adjacent spot to recheck.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/37a138fc-0340-47ae-b467-25955eede4bc.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Gating coupon transition on `used > 1` skips used==1, so the first coupon can never be applied off-start; should be `used >= 1`."
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Start set to 0 for every used count, letting multiple coupons 'fire' at start; only used==1 should be free, higher states should stay inf."
+      },
+      {
+        "line": 68,
+        "score": 0.1,
+        "reason": "Coupon reads used-1 predecessors; correct once gating is fixed, but it is the off-by-one-adjacent spot to recheck."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

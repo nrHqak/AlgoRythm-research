@@ -1,0 +1,143 @@
+{
+  "run_id": "a0af4e70-a7bd-4bec-8ecc-3396e4def021",
+  "session_id": "20260912T122827Z",
+  "execution_key": "9d851753b98cbf735be313795791a6412bdda8f7e5d225d5ffdb27a0a0b86a5e",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_G",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:38:46.308740+00:00",
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: synthetic-stress-dp-segments-v1\nTask ID: synthetic-stress-dp-segments-v1\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: \"\"\"Synthetic stress fixture: dynamic programming for sequence partitions.\"\"\"\n2: \n3: from __future__ import annotations\n4: \n5: from math import inf\n6: \n7: \n8: def _validate_values(values):\n9:     if not isinstance(values, list):\n10:         raise ValueError(\"values must be a list\")\n11:     for index, value in enumerate(values):\n12:         if not isinstance(value, int):\n13:             raise ValueError(f\"value {index} is not an integer\")\n14:         if value < 0:\n15:             raise ValueError(\"values must be non-negative\")\n16:     return len(values)\n17: \n18: def _validate_limits(max_segments, penalty):\n19:     if not isinstance(max_segments, int) or max_segments < 1:\n20:         raise ValueError(\"max_segments must be a positive integer\")\n21:     if not isinstance(penalty, int) or penalty < 0:\n22:         raise ValueError(\"penalty must be a non-negative integer\")\n23: \n24: def _make_cost_table(values):\n25:     length = len(values)\n26:     costs = [[0] * (length + 1) for _ in range(length)]\n27:     for start in range(length):\n28:         minimum = inf\n29:         maximum = -inf\n30:         for end in range(start + 1, length + 1):\n31:             value = values[end - 1]\n32:             minimum = min(minimum, value)\n33:             maximum = max(maximum, value)\n34:             costs[start][end] = (minimum, maximum)\n35:     return costs\n36: \n37: def _segment_cost(costs, start, end, penalty):\n38:     minimum, maximum = costs[start][end]\n39:     return maximum + minimum + penalty\n40: \n41: def _make_dp(length, max_segments):\n42:     table = []\n43:     parents = []\n44:     for _prefix in range(length + 1):\n45:         table.append([inf] * (max_segments + 1))\n46:         parents.append([None] * (max_segments + 1))\n47:     table[0][0] = 0\n48:     return table, parents\n49: \n50: def _candidate(table, costs, start, end, groups, penalty):\n51:     previous = table[start][groups - 1]\n52:     if previous == inf:\n53:         return inf\n54:     return previous + _segment_cost(costs, start, end, penalty)\n55: \n56: def _best_split(table, costs, end, groups, penalty):\n57:     best_cost = inf\n58:     best_start = None\n59:     for start in range(end):\n60:         cost = _candidate(table, costs, start, end, groups, penalty)\n61:         if cost < best_cost:\n62:             best_cost = cost\n63:             best_start = start\n64:     return best_cost, best_start\n65: \n66: def _fill_group(table, parents, costs, length, groups, penalty):\n67:     for end in range(1, length + 1):\n68:         cost, start = _best_split(table, costs, end, groups, penalty)\n69:         table[end][groups] = cost\n70:         parents[end][groups] = start\n71: \n72: def _fill_tables(table, parents, costs, length, max_segments, penalty):\n73:     for groups in range(1, max_segments + 1):\n74:         _fill_group(table, parents, costs, length, groups, penalty)\n75: \n76: def _best_terminal(table, length, max_segments):\n77:     options = []\n78:     for groups in range(1, max_segments + 1):\n79:         options.append((table[length][groups], groups))\n80:     if not options:\n81:         return None, None\n82:     cost, groups = min(options)\n83:     if cost == inf:\n84:         return None, None\n85:     return cost, groups\n86: \n87: def _trace_segments(parents, length, groups):\n88:     segments = []\n89:     end = length\n90:     while groups > 0:\n91:         start = parents[end][groups]\n92:         if start is None:\n93:             return []\n94:         segments.append((start, end))\n95:         end = start\n96:         groups -= 1\n97:     if end != 0:\n98:         return []\n99:     segments.reverse()\n100:     return segments\n101: \n102: def _assert_cover(segments, length):\n103:     if length == 0:\n104:         if segments:\n105:             raise RuntimeError(\"empty input cannot have segments\")\n106:         return\n107:     if not segments:\n108:         raise RuntimeError(\"non-empty input must have segments\")\n109:     cursor = 0\n110:     for start, end in segments:\n111:         if start != cursor or end <= start:\n112:             raise RuntimeError(\"segments do not form a valid partition\")\n113:         cursor = end\n114:     if cursor != length:\n115:         raise RuntimeError(\"segments do not cover the sequence\")\n116: \n117: def _recompute(values, segments, penalty):\n118:     total = 0\n119:     for start, end in segments:\n120:         part = values[start:end]\n121:         total += max(part) - min(part) + penalty\n122:     return total\n123: \n124: def minimum_partition_cost(values, max_segments, penalty):\n125:     \"\"\"Return the least range-plus-penalty cost over bounded partitions.\"\"\"\n126:     length = _validate_values(values)\n127:     _validate_limits(max_segments, penalty)\n128:     if length == 0:\n129:         return 0\n130:     costs = _make_cost_table(values)\n131:     table, parents = _make_dp(length, max_segments)\n132:     _fill_tables(table, parents, costs, length, max_segments, penalty)\n133:     best_cost, groups = _best_terminal(table, length, max_segments)\n134:     if best_cost is None:\n135:         return None\n136:     segments = _trace_segments(parents, length, groups)\n137:     _assert_cover(segments, length)\n138:     if _recompute(values, segments, penalty) != best_cost:\n139:         raise RuntimeError(\"reconstructed cost disagrees with dynamic program\")\n140:     return best_cost\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.98, \"reason\": \"Segment cost uses maximum + minimum instead of maximum - minimum, contradicting _recompute's range-based cost and the range-plus-penalty docstring.\"}]}",
+  "latency": 17.937998457986396,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 1459,
+    "total_tokens": 3479,
+    "cost": 0.00079442,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1984,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00079442,
+      "upstream_inference_prompt_cost": 6.492e-05,
+      "upstream_inference_completions_cost": 0.0007295
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1403,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789216708-aaK5LDVIwTlmOOuG6Bvr",
+    "provider_created": 1789216708,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 5572,
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789216708-aaK5LDVIwTlmOOuG6Bvr",
+    "object": "chat.completion",
+    "created": 1789216708,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 39, \"score\": 0.98, \"reason\": \"Segment cost uses maximum + minimum instead of maximum - minimum, contradicting _recompute's range-based cost and the range-plus-penalty docstring.\"}]}",
+          "refusal": null,
+          "reasoning": "Let me analyze this program carefully.\n\nThe program computes the minimum cost of partitioning a sequence into at most `max_segments` contiguous segments, where each segment's cost is (max - min + penalty). Wait, let me look at the actual cost function.\n\n`_make_cost_table` builds `costs[start][end]` = (minimum, maximum) of values[start:end] (since `end` iterates from start+1 to length, `values[end-1]` is the last element included). So costs[start][end] covers values[start:end].\n\n`_segment_cost(costs, start, end, penalty)` returns `maximum + minimum + penalty`. Hmm! That's max + min + penalty, not max - min + penalty.\n\n`_recompute(values, segments, penalty)` computes `total += max(part) - min(part) + penalty` — max - min + penalty.\n\nSo there's an inconsistency: `_segment_cost` uses `maximum + minimum` while `_recompute` uses `max(part) - min(part)`. This is the classic bug: line 39 uses `+` instead of `-`.\n\nThe docstring in `minimum_partition_cost` says \"least range-plus-penalty cost\" — range = max - min. And `_recompute` checks `max - min + penalty`. The DP uses `max + min + penalty`, so the DP result will disagree with the recomputation for most inputs, triggering the RuntimeError at line 139, or if there's no recompute check, it would just return wrong values.\n\nWait — actually, the `_assert_cover` and `_recompute` checks are internal consistency checks. Since the DP uses max+min+penalty but recompute uses max-min+penalty, the check at line 138 would raise RuntimeError for inputs where the two disagree. For segments where min is 0... e.g., values containing 0: max + min = max, and max - min = max, so they'd agree. But generally they disagree.\n\nSo the primary bug is line 39: `return maximum + minimum + penalty` should be `maximum - minimum + penalty`.\n\nLet me double check the rest of the DP logic for other potential bugs:\n\n- `_make_cost_table`: costs[start][end] for end in [start+1, length]. Correct: covers values[start:end].\n- `_make_dp`: table[prefix][groups], table[0][0]=0, rest inf. Correct.\n- `_candidate`: previous = table[start][groups-1]; returns previous + segment cost. Correct — partition values[0:start] into groups-1 segments and values[start:end] as the groups-th segment.\n- `_best_split`: iterate start in range(end) — start from 0 to end-1. Correct.\n- `_fill_group`: for end in 1..length, fill table[end][groups]. Correct.\n- `_fill_tables`: groups 1..max_segments. Correct.\n- `_best_terminal`: min over groups of table[length][groups]. Uses `min(options)` which compares tuples (cost, groups) — cost first, then groups. Ties broken by fewer groups. That's fine since any minimal cost is fine. Returns None if cost is inf. OK.\n\nWait, edge case: length >= 1 here since length==0 early-returns. options non-empty since max_segments >= 1. OK.\n\n- `_trace_segments`: walks parents backwards. end=length, while groups>0: start = parents[end][groups]; append (start, end); end=start; groups -=1. Then check end == 0. Looks fine.\n\nHmm, one subtle issue: in `_best_terminal`, ties in cost: `min(options)` picks the smallest groups on tie. That's fine.\n\nAnother subtlety: `_candidate` uses `table[start][groups-1]`. For groups=1, uses table[start][0], which is 0 only if start==0, else inf. Correct.\n\nSo the only logical bug is line 39. Let me also consider: is `max + min` maybe intended? The docstring says \"range-plus-penalty cost\". Range = max - min. `_recompute` agrees with max - min + penalty. So line 39 is the bug.\n\nAlso consider line 121: `total += max(part) - min(part) + penalty` — this matches the docstring, so it's consistent with the intent.\n\nAre there any other potential bugs? Let me check `_trace_segments` more carefully. Suppose parents chain leads to end=0 with groups=0. Fine. If start is None (cost was inf), returns []. Then _assert_cover raises RuntimeError. But can this happen? _best_terminal only returns groups with finite cost, so the chain should be valid. OK.\n\nWhat about `min(options)` when cost == inf for all — handled by the `if cost == inf` check returning None, None. Then minimum_partition_cost returns None. Hmm, when could all costs be inf? length >= 1, max_segments >= 1, so table[length][1] is finite always. So never None. OK.\n\nOne more check: `_best_split` returns best_start = None if all inf, and `_fill_group` would set parents[end][groups]=None. That's fine since inf never selected.\n\nSo the answer: line 39 with high score, e.g., 0.95+.\n\nShould I include other lines with lower suspicion? Maybe line 121 (recompute uses minus — but it's correct per docstring), and line 138 (where the disagreement surfaces). But the task says only include lines with genuine reason to suspect. Line 39 is clearly the bug. I could add line 138 as a surface point with low score? The fault is not there though. I think listing line 39 with a high score is the answer. Maybe include line 121 with a very low score as it's the counterpart (in case intent was max+min, but docstring says range, so 39 is wrong). I'll include just line 39, possibly with a small mention of line 121 at very low score. Actually, rules say list only lines with genuine suspicion. Line 121 is consistent with the docstring, so I won't list it. I'll just list line 39.\n\nLet me write the reason: \"Uses max + min + penalty; DP cost disagrees with recompute (max - min + penalty), so range cost should subtract.\" Under 25 words.\n\nFinal JSON:\n{\"ranking\": [{\"line\": 39, \"score\": 0.98, \"reason\": \"Segment cost adds minimum (max+min) instead of subtracting (max-min), contradicting _recompute and docstring's range-plus-penalty.\"}]}",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Let me analyze this program carefully.\n\nThe program computes the minimum cost of partitioning a sequence into at most `max_segments` contiguous segments, where each segment's cost is (max - min + penalty). Wait, let me look at the actual cost function.\n\n`_make_cost_table` builds `costs[start][end]` = (minimum, maximum) of values[start:end] (since `end` iterates from start+1 to length, `values[end-1]` is the last element included). So costs[start][end] covers values[start:end].\n\n`_segment_cost(costs, start, end, penalty)` returns `maximum + minimum + penalty`. Hmm! That's max + min + penalty, not max - min + penalty.\n\n`_recompute(values, segments, penalty)` computes `total += max(part) - min(part) + penalty` — max - min + penalty.\n\nSo there's an inconsistency: `_segment_cost` uses `maximum + minimum` while `_recompute` uses `max(part) - min(part)`. This is the classic bug: line 39 uses `+` instead of `-`.\n\nThe docstring in `minimum_partition_cost` says \"least range-plus-penalty cost\" — range = max - min. And `_recompute` checks `max - min + penalty`. The DP uses `max + min + penalty`, so the DP result will disagree with the recomputation for most inputs, triggering the RuntimeError at line 139, or if there's no recompute check, it would just return wrong values.\n\nWait — actually, the `_assert_cover` and `_recompute` checks are internal consistency checks. Since the DP uses max+min+penalty but recompute uses max-min+penalty, the check at line 138 would raise RuntimeError for inputs where the two disagree. For segments where min is 0... e.g., values containing 0: max + min = max, and max - min = max, so they'd agree. But generally they disagree.\n\nSo the primary bug is line 39: `return maximum + minimum + penalty` should be `maximum - minimum + penalty`.\n\nLet me double check the rest of the DP logic for other potential bugs:\n\n- `_make_cost_table`: costs[start][end] for end in [start+1, length]. Correct: covers values[start:end].\n- `_make_dp`: table[prefix][groups], table[0][0]=0, rest inf. Correct.\n- `_candidate`: previous = table[start][groups-1]; returns previous + segment cost. Correct — partition values[0:start] into groups-1 segments and values[start:end] as the groups-th segment.\n- `_best_split`: iterate start in range(end) — start from 0 to end-1. Correct.\n- `_fill_group`: for end in 1..length, fill table[end][groups]. Correct.\n- `_fill_tables`: groups 1..max_segments. Correct.\n- `_best_terminal`: min over groups of table[length][groups]. Uses `min(options)` which compares tuples (cost, groups) — cost first, then groups. Ties broken by fewer groups. That's fine since any minimal cost is fine. Returns None if cost is inf. OK.\n\nWait, edge case: length >= 1 here since length==0 early-returns. options non-empty since max_segments >= 1. OK.\n\n- `_trace_segments`: walks parents backwards. end=length, while groups>0: start = parents[end][groups]; append (start, end); end=start; groups -=1. Then check end == 0. Looks fine.\n\nHmm, one subtle issue: in `_best_terminal`, ties in cost: `min(options)` picks the smallest groups on tie. That's fine.\n\nAnother subtlety: `_candidate` uses `table[start][groups-1]`. For groups=1, uses table[start][0], which is 0 only if start==0, else inf. Correct.\n\nSo the only logical bug is line 39. Let me also consider: is `max + min` maybe intended? The docstring says \"range-plus-penalty cost\". Range = max - min. `_recompute` agrees with max - min + penalty. So line 39 is the bug.\n\nAlso consider line 121: `total += max(part) - min(part) + penalty` — this matches the docstring, so it's consistent with the intent.\n\nAre there any other potential bugs? Let me check `_trace_segments` more carefully. Suppose parents chain leads to end=0 with groups=0. Fine. If start is None (cost was inf), returns []. Then _assert_cover raises RuntimeError. But can this happen? _best_terminal only returns groups with finite cost, so the chain should be valid. OK.\n\nWhat about `min(options)` when cost == inf for all — handled by the `if cost == inf` check returning None, None. Then minimum_partition_cost returns None. Hmm, when could all costs be inf? length >= 1, max_segments >= 1, so table[length][1] is finite always. So never None. OK.\n\nOne more check: `_best_split` returns best_start = None if all inf, and `_fill_group` would set parents[end][groups]=None. That's fine since inf never selected.\n\nSo the answer: line 39 with high score, e.g., 0.95+.\n\nShould I include other lines with lower suspicion? Maybe line 121 (recompute uses minus — but it's correct per docstring), and line 138 (where the disagreement surfaces). But the task says only include lines with genuine reason to suspect. Line 39 is clearly the bug. I could add line 138 as a surface point with low score? The fault is not there though. I think listing line 39 with a high score is the answer. Maybe include line 121 with a very low score as it's the counterpart (in case intent was max+min, but docstring says range, so 39 is wrong). I'll include just line 39, possibly with a small mention of line 121 at very low score. Actually, rules say list only lines with genuine suspicion. Line 121 is consistent with the docstring, so I won't list it. I'll just list line 39.\n\nLet me write the reason: \"Uses max + min + penalty; DP cost disagrees with recompute (max - min + penalty), so range cost should subtract.\" Under 25 words.\n\nFinal JSON:\n{\"ranking\": [{\"line\": 39, \"score\": 0.98, \"reason\": \"Segment cost adds minimum (max+min) instead of subtracting (max-min), contradicting _recompute and docstring's range-plus-penalty.\"}]}",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2020,
+      "completion_tokens": 1459,
+      "total_tokens": 3479,
+      "cost": 0.00079442,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1984,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00079442,
+        "upstream_inference_prompt_cost": 6.492e-05,
+        "upstream_inference_completions_cost": 0.0007295
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1403,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

@@ -1,0 +1,72 @@
+{
+  "run_id": "2a5df396-44ba-4d0b-96ca-7dccb50960fd",
+  "session_id": "20260912T122827Z",
+  "execution_key": "fd2f35ae0d57c9867c89b7cd44bc8add85ea1864e3e1184ad8985f38649e72d2",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "B",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:40:30.657740Z",
+  "latency": 21.605410208983812,
+  "token_usage": {
+    "prompt_tokens": 2202,
+    "completion_tokens": 1984,
+    "total_tokens": 4186,
+    "cost": 0.00106118,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00106118,
+      "upstream_inference_prompt_cost": 6.918e-05,
+      "upstream_inference_completions_cost": 0.000992
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1880,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.95, \"reason\": \"Uses maximum + minimum, but docstring says range (max - min); disagrees with _recompute, causing RuntimeError whenever a segment's minimum is nonzero.\"}, {\"line\": 121, \"score\": 0.35, \"reason\": \"Counterpart of the line 39 mismatch (max - min here vs max + min there); suspicious only if intended cost were max+min.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/2a5df396-44ba-4d0b-96ca-7dccb50960fd.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.95,
+        "reason": "Uses maximum + minimum, but docstring says range (max - min); disagrees with _recompute, causing RuntimeError whenever a segment's minimum is nonzero."
+      },
+      {
+        "line": 121,
+        "score": 0.35,
+        "reason": "Counterpart of the line 39 mismatch (max - min here vs max + min there); suspicious only if intended cost were max+min."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 8820,
+  "prompt_tokens_estimate": 2205,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}
