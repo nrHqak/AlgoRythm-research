@@ -1,0 +1,23 @@
+{
+  "frame_size": 232,
+  "sampling_seed": 20260910,
+  "built_at": "2026-09-12T13:01:20.736546+00:00",
+  "reconstruction_procedure": "Identical to scripts/package_final_sample_v2_1.py steps 1-3: load dynamic_test_eligibility_v2_1.csv, filter eligible=True, group by task_id, then random.Random(20260910) with progs[0] for singleton tasks or rng.choice(progs) for multi-candidate tasks, iterating sorted(task_id) order.",
+  "source_file_sha256": {
+    "data/manifests/dynamic_test_eligibility_v2_1.csv": "93b5d64b6d12d1a8bd7c7afd95143390ccd2d71dec7cff6e7032cc328a2a5c23"
+  },
+  "v2_1_final_sample_subset_check": "PASS -- all 30 v2.1 program_ids present in frame",
+  "fields_deliberately_excluded_from_every_record": [
+    "faulty_lines",
+    "fixed.py / fixed source text",
+    "buggy-to-fixed diff",
+    "pilot/pattern_priors.json content",
+    "pilot/v2/generic_placebo_prior.json content",
+    "previous (v2.0/v2.1) pattern_label",
+    "previous pattern_source (\"AST rule\")",
+    "previous pattern_confidence / pattern_note",
+    "previous selection_rank / class allocation",
+    "whether this program was in the old final 30",
+    "any LLM localization output"
+  ]
+}
