@@ -1,0 +1,16 @@
+claude_label\codex_label,two_pointers,sliding_window,binary_search,prefix_sums,dynamic_programming,greedy,graph_traversal_dfs_bfs,sorting_based,hash_map_counting,brute_force_implementation,intervals,simulation,outside_vocabulary,uncertain,row_total
+two_pointers,2,0,0,1,0,0,0,0,0,0,0,0,0,0,3
+sliding_window,0,5,0,0,0,0,0,0,0,1,0,0,0,0,6
+binary_search,1,0,14,0,0,0,0,0,0,0,0,0,8,0,23
+prefix_sums,0,0,0,6,0,0,0,0,0,0,0,1,0,0,7
+dynamic_programming,1,0,0,0,45,0,0,0,0,0,0,1,6,0,53
+greedy,2,0,0,1,0,11,0,0,0,0,1,0,0,0,15
+graph_traversal_dfs_bfs,0,0,0,0,0,0,13,0,0,0,0,1,1,0,15
+sorting_based,0,0,0,0,0,0,0,6,0,0,0,0,0,0,6
+hash_map_counting,0,0,0,0,0,1,0,0,4,2,0,2,1,0,10
+brute_force_implementation,0,0,0,1,0,1,0,1,0,37,0,4,6,0,50
+intervals,0,0,0,0,0,1,0,0,0,0,4,0,0,0,5
+simulation,0,0,0,0,0,0,0,0,0,0,0,10,0,0,10
+outside_vocabulary,0,0,0,0,0,0,0,1,0,2,0,1,25,0,29
+uncertain,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+column_total,6,5,14,9,45,14,13,8,4,42,5,20,47,0,232

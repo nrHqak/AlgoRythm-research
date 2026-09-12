@@ -1,0 +1,23 @@
+{
+  "status": "BLOCK",
+  "engineering_only": true,
+  "scientific_candidates_sent": 0,
+  "reason": "ValueError: LLM_API_KEY is required for the HTTP provider",
+  "aggregate": {
+    "calls_attempted": 0,
+    "calls_valid": 0,
+    "failures": 0,
+    "parser_failures": 0,
+    "content_null_failures": 0,
+    "length_truncations": 0,
+    "provider_model_mismatches": 0,
+    "rate_limit_failures": 0,
+    "wall_clock_seconds": 2.9499991796910763e-05,
+    "observed_throughput_calls_per_second": 0.0,
+    "observed_throughput_calls_per_minute": 0.0,
+    "projected_600_call_runtime_seconds": null,
+    "projected_600_call_runtime_hours": null,
+    "actual_cost_usd": 0
+  },
+  "metrics": []
+}

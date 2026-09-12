@@ -1,0 +1,60 @@
+{
+  "status": "VOID",
+  "valid_scientific_result": false,
+  "reason": "provider_failure rate exceeded 5% in the first concurrent Session G batch",
+  "concurrency_amendment_commit": "b2a2af0d33c71088356dca42dd53b34dd6c6c4da",
+  "manifest": {
+    "path": "data/manifests/pilot_manifest_v2_2.json",
+    "sha256": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc"
+  },
+  "settings": {
+    "provider": "openrouter",
+    "model": "z-ai/glm-5.3-flash",
+    "underlying_provider": "Z.AI",
+    "underlying_provider_endpoint": "z-ai/fp8",
+    "fallbacks": false,
+    "temperature": 0,
+    "max_tokens": 32768,
+    "repetitions": 5,
+    "workers": 4,
+    "session_order": [
+      "G",
+      "P"
+    ]
+  },
+  "session_g": {
+    "session_id": "20260912T203200Z-G-final",
+    "calls_registered": 300,
+    "calls_submitted": 4,
+    "calls_successful": 1,
+    "provider_failures": 3,
+    "parser_failures": 0,
+    "content_null_failures": 3,
+    "length_truncations": 3,
+    "model_provider_mismatches": 0,
+    "selective_retries": 0,
+    "runtime_seconds": 366.981338,
+    "cost_usd": 0.0657428,
+    "input_tokens": 7472,
+    "output_tokens": 129244,
+    "reasoning_tokens": 129115
+  },
+  "session_p": {
+    "started": false,
+    "calls_submitted": 0
+  },
+  "total": {
+    "calls_registered": 600,
+    "calls_submitted": 4,
+    "calls_successful": 1,
+    "provider_failures": 3,
+    "parser_failures": 0,
+    "runtime_seconds": 366.981338,
+    "cost_usd": 0.0657428
+  },
+  "analysis": {
+    "run": false,
+    "reason": "both frozen sessions were not complete and Session G is VOID"
+  },
+  "reuse_or_resume_permitted": false
+}

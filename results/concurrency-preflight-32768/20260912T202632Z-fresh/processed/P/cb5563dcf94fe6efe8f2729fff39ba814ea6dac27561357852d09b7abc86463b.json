@@ -1,0 +1,72 @@
+{
+  "run_id": "cb5563dcf94fe6efe8f2729fff39ba814ea6dac27561357852d09b7abc86463b",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "7d712d8a957078de9981dad3010e29e8d046574ca53e8b2f2f656869402328bf",
+  "experiment_name": "concurrency_preflight_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_P",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:30:00.280448Z",
+  "latency": 15.012334500032011,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 1278,
+    "total_tokens": 3298,
+    "cost": 0.00070392,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1984,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00070392,
+      "upstream_inference_prompt_cost": 6.492e-05,
+      "upstream_inference_completions_cost": 0.000639
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1187,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.97, \"reason\": \"Uses maximum + minimum instead of the range (maximum - minimum), contradicting the docstring and _recompute's formula\"}, {\"line\": 121, \"score\": 0.2, \"reason\": \"Alternative site: computes max - min while _segment_cost sums; docstring 'range' supports this line being correct\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/P/cb5563dcf94fe6efe8f2729fff39ba814ea6dac27561357852d09b7abc86463b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.97,
+        "reason": "Uses maximum + minimum instead of the range (maximum - minimum), contradicting the docstring and _recompute's formula"
+      },
+      {
+        "line": 121,
+        "score": 0.2,
+        "reason": "Alternative site: computes max - min while _segment_cost sums; docstring 'range' supports this line being correct"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

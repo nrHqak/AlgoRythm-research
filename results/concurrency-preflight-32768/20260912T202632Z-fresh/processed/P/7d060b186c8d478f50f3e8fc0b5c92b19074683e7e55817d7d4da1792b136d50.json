@@ -1,0 +1,72 @@
+{
+  "run_id": "7d060b186c8d478f50f3e8fc0b5c92b19074683e7e55817d7d4da1792b136d50",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "7e65bb5bdd68125281c38138bd079703713f75f458cdf7dc6a25659340900847",
+  "experiment_name": "concurrency_preflight_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_P",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:29:32.008226Z",
+  "latency": 12.688408000045456,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 1062,
+    "total_tokens": 3082,
+    "cost": 0.0007956,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007956,
+      "upstream_inference_prompt_cost": 0.0002646,
+      "upstream_inference_completions_cost": 0.000531
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 955,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.95, \"reason\": \"Segment cost is max+min+penalty, but intended cost (docstring, _recompute line 121) is max-min+penalty; DP disagrees with recompute check.\"}, {\"line\": 121, \"score\": 0.1, \"reason\": \"Uses max-min+penalty; only suspicious if the intended formula were max+min, but docstring supports max-min.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/P/7d060b186c8d478f50f3e8fc0b5c92b19074683e7e55817d7d4da1792b136d50.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.95,
+        "reason": "Segment cost is max+min+penalty, but intended cost (docstring, _recompute line 121) is max-min+penalty; DP disagrees with recompute check."
+      },
+      {
+        "line": 121,
+        "score": 0.1,
+        "reason": "Uses max-min+penalty; only suspicious if the intended formula were max+min, but docstring supports max-min."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

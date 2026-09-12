@@ -1,0 +1,59 @@
+{
+  "run_id": "1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac",
+  "session_id": "20260912T203200Z-G-final",
+  "execution_key": "e93781349b8e7ad4cf25d4623ac458e63dbb0edd7785cfc228aec99e176e2959",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:38:47.992615Z",
+  "latency": 337.4812384999823,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 32768,
+    "total_tokens": 34545,
+    "cost": 0.01665055,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01665055,
+      "upstream_inference_prompt_cost": 0.00026655,
+      "upstream_inference_completions_cost": 0.016384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 32763,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": null,
+  "raw_response_path": "results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac.json",
+  "parsed_response": null,
+  "status": "provider_failure",
+  "error_type": "MissingCompletionContent",
+  "error_message": "Provider response was retained, but message.content was not a string",
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc"
+}

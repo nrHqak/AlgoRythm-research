@@ -1,0 +1,64 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "LOW-REASONING STRESS DATA — NEVER SCIENTIFIC DATA",
+  "created_at": "2026-09-13T01:52:00+05:00",
+  "selection_frozen_at": "2026-09-13T01:52:00+05:00",
+  "programs": [
+    {
+      "program_id": "synthetic-reasoning-binary-search-v1",
+      "task_id": "synthetic-reasoning-binary-search-v1",
+      "buggy_source_path": "synthetic-binary-search/buggy.py",
+      "fixed_source_path": "synthetic-binary-search/fixed.py",
+      "tests_path": "synthetic-binary-search/tests.json",
+      "faulty_lines": [12],
+      "pattern_label": "binary_search",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 58,
+      "evaluation_denominator": 58,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "synthetic-reasoning-brute-force-v1",
+      "task_id": "synthetic-reasoning-brute-force-v1",
+      "buggy_source_path": "synthetic-brute-force/buggy.py",
+      "fixed_source_path": "synthetic-brute-force/fixed.py",
+      "tests_path": "synthetic-brute-force/tests.json",
+      "faulty_lines": [48],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 134,
+      "evaluation_denominator": 134,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "task_id": "synthetic-reasoning-dynamic-programming-v1",
+      "buggy_source_path": "../smoke-stress/synthetic-dp-route/buggy.py",
+      "fixed_source_path": "../smoke-stress/synthetic-dp-route/fixed.py",
+      "tests_path": "../smoke-stress/synthetic-dp-route/tests.json",
+      "faulty_lines": [90],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 149,
+      "evaluation_denominator": 159,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "synthetic-reasoning-graph-traversal-v1",
+      "task_id": "synthetic-reasoning-graph-traversal-v1",
+      "buggy_source_path": "synthetic-graph/buggy.py",
+      "fixed_source_path": "synthetic-graph/fixed.py",
+      "tests_path": "synthetic-graph/tests.json",
+      "faulty_lines": [23],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 89,
+      "evaluation_denominator": 89,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    }
+  ]
+}

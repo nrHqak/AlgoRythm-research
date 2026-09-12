@@ -1,0 +1,82 @@
+{
+  "run_id": "4e822245721318583958c71eb5759c65a11cd992a5bcff9fe69fb793f132efac",
+  "session_id": "20260912T202632Z-fresh",
+  "execution_key": "8b011735c04f92ec3885c3afbae015f4d63f3b5062e634df7602f3cfb84e0041",
+  "experiment_name": "concurrency_preflight_G",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_G",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:27:19.461411Z",
+  "latency": 46.495138208032586,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 4134,
+    "total_tokens": 6588,
+    "cost": 0.0024351,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0024351,
+      "upstream_inference_prompt_cost": 0.0003681,
+      "upstream_inference_completions_cost": 0.002067
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3930,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.96, \"reason\": \"Off-by-one guard: `used > 1` skips the coupon transition for used==1, so the first coupon can never be spent on any non-start cell; should be `used >= 1`.\"}, {\"line\": 83, \"score\": 0.18, \"reason\": \"Sets all used>0 start states to 0, implying multiple coupons spent at start; sloppy state semantics could mismatch expected DP values.\"}, {\"line\": 122, \"score\": 0.12, \"reason\": \"Returning [] on missing parent silently yields an empty path, and _assert_path_shape skips validation for empty paths, masking trace failures.\"}, {\"line\": 68, \"score\": 0.09, \"reason\": \"Coupon transition reads used-1; correct only if callers guarantee used>=1, currently relying on the faulty used>1 guard.\"}]}",
+  "raw_response_path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/raw/G/4e822245721318583958c71eb5759c65a11cd992a5bcff9fe69fb793f132efac.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.96,
+        "reason": "Off-by-one guard: `used > 1` skips the coupon transition for used==1, so the first coupon can never be spent on any non-start cell; should be `used >= 1`."
+      },
+      {
+        "line": 83,
+        "score": 0.18,
+        "reason": "Sets all used>0 start states to 0, implying multiple coupons spent at start; sloppy state semantics could mismatch expected DP values."
+      },
+      {
+        "line": 122,
+        "score": 0.12,
+        "reason": "Returning [] on missing parent silently yields an empty path, and _assert_path_shape skips validation for empty paths, masking trace failures."
+      },
+      {
+        "line": 68,
+        "score": 0.09,
+        "reason": "Coupon transition reads used-1; correct only if callers guarantee used>=1, currently relying on the faulty used>1 guard."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

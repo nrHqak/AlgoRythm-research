@@ -1,0 +1,34 @@
+[
+  {
+    "input": "3 3\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "4 5\n",
+    "expected_output": "135\n"
+  },
+  {
+    "input": "3 4\n",
+    "expected_output": "4\n"
+  },
+  {
+    "input": "111 3\n",
+    "expected_output": "144980434\n"
+  },
+  {
+    "input": "3 10\n",
+    "expected_output": "120\n"
+  },
+  {
+    "input": "860 8\n",
+    "expected_output": "934423409\n"
+  },
+  {
+    "input": "387 8\n",
+    "expected_output": "683601409\n"
+  },
+  {
+    "input": "375 4\n",
+    "expected_output": "884893685\n"
+  }
+]

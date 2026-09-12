@@ -1,0 +1,23 @@
+{
+  "order": 2,
+  "run_id": "4c36ff63ca5aaa738534e9c3f532df12ac562f6f6859a2a5c0025c1d09b1b365",
+  "program_id": "synthetic-reasoning-binary-search-v1",
+  "pattern_label": "binary_search",
+  "session": "G",
+  "condition": "B",
+  "repetition": 1,
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "input_tokens": 1265,
+  "output_tokens": 48,
+  "reasoning_tokens": 0,
+  "final_content_tokens": 48,
+  "finish_reason": "stop",
+  "latency_seconds": 4.126156833022833,
+  "cost_usd": 0.00021375,
+  "model": "z-ai/glm-5.3-flash",
+  "underlying_provider": "Z.AI",
+  "reasoning_effort_requested": "low",
+  "content_is_null": false
+}

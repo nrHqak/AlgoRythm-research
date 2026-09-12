@@ -1,0 +1,82 @@
+{
+  "run_id": "4876414f-8ca9-467b-a96b-274affc330aa",
+  "session_id": "20260912T122827Z",
+  "execution_key": "f22a988b8ca55ec567b6aa902547542e547b04b006a8634e94049f42f5d988c2",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-route-tail-v1",
+  "task_id": "synthetic-stress-dp-route-tail-v1",
+  "condition": "B",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:50:35.214687Z",
+  "latency": 63.07398787501734,
+  "token_usage": {
+    "prompt_tokens": 2640,
+    "completion_tokens": 5821,
+    "total_tokens": 8461,
+    "cost": 0.00299162,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2624,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00299162,
+      "upstream_inference_prompt_cost": 8.112e-05,
+      "upstream_inference_completions_cost": 0.0029105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5630,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Coupon transition guarded by used > 1, skipping used == 1; using one coupon at a cell is never considered (should be used >= 1).\"}, {\"line\": 83, \"score\": 0.25, \"reason\": \"Start cell set to cost 0 for every used level; treats multiple coupons as used at one cell, though benign for the minimum.\"}, {\"line\": 68, \"score\": 0.15, \"reason\": \"Coupon transition reads used - 1; combined with line 90's guard, the used == 1 state is unreachable at non-start cells.\"}, {\"line\": 127, \"score\": 0.1, \"reason\": \"used decremented before stepping to predecessor; ordering looks consistent but is a classic state-update hazard to verify.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/4876414f-8ca9-467b-a96b-274affc330aa.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Coupon transition guarded by used > 1, skipping used == 1; using one coupon at a cell is never considered (should be used >= 1)."
+      },
+      {
+        "line": 83,
+        "score": 0.25,
+        "reason": "Start cell set to cost 0 for every used level; treats multiple coupons as used at one cell, though benign for the minimum."
+      },
+      {
+        "line": 68,
+        "score": 0.15,
+        "reason": "Coupon transition reads used - 1; combined with line 90's guard, the used == 1 state is unreachable at non-start cells."
+      },
+      {
+        "line": 127,
+        "score": 0.1,
+        "reason": "used decremented before stepping to predecessor; ordering looks consistent but is a classic state-update hazard to verify."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "22180ed5146fb33d49156ac8a874bd4d490a745341fb72ab6d27fac0ff590650",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10471,
+  "prompt_tokens_estimate": 2618,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

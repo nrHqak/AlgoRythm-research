@@ -1,0 +1,488 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "ConDefects-Python",
+  "created_at": "2026-09-12T18:18:44.770989+00:00",
+  "selection_frozen_at": "2026-09-12T18:18:44.770989+00:00",
+  "programs": [
+    {
+      "program_id": "39201856",
+      "task_id": "arc157_e",
+      "buggy_source_path": "../raw/v2_2/39201856/buggy.py",
+      "fixed_source_path": "../raw/v2_2/39201856/fixed.py",
+      "tests_path": "../raw/v2_2/39201856/tests.json",
+      "faulty_lines": [
+        34
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 93,
+      "difficulty": "2877",
+      "inclusion_status": "included",
+      "evaluation_denominator": 93
+    },
+    {
+      "program_id": "44805380",
+      "task_id": "abc232_d",
+      "buggy_source_path": "../raw/v2_2/44805380/buggy.py",
+      "fixed_source_path": "../raw/v2_2/44805380/fixed.py",
+      "tests_path": "../raw/v2_2/44805380/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 27,
+      "difficulty": "539",
+      "inclusion_status": "included",
+      "evaluation_denominator": 27
+    },
+    {
+      "program_id": "35962547",
+      "task_id": "abc237_f",
+      "buggy_source_path": "../raw/v2_2/35962547/buggy.py",
+      "fixed_source_path": "../raw/v2_2/35962547/fixed.py",
+      "tests_path": "../raw/v2_2/35962547/tests.json",
+      "faulty_lines": [
+        136
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 141,
+      "difficulty": "1857",
+      "inclusion_status": "included",
+      "evaluation_denominator": 141
+    },
+    {
+      "program_id": "43438224",
+      "task_id": "arc164_e",
+      "buggy_source_path": "../raw/v2_2/43438224/buggy.py",
+      "fixed_source_path": "../raw/v2_2/43438224/fixed.py",
+      "tests_path": "../raw/v2_2/43438224/tests.json",
+      "faulty_lines": [
+        16
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 49,
+      "difficulty": "2651",
+      "inclusion_status": "included",
+      "evaluation_denominator": 49
+    },
+    {
+      "program_id": "45808089",
+      "task_id": "abc314_e",
+      "buggy_source_path": "../raw/v2_2/45808089/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45808089/fixed.py",
+      "tests_path": "../raw/v2_2/45808089/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 26,
+      "difficulty": "1722",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "45759088",
+      "task_id": "abc283_e",
+      "buggy_source_path": "../raw/v2_2/45759088/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45759088/fixed.py",
+      "tests_path": "../raw/v2_2/45759088/tests.json",
+      "faulty_lines": [
+        36
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 43,
+      "difficulty": "1802",
+      "inclusion_status": "included",
+      "evaluation_denominator": 43
+    },
+    {
+      "program_id": "52899692",
+      "task_id": "abc345_e",
+      "buggy_source_path": "../raw/v2_2/52899692/buggy.py",
+      "fixed_source_path": "../raw/v2_2/52899692/fixed.py",
+      "tests_path": "../raw/v2_2/52899692/tests.json",
+      "faulty_lines": [
+        2
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 49,
+      "difficulty": "2356",
+      "inclusion_status": "included",
+      "evaluation_denominator": 49
+    },
+    {
+      "program_id": "55029036",
+      "task_id": "abc335_e",
+      "buggy_source_path": "../raw/v2_2/55029036/buggy.py",
+      "fixed_source_path": "../raw/v2_2/55029036/fixed.py",
+      "tests_path": "../raw/v2_2/55029036/tests.json",
+      "faulty_lines": [
+        148
+      ],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "model-consensus",
+      "loc": 150,
+      "difficulty": "1540",
+      "inclusion_status": "included",
+      "evaluation_denominator": 150
+    },
+    {
+      "program_id": "31456138",
+      "task_id": "arc139_c",
+      "buggy_source_path": "../raw/v2_2/31456138/buggy.py",
+      "fixed_source_path": "../raw/v2_2/31456138/fixed.py",
+      "tests_path": "../raw/v2_2/31456138/tests.json",
+      "faulty_lines": [
+        28
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 43,
+      "difficulty": "2406",
+      "inclusion_status": "included",
+      "evaluation_denominator": 43
+    },
+    {
+      "program_id": "43234248",
+      "task_id": "arc148_b",
+      "buggy_source_path": "../raw/v2_2/43234248/buggy.py",
+      "fixed_source_path": "../raw/v2_2/43234248/fixed.py",
+      "tests_path": "../raw/v2_2/43234248/tests.json",
+      "faulty_lines": [
+        32
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 40,
+      "difficulty": "975",
+      "inclusion_status": "included",
+      "evaluation_denominator": 40
+    },
+    {
+      "program_id": "45289055",
+      "task_id": "abc257_a",
+      "buggy_source_path": "../raw/v2_2/45289055/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45289055/fixed.py",
+      "tests_path": "../raw/v2_2/45289055/tests.json",
+      "faulty_lines": [
+        40
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 44,
+      "difficulty": "22",
+      "inclusion_status": "included",
+      "evaluation_denominator": 44
+    },
+    {
+      "program_id": "55003503",
+      "task_id": "abc327_c",
+      "buggy_source_path": "../raw/v2_2/55003503/buggy.py",
+      "fixed_source_path": "../raw/v2_2/55003503/fixed.py",
+      "tests_path": "../raw/v2_2/55003503/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 35,
+      "difficulty": "169",
+      "inclusion_status": "included",
+      "evaluation_denominator": 35
+    },
+    {
+      "program_id": "44917428",
+      "task_id": "abc275_c",
+      "buggy_source_path": "../raw/v2_2/44917428/buggy.py",
+      "fixed_source_path": "../raw/v2_2/44917428/fixed.py",
+      "tests_path": "../raw/v2_2/44917428/tests.json",
+      "faulty_lines": [
+        13
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 58,
+      "difficulty": "760",
+      "inclusion_status": "included",
+      "evaluation_denominator": 58
+    },
+    {
+      "program_id": "52796362",
+      "task_id": "abc326_d",
+      "buggy_source_path": "../raw/v2_2/52796362/buggy.py",
+      "fixed_source_path": "../raw/v2_2/52796362/fixed.py",
+      "tests_path": "../raw/v2_2/52796362/tests.json",
+      "faulty_lines": [
+        139
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 139,
+      "difficulty": "1371",
+      "inclusion_status": "included",
+      "evaluation_denominator": 139
+    },
+    {
+      "program_id": "46196763",
+      "task_id": "abc322_b",
+      "buggy_source_path": "../raw/v2_2/46196763/buggy.py",
+      "fixed_source_path": "../raw/v2_2/46196763/fixed.py",
+      "tests_path": "../raw/v2_2/46196763/tests.json",
+      "faulty_lines": [
+        14
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 26,
+      "difficulty": "54",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "46169156",
+      "task_id": "abc305_b",
+      "buggy_source_path": "../raw/v2_2/46169156/buggy.py",
+      "fixed_source_path": "../raw/v2_2/46169156/fixed.py",
+      "tests_path": "../raw/v2_2/46169156/tests.json",
+      "faulty_lines": [
+        21
+      ],
+      "pattern_label": "brute_force_implementation",
+      "pattern_source": "model-consensus",
+      "loc": 35,
+      "difficulty": "23",
+      "inclusion_status": "included",
+      "evaluation_denominator": 35
+    },
+    {
+      "program_id": "53927639",
+      "task_id": "abc341_d",
+      "buggy_source_path": "../raw/v2_2/53927639/buggy.py",
+      "fixed_source_path": "../raw/v2_2/53927639/fixed.py",
+      "tests_path": "../raw/v2_2/53927639/tests.json",
+      "faulty_lines": [
+        14
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 27,
+      "difficulty": "829",
+      "inclusion_status": "included",
+      "evaluation_denominator": 27
+    },
+    {
+      "program_id": "45923968",
+      "task_id": "abc300_f",
+      "buggy_source_path": "../raw/v2_2/45923968/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45923968/fixed.py",
+      "tests_path": "../raw/v2_2/45923968/tests.json",
+      "faulty_lines": [
+        14
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 26,
+      "difficulty": "1846",
+      "inclusion_status": "included",
+      "evaluation_denominator": 26
+    },
+    {
+      "program_id": "43171788",
+      "task_id": "arc138_a",
+      "buggy_source_path": "../raw/v2_2/43171788/buggy.py",
+      "fixed_source_path": "../raw/v2_2/43171788/fixed.py",
+      "tests_path": "../raw/v2_2/43171788/tests.json",
+      "faulty_lines": [
+        25
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 25,
+      "difficulty": "837",
+      "inclusion_status": "included",
+      "evaluation_denominator": 25
+    },
+    {
+      "program_id": "54010856",
+      "task_id": "arc173_a",
+      "buggy_source_path": "../raw/v2_2/54010856/buggy.py",
+      "fixed_source_path": "../raw/v2_2/54010856/fixed.py",
+      "tests_path": "../raw/v2_2/54010856/tests.json",
+      "faulty_lines": [
+        4
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 34,
+      "difficulty": "1073",
+      "inclusion_status": "included",
+      "evaluation_denominator": 34
+    },
+    {
+      "program_id": "37067201",
+      "task_id": "arc152_b",
+      "buggy_source_path": "../raw/v2_2/37067201/buggy.py",
+      "fixed_source_path": "../raw/v2_2/37067201/fixed.py",
+      "tests_path": "../raw/v2_2/37067201/tests.json",
+      "faulty_lines": [
+        4
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 27,
+      "difficulty": "1628",
+      "inclusion_status": "included",
+      "evaluation_denominator": 27
+    },
+    {
+      "program_id": "45895898",
+      "task_id": "abc309_c",
+      "buggy_source_path": "../raw/v2_2/45895898/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45895898/fixed.py",
+      "tests_path": "../raw/v2_2/45895898/tests.json",
+      "faulty_lines": [
+        36
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 51,
+      "difficulty": "348",
+      "inclusion_status": "included",
+      "evaluation_denominator": 51
+    },
+    {
+      "program_id": "41991921",
+      "task_id": "abc304_g",
+      "buggy_source_path": "../raw/v2_2/41991921/buggy.py",
+      "fixed_source_path": "../raw/v2_2/41991921/fixed.py",
+      "tests_path": "../raw/v2_2/41991921/tests.json",
+      "faulty_lines": [
+        43
+      ],
+      "pattern_label": "binary_search",
+      "pattern_source": "model-consensus",
+      "loc": 48,
+      "difficulty": "3177",
+      "inclusion_status": "included",
+      "evaluation_denominator": 48
+    },
+    {
+      "program_id": "45971969",
+      "task_id": "abc309_e",
+      "buggy_source_path": "../raw/v2_2/45971969/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45971969/fixed.py",
+      "tests_path": "../raw/v2_2/45971969/tests.json",
+      "faulty_lines": [
+        36
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 37,
+      "difficulty": "957",
+      "inclusion_status": "included",
+      "evaluation_denominator": 37
+    },
+    {
+      "program_id": "45325123",
+      "task_id": "abc291_e",
+      "buggy_source_path": "../raw/v2_2/45325123/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45325123/fixed.py",
+      "tests_path": "../raw/v2_2/45325123/tests.json",
+      "faulty_lines": [
+        15
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 35,
+      "difficulty": "1069",
+      "inclusion_status": "included",
+      "evaluation_denominator": 35
+    },
+    {
+      "program_id": "52795863",
+      "task_id": "abc238_e",
+      "buggy_source_path": "../raw/v2_2/52795863/buggy.py",
+      "fixed_source_path": "../raw/v2_2/52795863/fixed.py",
+      "tests_path": "../raw/v2_2/52795863/tests.json",
+      "faulty_lines": [
+        22
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 25,
+      "difficulty": "1577",
+      "inclusion_status": "included",
+      "evaluation_denominator": 25
+    },
+    {
+      "program_id": "45545460",
+      "task_id": "abc267_f",
+      "buggy_source_path": "../raw/v2_2/45545460/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45545460/fixed.py",
+      "tests_path": "../raw/v2_2/45545460/tests.json",
+      "faulty_lines": [
+        49
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 80,
+      "difficulty": "1939",
+      "inclusion_status": "included",
+      "evaluation_denominator": 80
+    },
+    {
+      "program_id": "41991860",
+      "task_id": "arc159_a",
+      "buggy_source_path": "../raw/v2_2/41991860/buggy.py",
+      "fixed_source_path": "../raw/v2_2/41991860/fixed.py",
+      "tests_path": "../raw/v2_2/41991860/tests.json",
+      "faulty_lines": [
+        23
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 29,
+      "difficulty": "698",
+      "inclusion_status": "included",
+      "evaluation_denominator": 29
+    },
+    {
+      "program_id": "45463729",
+      "task_id": "abc289_e",
+      "buggy_source_path": "../raw/v2_2/45463729/buggy.py",
+      "fixed_source_path": "../raw/v2_2/45463729/fixed.py",
+      "tests_path": "../raw/v2_2/45463729/tests.json",
+      "faulty_lines": [
+        20
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 32,
+      "difficulty": "1318",
+      "inclusion_status": "included",
+      "evaluation_denominator": 32
+    },
+    {
+      "program_id": "54718266",
+      "task_id": "abc308_d",
+      "buggy_source_path": "../raw/v2_2/54718266/buggy.py",
+      "fixed_source_path": "../raw/v2_2/54718266/fixed.py",
+      "tests_path": "../raw/v2_2/54718266/tests.json",
+      "faulty_lines": [
+        27
+      ],
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "pattern_source": "model-consensus",
+      "loc": 30,
+      "difficulty": "619",
+      "inclusion_status": "included",
+      "evaluation_denominator": 30
+    }
+  ]
+}

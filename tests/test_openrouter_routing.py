@@ -205,3 +205,19 @@ def test_provider_response_credential_echo_is_redacted():
     retained = json.dumps(reply.raw_provider_response)
     assert secret not in retained
     assert reply.provider_response_redactions == 2
+
+
+def test_explicit_reasoning_effort_uses_openrouter_nested_request_shape():
+    from experiments.providers.base import CompletionRequest
+    from experiments.providers.http import OpenAICompatibleProvider
+
+    provider = OpenAICompatibleProvider(
+        base_url="https://openrouter.ai/api/v1",
+        api_key="synthetic-not-secret",
+    )
+    with patch("experiments.providers.http.requests.post", return_value=response()) as post:
+        reply = provider.complete(
+            CompletionRequest("system", "user", "z-ai/glm-5.3-flash", 0, 32768, "low")
+        )
+    assert post.call_args.kwargs["json"]["reasoning"] == {"effort": "low"}
+    assert reply.response_metadata["reasoning_effort_requested"] == "low"

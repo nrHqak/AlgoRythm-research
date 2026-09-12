@@ -1,0 +1,233 @@
+program_id,task_id,pattern_label,confidence,short rationale
+45118973,abc222_g,outside_vocabulary,high,"Uses Euler phi, divisors, and modular order; this is number theory outside the frozen classes."
+53250614,abc223_e,brute_force_implementation,medium,Enumerates all six rectangle permutations and checks direct geometric packing formulas.
+51168884,abc224_f,dynamic_programming,high,Builds and updates a stored recurrence over string positions to accumulate the answer.
+27132818,abc224_g,outside_vocabulary,high,"Performs ternary search on a convex expectation function, which is outside the vocabulary."
+31785117,abc225_f,dynamic_programming,high,Uses a memoized recurrence over string index and remaining choices.
+45483175,abc226_b,hash_map_counting,high,Inserts each encoded sequence into a set and returns the number of distinct keys.
+53188054,abc226_d,brute_force_implementation,high,Enumerates every point pair and normalizes its direction without an algorithmic shortcut.
+44996770,abc229_a,brute_force_implementation,high,Directly checks the four cells and enumerates the small set of configurations.
+44646979,abc229_e,outside_vocabulary,high,The attempted algorithm is offline dynamic connectivity with Union-Find.
+54240175,abc230_c,brute_force_implementation,medium,Scans every requested grid cell and directly applies the two diagonal equations.
+27770752,abc230_g,outside_vocabulary,high,"Uses a sieve, Möbius values, factorization, and inclusion-exclusion number theory."
+44805380,abc232_d,dynamic_programming,high,Fills a grid table from top and left predecessor states.
+38349532,abc233_g,dynamic_programming,high,Memoizes a four-boundary rectangle recurrence and combines subrectangles.
+44313828,abc233_h,outside_vocabulary,high,The core method is a segment/range tree data structure outside the frozen classes.
+45477719,abc234_e,brute_force_implementation,high,Enumerates digit differences and directly constructs every arithmetic-digit candidate.
+46026874,abc237_c,two_pointers,high,Advances left and right boundaries over leading and trailing a characters before a palindrome check.
+35962547,abc237_f,dynamic_programming,high,Maintains a three-dimensional state table while extending the sequence one value at a time.
+52795863,abc238_e,graph_traversal_dfs_bfs,high,Builds an interval-endpoint graph and explores reachability with an explicit stack.
+48523335,abc238_f,dynamic_programming,high,Updates a two-dimensional selection state table after sorting the pairs.
+52953499,abc239_d,brute_force_implementation,high,Enumerates both players' bounded choices and tests primality directly.
+41657280,abc241_f,graph_traversal_dfs_bfs,high,Runs BFS over reachable stopping cells with a queue and visited-distance map.
+46189922,abc241_g,outside_vocabulary,high,"The submission implements Dinic maximum flow, which is outside the vocabulary."
+45535167,abc242_e,dynamic_programming,high,Uses a position-by-state recurrence to count bounded palindromic strings.
+44607569,abc243_d,simulation,high,Cancels inverse tree moves with a stack and then executes the remaining commands in order.
+52524531,abc243_e,outside_vocabulary,high,"The core is all-pairs shortest paths and shortest-path counting, beyond DFS/BFS traversal."
+45713633,abc244_b,simulation,high,Steps through turn/move commands while updating direction and coordinates.
+44593613,abc244_d,brute_force_implementation,high,Recursively enumerates possible swaps to test reachability of the target permutation.
+45811431,abc245_f,graph_traversal_dfs_bfs,high,Uses a queue to peel graph vertices in a topological traversal.
+33284569,abc246_g,binary_search,high,Binary-searches a value threshold with a DFS predicate on the tree.
+45003873,abc247_e,two_pointers,medium,Tracks forward boundary positions for both required extrema within each valid segment.
+39496981,abc247_g,outside_vocabulary,high,Implements min-cost flow with potentials and shortest augmenting paths.
+45802660,abc248_e,brute_force_implementation,high,Enumerates point pairs and all remaining points to count collinear sets.
+45104462,abc249_a,simulation,high,Computes repeated run/rest movement cycles and simulates each competitor's remaining time.
+45700046,abc250_d,two_pointers,medium,Moves a monotone right prime index downward while the left prime index increases.
+31608048,abc250_g,greedy,high,Uses heaps to repeatedly commit the best available profit-improving pairing.
+45243368,abc252_b,sorting_based,medium,Sorts scores descending and scans only the maximum-score group for an allowed index.
+52975596,abc253_g,simulation,medium,Directly reconstructs the permutation after the specified interval of swap operations.
+32688484,abc256_g,outside_vocabulary,high,"Uses combinatorics and matrix exponentiation, neither represented in the vocabulary."
+45289055,abc257_a,brute_force_implementation,high,Maps the repeated alphabet position with a direct arithmetic formula.
+45044587,abc257_c,sorting_based,high,Sorts people by weight and scans threshold boundaries while updating correctness count.
+52382935,abc259_d,outside_vocabulary,high,Connectivity among intersecting circles is maintained with Union-Find.
+45515452,abc259_e,hash_map_counting,high,Groups prime exponents by key and detects submissions owning a unique maximum.
+33361937,abc260_g,prefix_sums,high,Builds a two-dimensional imos difference grid and integrates it along multiple axes.
+33776994,abc262_g,dynamic_programming,high,Memoizes an interval-and-value-range recurrence over subarrays.
+34500524,abc263_g,outside_vocabulary,high,The actual solver is prime-sum maximum flow plus ternary optimization.
+45798886,abc265_b,simulation,high,"Walks room by room, applying bonuses and time costs in the described order."
+45966660,abc265_d,prefix_sums,high,Builds cumulative sums and answers the three consecutive segment-sum checks by prefix values.
+43487741,abc265_f,dynamic_programming,high,Transitions a stored two-distance state table for every coordinate.
+45028964,abc266_c,brute_force_implementation,high,Directly evaluates the two geometric side tests for the four points.
+34423081,abc266_h,outside_vocabulary,high,Uses a two-dimensional range tree/segment tree as the central optimization structure.
+45233540,abc267_b,brute_force_implementation,medium,Directly maps pins into seven columns and scans for an occupied-empty-occupied pattern.
+45550363,abc267_d,dynamic_programming,high,Fills a choose-or-skip table indexed by prefix length and selected count.
+45545460,abc267_f,graph_traversal_dfs_bfs,high,Performs explicit DFS traversals of the tree before binary-lifting queries.
+43509672,abc269_g,dynamic_programming,high,Uses a bounded subset-sum table after binary decomposition of multiplicities.
+45974029,abc270_d,dynamic_programming,high,Computes game values for each remaining-stone count from smaller states.
+49178986,abc270_g,outside_vocabulary,high,Implements baby-step giant-step for a modular affine recurrence.
+46008428,abc271_d,dynamic_programming,high,Uses subset-sum reachability states and backtracks through the table.
+37700812,abc271_g,outside_vocabulary,high,Raises a transition matrix by exponentiation to solve a periodic stochastic process.
+45282989,abc272_c,sorting_based,high,"Partitions by parity, sorts each group, and takes its two largest values."
+45575170,abc272_d,graph_traversal_dfs_bfs,high,Runs BFS on the grid using the precomputed legal displacement set.
+48974864,abc272_g,outside_vocabulary,high,"Uses randomized sampling, factorization, and majority residues; this is number theory."
+44917428,abc275_c,brute_force_implementation,high,Explicitly enumerates all square positions and orientations on the fixed grid.
+37220565,abc275_g,binary_search,high,Binary-searches the minimum feasible real-valued objective using an interval predicate.
+45303110,abc276_d,outside_vocabulary,high,The solution is GCD reduction followed by prime-factor removal.
+46190302,abc278_e,sliding_window,high,Moves a two-dimensional exclusion window and incrementally adds/removes color counts.
+37231890,abc279_g,outside_vocabulary,high,A Fenwick tree is the central recurrence/query data structure.
+45944008,abc281_b,brute_force_implementation,high,"Directly checks string length, endpoint letters, and numeric range."
+45472060,abc281_f,outside_vocabulary,high,Uses recursive bitwise divide-and-conquer rather than a frozen pattern.
+45462979,abc283_d,simulation,high,Simulates entering and leaving nested scopes while maintaining active characters.
+45759088,abc283_e,dynamic_programming,high,Maintains row-flip state transitions in a four-state table.
+46910621,abc283_f,outside_vocabulary,high,Uses segment trees for directional range minima.
+45471607,abc286_d,dynamic_programming,high,Fills bounded coin-sum reachability across coin types and multiplicities.
+45479724,abc286_e,outside_vocabulary,high,"Runs Floyd-Warshall with lexicographic path rewards, beyond the DFS/BFS class."
+38346885,abc286_h,outside_vocabulary,high,Builds a visibility graph and runs Dijkstra's shortest-path algorithm.
+46180932,abc287_c,outside_vocabulary,high,Uses Union-Find to test acyclicity and connectedness of the graph.
+54495703,abc287_e,outside_vocabulary,high,A trie with prefix-count queries is the central data structure.
+45332649,abc289_c,brute_force_implementation,high,Enumerates every subset mask and tests whether its union covers all elements.
+46033056,abc289_d,dynamic_programming,high,Propagates reachable positions while respecting forbidden landing cells.
+45463729,abc289_e,graph_traversal_dfs_bfs,high,Runs BFS on the product graph of the two moving tokens.
+45270856,abc290_c,sorting_based,high,Sorts the values and scans them to find the bounded mex.
+45489809,abc291_d,dynamic_programming,high,Maintains two ending-face states and transitions from the previous card.
+45325123,abc291_e,graph_traversal_dfs_bfs,high,Runs a queue-based topological traversal while enforcing a unique zero-indegree choice.
+45536157,abc292_c,outside_vocabulary,high,Counts factor pairs through prime factorization and divisor-count arithmetic.
+44987159,abc292_d,outside_vocabulary,high,Uses Union-Find to group components before comparing edge and vertex counts.
+45523633,abc292_f,binary_search,high,Binary-searches a geometric angle against a monotone feasibility predicate.
+45457264,abc295_b,simulation,high,Applies every bomb's Manhattan-radius effect directly to the output grid.
+45933759,abc296_d,brute_force_implementation,high,Enumerates one factor and computes the smallest paired factor meeting the product bound.
+45226037,abc296_f,outside_vocabulary,high,Uses Union-Find and permutation-cycle parity rather than a frozen class.
+45710768,abc298_d,simulation,high,"Processes append, pop-front, and print queries while maintaining the represented number."
+46008577,abc298_e,dynamic_programming,high,Builds turn-indexed position probability tables for both players.
+41059627,abc298_g,dynamic_programming,high,Uses a five-dimensional rectangle-and-cut recurrence to combine subrectangles.
+46165545,abc299_c,brute_force_implementation,medium,Directly scans the string and measures each maximal run between separators.
+41069355,abc299_f,dynamic_programming,high,Fills a two-string subsequence state table using next-occurrence arrays.
+45723196,abc300_b,brute_force_implementation,high,Enumerates all cyclic row and column shifts and compares every cell.
+45749744,abc300_c,graph_traversal_dfs_bfs,high,Flood-fills each diagonal grid component with recursive DFS.
+45250612,abc300_e,dynamic_programming,high,Transitions a three-dimensional exponent state table for random multiplicative moves.
+45923968,abc300_f,binary_search,high,"For each start position, binary-searches the longest repeated-string prefix within the x budget."
+45763953,abc302_b,brute_force_implementation,high,Enumerates every grid start and all eight straight directions for the target word.
+45574429,abc304_d,hash_map_counting,high,Maps each point to a bisected cell and counts cell occupancy in a dictionary.
+45077270,abc304_f,outside_vocabulary,high,"Uses divisor enumeration and inclusion-exclusion over periods, a number-theoretic method."
+41991921,abc304_g,binary_search,high,Binary-searches the maximum XOR threshold using a recursive bitwise feasibility counter.
+46169156,abc305_b,brute_force_implementation,high,Uses direct lookup values and arithmetic to compute the distance between two letters.
+54718266,abc308_d,graph_traversal_dfs_bfs,high,Explores the grid with an explicit stack and a visited matrix.
+45895898,abc309_c,binary_search,high,Binary-searches the first day whose remaining medicine count satisfies the threshold.
+45971969,abc309_e,graph_traversal_dfs_bfs,high,Recursively traverses the rooted tree while propagating insurance depth.
+46217262,abc310_b,brute_force_implementation,high,Checks every ordered pair of products against the dominance conditions.
+43899768,abc311_g,prefix_sums,medium,Uses a two-dimensional cumulative-sum table to score candidate rectangles after boundary scans.
+46028780,abc312_c,binary_search,high,Sorts offers and binary-searches the minimum market-clearing price.
+52032093,abc312_d,dynamic_programming,high,Counts balanced-parenthesis prefixes in a position-and-open-count table.
+45766127,abc313_e,simulation,medium,Steps through run-length groups while updating the process-length recurrence.
+46134579,abc313_g,outside_vocabulary,high,The core computation is Euclidean floor-sum arithmetic after sorting.
+45979954,abc314_b,brute_force_implementation,high,Scans every player's chosen numbers and retains the shortest qualifying lists.
+45808089,abc314_e,dynamic_programming,high,Computes minimum expected cost for each remaining target amount from smaller states.
+45264890,abc314_g,outside_vocabulary,high,Maintains a dynamic bottom-k multiset with paired lazy-deletion heaps.
+46043300,abc315_f,dynamic_programming,high,Stores the shortest route by endpoint and number of skipped points.
+46240679,abc317_f,dynamic_programming,high,"Implements digit DP over bit position, bound states, and three modular remainders."
+55010802,abc320_c,brute_force_implementation,high,Enumerates digits and recursively tries all reel orders and next matching times.
+54919763,abc320_d,graph_traversal_dfs_bfs,high,Traverses the graph in layers while assigning relative coordinates to newly visited vertices.
+45654657,abc320_g,outside_vocabulary,high,Combines maximum flow with a threshold search; flow is outside the vocabulary.
+50314783,abc321_f,dynamic_programming,high,Updates subset-sum counts for each insertion or deletion query.
+46196763,abc322_b,brute_force_implementation,high,Directly compares the candidate against the target prefix and suffix.
+46190250,abc322_d,brute_force_implementation,high,Enumerates all rotations and translations of three pieces and tests every placement triple.
+53004931,abc322_e,dynamic_programming,high,Maintains a cost map over capped skill-level vectors for choose-or-skip decisions.
+54930796,abc323_c,greedy,high,Sorts unsolved problem values descending and repeatedly takes the largest until the deficit closes.
+52742757,abc324_e,two_pointers,medium,"Scans each string from both ends, then combines compatible matched-prefix and matched-suffix lengths."
+47205844,abc325_f,dynamic_programming,high,Stores minimum use of the second resource by prefix and first-resource count.
+54454360,abc326_c,sliding_window,high,"After sorting, expands and shrinks a contiguous value window to keep its span below M."
+52796362,abc326_d,brute_force_implementation,high,Enumerates row permutations and checks every board against column constraints.
+55003503,abc327_c,brute_force_implementation,high,"Directly validates all Sudoku rows, columns, and 3-by-3 blocks with sets."
+54743139,abc328_b,brute_force_implementation,high,Enumerates all calendar days and checks whether every digit is identical.
+52726801,abc329_e,simulation,medium,Uses a work queue to repeatedly stamp matching substrings until the process stabilizes.
+48207650,abc330_f,binary_search,high,Binary-searches the minimum square side length using a monotone movement-cost predicate.
+54711529,abc332_c,simulation,high,Processes meal-day symbols in order while consuming and resetting available shirts.
+54467069,abc333_b,brute_force_implementation,high,Hard-codes and directly checks the finite set of pentagon-distance cases.
+55003175,abc334_c,prefix_sums,high,Builds forward and backward cumulative pairing costs and combines them at each omitted index.
+55029036,abc335_e,dynamic_programming,medium,"After contracting equal-value components, propagates a longest-path recurrence over the value-ordered DAG."
+54659671,abc336_d,greedy,high,Makes independent left-to-right and right-to-left limiting passes and takes their maximum feasible height.
+54308671,abc337_d,sliding_window,high,Maintains symbol counts while sliding every length-K row and column window.
+49855272,abc337_f,sliding_window,high,Moves a circular two-pointer window while updating per-color box counts and the aggregate answer.
+54041010,abc338_e,intervals,high,Treats chord endpoints as intervals and uses nesting order to detect crossings.
+54672032,abc339_b,simulation,high,"Executes Langton-ant steps, changing the cell, direction, and wrapped position each turn."
+53281757,abc339_f,hash_map_counting,high,Counts modular residues in hash maps and looks up products for every pair.
+53927639,abc341_d,binary_search,high,Binary-searches the k-th integer divisible by exactly one of two divisors.
+50668241,abc342_g,outside_vocabulary,high,Uses a segment tree of heaps with lazy deletions for range updates and point queries.
+54978258,abc343_c,brute_force_implementation,high,Enumerates cubes up to N and checks their decimal palindromicity directly.
+54461819,abc345_d,brute_force_implementation,high,"Backtracks over tile subsets, order, orientation, and placements."
+52899692,abc345_e,dynamic_programming,high,Maintains best and second-best values by deletion count and ending color.
+55019091,abc346_b,sliding_window,high,Slides a fixed-length substring over the periodic piano sequence while updating color counts.
+54740445,abc346_d,dynamic_programming,high,"Transitions over position, ending bit, and whether the single equal adjacency has occurred."
+52762677,abc346_e,simulation,high,Replays paint operations in reverse while tracking already-painted rows and columns.
+53286789,abc346_f,binary_search,high,Binary-searches the maximum repetition count with bisected next-occurrence positions as the predicate.
+52760025,abc347_f,prefix_sums,high,Uses two-dimensional prefix sums and directional cumulative maxima to combine three disjoint squares.
+54918141,abc349_b,sorting_based,medium,"Sorts the characters, derives frequency groups, and validates the sorted-count distribution."
+54267102,abc349_d,intervals,high,Greedily partitions the target range into aligned dyadic intervals and outputs each interval.
+53462819,abc349_f,dynamic_programming,high,Runs bitmask DP over covered prime-power requirements.
+54968121,abc351_c,simulation,high,Processes the sequence with a stack-like deque and recursively merges equal adjacent values.
+53505050,abc353_f,outside_vocabulary,high,Uses a geometry-specific closed-form candidate construction outside the frozen classes.
+54869003,abc355_c,simulation,high,"Processes called cells in time order while updating row, column, and diagonal bingo counts."
+54769975,abc355_d,intervals,high,Sorts interval endpoints and sweeps active intervals to count overlaps.
+54957150,abc356_b,brute_force_implementation,high,Directly sums every column and compares each total with its requirement.
+55144138,abc356_c,brute_force_implementation,high,Enumerates every key subset and checks all experiment constraints directly.
+54232515,abc356_g,outside_vocabulary,high,Builds a convex hull of lines and queries it by slope; this technique is outside the vocabulary.
+55000126,abc357_c,simulation,medium,Constructs the recursive carpet pattern by repeatedly blanking prescribed subblocks.
+55140371,abc360_e,dynamic_programming,medium,Iterates a stored one-state probability recurrence for K random swaps.
+55104573,abc360_g,outside_vocabulary,high,"Implements the patience-sorting LIS algorithm with bisected tails, a technique absent from the vocabulary."
+34050152,agc058_b,dynamic_programming,high,Updates a two-dimensional recurrence over processed positions and boundary state.
+37547592,agc060_b,greedy,medium,Compresses equal runs and makes irreversible local decisions while scanning adjacent runs.
+38852158,agc061_a,outside_vocabulary,high,Uses a specialized bitwise closed-form construction outside the frozen classes.
+41610915,agc062_c,intervals,high,Maintains and merges reachable numeric intervals after adding each value.
+40706832,arc128_b,brute_force_implementation,high,Checks each of three symmetric target cases with direct arithmetic formulas.
+29987786,arc128_c,prefix_sums,high,Builds cumulative sums and evaluates every candidate segment by prefix differences.
+27510550,arc128_e,greedy,high,"Constructs the sequence block by block, always choosing the smallest currently feasible symbol."
+38752586,arc129_a,outside_vocabulary,high,"Counts bit ranges with direct bitwise arithmetic, outside the frozen classes."
+27576444,arc130_f,outside_vocabulary,high,Builds a convex hull with a monotonic stack and interpolates between hull vertices.
+44219174,arc132_b,brute_force_implementation,medium,Scans the permutation shape and applies a finite case formula for the answer.
+28174907,arc132_d,greedy,medium,Scans paired positions and commits the earliest feasible continuation of each chain.
+41861434,arc133_a,greedy,medium,Scans value runs and commits which value to remove based on the first decisive descent.
+34093512,arc133_b,outside_vocabulary,high,Uses the patience-sorting LIS algorithm with repeated binary insertion.
+44249322,arc133_d,dynamic_programming,high,Memoizes a digitwise interval recurrence with bound and ordering flags.
+45004334,arc134_b,two_pointers,high,Advances a left index and a decreasing right boundary while swapping in the smallest available character.
+43694743,arc135_a,dynamic_programming,high,Memoizes the recursive split of X into two overlapping subproblems.
+29324173,arc135_d,greedy,medium,Greedily matches positive and negative row/column residuals and never revisits transfers.
+36890038,arc136_b,outside_vocabulary,high,Uses a Fenwick tree to compare inversion parity.
+44650081,arc137_b,dynamic_programming,medium,Applies Kadane-style recurrences for the best gain ending at each position.
+32337261,arc137_c,brute_force_implementation,high,Determines the game winner with a direct finite case analysis of the largest values.
+43171788,arc138_a,binary_search,high,Builds a monotone suffix-maximum array and uses bisect for the earliest qualifying partner.
+39342455,arc139_b,brute_force_implementation,high,Enumerates a bounded neighborhood of bundle counts and evaluates each cost directly.
+31456138,arc139_c,brute_force_implementation,medium,Directly constructs and verifies the required coordinate set by explicit loops.
+31727307,arc140_d,dynamic_programming,high,"After forming components, updates a count DP over selected unknown-cycle parts."
+38039113,arc141_b,dynamic_programming,high,"Transitions sequence counts by length and highest bit group, using cumulative DP sums."
+34662508,arc141_c,simulation,medium,Performs four directional scans and incrementally assigns each parenthesis orientation.
+39176273,arc144_a,greedy,high,Constructs the smallest digit multiset from the largest allowed digits downward.
+41927392,arc144_b,binary_search,high,Binary-searches the largest feasible minimum value using resource-transfer counts.
+41500955,arc146_b,greedy,high,Commits answer bits from high to low whenever the K cheapest adjustment costs fit the budget.
+43234248,arc148_b,brute_force_implementation,high,Enumerates every possible transformed substring endpoint and selects the smallest result.
+43012792,arc149_a,brute_force_implementation,high,Enumerates lengths and repeated digits and directly tests divisibility.
+37666166,arc150_e,prefix_sums,medium,Uses a cumulative walk together with sorted threshold events to aggregate repeated-string contributions.
+44901492,arc151_a,greedy,high,Assigns each differing position immediately while balancing the two required mismatch counts.
+37067201,arc152_b,binary_search,high,"For each point, binary-searches the partner that balances clockwise and counterclockwise distance."
+38915061,arc152_c,outside_vocabulary,high,"Uses a gcd invariant and modular arithmetic, a number-theoretic method outside the vocabulary."
+43165491,arc153_b,simulation,high,"Processes every grid-cut query by updating orientation offsets, then materializes the final grid."
+43795529,arc154_b,two_pointers,high,Moves backward through both strings to retain the longest compatible subsequence.
+38471956,arc155_c,sorting_based,medium,Sorts parity-constrained runs and compares the resulting canonical forms.
+40932797,arc156_b,outside_vocabulary,high,Uses factorial combinations and mex-related counting rather than a frozen algorithm class.
+43019650,arc157_a,brute_force_implementation,high,Applies a direct case distinction to the four transition counts.
+42828291,arc157_b,greedy,high,Sorts internal gap lengths and fills the cheapest gaps first under the operation budget.
+39194356,arc157_d,prefix_sums,high,Builds a two-dimensional cumulative-count table and derives feasible cut boundaries from range counts.
+39201856,arc157_e,dynamic_programming,high,Combines child state tables bottom-up over a binary tree.
+41991860,arc159_a,graph_traversal_dfs_bfs,high,Runs a graph traversal from every residue vertex to fill unweighted shortest-path distances.
+45431609,arc159_b,outside_vocabulary,high,"Uses repeated gcd reduction and divisor search, a number-theoretic algorithm."
+40431476,arc159_d,outside_vocabulary,high,Uses two segment trees as the central interval-chain optimization structure.
+43405529,arc160_a,outside_vocabulary,high,Uses a Fenwick order-statistics tree to locate the reversal defining the K-th permutation.
+45802611,arc162_c,graph_traversal_dfs_bfs,high,Recursively traverses each rooted tree while aggregating descendant values.
+43944210,arc163_b,sorting_based,high,Sorts the candidate values and scans every contiguous group of size M.
+43438224,arc164_e,dynamic_programming,high,Transitions a one-dimensional state array across compressed interval endpoints.
+45995987,arc165_b,sorting_based,medium,Finds the relevant length-K subarray and attempts to sort that block to maximize the sequence.
+50502972,arc167_b,outside_vocabulary,high,"Prime-factorizes A and evaluates a divisor-count formula, which is number theory."
+54960940,arc170_a,greedy,high,Scans mismatches left to right and irreversibly pairs or pays for each required conversion.
+50018799,arc171_d,dynamic_programming,high,Uses subset DP to count independent sets while deriving the graph's chromatic number.
+50474956,arc172_b,brute_force_implementation,high,Evaluates the closed product formula directly for each position index.
+51141760,arc172_c,simulation,medium,Steps through the transformed character walk and counts sign-region transitions.
+54010856,arc173_a,binary_search,high,Binary-searches the K-th valid integer with a digit-counting predicate.
+51178140,arc173_b,brute_force_implementation,high,"Enumerates every point pair, groups identical lines, and checks the largest group."
+51134374,arc173_e,outside_vocabulary,high,"Constructs and optimizes an XOR linear basis, which is outside the vocabulary."
+54196806,arc174_a,dynamic_programming,medium,Uses forward max/min subarray recurrences to select the segment affected by the multiplier.
+51898575,arc175_a,simulation,high,Replays the circular taking order while tracking occupied positions and branching on unknown directions.
+51792735,arc175_b,prefix_sums,medium,Builds the parenthesis balance prefix sequence and uses its minimum to price corrections.
+53001483,arc175_c,intervals,medium,Maintains a stack of feasible value intervals and merges them as constraints arrive.
+52671232,arc176_d,outside_vocabulary,high,Uses Berlekamp-Massey and Bostan-Mori linear-recurrence machinery outside the vocabulary.
+53706270,arc177_a,greedy,high,Consumes available coins from largest denomination to smallest for each payment.
+53680716,arc178_d,dynamic_programming,high,Transitions a two-boundary table and uses cumulative updates for missing permutation values.
+55021276,arc180_c,dynamic_programming,high,Updates sum-indexed subsequence counts for every array element.

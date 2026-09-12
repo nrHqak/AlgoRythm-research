@@ -59,12 +59,18 @@ def validate_freeze(args, repetitions):
     expected = dict(provider=args.provider_label or args.provider, provider_type=args.provider,
                     base_url=args.base_url.rstrip('/'), model=args.model, temperature=args.temperature,
                     max_tokens=args.max_tokens, timeout=args.timeout)
+    reasoning_effort = getattr(args, 'reasoning_effort', None)
+    if reasoning_effort is not None:
+        expected['reasoning'] = {'effort': reasoning_effort}
     add_routing_settings(expected, args)
     if freeze.get('settings') != expected:
         raise SafetyViolation('model/provider/settings differ from committed freeze')
     validate_identity_choice(args.model, freeze['model_kind'], freeze['model_reference'], freeze['accepted_alias_risk'])
     if args.temperature != 0 or args.max_tokens < 1024 or repetitions != 5 or args.condition_order != 'counterbalanced':
         raise SafetyViolation('frozen v2 requires temperature 0, >=1024 tokens, 5 repetitions, counterbalanced order')
+    frozen_reasoning = freeze.get('settings', {}).get('reasoning', {}).get('effort')
+    if frozen_reasoning is not None and reasoning_effort != frozen_reasoning:
+        raise SafetyViolation('reasoning effort differs from committed execution freeze')
     if freeze.get('echoed_models') != [args.model] or freeze.get('calls',0) < 10 or freeze.get('parse_successes') != freeze.get('calls'):
         raise SafetyViolation('freeze has insufficient or invalid smoke evidence')
     if 'openrouter_routing' in expected:
@@ -73,9 +79,20 @@ def validate_freeze(args, repetitions):
             raise SafetyViolation('freeze lacks exact underlying provider identity evidence')
     if freeze.get('session_order') not in (['G','P'], ['P','G']):
         raise SafetyViolation('missing session-order coin flip')
-    for source in freeze_asset_paths():
-        if freeze['asset_hashes'].get(str(source.relative_to(ROOT))) != file_sha256(source):
+    workers = getattr(args, 'workers', 1)
+    frozen_workers = freeze.get('execution', {}).get('workers', 1)
+    if workers != frozen_workers:
+        raise SafetyViolation('worker count differs from committed execution freeze')
+    asset_hashes = freeze.get('asset_hashes', {})
+    if not isinstance(asset_hashes, dict) or not asset_hashes:
+        raise SafetyViolation('freeze lacks immutable smoke asset hashes')
+    for relative, expected_hash in asset_hashes.items():
+        source = ROOT / relative
+        if not source.is_file() or file_sha256(source) != expected_hash:
             raise SafetyViolation('smoke/prompt/prior changed after model freeze')
+    for source in (SYSTEM, TEMPLATE, *PRIORS):
+        if asset_hashes.get(str(source.relative_to(ROOT))) != file_sha256(source):
+            raise SafetyViolation('freeze lacks current frozen prompt/prior evidence')
     if file_sha256(args.system_prompt) != file_sha256(SYSTEM) or file_sha256(args.user_template) != file_sha256(TEMPLATE):
         raise SafetyViolation('real v2 must use frozen v2 system and shared template')
     return freeze

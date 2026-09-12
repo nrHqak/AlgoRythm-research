@@ -1,0 +1,72 @@
+{
+  "run_id": "f325e001-f464-4cb7-8cf6-79bee2d80e1e",
+  "session_id": "20260912T122827Z",
+  "execution_key": "4f7ef0c1ab8920172f8ac50189c42d591513582c90f294951512dffd2166f9d1",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "A_P",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T13:00:56.810253Z",
+  "latency": 18.579322125006,
+  "token_usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 1569,
+    "total_tokens": 3589,
+    "cost": 0.00084942,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1984,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00084942,
+      "upstream_inference_prompt_cost": 6.492e-05,
+      "upstream_inference_completions_cost": 0.0007845
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1466,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.97, \"reason\": \"Uses maximum + minimum + penalty, but cost should be max - min + penalty (range), as _recompute and docstring expect; mismatch triggers RuntimeError.\"}, {\"line\": 121, \"score\": 0.12, \"reason\": \"Counterpart of the inconsistency: computes max - min, disagreeing with _segment_cost; correct per spec, so unlikely the fault.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/f325e001-f464-4cb7-8cf6-79bee2d80e1e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.97,
+        "reason": "Uses maximum + minimum + penalty, but cost should be max - min + penalty (range), as _recompute and docstring expect; mismatch triggers RuntimeError."
+      },
+      {
+        "line": 121,
+        "score": 0.12,
+        "reason": "Counterpart of the inconsistency: computes max - min, disagreeing with _segment_cost; correct per spec, so unlikely the fault."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": null,
+  "prompt_chars": 7885,
+  "prompt_tokens_estimate": 1972,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

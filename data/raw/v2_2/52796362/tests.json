@@ -1,0 +1,34 @@
+[
+  {
+    "input": "3\nAAA\nBBB\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "5\nABCBC\nACAAB\n",
+    "expected_output": "Yes\nAC..B\n.BA.C\nC.BA.\nBA.C.\n..CBA\n"
+  },
+  {
+    "input": "3\nBCB\nABC\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "3\nAAC\nBCA\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "3\nACB\nAAC\n",
+    "expected_output": "No\n"
+  },
+  {
+    "input": "3\nABC\nABC\n",
+    "expected_output": "Yes\nABC\nBCA\nCAB\n"
+  },
+  {
+    "input": "3\nCBA\nCBA\n",
+    "expected_output": "Yes\nCBA\nBAC\nACB\n"
+  },
+  {
+    "input": "5\nAAACB\nBCBBA\n",
+    "expected_output": "No\n"
+  }
+]

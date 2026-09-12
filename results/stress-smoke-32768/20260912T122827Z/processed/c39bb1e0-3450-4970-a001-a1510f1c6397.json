@@ -1,0 +1,82 @@
+{
+  "run_id": "c39bb1e0-3450-4970-a001-a1510f1c6397",
+  "session_id": "20260912T122827Z",
+  "execution_key": "d3dd806f9b5dbe42d538f67753a5faa76021d18afa6c3d4a2cdfccf4d280ef59",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_P",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:56:57.676396Z",
+  "latency": 48.42221658304334,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 4170,
+    "total_tokens": 6624,
+    "cost": 0.0024531,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0024531,
+      "upstream_inference_prompt_cost": 0.0003681,
+      "upstream_inference_completions_cost": 0.002085
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3967,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: coupon transition gated on used > 1, blocking used == 1; first couponed non-start cell can never get free entry, so single-coupon paths are mis-costed.\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Start states used>=1 set to 0 encodes a coupon spent at start; if the reference disallows that, costs for small coupon counts are wrong.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Reads predecessor at used-1; only correct if line 90 is fixed, so suspect if coupon counting semantics differ from reference.\"}, {\"line\": 75, \"score\": 0.1, \"reason\": \"Strict < tie-break picks ordinary on ties; cost stays correct but reconstructed parent/path could differ from expected.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/c39bb1e0-3450-4970-a001-a1510f1c6397.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: coupon transition gated on used > 1, blocking used == 1; first couponed non-start cell can never get free entry, so single-coupon paths are mis-costed."
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Start states used>=1 set to 0 encodes a coupon spent at start; if the reference disallows that, costs for small coupon counts are wrong."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Reads predecessor at used-1; only correct if line 90 is fixed, so suspect if coupon counting semantics differ from reference."
+      },
+      {
+        "line": 75,
+        "score": 0.1,
+        "reason": "Strict < tie-break picks ordinary on ties; cost stays correct but reconstructed parent/path could differ from expected."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

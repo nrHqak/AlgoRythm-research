@@ -1,0 +1,78 @@
+{
+  "run_id": "39fd5930965ac9255749a619f31a0b12e27cff2a9336561fa0e5aaf9a88cfaf6",
+  "session_id": "20260912T205800Z",
+  "execution_key": "9f8a76742c726fa482ac2ca7a756affbe34832adb4adf2874f955afc4a811474",
+  "experiment_name": "reasoning_preflight_P",
+  "program_id": "synthetic-reasoning-dynamic-programming-v1",
+  "task_id": "synthetic-reasoning-dynamic-programming-v1",
+  "condition": "A_P",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:35.956054Z",
+  "latency": 4.379383915977087,
+  "token_usage": {
+    "prompt_tokens": 2458,
+    "completion_tokens": 244,
+    "total_tokens": 2702,
+    "cost": 0.00019886,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019886,
+      "upstream_inference_prompt_cost": 7.686e-05,
+      "upstream_inference_completions_cost": 0.000122
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 116,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Should be 'used > 0': used=1 never considers coupon transition, skipping discounted option\"}, {\"line\": 83, \"score\": 0.3, \"reason\": \"Initializing used=1..coupons states to 0 without path may create invalid free starts; interacts with line 90 bug\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Uses used-1 predecessor; fine, but only reached when used>1 due to line 90 guard\"}]}",
+  "raw_response_path": "results/reasoning-preflight-low/20260912T205800Z/raw/P/39fd5930965ac9255749a619f31a0b12e27cff2a9336561fa0e5aaf9a88cfaf6.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Should be 'used > 0': used=1 never considers coupon transition, skipping discounted option"
+      },
+      {
+        "line": 83,
+        "score": 0.3,
+        "reason": "Initializing used=1..coupons states to 0 without path may create invalid free starts; interacts with line 90 bug"
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Uses used-1 predecessor; fine, but only reached when used>1 due to line 90 guard"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "56ce67de0e161494c23a2a7688525221f6d52034a85dbfd84242dec2e58f2d57",
+  "prior_hash": null,
+  "prompt_chars": 9554,
+  "prompt_tokens_estimate": 2389,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low"
+}

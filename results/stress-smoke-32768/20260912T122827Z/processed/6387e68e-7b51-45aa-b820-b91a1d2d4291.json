@@ -1,0 +1,87 @@
+{
+  "run_id": "6387e68e-7b51-45aa-b820-b91a1d2d4291",
+  "session_id": "20260912T122827Z",
+  "execution_key": "d3b530c0dff379bdeefb442f116f52be645c52821c9c36cc4061a8212ed12afa",
+  "experiment_name": "stress_smoke_32768_P",
+  "program_id": "synthetic-stress-dp-route-v1",
+  "task_id": "synthetic-stress-dp-route-v1",
+  "condition": "A_P",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:53:41.677818Z",
+  "latency": 31.73438758298289,
+  "token_usage": {
+    "prompt_tokens": 2454,
+    "completion_tokens": 2839,
+    "total_tokens": 5293,
+    "cost": 0.0017876,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0017876,
+      "upstream_inference_prompt_cost": 0.0003681,
+      "upstream_inference_completions_cost": 0.0014195
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2616,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Off-by-one: coupon transition is gated by used > 1, so state used==1 can never apply a coupon; should be used >= 1.\"}, {\"line\": 91, \"score\": 0.3, \"reason\": \"Coupon transition call is skipped for used==1 due to the faulty guard above it, making one-coupon paths impossible.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Uses used-1 predecessor state; suspicious region for coupon state indexing, though logic itself looks correct.\"}, {\"line\": 127, \"score\": 0.1, \"reason\": \"Decrements used during path tracing; a double-decrement here would desynchronize parent states, though current code appears consistent.\"}, {\"line\": 83, \"score\": 0.05, \"reason\": \"Sets all start states with used>=1 to zero; mildly suspicious initialization but consistent with coupon-at-start design.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/6387e68e-7b51-45aa-b820-b91a1d2d4291.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Off-by-one: coupon transition is gated by used > 1, so state used==1 can never apply a coupon; should be used >= 1."
+      },
+      {
+        "line": 91,
+        "score": 0.3,
+        "reason": "Coupon transition call is skipped for used==1 due to the faulty guard above it, making one-coupon paths impossible."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Uses used-1 predecessor state; suspicious region for coupon state indexing, though logic itself looks correct."
+      },
+      {
+        "line": 127,
+        "score": 0.1,
+        "reason": "Decrements used during path tracing; a double-decrement here would desynchronize parent states, though current code appears consistent."
+      },
+      {
+        "line": 83,
+        "score": 0.05,
+        "reason": "Sets all start states with used>=1 to zero; mildly suspicious initialization but consistent with coupon-at-start design."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6b013203d75a99d721e6472dcb832abf256c22575fc13597ab2c8e71f508be50",
+  "prior_hash": null,
+  "prompt_chars": 9526,
+  "prompt_tokens_estimate": 2382,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

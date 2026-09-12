@@ -1,0 +1,72 @@
+{
+  "run_id": "bee2120fb930c191739e4db6ceaa768cafe0ab046685cbfec1cd85cd0e1c9c23",
+  "session_id": "20260912T203200Z-G-final",
+  "execution_key": "a5103952b0dbb9d57f0b1dea92abc4d44438f2a4d3cb1cd6042a3ab7089f4e0a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:39:01.549685Z",
+  "latency": 351.04140704101883,
+  "token_usage": {
+    "prompt_tokens": 1959,
+    "completion_tokens": 30940,
+    "total_tokens": 32899,
+    "cost": 0.01576385,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01576385,
+      "upstream_inference_prompt_cost": 0.00029385,
+      "upstream_inference_completions_cost": 0.01547
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 30823,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.95, \"reason\": \"The +1 is applied after the max, so later non-improving (i,j) combos inflate dp_y; should be max(existing, candidate + 1).\"}, {\"line\": 55, \"score\": 0.25, \"reason\": \"Root-Y leaf count has extra +1 versus root-X branch; off-by-one if b counts all Y vertices rather than only non-root ones.\"}]}",
+  "raw_response_path": "results/scientific-v2_2-32768-w4/raw/algorythm_pattern_prior_pilot_v2_generic/20260912T203200Z-G-final/bee2120fb930c191739e4db6ceaa768cafe0ab046685cbfec1cd85cd0e1c9c23.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.95,
+        "reason": "The +1 is applied after the max, so later non-improving (i,j) combos inflate dp_y; should be max(existing, candidate + 1)."
+      },
+      {
+        "line": 55,
+        "score": 0.25,
+        "reason": "Root-Y leaf count has extra +1 versus root-X branch; off-by-one if b counts all Y vertices rather than only non-root ones."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 6522,
+  "prompt_tokens_estimate": 1631,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc"
+}

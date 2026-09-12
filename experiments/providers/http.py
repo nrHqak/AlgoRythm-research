@@ -76,6 +76,8 @@ class OpenAICompatibleProvider(LLMProvider):
                 {"role": "user", "content": request.user_prompt},
             ],
         }
+        if request.reasoning_effort is not None:
+            payload["reasoning"] = {"effort": request.reasoning_effort}
         if self.routing is not None:
             payload["provider"] = self.routing["provider_preferences"]
         started = time.perf_counter()
@@ -109,6 +111,7 @@ class OpenAICompatibleProvider(LLMProvider):
             "completion_content_type": type(content).__name__,
             "reasoning_present": bool(reasoning),
             "reasoning_chars": len(reasoning) if isinstance(reasoning, str) else None,
+            "reasoning_effort_requested": request.reasoning_effort,
         }
         if self.routing is not None:
             metadata.update(

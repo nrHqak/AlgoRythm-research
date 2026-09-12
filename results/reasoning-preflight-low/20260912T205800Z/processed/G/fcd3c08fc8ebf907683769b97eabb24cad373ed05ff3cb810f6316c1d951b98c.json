@@ -1,0 +1,78 @@
+{
+  "run_id": "fcd3c08fc8ebf907683769b97eabb24cad373ed05ff3cb810f6316c1d951b98c",
+  "session_id": "20260912T205800Z",
+  "execution_key": "890d7ddca906e33e9fb66346fb3a7f788c5518456f41ae5f69aba6cfa3526ff3",
+  "experiment_name": "reasoning_preflight_G",
+  "program_id": "synthetic-reasoning-dynamic-programming-v1",
+  "task_id": "synthetic-reasoning-dynamic-programming-v1",
+  "condition": "B",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:24.014839Z",
+  "latency": 3.4110217909910716,
+  "token_usage": {
+    "prompt_tokens": 2640,
+    "completion_tokens": 168,
+    "total_tokens": 2808,
+    "cost": 0.0004416,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004416,
+      "upstream_inference_prompt_cost": 0.0003576,
+      "upstream_inference_completions_cost": 8.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 28,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 90, \"score\": 0.95, \"reason\": \"Coupon transition guarded by used > 1; should be used > 0, so used==1 never uses a coupon, skipping valid cheaper paths.\"}, {\"line\": 83, \"score\": 0.35, \"reason\": \"Initializing table[0][0][used] = 0 for used>0 implies free start cell; may or may not match spec, a secondary suspect.\"}, {\"line\": 127, \"score\": 0.15, \"reason\": \"Coupon decrement after appending is consistent, but ordering worth verifying against parent state.\"}]}",
+  "raw_response_path": "results/reasoning-preflight-low/20260912T205800Z/raw/G/fcd3c08fc8ebf907683769b97eabb24cad373ed05ff3cb810f6316c1d951b98c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 90,
+        "score": 0.95,
+        "reason": "Coupon transition guarded by used > 1; should be used > 0, so used==1 never uses a coupon, skipping valid cheaper paths."
+      },
+      {
+        "line": 83,
+        "score": 0.35,
+        "reason": "Initializing table[0][0][used] = 0 for used>0 implies free start cell; may or may not match spec, a secondary suspect."
+      },
+      {
+        "line": 127,
+        "score": 0.15,
+        "reason": "Coupon decrement after appending is consistent, but ordering worth verifying against parent state."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 159,
+  "loc": 149,
+  "evaluation_denominator": 159,
+  "faulty_lines": [
+    90
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "56ce67de0e161494c23a2a7688525221f6d52034a85dbfd84242dec2e58f2d57",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 10489,
+  "prompt_tokens_estimate": 2623,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low"
+}

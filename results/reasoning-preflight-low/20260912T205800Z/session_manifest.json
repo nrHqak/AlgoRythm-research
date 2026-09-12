@@ -1,0 +1,281 @@
+{
+  "status": "RUNNING",
+  "engineering_only": true,
+  "purpose": "LOW-REASONING PREFLIGHT — NEVER SCIENTIFIC DATA",
+  "scientific_candidates_sent": 0,
+  "scientific_candidate_sources_loaded": 0,
+  "selective_retries": false,
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 32768,
+    "reasoning": {
+      "effort": "low"
+    },
+    "timeout": 120.0,
+    "workers": 4,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "session_order": [
+    "G",
+    "P"
+  ],
+  "call_plan": [
+    {
+      "order": 1,
+      "run_id": "80a925ba45a3a5d4a2351368b8bddebf8758ebc8ac2ec04536bbb134a97ad762",
+      "program_id": "synthetic-reasoning-binary-search-v1",
+      "pattern_label": "binary_search",
+      "loc": 58,
+      "source_line_count": 58,
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 1
+    },
+    {
+      "order": 2,
+      "run_id": "4c36ff63ca5aaa738534e9c3f532df12ac562f6f6859a2a5c0025c1d09b1b365",
+      "program_id": "synthetic-reasoning-binary-search-v1",
+      "pattern_label": "binary_search",
+      "loc": 58,
+      "source_line_count": 58,
+      "session": "G",
+      "condition": "B",
+      "repetition": 1
+    },
+    {
+      "order": 3,
+      "run_id": "d8b37fb34ef6608a31105cd1d6d6ac83eb54a2834ae81e7aec64886cad173ccb",
+      "program_id": "synthetic-reasoning-brute-force-v1",
+      "pattern_label": "brute_force_implementation",
+      "loc": 134,
+      "source_line_count": 134,
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 1
+    },
+    {
+      "order": 4,
+      "run_id": "9146a8ab15434623b352257afa1fa576269279bb00827fc6ac3d48b9fcfa9a82",
+      "program_id": "synthetic-reasoning-brute-force-v1",
+      "pattern_label": "brute_force_implementation",
+      "loc": 134,
+      "source_line_count": 134,
+      "session": "G",
+      "condition": "B",
+      "repetition": 1
+    },
+    {
+      "order": 5,
+      "run_id": "c11bf47d5f124a15d5b0bef2b23128bfa734ed2bf14e96bf693a0f75dc3f8a7c",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 1
+    },
+    {
+      "order": 6,
+      "run_id": "fcd3c08fc8ebf907683769b97eabb24cad373ed05ff3cb810f6316c1d951b98c",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "G",
+      "condition": "B",
+      "repetition": 1
+    },
+    {
+      "order": 7,
+      "run_id": "d677e5ea985e272367d66676f74b3e425ac5388dbcbb000dbca9fe7c2c8d140d",
+      "program_id": "synthetic-reasoning-graph-traversal-v1",
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "loc": 89,
+      "source_line_count": 89,
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 1
+    },
+    {
+      "order": 8,
+      "run_id": "bc5c3c141f0c14df4daceccdebfe0a711aa040a58e4c4c0f8db22027c0885b7e",
+      "program_id": "synthetic-reasoning-graph-traversal-v1",
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "loc": 89,
+      "source_line_count": 89,
+      "session": "G",
+      "condition": "B",
+      "repetition": 1
+    },
+    {
+      "order": 9,
+      "run_id": "b4df3e46a236e2f20ee66a6a4de127dff4e3404167ec91e0ef27b149cf8f87f0",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 2
+    },
+    {
+      "order": 10,
+      "run_id": "be914081bf7960964c407a7d5c26fcff1dc01a08c8d2797deca62c09b9e64fb0",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "G",
+      "condition": "B",
+      "repetition": 2
+    },
+    {
+      "order": 11,
+      "run_id": "c44adebd725f5b1abeeab7af2f5eb85a700088d5f53b2912d300ce13a088b78d",
+      "program_id": "synthetic-reasoning-binary-search-v1",
+      "pattern_label": "binary_search",
+      "loc": 58,
+      "source_line_count": 58,
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 1
+    },
+    {
+      "order": 12,
+      "run_id": "8c559bf54c514ad96fc01648c454208f794611f3c1c90807d454ada7128ab9e2",
+      "program_id": "synthetic-reasoning-binary-search-v1",
+      "pattern_label": "binary_search",
+      "loc": 58,
+      "source_line_count": 58,
+      "session": "P",
+      "condition": "C",
+      "repetition": 1
+    },
+    {
+      "order": 13,
+      "run_id": "543c42c82d0958e120db47890dc5346bdf1553d190d81ac338a79071efd53e49",
+      "program_id": "synthetic-reasoning-brute-force-v1",
+      "pattern_label": "brute_force_implementation",
+      "loc": 134,
+      "source_line_count": 134,
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 1
+    },
+    {
+      "order": 14,
+      "run_id": "d067b6a4f4cb08addff15dc88513f1329c36d2a5bfed415f203214f675dbceb0",
+      "program_id": "synthetic-reasoning-brute-force-v1",
+      "pattern_label": "brute_force_implementation",
+      "loc": 134,
+      "source_line_count": 134,
+      "session": "P",
+      "condition": "C",
+      "repetition": 1
+    },
+    {
+      "order": 15,
+      "run_id": "39fd5930965ac9255749a619f31a0b12e27cff2a9336561fa0e5aaf9a88cfaf6",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 1
+    },
+    {
+      "order": 16,
+      "run_id": "e7370a84d43588b9f71cc3c2084c19122d51723c54647831254dbe60e2dfa190",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "P",
+      "condition": "C",
+      "repetition": 1
+    },
+    {
+      "order": 17,
+      "run_id": "c1f232c98e4e845e7039106f579e701012f14cf7208bdf965c5ae5f117a5d122",
+      "program_id": "synthetic-reasoning-graph-traversal-v1",
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "loc": 89,
+      "source_line_count": 89,
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 1
+    },
+    {
+      "order": 18,
+      "run_id": "dd329a11714501169636e65e721baba85c175f005df2d57c579e16bfdd949de8",
+      "program_id": "synthetic-reasoning-graph-traversal-v1",
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "loc": 89,
+      "source_line_count": 89,
+      "session": "P",
+      "condition": "C",
+      "repetition": 1
+    },
+    {
+      "order": 19,
+      "run_id": "1d189d95ce1e2eeae738161a510c1cdf63edc98dbe578613c61739cb4221400b",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 2
+    },
+    {
+      "order": 20,
+      "run_id": "05c6f7f483653965edc2b54f88da5264032279de37c4c1625eb25aadbc7dce8d",
+      "program_id": "synthetic-reasoning-dynamic-programming-v1",
+      "pattern_label": "dynamic_programming",
+      "loc": 149,
+      "source_line_count": 159,
+      "session": "P",
+      "condition": "C",
+      "repetition": 2
+    }
+  ],
+  "asset_hashes": {
+    "data/smoke-reasoning-low/manifest.json": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+    "data/manifests/pilot_manifest_v2_2.json": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+    "pilot/v2/model-freeze-attempts/20260912T205114Z-openrouter-reasoning-metadata/reasoning_metadata.json": "7cc3e8aff1013829be87f3a2e343977caa245a1624e24d55da54e72fd96ef73e",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke-reasoning-low/synthetic-binary-search/buggy.py": "c09b760e954e99dc89ab56d2c8c43bc6d8fc3b74c559d95d2c5e81e870c11231",
+    "data/smoke-reasoning-low/synthetic-binary-search/fixed.py": "d5b58582f3fcc38f2ff4a0d91c71dbf22071dc4e043c6a662d8aa27ece733b3c",
+    "data/smoke-reasoning-low/synthetic-binary-search/tests.json": "94316a632aad95a8d6e5170bf327e425f780921b8dadc0dbe3b2c5f0682a423a",
+    "data/smoke-reasoning-low/synthetic-brute-force/buggy.py": "2d8a13dace3e3cf47d07ba051da9151781e3c641710242c10c902c9bd2862b78",
+    "data/smoke-reasoning-low/synthetic-brute-force/fixed.py": "c131fa9a879c5c55c41f7ac3abee0d56e92da038cf4b9d8f474fef6bbe25d512",
+    "data/smoke-reasoning-low/synthetic-brute-force/tests.json": "b6e5c00682ed7539046621337441f73552112a870899b58bd02b16a9ed0276a1",
+    "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
+    "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae",
+    "data/smoke-reasoning-low/synthetic-graph/buggy.py": "a17b1fab43f4a69ff7cdfca2432589152f11d3b613877c2ab0c4cf139401c83a",
+    "data/smoke-reasoning-low/synthetic-graph/fixed.py": "7d61e90464361bc6a5b89ff0b8b9fa7b50a77a82fab2c75f1fa2413bfdb831eb",
+    "data/smoke-reasoning-low/synthetic-graph/tests.json": "ff7c2e39d69c327ccbc2089663c311423e7f677b03418c17724f25b41ca041c5"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "status": "RUNNING",
+  "engineering_only": true,
+  "purpose": "CONCURRENCY PREFLIGHT — NEVER SCIENTIFIC DATA",
+  "scientific_candidates_sent": 0,
+  "selective_retries": false,
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 32768,
+    "timeout": 120.0,
+    "workers": 4,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "session_order": [
+    "G",
+    "P"
+  ],
+  "call_plan": [
+    {
+      "order": 1,
+      "run_id": "4e822245721318583958c71eb5759c65a11cd992a5bcff9fe69fb793f132efac",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 1
+    },
+    {
+      "order": 2,
+      "run_id": "35bd0fbf65adf43d2875153434f897c9dda0dac1e80040c2ccda9fc678f532f1",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "B",
+      "repetition": 1
+    },
+    {
+      "order": 3,
+      "run_id": "996aefebf949f00921aec774cc620f99983338a654c159addb9522e5a8b03839",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 2
+    },
+    {
+      "order": 4,
+      "run_id": "1e7fb8036b75e17118d6c8ee5bd8cbfe259489fe218c00745d1ed996e634e310",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "B",
+      "repetition": 2
+    },
+    {
+      "order": 5,
+      "run_id": "15f029b28df01ff825737e8c1ffd087c25b1134838e65e8ae765d8cff1af9039",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 3
+    },
+    {
+      "order": 6,
+      "run_id": "9c6c00fe1546ed540eecfe4b7847481b720c3701545d344f862ff15a36f2310e",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "B",
+      "repetition": 3
+    },
+    {
+      "order": 7,
+      "run_id": "fecda7a081bed8f4dbf7ff892d025ea63e88f1e7b5891757382626262b87e495",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 4
+    },
+    {
+      "order": 8,
+      "run_id": "eee0030bf7e501261bfc614d452fe9c4e407e2774cb1ac2a31b7a4ccd879978c",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "B",
+      "repetition": 4
+    },
+    {
+      "order": 9,
+      "run_id": "1b1138de6364c02b9e1cd3ec77d1a6b4017213b9dcba6eec111aa7f3f27c6da5",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "A_G",
+      "repetition": 5
+    },
+    {
+      "order": 10,
+      "run_id": "96ee7a39df5cfd8773526f61c9f9890e048ff0f34f9867c278d4359de20a3d15",
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "condition": "B",
+      "repetition": 5
+    },
+    {
+      "order": 11,
+      "run_id": "7d060b186c8d478f50f3e8fc0b5c92b19074683e7e55817d7d4da1792b136d50",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 1
+    },
+    {
+      "order": 12,
+      "run_id": "7dbfc5a2e2db41fe73cce2f671b1989d8532ea7d35b766e0a37baa3542d7325f",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "C",
+      "repetition": 1
+    },
+    {
+      "order": 13,
+      "run_id": "032b4bb6a6b010e3bcf1d991ea192efaba96d7f91aebb9f44a6fa66e6e1227a9",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 2
+    },
+    {
+      "order": 14,
+      "run_id": "11dd10438cabedc16a11bc0e8cbcc931fa6d431a5a7e18113155b6688d5fc6b6",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "C",
+      "repetition": 2
+    },
+    {
+      "order": 15,
+      "run_id": "a4afaa33ca4b1eb7781933f25e2030e4b46c53376dfb61434346e747272ec473",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 3
+    },
+    {
+      "order": 16,
+      "run_id": "09cb3e0038907dda7f21616590a3d9c856b79459cf07b1a090406f16ac1bc21e",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "C",
+      "repetition": 3
+    },
+    {
+      "order": 17,
+      "run_id": "cb5563dcf94fe6efe8f2729fff39ba814ea6dac27561357852d09b7abc86463b",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 4
+    },
+    {
+      "order": 18,
+      "run_id": "09e81395ae273f2b896fe08070eb94fc9ce07849f42624dae3f30c9e6f3e5581",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "C",
+      "repetition": 4
+    },
+    {
+      "order": 19,
+      "run_id": "c5309352c3bd3ceabcc6fbec3e7a671f4ac703a2a6c4fdb84989bb6383a2657e",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "A_P",
+      "repetition": 5
+    },
+    {
+      "order": 20,
+      "run_id": "65b858eb445d124c84189962a22af26c70f3bc213e68eeaeea95aaccabeb23c2",
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "condition": "C",
+      "repetition": 5
+    }
+  ],
+  "asset_hashes": {
+    "data/smoke-stress/manifest_32768.json": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36",
+    "data/manifests/pilot_manifest_v2_2.json": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
+    "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae",
+    "data/smoke-stress/synthetic-dp-segments/buggy.py": "7670277d2c1b4654f2e165f17e40ad58b9a722842723f34563003b621738528e",
+    "data/smoke-stress/synthetic-dp-segments/fixed.py": "128605f36658f111e3ce802e2348ab2ce8821ab6aa915496e15e5bb65d9184d4",
+    "data/smoke-stress/synthetic-dp-segments/tests.json": "e6a48fc75a444df35418accaa21c9c2d6808010e3f8fb4cffb9c15d986cc18e2"
+  }
+}

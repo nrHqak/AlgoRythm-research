@@ -1,0 +1,17 @@
+{
+  "program_id": "synthetic-stress-dp-route-v1",
+  "session": "P",
+  "arm": "C",
+  "repetition": 4,
+  "input_tokens": 2623,
+  "output_tokens": 4207,
+  "reasoning_tokens": 4061,
+  "finish_reason": "stop",
+  "latency_seconds": 48.9361848749686,
+  "cost_usd": 0.00218975,
+  "model": "z-ai/glm-5.3-flash",
+  "provider": "Z.AI",
+  "content_is_null": false,
+  "transport_failure": false,
+  "parser_status": "ok"
+}

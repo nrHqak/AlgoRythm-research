@@ -1,0 +1,7 @@
+claude_confidence,codex_confidence,programs,exact_matches,agreement_rate
+high,high,106,103,0.9716981132075472
+high,medium,4,3,0.75
+low,high,23,11,0.4782608695652174
+low,medium,18,8,0.4444444444444444
+medium,high,72,52,0.7222222222222222
+medium,medium,9,5,0.5555555555555556

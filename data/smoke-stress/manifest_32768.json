@@ -1,0 +1,50 @@
+{
+  "manifest_version": 1,
+  "dataset_name": "32768 STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "created_at": "2026-09-12T12:20:00+00:00",
+  "selection_frozen_at": "2026-09-12T12:20:00+00:00",
+  "programs": [
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "task_id": "synthetic-stress-dp-route-v1",
+      "buggy_source_path": "synthetic-dp-route/buggy.py",
+      "fixed_source_path": "synthetic-dp-route/fixed.py",
+      "tests_path": "synthetic-dp-route/tests.json",
+      "faulty_lines": [90],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 149,
+      "evaluation_denominator": 159,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "task_id": "synthetic-stress-dp-segments-v1",
+      "buggy_source_path": "synthetic-dp-segments/buggy.py",
+      "fixed_source_path": "synthetic-dp-segments/fixed.py",
+      "tests_path": "synthetic-dp-segments/tests.json",
+      "faulty_lines": [36],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "Hand-written non-candidate stress fixture; NEVER scientific annotation",
+      "loc": 122,
+      "evaluation_denominator": 140,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "task_id": "synthetic-stress-dp-route-tail-v1",
+      "buggy_source_path": "synthetic-dp-route/buggy.py",
+      "fixed_source_path": "synthetic-dp-route/fixed.py",
+      "tests_path": "synthetic-dp-route/tests.json",
+      "faulty_lines": [90],
+      "pattern_label": "dynamic_programming",
+      "pattern_source": "Registered repeat block for long-tail stress only; NEVER scientific annotation",
+      "loc": 149,
+      "evaluation_denominator": 159,
+      "difficulty": "synthetic-stress-only",
+      "inclusion_status": "included"
+    }
+  ]
+}

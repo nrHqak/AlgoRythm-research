@@ -1,0 +1,72 @@
+{
+  "run_id": "a303c8ce-e9d4-4bb8-add7-21764dbd27f9",
+  "session_id": "20260912T122827Z",
+  "execution_key": "ea57eda9ad35f7bc1abf78be24f5b8bf6b4000a582c6b3d27f3d3ed8800af85c",
+  "experiment_name": "stress_smoke_32768_G",
+  "program_id": "synthetic-stress-dp-segments-v1",
+  "task_id": "synthetic-stress-dp-segments-v1",
+  "condition": "B",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T12:37:50.543108Z",
+  "latency": 19.095425833016634,
+  "token_usage": {
+    "prompt_tokens": 2202,
+    "completion_tokens": 1745,
+    "total_tokens": 3947,
+    "cost": 0.0011644,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0011644,
+      "upstream_inference_prompt_cost": 0.0002919,
+      "upstream_inference_completions_cost": 0.0008725
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1634,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 39, \"score\": 0.97, \"reason\": \"Segment cost uses maximum + minimum, but the stated cost (docstring and _recompute) is the range maximum - minimum plus penalty; should be subtraction.\"}, {\"line\": 121, \"score\": 0.12, \"reason\": \"Recompute uses max - min, mismatching line 39's max + min; less likely wrong since it matches the docstring's 'range-plus-penalty'.\"}]}",
+  "raw_response_path": "results/stress-smoke-32768/20260912T122827Z/raw/a303c8ce-e9d4-4bb8-add7-21764dbd27f9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 39,
+        "score": 0.97,
+        "reason": "Segment cost uses maximum + minimum, but the stated cost (docstring and _recompute) is the range maximum - minimum plus penalty; should be subtraction."
+      },
+      {
+        "line": 121,
+        "score": 0.12,
+        "reason": "Recompute uses max - min, mismatching line 39's max + min; less likely wrong since it matches the docstring's 'range-plus-penalty'."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 140,
+  "loc": 122,
+  "evaluation_denominator": 140,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "4c7a066b2b67da2f01ea1823457bc02e527d09ed64f211bcff048520fee170a8",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 8820,
+  "prompt_tokens_estimate": 2205,
+  "manifest_hash": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36"
+}

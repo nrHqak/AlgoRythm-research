@@ -1,0 +1,347 @@
+{
+  "status": "RUNNING",
+  "engineering_only": true,
+  "purpose": "32768 STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
+  "scientific_candidates_sent": 0,
+  "reasoning_effort_parameter_sent": false,
+  "settings": {
+    "provider": "openrouter",
+    "provider_type": "openai_compatible",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 32768,
+    "timeout": 120.0,
+    "openrouter_routing": {
+      "provider_preferences": {
+        "only": [
+          "z-ai/fp8"
+        ],
+        "order": [
+          "z-ai/fp8"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "expected_provider_name": "Z.AI"
+    }
+  },
+  "p95_definition": "nearest-rank: sorted output token count at ceil(0.95*n)",
+  "runtime_projection": "equal-arm weighted mean observed latency multiplied by 150 calls per arm",
+  "cost_projection": "equal-arm weighted mean observed cost multiplied by 150 calls per arm",
+  "call_plan": [
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "A_G",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-tail-v1",
+      "session": "G",
+      "arm": "B",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-route-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 1
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 2
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 3
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 4
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "A_P",
+      "repetition": 5
+    },
+    {
+      "program_id": "synthetic-stress-dp-segments-v1",
+      "session": "P",
+      "arm": "C",
+      "repetition": 5
+    }
+  ],
+  "asset_hashes": {
+    "data/smoke-stress/manifest_32768.json": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36",
+    "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+    "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
+    "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
+    "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
+    "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae",
+    "data/smoke-stress/synthetic-dp-segments/buggy.py": "7670277d2c1b4654f2e165f17e40ad58b9a722842723f34563003b621738528e",
+    "data/smoke-stress/synthetic-dp-segments/fixed.py": "128605f36658f111e3ce802e2348ab2ce8821ab6aa915496e15e5bb65d9184d4",
+    "data/smoke-stress/synthetic-dp-segments/tests.json": "e6a48fc75a444df35418accaa21c9c2d6808010e3f8fb4cffb9c15d986cc18e2"
+  }
+}

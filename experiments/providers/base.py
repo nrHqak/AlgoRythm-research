@@ -13,6 +13,7 @@ class CompletionRequest:
     model: str
     temperature: float
     max_tokens: int
+    reasoning_effort: str | None = None
 
 
 @dataclass(frozen=True)

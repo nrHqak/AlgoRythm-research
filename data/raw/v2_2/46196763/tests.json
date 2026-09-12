@@ -1,0 +1,34 @@
+[
+  {
+    "input": "3 3\nabc\nxyz\n",
+    "expected_output": "3\n"
+  },
+  {
+    "input": "3 3\naaa\naaa\n",
+    "expected_output": "0\n"
+  },
+  {
+    "input": "3 4\nabc\naabc\n",
+    "expected_output": "2\n"
+  },
+  {
+    "input": "3 7\nabc\nabcdefg\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "3 5\naba\nababa\n",
+    "expected_output": "0\n"
+  },
+  {
+    "input": "7 14\nabcdefg\nhbcdefgabcdefh\n",
+    "expected_output": "3\n"
+  },
+  {
+    "input": "8 26\neetmuizn\neetmuizlokqpyiofsqsetmuizn\n",
+    "expected_output": "3\n"
+  },
+  {
+    "input": "7 54\nbmheedc\nbmheedpxydmpeojsfxtgqaitctnwakxdwhdiexufqvnqtugtehyqwq\n",
+    "expected_output": "3\n"
+  }
+]
