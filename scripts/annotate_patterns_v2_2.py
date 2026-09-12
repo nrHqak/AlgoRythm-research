@@ -32,6 +32,16 @@ Per record you will be asked:
   2. Confidence: h / m / l (skipped automatically for 'u'/'s').
   3. Note: free text, or just press Enter to leave blank.
 
+Task metadata/editorial is never shown or fetched automatically -- you only
+see the buggy source, task_id, contest/problem/difficulty, and a URL you can
+open by hand. Because of that, the default recorded pattern_source for every
+confirmed label is "human-structural-verification". If you explicitly opened
+the AtCoder URL (or otherwise consulted task metadata/editorial) for a
+specific, hard case, append '+' to your confidence letter (e.g. "h+", or
+inline as "5h+") to record "task-metadata+human-structural-verification"
+instead, for that program only. The '+' is optional and costs nothing when
+you don't use it.
+
 Other commands at the label prompt: 'v' show full vocabulary/confusable-pair
 text again, 'b' go back to the previous record, 'q' quit and save, 'h' help.
 """
@@ -51,7 +61,8 @@ RECORDS_FILE = WORKSPACE_DIR / "blinded_records.jsonl"
 CHEATSHEET_FILE = WORKSPACE_DIR / "PATTERN_VOCABULARY_CHEATSHEET.md"
 OUT_CSV = REPO_ROOT / "data" / "manifests" / "pattern_annotations_v2_2.csv"
 
-PATTERN_SOURCE_CONFIRMED = "task-metadata+human-structural-verification"
+PATTERN_SOURCE_STRUCTURAL_ONLY = "human-structural-verification"
+PATTERN_SOURCE_WITH_METADATA = "task-metadata+human-structural-verification"
 
 # Fixed vocabulary order -- identical to pilot/PATTERN_VOCABULARY.md's table.
 VOCAB = [
@@ -205,17 +216,21 @@ def print_record(record: dict, position: int, total: int, pending_left: int) -> 
     print_vocab_legend()
 
 
-def prompt_label(record: dict) -> tuple[str, str | None] | None:
-    """Returns (pattern_label_or_control, inline_confidence_or_None), or
-    None if the user wants to go back."""
+def prompt_label(record: dict) -> tuple[str, str | None, bool] | None:
+    """Returns (pattern_label_or_control, inline_confidence_or_None,
+    inline_used_metadata), or None if the user wants to go back.
+    inline_used_metadata is True only if a trailing '+' was typed with the
+    label (e.g. "5h+" or "5+"), meaning task metadata/editorial was
+    explicitly consulted for this program."""
     while True:
         raw = input(
-            "\nLabel [1-12 / o / u / s / v=full vocab / b=back / q=quit]: "
+            "\nLabel [1-12 / o / u / s / v=full vocab / b=back / q=quit] "
+            "(append + if you consulted task metadata, e.g. '5h+'): "
         ).strip().lower()
         if raw == "":
             continue
         if raw == "q":
-            return ("__QUIT__", None)
+            return ("__QUIT__", None, False)
         if raw == "b":
             return None
         if raw == "v":
@@ -225,39 +240,50 @@ def prompt_label(record: dict) -> tuple[str, str | None] | None:
             print(__doc__)
             continue
         if raw == "u":
-            return ("UNCERTAIN", None)
+            return ("UNCERTAIN", None, False)
         if raw == "s":
-            return ("SKIP", None)
-        if raw == "o":
-            return ("outside_vocabulary", None)
-        # combined token, e.g. "5h" or "5 h" or "oh"
-        m = re.match(r"^(o|[1-9]|1[0-2])\s*([hml])?$", raw)
+            return ("SKIP", None, False)
+        if raw in ("o", "o+"):
+            return ("outside_vocabulary", None, raw.endswith("+"))
+        # combined token, e.g. "5h", "5h+", "5+", "5 h", "oh+"
+        m = re.match(r"^(o|[1-9]|1[0-2])\s*([hml])?(\+)?$", raw)
         if m:
-            key, conf = m.group(1), m.group(2)
+            key, conf, meta = m.group(1), m.group(2), m.group(3)
             label = "outside_vocabulary" if key == "o" else KEY_TO_SLUG[key]
-            return (label, CONF_MAP[conf] if conf else None)
+            return (label, CONF_MAP[conf] if conf else None, bool(meta))
         print("Not understood. Enter a number 1-12, 'o', 'u', 's', 'v', 'b', or 'q'.")
 
 
-def prompt_confidence() -> str:
+def prompt_confidence() -> tuple[str, bool]:
+    """Returns (confidence, used_metadata). Append '+' (e.g. 'h+') to flag
+    that task metadata/editorial was explicitly consulted for this case."""
     while True:
-        raw = input("Confidence [h/m/l]: ").strip().lower()
-        if raw in CONF_MAP:
-            return CONF_MAP[raw]
-        print("Enter h, m, or l.")
+        raw = input(
+            "Confidence [h/m/l] (append + if you consulted task metadata, e.g. 'h+'): "
+        ).strip().lower()
+        m = re.match(r"^([hml])(\+)?$", raw)
+        if m:
+            return CONF_MAP[m.group(1)], bool(m.group(2))
+        print("Enter h, m, or l (optionally with a trailing + for metadata consulted).")
 
 
 def prompt_note(default_prompt: str = "Note (optional, Enter to skip): ") -> str:
     return input(default_prompt).strip()
 
 
-def record_decision(record: dict, label: str, confidence: str, note: str) -> None:
+def record_decision(
+    record: dict, label: str, confidence: str, note: str, used_metadata: bool = False
+) -> None:
+    if is_confirmed({"pattern_label": label}):
+        source = PATTERN_SOURCE_WITH_METADATA if used_metadata else PATTERN_SOURCE_STRUCTURAL_ONLY
+    else:
+        source = "pending-revisit"
     row = {
         "annotation_index": record["index"],
         "program_id": record["program_id"],
         "task_id": record["task_id"],
         "pattern_label": label,
-        "pattern_source": PATTERN_SOURCE_CONFIRMED if is_confirmed({"pattern_label": label}) else "pending-revisit",
+        "pattern_source": source,
         "annotation_timestamp": datetime.now(timezone.utc).isoformat(),
         "annotation_note": note,
         "confidence": confidence,
@@ -338,7 +364,7 @@ def main() -> None:
             if choice is None:  # 'b' back
                 pos = max(0, pos - 1)
                 continue
-            label, inline_conf = choice
+            label, inline_conf, inline_meta = choice
             if label == "__QUIT__":
                 print("Stopped. Progress saved. Re-run the same command to resume.")
                 return
@@ -349,10 +375,14 @@ def main() -> None:
                 pos += 1
                 continue
 
-            confidence = inline_conf or prompt_confidence()
+            if inline_conf:
+                confidence, used_metadata = inline_conf, inline_meta
+            else:
+                confidence, used_metadata = prompt_confidence()
+                used_metadata = used_metadata or inline_meta
             note_prompt = "Reason (short, e.g. 'DSU'): " if label == "outside_vocabulary" else None
             note = prompt_note(note_prompt) if note_prompt else prompt_note()
-            record_decision(record, label, confidence, note)
+            record_decision(record, label, confidence, note, used_metadata)
             pos += 1
     except KeyboardInterrupt:
         print("\nInterrupted. Progress saved. Re-run the same command to resume.")

@@ -75,6 +75,18 @@ source with line numbers, and a line of **neutral structural signals**
 2. **Confidence** — `h` / `m` / `l` (skipped for uncertain/skip).
 3. **Note** — free text, or just press Enter to leave blank.
 
+**Provenance of the label (`pattern_source`):** task metadata/editorial is
+**never shown or fetched automatically** — you only ever see the buggy
+source, `task_id`, contest/problem/difficulty, and a URL you may open by
+hand. Because of that, every confirmed label defaults to recording
+`pattern_source = "human-structural-verification"`. If you explicitly opened
+the AtCoder URL (or otherwise consulted task metadata/editorial) for a
+specific, ambiguous case, append `+` to your confidence — either inline
+(`5h+`) or at the separate confidence prompt (`h+`) — to record
+`pattern_source = "task-metadata+human-structural-verification"` for that
+program instead. This costs nothing when you don't use it and is recorded
+per program, not as a session-wide setting.
+
 Other commands at the label prompt: `v` reprints the full vocabulary text,
 `b` goes back one record, `q` quits and saves.
 
