@@ -59,12 +59,18 @@ def validate_freeze(args, repetitions):
     expected = dict(provider=args.provider_label or args.provider, provider_type=args.provider,
                     base_url=args.base_url.rstrip('/'), model=args.model, temperature=args.temperature,
                     max_tokens=args.max_tokens, timeout=args.timeout)
+    reasoning_effort = getattr(args, 'reasoning_effort', None)
+    if reasoning_effort is not None:
+        expected['reasoning'] = {'effort': reasoning_effort}
     add_routing_settings(expected, args)
     if freeze.get('settings') != expected:
         raise SafetyViolation('model/provider/settings differ from committed freeze')
     validate_identity_choice(args.model, freeze['model_kind'], freeze['model_reference'], freeze['accepted_alias_risk'])
     if args.temperature != 0 or args.max_tokens < 1024 or repetitions != 5 or args.condition_order != 'counterbalanced':
         raise SafetyViolation('frozen v2 requires temperature 0, >=1024 tokens, 5 repetitions, counterbalanced order')
+    frozen_reasoning = freeze.get('settings', {}).get('reasoning', {}).get('effort')
+    if frozen_reasoning is not None and reasoning_effort != frozen_reasoning:
+        raise SafetyViolation('reasoning effort differs from committed execution freeze')
     if freeze.get('echoed_models') != [args.model] or freeze.get('calls',0) < 10 or freeze.get('parse_successes') != freeze.get('calls'):
         raise SafetyViolation('freeze has insufficient or invalid smoke evidence')
     if 'openrouter_routing' in expected:

@@ -1,0 +1,23 @@
+{
+  "order": 4,
+  "run_id": "9146a8ab15434623b352257afa1fa576269279bb00827fc6ac3d48b9fcfa9a82",
+  "program_id": "synthetic-reasoning-brute-force-v1",
+  "pattern_label": "brute_force_implementation",
+  "session": "G",
+  "condition": "B",
+  "repetition": 1,
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "input_tokens": 1958,
+  "output_tokens": 160,
+  "reasoning_tokens": 68,
+  "final_content_tokens": 92,
+  "finish_reason": "stop",
+  "latency_seconds": 5.557986041007098,
+  "cost_usd": 0.0003737,
+  "model": "z-ai/glm-5.3-flash",
+  "underlying_provider": "Z.AI",
+  "reasoning_effort_requested": "low",
+  "content_is_null": false
+}

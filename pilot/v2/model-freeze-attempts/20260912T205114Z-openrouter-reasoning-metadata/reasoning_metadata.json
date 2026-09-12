@@ -1,0 +1,49 @@
+{
+  "queried_at": "2026-09-12T20:51:14Z",
+  "provider": "OpenRouter",
+  "model": "z-ai/glm-5.3-flash",
+  "canonical_slug": "z-ai/glm-5.3-flash-20260826",
+  "model_metadata": {
+    "supported_efforts": [
+      "max",
+      "high",
+      "low"
+    ],
+    "default_effort": "max",
+    "default_enabled": true,
+    "mandatory": true,
+    "supports_max_tokens": true
+  },
+  "selected_effort": "low",
+  "selection_rule": "Use low when explicitly supported; otherwise use the lowest explicitly supported effort.",
+  "pinned_endpoint": {
+    "provider_name": "Z.AI",
+    "tag": "z-ai/fp8",
+    "name": "Z.AI | z-ai/glm-5.3-flash-20260826",
+    "max_completion_tokens": 131072,
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "tools",
+      "tool_choice",
+      "top_k",
+      "response_format",
+      "reasoning_effort"
+    ]
+  },
+  "queries": [
+    {
+      "url": "https://openrouter.ai/api/v1/models",
+      "http_status": 200,
+      "canonical_response_sha256": "044efa5a1cf48c7daa0e062d04278e6ed17e0a3d90c377cf2c708421c5930743"
+    },
+    {
+      "url": "https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints",
+      "http_status": 200,
+      "canonical_response_sha256": "0962b8100fe11a1b7add853236fe8f46d6583b6d0dc9a6157e357e707093adef"
+    }
+  ]
+}

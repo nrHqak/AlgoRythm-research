@@ -1,0 +1,73 @@
+{
+  "run_id": "bc5c3c141f0c14df4daceccdebfe0a711aa040a58e4c4c0f8db22027c0885b7e",
+  "session_id": "20260912T205800Z",
+  "execution_key": "c6466e54b601668398e91a14de5b31a0f09896a4799fb130cdc13035e416badb",
+  "experiment_name": "reasoning_preflight_G",
+  "program_id": "synthetic-reasoning-graph-traversal-v1",
+  "task_id": "synthetic-reasoning-graph-traversal-v1",
+  "condition": "B",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:22.672646Z",
+  "latency": 2.065372541954275,
+  "token_usage": {
+    "prompt_tokens": 1554,
+    "completion_tokens": 92,
+    "total_tokens": 1646,
+    "cost": 0.0002791,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002791,
+      "upstream_inference_prompt_cost": 0.0002331,
+      "upstream_inference_completions_cost": 4.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 23, \"score\": 0.95, \"reason\": \"Comparison inverted: should mark unvisited nodes (== -1) as newly visited; here visited nodes are processed, so BFS never records distances.\"}, {\"line\": 24, \"score\": 0.5, \"reason\": \"continue skips unvisited nodes due to inverted logic at line 23; distance assignment never runs.\"}]}",
+  "raw_response_path": "results/reasoning-preflight-low/20260912T205800Z/raw/G/bc5c3c141f0c14df4daceccdebfe0a711aa040a58e4c4c0f8db22027c0885b7e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 23,
+        "score": 0.95,
+        "reason": "Comparison inverted: should mark unvisited nodes (== -1) as newly visited; here visited nodes are processed, so BFS never records distances."
+      },
+      {
+        "line": 24,
+        "score": 0.5,
+        "reason": "continue skips unvisited nodes due to inverted logic at line 23; distance assignment never runs."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 89,
+  "loc": 89,
+  "evaluation_denominator": 89,
+  "faulty_lines": [
+    23
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b0cc208c795d485f4692e85387f13c2a97a57fd1e6fbd5aaa627e41a927fbfca",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 6330,
+  "prompt_tokens_estimate": 1583,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low"
+}

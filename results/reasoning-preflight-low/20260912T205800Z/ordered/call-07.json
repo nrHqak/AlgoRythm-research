@@ -1,0 +1,23 @@
+{
+  "order": 7,
+  "run_id": "d677e5ea985e272367d66676f74b3e425ac5388dbcbb000dbca9fe7c2c8d140d",
+  "program_id": "synthetic-reasoning-graph-traversal-v1",
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "session": "G",
+  "condition": "A_G",
+  "repetition": 1,
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "input_tokens": 1391,
+  "output_tokens": 104,
+  "reasoning_tokens": 17,
+  "final_content_tokens": 87,
+  "finish_reason": "stop",
+  "latency_seconds": 2.3855912500293925,
+  "cost_usd": 0.00026065,
+  "model": "z-ai/glm-5.3-flash",
+  "underlying_provider": "Z.AI",
+  "reasoning_effort_requested": "low",
+  "content_is_null": false
+}

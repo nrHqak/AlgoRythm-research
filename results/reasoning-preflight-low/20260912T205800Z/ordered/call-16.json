@@ -1,0 +1,23 @@
+{
+  "order": 16,
+  "run_id": "e7370a84d43588b9f71cc3c2084c19122d51723c54647831254dbe60e2dfa190",
+  "program_id": "synthetic-reasoning-dynamic-programming-v1",
+  "pattern_label": "dynamic_programming",
+  "session": "P",
+  "condition": "C",
+  "repetition": 1,
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "input_tokens": 2627,
+  "output_tokens": 202,
+  "reasoning_tokens": 57,
+  "final_content_tokens": 145,
+  "finish_reason": "stop",
+  "latency_seconds": 3.3489656249876134,
+  "cost_usd": 0.00020321,
+  "model": "z-ai/glm-5.3-flash",
+  "underlying_provider": "Z.AI",
+  "reasoning_effort_requested": "low",
+  "content_is_null": false
+}

@@ -1,0 +1,145 @@
+{
+  "run_id": "8c559bf54c514ad96fc01648c454208f794611f3c1c90807d454ada7128ab9e2",
+  "session_id": "20260912T205800Z",
+  "execution_key": "78d72da866dae7be66b4218a19c7397640bd7d49d22d2ae5a4d6067e7980763a",
+  "experiment_name": "reasoning_preflight_P",
+  "program_id": "synthetic-reasoning-binary-search-v1",
+  "task_id": "synthetic-reasoning-binary-search-v1",
+  "condition": "C",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:28.522419+00:00",
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    12
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "ae8d6ad869e220a7ee1897c15c4c2a364369ff56f8c810dc3ef8b5e06f5033fe",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 5024,
+  "prompt_tokens_estimate": 1256,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: synthetic-reasoning-binary-search-v1\nTask ID: synthetic-reasoning-binary-search-v1\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: \"\"\"Synthetic large binary-search fixture; never scientific data.\"\"\"\n2: \n3: \n4: def lower_bound(values, target):\n5:     left = 0\n6:     right = len(values) - 1\n7:     answer = len(values)\n8:     while left <= right:\n9:         middle = (left + right) // 2\n10:         if values[middle] >= target:\n11:             answer = middle\n12:             right = middle - 2\n13:         else:\n14:             left = middle + 1\n15:     return answer\n16: \n17: \n18: def upper_bound(values, target):\n19:     left = 0\n20:     right = len(values) - 1\n21:     answer = len(values)\n22:     while left <= right:\n23:         middle = (left + right) // 2\n24:         if values[middle] > target:\n25:             answer = middle\n26:             right = middle - 1\n27:         else:\n28:             left = middle + 1\n29:     return answer\n30: \n31: \n32: def count_in_range(values, low, high):\n33:     if not values or low > high:\n34:         return 0\n35:     return upper_bound(values, high) - lower_bound(values, low)\n36: \n37: \n38: def solve(text):\n39:     tokens = [int(token) for token in text.split()]\n40:     if len(tokens) < 3:\n41:         return \"\"\n42:     size = tokens[0]\n43:     query_count = tokens[1]\n44:     values = sorted(tokens[2 : 2 + size])\n45:     cursor = 2 + size\n46:     answers = []\n47:     for _ in range(query_count):\n48:         low = tokens[cursor]\n49:         high = tokens[cursor + 1]\n50:         cursor += 2\n51:         answers.append(str(count_in_range(values, low, high)))\n52:     return \"\\n\".join(answers)\n53: \n54: \n55: if __name__ == \"__main__\":\n56:     import sys\n57: \n58:     print(solve(sys.stdin.read()))\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using binary search. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether the midpoint is computed correctly, without an off-by-one or overflow-style error\n2. check whether the comparison against the search predicate moves the boundaries in the correct direction\n3. check whether updating the low or high boundary after a comparison is correct, since a wrong update is the most common cause of an infinite loop or a skipped value\n4. check whether the loop's stopping condition and the final returned index or value are consistent with each other\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.95, \"reason\": \"right = middle - 2 skips middle element, so lower_bound can miss the first index where values[middle] >= target.\"}]}",
+  "latency": 1.7681698750238866,
+  "token_usage": {
+    "prompt_tokens": 1262,
+    "completion_tokens": 65,
+    "total_tokens": 1327,
+    "cost": 9.124e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.124e-05,
+      "upstream_inference_prompt_cost": 5.874e-05,
+      "upstream_inference_completions_cost": 3.25e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 14,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789246467-LVIXF4AYNqjVhlxMgDGc",
+    "provider_created": 1789246467,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 42,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789246467-LVIXF4AYNqjVhlxMgDGc",
+    "object": "chat.completion",
+    "created": 1789246467,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 12, \"score\": 0.95, \"reason\": \"right = middle - 2 skips middle element, so lower_bound can miss the first index where values[middle] >= target.\"}]}",
+          "refusal": null,
+          "reasoning": "Line 12: right = middle - 2 skips a value.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Line 12: right = middle - 2 skips a value.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1262,
+      "completion_tokens": 65,
+      "total_tokens": 1327,
+      "cost": 9.124e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1088,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.124e-05,
+        "upstream_inference_prompt_cost": 5.874e-05,
+        "upstream_inference_completions_cost": 3.25e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 14,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

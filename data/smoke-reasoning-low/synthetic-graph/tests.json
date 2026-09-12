@@ -1,0 +1,1 @@
+{"engineering_only": true, "cases": [{"input": "5 3 0 0 1 1 2 3 4", "output": "0 1 2 -1 -1\n2:3,2"}]}

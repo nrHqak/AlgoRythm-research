@@ -1,9 +1,8 @@
 {
   "status": "PASS",
   "engineering_only": true,
-  "purpose": "32768 STRESS SMOKE DATA — NEVER SCIENTIFIC DATA",
-  "date": "2026-09-12T13:01:18.863825+00:00",
-  "revalidated_for_v2_2_at": "2026-09-12T18:30:58+00:00",
+  "purpose": "LOW-REASONING PREFLIGHT — NEVER SCIENTIFIC DATA",
+  "date": "2026-09-12T20:58:28Z",
   "settings": {
     "provider": "openrouter",
     "provider_type": "openai_compatible",
@@ -12,14 +11,11 @@
     "temperature": 0.0,
     "max_tokens": 32768,
     "timeout": 120.0,
+    "reasoning": {"effort": "low"},
     "openrouter_routing": {
       "provider_preferences": {
-        "only": [
-          "z-ai/fp8"
-        ],
-        "order": [
-          "z-ai/fp8"
-        ],
+        "only": ["z-ai/fp8"],
+        "order": ["z-ai/fp8"],
         "allow_fallbacks": false,
         "require_parameters": true
       },
@@ -27,24 +23,15 @@
     }
   },
   "model_kind": "pinned",
-  "model_reference": "pilot/v2/model-freeze-attempts/20260911T173446Z-openrouter-smoke/routing_decision.json",
+  "model_reference": "pilot/v2/model-freeze-attempts/20260912T205114Z-openrouter-reasoning-metadata/reasoning_metadata.json",
   "accepted_alias_risk": "",
-  "echoed_models": [
-    "z-ai/glm-5.3-flash"
-  ],
-  "echoed_underlying_providers": [
-    "Z.AI"
-  ],
-  "calls": 50,
-  "parse_successes": 50,
-  "finish_reasons": [
-    "stop"
-  ],
-  "artifacts": "results/stress-smoke-32768/20260912T122827Z",
-  "session_order": [
-    "G",
-    "P"
-  ],
+  "echoed_models": ["z-ai/glm-5.3-flash"],
+  "echoed_underlying_providers": ["Z.AI"],
+  "calls": 20,
+  "parse_successes": 20,
+  "finish_reasons": ["stop"],
+  "artifacts": "results/reasoning-preflight-low/20260912T205800Z",
+  "session_order": ["G", "P"],
   "coin_flip_method": "inherited unchanged from the committed Gate 5 freeze; no new coin flip performed",
   "execution": {
     "workers": 4,
@@ -55,52 +42,57 @@
     "result_order": "registered call-plan order, independent of completion order",
     "raw_persistence": "atomic immutable publish before parsing",
     "selective_retries": false,
+    "reasoning_effort": "low",
     "preflight": {
       "status": "PASS",
-      "path": "results/concurrency-preflight-32768/20260912T202632Z-fresh/PASS.json",
-      "sha256": "0e9f0e41479a1af7c7188c22c76b781a7604f99214bdff51d17cec95a246043a",
+      "path": "results/reasoning-preflight-low/20260912T205800Z/PASS.json",
+      "sha256": "4ba6b160ec5ecf000295ec482cef0c491cd418887cb2088407a8ce9e8b2ab062",
       "calls_valid": 20,
       "failures": 0,
-      "observed_throughput_calls_per_minute": 4.8676687752755,
-      "projected_600_call_runtime_hours": 2.054371499308521
+      "average_reasoning_tokens": 54.25,
+      "maximum_reasoning_tokens": 301,
+      "average_cost_usd": 0.000248016,
+      "projected_600_call_cost_usd": 0.1488096,
+      "observed_throughput_calls_per_minute": 43.251118712434874,
+      "projected_600_call_runtime_hours": 0.23120789236660735
     }
+  },
+  "reasoning_metadata": {
+    "path": "pilot/v2/model-freeze-attempts/20260912T205114Z-openrouter-reasoning-metadata/reasoning_metadata.json",
+    "sha256": "7cc3e8aff1013829be87f3a2e343977caa245a1624e24d55da54e72fd96ef73e",
+    "supported_efforts": ["max", "high", "low"],
+    "default_effort": "max",
+    "default_enabled": true,
+    "mandatory": true,
+    "supports_max_tokens": true,
+    "selected_effort": "low"
   },
   "scientific_manifest": {
     "path": "data/manifests/pilot_manifest_v2_2.json",
     "sha256": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
     "programs": 30,
     "candidates_sent": 0,
+    "candidate_sources_loaded": 0,
     "program_id_overlap_with_stress": 0
   },
   "asset_hashes": {
-    "data/smoke-stress/manifest_32768.json": "f9a6ef86af7a68f26daf16bcf004b0840f9ecb075c62fe0bf607319d50c2bc36",
+    "data/smoke-reasoning-low/manifest.json": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
     "pilot/v2/prompts/system_v2.txt": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
     "pilot/prompts/control.txt": "ff1654fd042668bbe3f3b1a74b5b966536bb7f5bd599efaaaee3dc8eb128e1e4",
     "pilot/v2/generic_placebo_prior.json": "e1a955c502810edd9e8d97801ef31562be4c148d9bc890a726ce4394c7583fdc",
     "pilot/pattern_priors.json": "91df71af2ab5f8aa9c783b704fee77d1e8411857553c5bb7a09af54625a4614d",
+    "pilot/v2/model-freeze-attempts/20260912T205114Z-openrouter-reasoning-metadata/reasoning_metadata.json": "7cc3e8aff1013829be87f3a2e343977caa245a1624e24d55da54e72fd96ef73e",
+    "data/smoke-reasoning-low/synthetic-binary-search/buggy.py": "c09b760e954e99dc89ab56d2c8c43bc6d8fc3b74c559d95d2c5e81e870c11231",
+    "data/smoke-reasoning-low/synthetic-binary-search/fixed.py": "d5b58582f3fcc38f2ff4a0d91c71dbf22071dc4e043c6a662d8aa27ece733b3c",
+    "data/smoke-reasoning-low/synthetic-binary-search/tests.json": "94316a632aad95a8d6e5170bf327e425f780921b8dadc0dbe3b2c5f0682a423a",
+    "data/smoke-reasoning-low/synthetic-brute-force/buggy.py": "2d8a13dace3e3cf47d07ba051da9151781e3c641710242c10c902c9bd2862b78",
+    "data/smoke-reasoning-low/synthetic-brute-force/fixed.py": "c131fa9a879c5c55c41f7ac3abee0d56e92da038cf4b9d8f474fef6bbe25d512",
+    "data/smoke-reasoning-low/synthetic-brute-force/tests.json": "b6e5c00682ed7539046621337441f73552112a870899b58bd02b16a9ed0276a1",
+    "data/smoke-reasoning-low/synthetic-graph/buggy.py": "a17b1fab43f4a69ff7cdfca2432589152f11d3b613877c2ab0c4cf139401c83a",
+    "data/smoke-reasoning-low/synthetic-graph/fixed.py": "7d61e90464361bc6a5b89ff0b8b9fa7b50a77a82fab2c75f1fa2413bfdb831eb",
+    "data/smoke-reasoning-low/synthetic-graph/tests.json": "ff7c2e39d69c327ccbc2089663c311423e7f677b03418c17724f25b41ca041c5",
     "data/smoke-stress/synthetic-dp-route/buggy.py": "64c465b8054f3ed79d7b3811e0c4751c7ed3a457058a3bb661aa91f5fb587144",
     "data/smoke-stress/synthetic-dp-route/fixed.py": "619d59a068733da7133d214c13425d07d9093b4a37e779a374f4dece7e44cb1e",
-    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae",
-    "data/smoke-stress/synthetic-dp-segments/buggy.py": "7670277d2c1b4654f2e165f17e40ad58b9a722842723f34563003b621738528e",
-    "data/smoke-stress/synthetic-dp-segments/fixed.py": "128605f36658f111e3ce802e2348ab2ce8821ab6aa915496e15e5bb65d9184d4",
-    "data/smoke-stress/synthetic-dp-segments/tests.json": "e6a48fc75a444df35418accaa21c9c2d6808010e3f8fb4cffb9c15d986cc18e2"
-  },
-  "stress_result": {
-    "path": "results/stress-smoke-32768/20260912T122827Z/PASS.json",
-    "calls_successful": 50,
-    "parser_failures": 0,
-    "content_null_failures": 0,
-    "length_truncations": 0,
-    "transport_failures": 0,
-    "model_provider_mismatches": 0,
-    "average_input_tokens": 2369.6,
-    "average_output_tokens": 3410.12,
-    "p95_output_tokens_nearest_rank": 5939,
-    "maximum_output_tokens": 10069,
-    "maximum_reasoning_tokens": 9870,
-    "average_cost_per_call_usd": 0.001863892,
-    "projected_600_call_cost_usd_equal_arm_weighted": 1.0849793,
-    "projected_600_call_runtime_hours_equal_arm_weighted": 6.365601945604188,
-    "cost_gate_usd": 4.5
+    "data/smoke-stress/synthetic-dp-route/tests.json": "0b3dbd26c0a4a2aa460577c2a656dae0df84e6548476c427b5b9e08591fb8cae"
   }
 }

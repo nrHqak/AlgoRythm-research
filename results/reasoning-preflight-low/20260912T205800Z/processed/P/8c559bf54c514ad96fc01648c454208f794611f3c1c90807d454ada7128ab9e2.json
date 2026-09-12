@@ -1,0 +1,68 @@
+{
+  "run_id": "8c559bf54c514ad96fc01648c454208f794611f3c1c90807d454ada7128ab9e2",
+  "session_id": "20260912T205800Z",
+  "execution_key": "78d72da866dae7be66b4218a19c7397640bd7d49d22d2ae5a4d6067e7980763a",
+  "experiment_name": "reasoning_preflight_P",
+  "program_id": "synthetic-reasoning-binary-search-v1",
+  "task_id": "synthetic-reasoning-binary-search-v1",
+  "condition": "C",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:28.522419Z",
+  "latency": 1.7681698750238866,
+  "token_usage": {
+    "prompt_tokens": 1262,
+    "completion_tokens": 65,
+    "total_tokens": 1327,
+    "cost": 9.124e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.124e-05,
+      "upstream_inference_prompt_cost": 5.874e-05,
+      "upstream_inference_completions_cost": 3.25e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 14,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.95, \"reason\": \"right = middle - 2 skips middle element, so lower_bound can miss the first index where values[middle] >= target.\"}]}",
+  "raw_response_path": "results/reasoning-preflight-low/20260912T205800Z/raw/P/8c559bf54c514ad96fc01648c454208f794611f3c1c90807d454ada7128ab9e2.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.95,
+        "reason": "right = middle - 2 skips middle element, so lower_bound can miss the first index where values[middle] >= target."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    12
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "ae8d6ad869e220a7ee1897c15c4c2a364369ff56f8c810dc3ef8b5e06f5033fe",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 5024,
+  "prompt_tokens_estimate": 1256,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,1 @@
+{"engineering_only": true, "cases": [{"input": "3 4\n1234\n1#24\n1111\n", "output": "9 0 2 1 3"}]}

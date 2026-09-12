@@ -1,0 +1,73 @@
+{
+  "run_id": "543c42c82d0958e120db47890dc5346bdf1553d190d81ac338a79071efd53e49",
+  "session_id": "20260912T205800Z",
+  "execution_key": "ef6443703847a62e095c1db1eff089d329b82369876c92ec6d4e8568922a0eaf",
+  "experiment_name": "reasoning_preflight_P",
+  "program_id": "synthetic-reasoning-brute-force-v1",
+  "task_id": "synthetic-reasoning-brute-force-v1",
+  "condition": "A_P",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:31.562350Z",
+  "latency": 4.806600374984555,
+  "token_usage": {
+    "prompt_tokens": 1795,
+    "completion_tokens": 157,
+    "total_tokens": 1952,
+    "cost": 0.00013271,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00013271,
+      "upstream_inference_prompt_cost": 5.421e-05,
+      "upstream_inference_completions_cost": 7.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 76,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 48, \"score\": 0.9, \"reason\": \"Uses < while reference selects max by candidate_key; comparison direction inverted, picks wrong rectangle.\"}, {\"line\": 93, \"score\": 0.4, \"reason\": \"Reference uses max; inconsistent tie-break direction with best_rectangle unless line 48 fixed to >.\"}]}",
+  "raw_response_path": "results/reasoning-preflight-low/20260912T205800Z/raw/P/543c42c82d0958e120db47890dc5346bdf1553d190d81ac338a79071efd53e49.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 48,
+        "score": 0.9,
+        "reason": "Uses < while reference selects max by candidate_key; comparison direction inverted, picks wrong rectangle."
+      },
+      {
+        "line": 93,
+        "score": 0.4,
+        "reason": "Reference uses max; inconsistent tie-break direction with best_rectangle unless line 48 fixed to >."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 134,
+  "loc": 134,
+  "evaluation_denominator": 134,
+  "faulty_lines": [
+    48
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "31bc1c65d96b7adb71a443c7b8581549af7c2704d18907ba67c9d054e494776c",
+  "prior_hash": null,
+  "prompt_chars": 7001,
+  "prompt_tokens_estimate": 1751,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low"
+}

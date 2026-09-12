@@ -214,6 +214,7 @@ class ParsedRunRecord(BaseModel):
     prompt_chars: int
     prompt_tokens_estimate: int
     manifest_hash: str
+    reasoning_effort: str | None = None
 
 
 def _aware(value: datetime, field_name: str) -> None:

@@ -1,0 +1,145 @@
+{
+  "run_id": "543c42c82d0958e120db47890dc5346bdf1553d190d81ac338a79071efd53e49",
+  "session_id": "20260912T205800Z",
+  "execution_key": "ef6443703847a62e095c1db1eff089d329b82369876c92ec6d4e8568922a0eaf",
+  "experiment_name": "reasoning_preflight_P",
+  "program_id": "synthetic-reasoning-brute-force-v1",
+  "task_id": "synthetic-reasoning-brute-force-v1",
+  "condition": "A_P",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T20:54:31.562350+00:00",
+  "source_line_count": 134,
+  "loc": 134,
+  "evaluation_denominator": 134,
+  "faulty_lines": [
+    48
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "synthetic-stress-only",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "31bc1c65d96b7adb71a443c7b8581549af7c2704d18907ba67c9d054e494776c",
+  "prior_hash": null,
+  "prompt_chars": 7001,
+  "prompt_tokens_estimate": 1751,
+  "manifest_hash": "7d93500d26ea840eea545d1096849f04a5b313a2bafd67d5622a4a7e6f5e916f",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: synthetic-reasoning-brute-force-v1\nTask ID: synthetic-reasoning-brute-force-v1\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: \"\"\"Synthetic large brute-force fixture; never scientific data.\"\"\"\n2: \n3: \n4: def normalize_grid(rows):\n5:     width = max((len(row) for row in rows), default=0)\n6:     return [row.ljust(width, \".\") for row in rows]\n7: \n8: \n9: def rectangle_score(grid, top, left, bottom, right):\n10:     score = 0\n11:     blocked = 0\n12:     border = 0\n13:     for row in range(top, bottom + 1):\n14:         for column in range(left, right + 1):\n15:             cell = grid[row][column]\n16:             if cell == \"#\":\n17:                 blocked += 1\n18:             elif cell.isdigit():\n19:                 score += int(cell)\n20:             else:\n21:                 score += 1\n22:             if row in (top, bottom) or column in (left, right):\n23:                 border += 1\n24:     if blocked:\n25:         return None\n26:     return score - border\n27: \n28: \n29: def candidate_key(candidate):\n30:     score, top, left, bottom, right = candidate\n31:     area = (bottom - top + 1) * (right - left + 1)\n32:     return score, -area, -top, -left, -bottom, -right\n33: \n34: \n35: def best_rectangle(rows):\n36:     grid = normalize_grid(rows)\n37:     height = len(grid)\n38:     width = len(grid[0]) if grid else 0\n39:     best = None\n40:     for top in range(height):\n41:         for left in range(width):\n42:             for bottom in range(top, height):\n43:                 for right in range(left, width):\n44:                     score = rectangle_score(grid, top, left, bottom, right)\n45:                     if score is None:\n46:                         continue\n47:                     candidate = (score, top, left, bottom, right)\n48:                     if best is None or candidate_key(candidate) < candidate_key(best):\n49:                         best = candidate\n50:     return best\n51: \n52: \n53: def render_answer(candidate):\n54:     if candidate is None:\n55:         return \"NONE\"\n56:     score, top, left, bottom, right = candidate\n57:     return f\"{score} {top} {left} {bottom} {right}\"\n58: \n59: \n60: def parse(text):\n61:     lines = [line.rstrip(\"\\n\") for line in text.splitlines()]\n62:     if not lines:\n63:         return []\n64:     height, width = map(int, lines[0].split())\n65:     rows = lines[1 : 1 + height]\n66:     if len(rows) != height:\n67:         raise ValueError(\"missing grid rows\")\n68:     if any(len(row) != width for row in rows):\n69:         raise ValueError(\"invalid grid width\")\n70:     return rows\n71: \n72: \n73: def solve(text):\n74:     rows = parse(text)\n75:     return render_answer(best_rectangle(rows))\n76: \n77: \n78: def brute_force_reference(rows):\n79:     \"\"\"A deliberately verbose cross-check used only by the synthetic fixture.\"\"\"\n80:     grid = normalize_grid(rows)\n81:     candidates = []\n82:     for top in range(len(grid)):\n83:         for left in range(len(grid[0])):\n84:             for height in range(1, len(grid) - top + 1):\n85:                 for width in range(1, len(grid[0]) - left + 1):\n86:                     bottom = top + height - 1\n87:                     right = left + width - 1\n88:                     score = rectangle_score(grid, top, left, bottom, right)\n89:                     if score is not None:\n90:                         candidates.append((score, top, left, bottom, right))\n91:     if not candidates:\n92:         return None\n93:     return max(candidates, key=candidate_key)\n94: \n95: \n96: def self_check(rows):\n97:     direct = best_rectangle(rows)\n98:     reference = brute_force_reference(rows)\n99:     return direct == reference\n100: \n101: \n102: def format_grid(rows):\n103:     return \"\\n\".join(normalize_grid(rows))\n104: \n105: \n106: def dimensions(rows):\n107:     normalized = normalize_grid(rows)\n108:     return len(normalized), len(normalized[0]) if normalized else 0\n109: \n110: \n111: def occupied_cells(rows):\n112:     normalized = normalize_grid(rows)\n113:     return sum(cell != \"#\" for row in normalized for cell in row)\n114: \n115: \n116: def blocked_cells(rows):\n117:     normalized = normalize_grid(rows)\n118:     return sum(cell == \"#\" for row in normalized for cell in row)\n119: \n120: \n121: def summary(rows):\n122:     height, width = dimensions(rows)\n123:     return {\n124:         \"height\": height,\n125:         \"width\": width,\n126:         \"occupied\": occupied_cells(rows),\n127:         \"blocked\": blocked_cells(rows),\n128:     }\n129: \n130: \n131: if __name__ == \"__main__\":\n132:     import sys\n133: \n134:     print(solve(sys.stdin.read()))\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 48, \"score\": 0.9, \"reason\": \"Uses < while reference selects max by candidate_key; comparison direction inverted, picks wrong rectangle.\"}, {\"line\": 93, \"score\": 0.4, \"reason\": \"Reference uses max; inconsistent tie-break direction with best_rectangle unless line 48 fixed to >.\"}]}",
+  "latency": 4.806600374984555,
+  "token_usage": {
+    "prompt_tokens": 1795,
+    "completion_tokens": 157,
+    "total_tokens": 1952,
+    "cost": 0.00013271,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00013271,
+      "upstream_inference_prompt_cost": 5.421e-05,
+      "upstream_inference_completions_cost": 7.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 76,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789246467-E6CNNx459jyIr40zlWXy",
+    "provider_created": 1789246467,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 350,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789246467-E6CNNx459jyIr40zlWXy",
+    "object": "chat.completion",
+    "created": 1789246467,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 48, \"score\": 0.9, \"reason\": \"Uses < while reference selects max by candidate_key; comparison direction inverted, picks wrong rectangle.\"}, {\"line\": 93, \"score\": 0.4, \"reason\": \"Reference uses max; inconsistent tie-break direction with best_rectangle unless line 48 fixed to >.\"}]}",
+          "refusal": null,
+          "reasoning": "best_rectangle uses min of candidate_key while reference uses max. Line 48 (comparison direction) is the bug. Also candidate_key tie-breaking vs reference max: reference picks max key; best picks min. Fix: use > at line 48. Also brute_force_reference itself uses max — mismatch: reference selects max key, best selects min key. So line 48 suspicious.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "best_rectangle uses min of candidate_key while reference uses max. Line 48 (comparison direction) is the bug. Also candidate_key tie-breaking vs reference max: reference picks max key; best picks min. Fix: use > at line 48. Also brute_force_reference itself uses max — mismatch: reference selects max key, best selects min key. So line 48 suspicious.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1795,
+      "completion_tokens": 157,
+      "total_tokens": 1952,
+      "cost": 0.00013271,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1792,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00013271,
+        "upstream_inference_prompt_cost": 5.421e-05,
+        "upstream_inference_completions_cost": 7.85e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 76,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

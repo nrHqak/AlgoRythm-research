@@ -131,6 +131,8 @@ def shell_command(args: argparse.Namespace, session_id: str) -> str:
     ]
     if args.provider_label:
         parts.extend(["--provider-label", args.provider_label])
+    if getattr(args, "reasoning_effort", None):
+        parts.extend(["--reasoning-effort", args.reasoning_effort])
     if args.base_url:
         parts.extend(["--base-url", args.base_url])
     if args.repetitions is not None:
@@ -221,6 +223,7 @@ def run_one(
     raw_session_dir: Path,
     processed_session_dir: Path,
     run_id: str | None = None,
+    reasoning_effort: str | None = None,
 ) -> ParsedRunRecord:
     run_id = run_id or str(uuid.uuid4())
     timestamp = utc_now()
@@ -264,6 +267,7 @@ def run_one(
         "prompt_chars": len(system_prompt) + len(user_prompt),
         "prompt_tokens_estimate": (len(system_prompt) + len(user_prompt) + 3) // 4,
         "manifest_hash": manifest_hash,
+        "reasoning_effort": reasoning_effort,
     }
     try:
         reply = provider.complete(
@@ -273,6 +277,7 @@ def run_one(
                 model=model,
                 temperature=temperature,
                 max_tokens=max_tokens,
+                reasoning_effort=reasoning_effort,
             )
         )
     except Exception as exc:
@@ -504,6 +509,7 @@ def run(args: argparse.Namespace) -> int:
         "model": args.model,
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
+        "reasoning_effort": args.reasoning_effort,
         "timeout": args.timeout,
         "base_url": args.base_url.rstrip("/"),
         "model_freeze_hash": file_sha256(args.model_freeze) if getattr(args, "model_freeze", None) else None,
@@ -605,6 +611,7 @@ def run(args: argparse.Namespace) -> int:
                     raw_session_dir=raw_session_dir,
                     processed_session_dir=processed_session_dir,
                     run_id=item["run_id"],
+                    reasoning_effort=args.reasoning_effort,
                 )
                 for item, _key in batch
             ]
@@ -655,6 +662,11 @@ def parser() -> argparse.ArgumentParser:
     )
     result.add_argument(
         "--max-tokens", type=int, default=int(os.environ.get("LLM_MAX_TOKENS") or "1024")
+    )
+    result.add_argument(
+        "--reasoning-effort",
+        choices=("low", "medium", "high", "max"),
+        help="Explicit provider reasoning effort; omitted only for legacy/non-amended runs.",
     )
     result.add_argument("--repetitions", type=int)
     result.add_argument("--workers", type=int, default=1)
