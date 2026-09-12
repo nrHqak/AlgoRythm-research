@@ -1,0 +1,34 @@
+[
+  {
+    "input": "3\nddd\n",
+    "expected_output": "ddd\n"
+  },
+  {
+    "input": "6\ndpdppd\n",
+    "expected_output": "dddpdd\n"
+  },
+  {
+    "input": "11\nddpdpdppddp\n",
+    "expected_output": "ddddpdpdddp\n"
+  },
+  {
+    "input": "1\nd\n",
+    "expected_output": "d\n"
+  },
+  {
+    "input": "1\np\n",
+    "expected_output": "d\n"
+  },
+  {
+    "input": "5\nppppp\n",
+    "expected_output": "ddddd\n"
+  },
+  {
+    "input": "5\ndpppp\n",
+    "expected_output": "ddddd\n"
+  },
+  {
+    "input": "5\npdppp\n",
+    "expected_output": "dddpd\n"
+  }
+]

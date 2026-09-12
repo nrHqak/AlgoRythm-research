@@ -1,0 +1,233 @@
+{
+  "agreement_by_confidence_pair": [
+    {
+      "agreement_rate": 0.9716981132075472,
+      "claude_confidence": "high",
+      "codex_confidence": "high",
+      "exact_matches": 103,
+      "programs": 106
+    },
+    {
+      "agreement_rate": 0.75,
+      "claude_confidence": "high",
+      "codex_confidence": "medium",
+      "exact_matches": 3,
+      "programs": 4
+    },
+    {
+      "agreement_rate": 0.4782608695652174,
+      "claude_confidence": "low",
+      "codex_confidence": "high",
+      "exact_matches": 11,
+      "programs": 23
+    },
+    {
+      "agreement_rate": 0.4444444444444444,
+      "claude_confidence": "low",
+      "codex_confidence": "medium",
+      "exact_matches": 8,
+      "programs": 18
+    },
+    {
+      "agreement_rate": 0.7222222222222222,
+      "claude_confidence": "medium",
+      "codex_confidence": "high",
+      "exact_matches": 52,
+      "programs": 72
+    },
+    {
+      "agreement_rate": 0.5555555555555556,
+      "claude_confidence": "medium",
+      "codex_confidence": "medium",
+      "exact_matches": 5,
+      "programs": 9
+    }
+  ],
+  "agreement_by_label": [
+    {
+      "agreement_rate": 0.2857142857142857,
+      "claude_count": 3,
+      "codex_count": 6,
+      "exact_matches": 2,
+      "pattern_label": "two_pointers",
+      "union_count": 7
+    },
+    {
+      "agreement_rate": 0.8333333333333334,
+      "claude_count": 6,
+      "codex_count": 5,
+      "exact_matches": 5,
+      "pattern_label": "sliding_window",
+      "union_count": 6
+    },
+    {
+      "agreement_rate": 0.6086956521739131,
+      "claude_count": 23,
+      "codex_count": 14,
+      "exact_matches": 14,
+      "pattern_label": "binary_search",
+      "union_count": 23
+    },
+    {
+      "agreement_rate": 0.6,
+      "claude_count": 7,
+      "codex_count": 9,
+      "exact_matches": 6,
+      "pattern_label": "prefix_sums",
+      "union_count": 10
+    },
+    {
+      "agreement_rate": 0.8490566037735849,
+      "claude_count": 53,
+      "codex_count": 45,
+      "exact_matches": 45,
+      "pattern_label": "dynamic_programming",
+      "union_count": 53
+    },
+    {
+      "agreement_rate": 0.6111111111111112,
+      "claude_count": 15,
+      "codex_count": 14,
+      "exact_matches": 11,
+      "pattern_label": "greedy",
+      "union_count": 18
+    },
+    {
+      "agreement_rate": 0.8666666666666667,
+      "claude_count": 15,
+      "codex_count": 13,
+      "exact_matches": 13,
+      "pattern_label": "graph_traversal_dfs_bfs",
+      "union_count": 15
+    },
+    {
+      "agreement_rate": 0.75,
+      "claude_count": 6,
+      "codex_count": 8,
+      "exact_matches": 6,
+      "pattern_label": "sorting_based",
+      "union_count": 8
+    },
+    {
+      "agreement_rate": 0.4,
+      "claude_count": 10,
+      "codex_count": 4,
+      "exact_matches": 4,
+      "pattern_label": "hash_map_counting",
+      "union_count": 10
+    },
+    {
+      "agreement_rate": 0.6727272727272727,
+      "claude_count": 50,
+      "codex_count": 42,
+      "exact_matches": 37,
+      "pattern_label": "brute_force_implementation",
+      "union_count": 55
+    },
+    {
+      "agreement_rate": 0.6666666666666666,
+      "claude_count": 5,
+      "codex_count": 5,
+      "exact_matches": 4,
+      "pattern_label": "intervals",
+      "union_count": 6
+    },
+    {
+      "agreement_rate": 0.5,
+      "claude_count": 10,
+      "codex_count": 20,
+      "exact_matches": 10,
+      "pattern_label": "simulation",
+      "union_count": 20
+    },
+    {
+      "agreement_rate": 0.49019607843137253,
+      "claude_count": 29,
+      "codex_count": 47,
+      "exact_matches": 25,
+      "pattern_label": "outside_vocabulary",
+      "union_count": 51
+    },
+    {
+      "agreement_rate": null,
+      "claude_count": 0,
+      "codex_count": 0,
+      "exact_matches": 0,
+      "pattern_label": "uncertain",
+      "union_count": 0
+    }
+  ],
+  "agreements": 182,
+  "chance_expected_agreement": 0.1300349286563615,
+  "claude_distribution": {
+    "binary_search": 23,
+    "brute_force_implementation": 50,
+    "dynamic_programming": 53,
+    "graph_traversal_dfs_bfs": 15,
+    "greedy": 15,
+    "hash_map_counting": 10,
+    "intervals": 5,
+    "outside_vocabulary": 29,
+    "prefix_sums": 7,
+    "simulation": 10,
+    "sliding_window": 6,
+    "sorting_based": 6,
+    "two_pointers": 3
+  },
+  "codex_distribution": {
+    "binary_search": 14,
+    "brute_force_implementation": 42,
+    "dynamic_programming": 45,
+    "graph_traversal_dfs_bfs": 13,
+    "greedy": 14,
+    "hash_map_counting": 4,
+    "intervals": 5,
+    "outside_vocabulary": 47,
+    "prefix_sums": 9,
+    "simulation": 20,
+    "sliding_window": 5,
+    "sorting_based": 8,
+    "two_pointers": 6
+  },
+  "cohens_kappa": 0.7522690870261612,
+  "disagreements": 50,
+  "disagreements_by_pattern": {
+    "Claude": {
+      "binary_search": 9,
+      "brute_force_implementation": 13,
+      "dynamic_programming": 8,
+      "graph_traversal_dfs_bfs": 2,
+      "greedy": 4,
+      "hash_map_counting": 6,
+      "intervals": 1,
+      "outside_vocabulary": 4,
+      "prefix_sums": 1,
+      "sliding_window": 1,
+      "two_pointers": 1
+    },
+    "Codex": {
+      "brute_force_implementation": 5,
+      "greedy": 3,
+      "intervals": 1,
+      "outside_vocabulary": 22,
+      "prefix_sums": 3,
+      "simulation": 10,
+      "sorting_based": 2,
+      "two_pointers": 4
+    }
+  },
+  "final_manifest_created": false,
+  "inputs_sha256": {
+    "blinded_packet": "8a1924066287ec9b9110018e5e301736dd4d1921be9b4dc0d06396264bdf0b99",
+    "claude": "5550f59f7e869deecdf6427f90b092576a81c6df9125870b0fe34e8c7b4ef773",
+    "codex": "dc89712a1cfd056652f05899d816605fdce757ace3ba8d181974fd48879a5c40"
+  },
+  "original_labels_modified": false,
+  "programs": 232,
+  "raw_agreement": 0.7844827586206896,
+  "required_final_label_sources": [
+    "model-consensus",
+    "model-adjudicated"
+  ],
+  "status": "READY_FOR_THIRD_PARTY_ADJUDICATION"
+}

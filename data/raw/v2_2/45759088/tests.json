@@ -1,0 +1,26 @@
+[
+  {
+    "input": "2 3\n0 1 0\n0 1 1\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "4 2\n1 0\n0 1\n0 1\n0 0\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "3 3\n1 1 0\n1 0 1\n1 0 0\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "3 3\n1 1 1\n0 0 1\n1 0 1\n",
+    "expected_output": "-1\n"
+  },
+  {
+    "input": "7 2\n1 0\n0 1\n0 1\n0 0\n0 1\n0 1\n1 0\n",
+    "expected_output": "2\n"
+  },
+  {
+    "input": "4 4\n1 0 0 0\n0 1 1 1\n0 0 1 0\n1 1 0 1\n",
+    "expected_output": "2\n"
+  }
+]

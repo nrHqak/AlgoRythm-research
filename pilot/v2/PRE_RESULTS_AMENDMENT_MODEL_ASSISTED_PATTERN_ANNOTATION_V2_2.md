@@ -106,3 +106,23 @@ oracle ground truth.
 This amendment and both independent annotations must be committed before any
 new sample is drawn or any scientific candidate is sent to the localization
 model. The scientific experiment remains unrun under v2.2.
+
+## Consensus-only pilot amendment (authorized 2026-09-12)
+
+Before any valid scientific result existed, the user authorized a pilot-only
+change to the post-comparison procedure. The 50 Claude-Codex disagreements will
+not be adjudicated for this pilot. They remain preserved as audit evidence and
+are excluded with the reason **"excluded from pilot: independent pattern
+annotators disagreed"**. Neither original annotator is preferred.
+
+The v2.2 sampling frame therefore uses only **exact-consensus labels from two
+independent blinded model annotators**. Exact-consensus `outside_vocabulary`
+records are then excluded before the unchanged `SAMPLING_PROTOCOL.md` section 6
+class-ranking and seeded-draw rules are applied. The frozen sampling seed remains
+`20260910`; there are no rerolls and no preservation rule for v2.1 members.
+
+This section supersedes the third-adjudicator procedure above for the v2.2 pilot
+only. It is a pilot-specific reliability filter intended to avoid introducing
+adjudicator-dependent labels. The resulting pilot represents programs with
+comparatively unambiguous algorithmic-pattern assignments and may not generalize
+to ambiguous programs. The scientific localization experiment remains unrun.

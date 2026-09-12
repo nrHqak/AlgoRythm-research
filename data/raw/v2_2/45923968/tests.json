@@ -1,0 +1,22 @@
+[
+  {
+    "input": "5 3 4\noxxox\n",
+    "expected_output": "8\n"
+  },
+  {
+    "input": "10 1 2\nooxxooooox\n",
+    "expected_output": "9\n"
+  },
+  {
+    "input": "30 1000000000 9982443530\noxoxooxoxoxooxoxooxxxoxxxooxox\n",
+    "expected_output": "19964887064\n"
+  },
+  {
+    "input": "1 1 1\nx\n",
+    "expected_output": "1\n"
+  },
+  {
+    "input": "1 1000000000 1000000000\nx\n",
+    "expected_output": "1000000000\n"
+  }
+]
