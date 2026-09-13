@@ -1,0 +1,78 @@
+{
+  "run_id": "71024db00be16cb523a509ecbb94274473c4700f6445b80ba9ba08caa18a02ec",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ab26c8950e86d62b54e8295ca6a078c9e36f6f4dbeb84d12c957e074f95a5902",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:29.450140Z",
+  "latency": 10.164689457975328,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 684,
+    "total_tokens": 2059,
+    "cost": 0.00038697,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00038697,
+      "upstream_inference_prompt_cost": 4.497e-05,
+      "upstream_inference_completions_cost": 0.000342
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 547,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"calc1 counts pairs, so len(b) should be len(b)//2; adding all b elements overcounts pairs.\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"min(len(e),len(f))+min(len(d),len(g)) must be halved if result is pair count, matching line 15 convention.\"}, {\"line\": 36, \"score\": 0.3, \"reason\": \"Residual calc2 on leftovers may pair across both groups; leftover counts odd lengths could overcount.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/71024db00be16cb523a509ecbb94274473c4700f6445b80ba9ba08caa18a02ec.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.85,
+        "reason": "calc1 counts pairs, so len(b) should be len(b)//2; adding all b elements overcounts pairs."
+      },
+      {
+        "line": 34,
+        "score": 0.4,
+        "reason": "min(len(e),len(f))+min(len(d),len(g)) must be halved if result is pair count, matching line 15 convention."
+      },
+      {
+        "line": 36,
+        "score": 0.3,
+        "reason": "Residual calc2 on leftovers may pair across both groups; leftover counts odd lengths could overcount."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

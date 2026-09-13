@@ -1,0 +1,73 @@
+{
+  "run_id": "3f0c96e6ab13bd6347f3b0a825abb7b9a1bee997f3c3e1d19b6b5d3a6e62b92d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "bf2381e79ad0e9fd542cce3492abf35ad05bd6df2bda41e8d984f8a7eb81651d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991860",
+  "task_id": "arc159_a",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:42:31.711485Z",
+  "latency": 4.54937699995935,
+  "token_usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 176,
+    "total_tokens": 1223,
+    "cost": 0.00024505,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00024505,
+      "upstream_inference_prompt_cost": 0.00015705,
+      "upstream_inference_completions_cost": 8.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 98,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.95, \"reason\": \"Uses d.pop() (stack) instead of popleft(); BFS becomes DFS so distances aren't shortest\"}, {\"line\": 18, \"score\": 0.9, \"reason\": \"pop() from deque treats queue as stack, producing incorrect shortest-path distances\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/3f0c96e6ab13bd6347f3b0a825abb7b9a1bee997f3c3e1d19b6b5d3a6e62b92d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.95,
+        "reason": "Uses d.pop() (stack) instead of popleft(); BFS becomes DFS so distances aren't shortest"
+      },
+      {
+        "line": 18,
+        "score": 0.9,
+        "reason": "pop() from deque treats queue as stack, producing incorrect shortest-path distances"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 29,
+  "loc": 29,
+  "evaluation_denominator": 29,
+  "faulty_lines": [
+    23
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "698",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bc5c0f806d05992ad84adea48866cef26f9351fc7d01d9628a631da27e22d5e",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4151,
+  "prompt_tokens_estimate": 1038,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

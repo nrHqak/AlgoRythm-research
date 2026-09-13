@@ -1,0 +1,145 @@
+{
+  "run_id": "ba1f79fca5035b18a096a72b5d4ee32dffb9629902290db5ca69acdd95ec8429",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "1bb1bdc50ff92089bc7be3a8ae69f577121a6c629cabc22b67a2f7a6c72e71cc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:49:52.096242+00:00",
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45759088\nTask ID: abc283_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: H,W = map(int,input().split())\n2: A = [list(map(int,input().split())) for _ in range(H)]\n3: maze = [[1]*4 for _ in range(H)]\n4: for i in range(H):\n5:     for j in range(W):\n6:         F = True\n7:         if j >= 1:\n8:             if A[i][j] == A[i][j-1]:\n9:                 F = False\n10:         if j <= W-2:\n11:             if A[i][j] == A[i][j+1]:\n12:                 F = False\n13:         if F:\n14:             if i == 0:\n15:                 x = A[i][j]^A[i+1][j]\n16:                 if x == 1:\n17:                     maze[i][0],maze[i][2] = 0,0\n18:                 else:\n19:                     maze[i][1],maze[i][3] = 0,0\n20:             elif i == H-1:\n21:                 x = A[i][j]^A[i-1][j]\n22:                 if x == 1:\n23:                     maze[i][0],maze[i][1] = 0,0\n24:                 else:\n25:                     maze[i][2],maze[i][3] = 0,0\n26:             else:\n27:                 x,y = A[i][j]^A[i-1][j],A[i][j]^A[i+1][j]\n28:                 maze[i][3^((x<<1)+y)] = 0\n29: inf = 10**12\n30: dp = [[inf]*4 for _ in range(H+1)]\n31: dp[0][1],dp[0][3] = 1,1\n32: dp[0][0],dp[0][2] = 0,0\n33: for i in range(1,H+1):\n34:     for j in range(4):\n35:         for k in range(4):\n36:             if (k&1)^(j&2) == 1:\n37:                 continue\n38:             if maze[i-1][j^k]:\n39:                 if i == H:\n40:                     dp[i][j] = min(dp[i][j],dp[i-1][k])\n41:                 else:\n42:                     dp[i][j] = min(dp[i][j],dp[i-1][k]+(j&1))\n43: print(min(dp[-1]) if min(dp[-1]) < inf else -1)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.95, \"reason\": \"Vertical adjacency check wrong: compares k's bit0 with j's bit1; must require k&1 != j&1 AND k>>1 != j>>1\"}, {\"line\": 38, \"score\": 0.85, \"reason\": \"Checks maze at index j^k instead of j, so row-mask feasibility is looked up with a meaningless XOR index\"}, {\"line\": 13, \"score\": 0.6, \"reason\": \"Horizontal constraint only gates vertical marking; forbidden masks from equal neighbors are never recorded in maze\"}, {\"line\": 8, \"score\": 0.4, \"reason\": \"Horizontal adjacency only flips flag F instead of forbidding mask bit0, so constraint is discarded\"}, {\"line\": 6, \"score\": 0.2, \"reason\": \"Flag F unused for mask filtering; part of the dropped horizontal constraint\"}]}",
+  "latency": 28.056615750014316,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 2028,
+    "total_tokens": 3202,
+    "cost": 0.00105186,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00105186,
+      "upstream_inference_prompt_cost": 3.786e-05,
+      "upstream_inference_completions_cost": 0.001014
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1823,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789249764-8up9RbFrQf43QDFDoZgk",
+    "provider_created": 1789249764,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 5738,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789249764-8up9RbFrQf43QDFDoZgk",
+    "object": "chat.completion",
+    "created": 1789249764,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 36, \"score\": 0.95, \"reason\": \"Vertical adjacency check wrong: compares k's bit0 with j's bit1; must require k&1 != j&1 AND k>>1 != j>>1\"}, {\"line\": 38, \"score\": 0.85, \"reason\": \"Checks maze at index j^k instead of j, so row-mask feasibility is looked up with a meaningless XOR index\"}, {\"line\": 13, \"score\": 0.6, \"reason\": \"Horizontal constraint only gates vertical marking; forbidden masks from equal neighbors are never recorded in maze\"}, {\"line\": 8, \"score\": 0.4, \"reason\": \"Horizontal adjacency only flips flag F instead of forbidding mask bit0, so constraint is discarded\"}, {\"line\": 6, \"score\": 0.2, \"reason\": \"Flag F unused for mask filtering; part of the dropped horizontal constraint\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC283E: min number of flipped rows so no adjacent equal in grid, rows represented as 2-bit masks. dp state j is previous row's mask? Let's analyze.\n\ndp[i][j]: cost after choosing row i's mask j? dp[0] initialized weirdly (sentinel rows). Transition: dp[i][j] from dp[i-1][k] with condition (k&1)^(j&2) == 1 continue — checks vertical adjacency: bit1 of previous row vs bit0... Actually vertical constraint: row i-1 bit0 vs row i bit0, bit1 vs bit1. Here k is previous mask, j current mask; condition (k&1)^(j&2)>>1... j&2 is bit1. This checks k bit0 vs j bit1 — wrong; should be (k&1)^(j&1) and (k>>1)^(j>>1). Also horizontal constraint inside maze: maze[i][j^k]? Line 38 uses j^k as mask index — that seems odd. maze[i][m] means mask m is allowed for row i? Then should check maze[i-1][k]? Hmm.\n\nActually maze[i][a] set to 0 where mask a infeasible. Line 28: index 3^((x<<1)+y): if x=1,y=0 → (2)^3=1; meaning mask with bit0=1? x is diff with above row (bit1), y diff below (bit0)? mask (x<<1)+y gives mask equal to A[i-1][j] row (bit1 x, bit0 y): mask equals above row's mask. Marking 3^that = not allowed masks differing from neighbor. OK.\n\nLine 38: maze[i-1][j^k] — j^k is xor of consecutive row masks; shouldn't feasibility depend on xor? That's suspicious. But the standard approach: allowed masks computed... Actually line 36 check should be horizontal? Vertical adjacency condition should be: (k&1)^(j&1)==0 and (k>>1)^(j>>1)==0. Line 36 checks (k&1)^(j&2): bit0 of prev vs bit1 of cur — wrong.\n\nHmm but maybe j^k with condition encodes something... j^k ranges 0-3; checking maze[i-1][j^k] where maze marks forbidden masks — wrong index.\n\nThe intended correct code: condition vertical = ((k^j)&1)==0 and ((k^j)&2)==0. And maze check on j, not j^k? Actually if maze[i][m]=0 means mask m forbidden, check maze[i][j]... but line 28 marks maze[i][3^mask]=0 i.e. marks the complement? Let's think: x=A[i][j]^A[i-1][j] means A differs above. If mask m of row i, adjacency holds where A[i][j]^ (m bit) == A[i][j]^A[above] i.e. bit equals x. Forbidden masks: those where bit1 = x and bit0 = y, i.e. mask (x<<1)+y forbidden... only that single mask? Actually adjacency: cell value after flip must differ from neighbors. For cell j, bit0 of mask determines column j's value; must differ from col j-1 and j+1 values. Horizontal constraint handled for interior cells: forbidden bit0 if equals A[i][j-1] or A[i][j+1]. Line 7-12: only marks... hmm, lines 7-12 set F=False if neighbor equal, but F is only used to gate the vertical marking — horizontal constraint is not actually enforced anywhere except through F gating? Actually maze should record forbidden masks; horizontal constraint forbids masks with bit0 == A[i][j] (if neighbors equal A[i][j]). Lines 7-12 compute F but only used in line 13 gate; horizontal forbidden not recorded in maze. That's a bug: horizontal constraints lost.\n\nHmm, but maybe maze indexing differently: maze[i][m]=1 means mask m allowed. Initialization all 1, zeros mark forbidden. Vertical marking marks forbidden masks. Horizontal: F check does nothing but gate — bug.\n\nAlso line 28 marks 3^((x<<1)+y): mask equal to row above's mask ((x<<1)+y equals above row's mask bits? bit1 x, bit0 y: x = A^A[i-1] so bit x=1 means row i's flipped bit differs from A[i-1]... Actually mask bit1 of row i must differ from x to differ from row i-1: adjacency requires bit1 != x. So forbidden bit1 = x, bit0 = y → mask (x<<1)+y forbidden. But code marks 3^mask, marking the complement — wrong! Should mark (x<<1)+y, not its complement. Wait, unless maze stores \"allowed\": marking allowed... no, maze initialized 1 and set to 0.\n\nHmm, alternatively 3^mask flips bits: mask whose bit1 = 1-x... The code marks 3^((x<<1)+y) as forbidden, but forbidden is (x<<1)+y itself. Also line 15-19: i==0, x = A[0][j]^A[1][j]; if x==1, mask bit1 must be != 1 → bit1=0, forbidden masks with bit1=1: masks 2,3. Code sets maze[i][0],maze[i][2]=0 — forbids masks 0 and 2, i.e. bit1=0 — wrong direction? If x==1 (differs), row bit must equal? adjacency requires differ: row bit must != A[1][j] value, i.e., != 0 relative... x= A[0]^A[1] =1 means A[1] != A[0]; row bit must differ from A[1], so row bit = A[0] (since A[1]=1-A[0]). Forbidden masks with bit1 = A[1] = 1-A[0]. Code: x==1 → forbidden bit1=0 → A[1]=0. Row must differ from A[1]=0 → bit1=1. So forbidding bit1=0 masks correct! Then complement: 3^mask where mask has bit1=x=1: complement bit1=0 — correct. OK so complement marks \"bit = A[neighbor]\" as forbidden. Consistent. Good, vertical marking is right.\n\nSo main bugs: horizontal constraint (F computed but never used to forbid masks), and line 36 transition condition, line 38 j^k.\n\nLine 36: (k&1)^(j&2)==1 continue. j&2 is 2 or 0, not a bit; comparing with k&1 (0/1): values 0^2=2, 1^2=3, 0^0=0,1^0=1. So skips when k&1=1 and j bit1=0, or k&1=0,j bit1=0 gives 0 pass... skipped iff k&1=1 and j bit1=0? That forbids prev bit0=1 when cur bit1=0 — nonsense. Correct check: skip if (k&1)==(j&1) or (k>>1)==(j>>1). Line 36 is definitely wrong.\n\nLine 38: maze[i-1][j^k] should be maze[i-1][j]. j^k nonsensical.\n\nLine 31-32: dp[0] sentinel — dp[0][0],dp[0][2]=0, dp[0][1],[3]=1: cost = j&1? weird but as sentinel could work with any mask... line 42 adds (j&1) meaning bit0 is the row parity? Actually mask bit0 might represent something else. Row as binary number: value... rows flipped by mask; each row mask 0-3 with two bits. Cost should be popcount. dp adds only 1 per row — fine, count rows flipped.\n\nLine 31: initial dp costs don't matter much for feasibility except mask availability; all masks allowed at top.\n\nTop suspicious: 36, 38, and F/horizontal not enforced (lines 6-12 / 13). Which lines to rank: 36, 38, 13, 8, 6.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC283E: min number of flipped rows so no adjacent equal in grid, rows represented as 2-bit masks. dp state j is previous row's mask? Let's analyze.\n\ndp[i][j]: cost after choosing row i's mask j? dp[0] initialized weirdly (sentinel rows). Transition: dp[i][j] from dp[i-1][k] with condition (k&1)^(j&2) == 1 continue — checks vertical adjacency: bit1 of previous row vs bit0... Actually vertical constraint: row i-1 bit0 vs row i bit0, bit1 vs bit1. Here k is previous mask, j current mask; condition (k&1)^(j&2)>>1... j&2 is bit1. This checks k bit0 vs j bit1 — wrong; should be (k&1)^(j&1) and (k>>1)^(j>>1). Also horizontal constraint inside maze: maze[i][j^k]? Line 38 uses j^k as mask index — that seems odd. maze[i][m] means mask m is allowed for row i? Then should check maze[i-1][k]? Hmm.\n\nActually maze[i][a] set to 0 where mask a infeasible. Line 28: index 3^((x<<1)+y): if x=1,y=0 → (2)^3=1; meaning mask with bit0=1? x is diff with above row (bit1), y diff below (bit0)? mask (x<<1)+y gives mask equal to A[i-1][j] row (bit1 x, bit0 y): mask equals above row's mask. Marking 3^that = not allowed masks differing from neighbor. OK.\n\nLine 38: maze[i-1][j^k] — j^k is xor of consecutive row masks; shouldn't feasibility depend on xor? That's suspicious. But the standard approach: allowed masks computed... Actually line 36 check should be horizontal? Vertical adjacency condition should be: (k&1)^(j&1)==0 and (k>>1)^(j>>1)==0. Line 36 checks (k&1)^(j&2): bit0 of prev vs bit1 of cur — wrong.\n\nHmm but maybe j^k with condition encodes something... j^k ranges 0-3; checking maze[i-1][j^k] where maze marks forbidden masks — wrong index.\n\nThe intended correct code: condition vertical = ((k^j)&1)==0 and ((k^j)&2)==0. And maze check on j, not j^k? Actually if maze[i][m]=0 means mask m forbidden, check maze[i][j]... but line 28 marks maze[i][3^mask]=0 i.e. marks the complement? Let's think: x=A[i][j]^A[i-1][j] means A differs above. If mask m of row i, adjacency holds where A[i][j]^ (m bit) == A[i][j]^A[above] i.e. bit equals x. Forbidden masks: those where bit1 = x and bit0 = y, i.e. mask (x<<1)+y forbidden... only that single mask? Actually adjacency: cell value after flip must differ from neighbors. For cell j, bit0 of mask determines column j's value; must differ from col j-1 and j+1 values. Horizontal constraint handled for interior cells: forbidden bit0 if equals A[i][j-1] or A[i][j+1]. Line 7-12: only marks... hmm, lines 7-12 set F=False if neighbor equal, but F is only used to gate the vertical marking — horizontal constraint is not actually enforced anywhere except through F gating? Actually maze should record forbidden masks; horizontal constraint forbids masks with bit0 == A[i][j] (if neighbors equal A[i][j]). Lines 7-12 compute F but only used in line 13 gate; horizontal forbidden not recorded in maze. That's a bug: horizontal constraints lost.\n\nHmm, but maybe maze indexing differently: maze[i][m]=1 means mask m allowed. Initialization all 1, zeros mark forbidden. Vertical marking marks forbidden masks. Horizontal: F check does nothing but gate — bug.\n\nAlso line 28 marks 3^((x<<1)+y): mask equal to row above's mask ((x<<1)+y equals above row's mask bits? bit1 x, bit0 y: x = A^A[i-1] so bit x=1 means row i's flipped bit differs from A[i-1]... Actually mask bit1 of row i must differ from x to differ from row i-1: adjacency requires bit1 != x. So forbidden bit1 = x, bit0 = y → mask (x<<1)+y forbidden. But code marks 3^mask, marking the complement — wrong! Should mark (x<<1)+y, not its complement. Wait, unless maze stores \"allowed\": marking allowed... no, maze initialized 1 and set to 0.\n\nHmm, alternatively 3^mask flips bits: mask whose bit1 = 1-x... The code marks 3^((x<<1)+y) as forbidden, but forbidden is (x<<1)+y itself. Also line 15-19: i==0, x = A[0][j]^A[1][j]; if x==1, mask bit1 must be != 1 → bit1=0, forbidden masks with bit1=1: masks 2,3. Code sets maze[i][0],maze[i][2]=0 — forbids masks 0 and 2, i.e. bit1=0 — wrong direction? If x==1 (differs), row bit must equal? adjacency requires differ: row bit must != A[1][j] value, i.e., != 0 relative... x= A[0]^A[1] =1 means A[1] != A[0]; row bit must differ from A[1], so row bit = A[0] (since A[1]=1-A[0]). Forbidden masks with bit1 = A[1] = 1-A[0]. Code: x==1 → forbidden bit1=0 → A[1]=0. Row must differ from A[1]=0 → bit1=1. So forbidding bit1=0 masks correct! Then complement: 3^mask where mask has bit1=x=1: complement bit1=0 — correct. OK so complement marks \"bit = A[neighbor]\" as forbidden. Consistent. Good, vertical marking is right.\n\nSo main bugs: horizontal constraint (F computed but never used to forbid masks), and line 36 transition condition, line 38 j^k.\n\nLine 36: (k&1)^(j&2)==1 continue. j&2 is 2 or 0, not a bit; comparing with k&1 (0/1): values 0^2=2, 1^2=3, 0^0=0,1^0=1. So skips when k&1=1 and j bit1=0, or k&1=0,j bit1=0 gives 0 pass... skipped iff k&1=1 and j bit1=0? That forbids prev bit0=1 when cur bit1=0 — nonsense. Correct check: skip if (k&1)==(j&1) or (k>>1)==(j>>1). Line 36 is definitely wrong.\n\nLine 38: maze[i-1][j^k] should be maze[i-1][j]. j^k nonsensical.\n\nLine 31-32: dp[0] sentinel — dp[0][0],dp[0][2]=0, dp[0][1],[3]=1: cost = j&1? weird but as sentinel could work with any mask... line 42 adds (j&1) meaning bit0 is the row parity? Actually mask bit0 might represent something else. Row as binary number: value... rows flipped by mask; each row mask 0-3 with two bits. Cost should be popcount. dp adds only 1 per row — fine, count rows flipped.\n\nLine 31: initial dp costs don't matter much for feasibility except mask availability; all masks allowed at top.\n\nTop suspicious: 36, 38, and F/horizontal not enforced (lines 6-12 / 13). Which lines to rank: 36, 38, 13, 8, 6.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1174,
+      "completion_tokens": 2028,
+      "total_tokens": 3202,
+      "cost": 0.00105186,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00105186,
+        "upstream_inference_prompt_cost": 3.786e-05,
+        "upstream_inference_completions_cost": 0.001014
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1823,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

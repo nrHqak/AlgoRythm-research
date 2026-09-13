@@ -1,0 +1,88 @@
+{
+  "run_id": "8aa6aa30b2c3b5a2257aa7f6f95832de9317b635b15b87fc7fadc4a5a93b1255",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "f8dfa379ebcb804618f6ae98a18681f10091dfae59b867d77ded365bd459eb96",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:22.765169Z",
+  "latency": 17.237887541996315,
+  "token_usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 1140,
+    "total_tokens": 2178,
+    "cost": 0.00060282,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00060282,
+      "upstream_inference_prompt_cost": 3.282e-05,
+      "upstream_inference_completions_cost": 0.00057
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 916,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.55, \"reason\": \"Binary search can pick t=A[i] itself, pairing a mountain with itself; no i!=j check, giving too-small d\"}, {\"line\": 18, \"score\": 0.4, \"reason\": \"Candidate t1=A[low] may equal s (i==j), producing an invalid self-pair minimum\"}, {\"line\": 22, \"score\": 0.35, \"reason\": \"Candidate t2=A[high] may also equal s when low lands on i, same self-pair issue\"}, {\"line\": 14, \"score\": 0.25, \"reason\": \"Condition dr>=dl vs strict > affects which side of equality the search converges to\"}, {\"line\": 9, \"score\": 0.15, \"reason\": \"Loop while high-low>1 with low=1,high=N is correct, but edge t=A[0]=0 or A[N+1]=L never checked\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/8aa6aa30b2c3b5a2257aa7f6f95832de9317b635b15b87fc7fadc4a5a93b1255.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.55,
+        "reason": "Binary search can pick t=A[i] itself, pairing a mountain with itself; no i!=j check, giving too-small d"
+      },
+      {
+        "line": 18,
+        "score": 0.4,
+        "reason": "Candidate t1=A[low] may equal s (i==j), producing an invalid self-pair minimum"
+      },
+      {
+        "line": 22,
+        "score": 0.35,
+        "reason": "Candidate t2=A[high] may also equal s when low lands on i, same self-pair issue"
+      },
+      {
+        "line": 14,
+        "score": 0.25,
+        "reason": "Condition dr>=dl vs strict > affects which side of equality the search converges to"
+      },
+      {
+        "line": 9,
+        "score": 0.15,
+        "reason": "Loop while high-low>1 with low=1,high=N is correct, but edge t=A[0]=0 or A[N+1]=L never checked"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4005,
+  "prompt_tokens_estimate": 1002,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

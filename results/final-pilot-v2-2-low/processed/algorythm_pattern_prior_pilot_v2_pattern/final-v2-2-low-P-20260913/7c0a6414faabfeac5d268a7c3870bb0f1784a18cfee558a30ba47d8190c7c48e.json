@@ -1,0 +1,83 @@
+{
+  "run_id": "7c0a6414faabfeac5d268a7c3870bb0f1784a18cfee558a30ba47d8190c7c48e",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "2fe42e97f209a188437d39b6166b92832fe058666fd1e8cae9dc5462ad3dfb8c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:59.517037Z",
+  "latency": 12.564454542007297,
+  "token_usage": {
+    "prompt_tokens": 1035,
+    "completion_tokens": 948,
+    "total_tokens": 1983,
+    "cost": 0.00050637,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00050637,
+      "upstream_inference_prompt_cost": 3.237e-05,
+      "upstream_inference_completions_cost": 0.000474
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 786,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.9, \"reason\": \"Minimizing |dr-dl| is wrong metric; answer needs min(dr,dl) per pair, not closest sum to L\"}, {\"line\": 27, \"score\": 0.8, \"reason\": \"Prints 2L+amin, but candidates are dr or dl (2L-s-t or s+t); formula inconsistent\"}, {\"line\": 26, \"score\": 0.6, \"reason\": \"Updates amin with difference d1,d2 instead of actual costs dr/dl\"}, {\"line\": 6, \"score\": 0.3, \"reason\": \"Binary search can return t=A[i], pairing person with themselves\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/7c0a6414faabfeac5d268a7c3870bb0f1784a18cfee558a30ba47d8190c7c48e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.9,
+        "reason": "Minimizing |dr-dl| is wrong metric; answer needs min(dr,dl) per pair, not closest sum to L"
+      },
+      {
+        "line": 27,
+        "score": 0.8,
+        "reason": "Prints 2L+amin, but candidates are dr or dl (2L-s-t or s+t); formula inconsistent"
+      },
+      {
+        "line": 26,
+        "score": 0.6,
+        "reason": "Updates amin with difference d1,d2 instead of actual costs dr/dl"
+      },
+      {
+        "line": 6,
+        "score": 0.3,
+        "reason": "Binary search can return t=A[i], pairing person with themselves"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3980,
+  "prompt_tokens_estimate": 995,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

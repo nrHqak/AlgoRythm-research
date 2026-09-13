@@ -1,0 +1,78 @@
+{
+  "run_id": "4c7af6fe93cb21ad5b1ffa7518268f9ef840a3968c02327dc14a8e4fc621d4c7",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d072e1242d2c78419231ac36f04e4105cb35f2c7ce28830024832bda10c44204",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:45:57.259242Z",
+  "latency": 4.510364790970925,
+  "token_usage": {
+    "prompt_tokens": 876,
+    "completion_tokens": 252,
+    "total_tokens": 1128,
+    "cost": 0.00015756,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00015756,
+      "upstream_inference_prompt_cost": 3.156e-05,
+      "upstream_inference_completions_cost": 0.000126
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 109,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.85, \"reason\": \"Uses '==' instead of '=', so intended reset of unreachable cells never happens; s[i][j] stays 1 and propagates as reachable.\"}, {\"line\": 19, \"score\": 0.6, \"reason\": \"Unreachable cells (both neighbors 0/wall-blocked) get 1 instead of staying 0, inflating answers via invalid paths.\"}, {\"line\": 21, \"score\": 0.5, \"reason\": \"Condition s[i][j]==1 wrongly treats real length-1 reachable cells as unreachable in the reset logic.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/4c7af6fe93cb21ad5b1ffa7518268f9ef840a3968c02327dc14a8e4fc621d4c7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.85,
+        "reason": "Uses '==' instead of '=', so intended reset of unreachable cells never happens; s[i][j] stays 1 and propagates as reachable."
+      },
+      {
+        "line": 19,
+        "score": 0.6,
+        "reason": "Unreachable cells (both neighbors 0/wall-blocked) get 1 instead of staying 0, inflating answers via invalid paths."
+      },
+      {
+        "line": 21,
+        "score": 0.5,
+        "reason": "Condition s[i][j]==1 wrongly treats real length-1 reachable cells as unreachable in the reset logic."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": null,
+  "prompt_chars": 3173,
+  "prompt_tokens_estimate": 794,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

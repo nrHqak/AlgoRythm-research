@@ -1,0 +1,78 @@
+{
+  "run_id": "67f00ccb97913ddd2cd4d1a213c15f2bab416adb31d1b4223b33e7c3b1de0dc4",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "eac06907aa20ab74730fc32434b8dd10c3211220be672a22e40083a95e055644",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44917428",
+  "task_id": "abc275_c",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:28:22.982031Z",
+  "latency": 85.50894524995238,
+  "token_usage": {
+    "prompt_tokens": 1845,
+    "completion_tokens": 8470,
+    "total_tokens": 10315,
+    "cost": 0.00429671,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00429671,
+      "upstream_inference_prompt_cost": 6.171e-05,
+      "upstream_inference_completions_cost": 0.004235
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8261,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.95, \"reason\": \"For k>=1 the four offsets (e.g. (2,0),(0,2),(1,4),(4,2) for k=1) do not form a square; s[i+1] should likely be s[i+k+1]. Only k=0 yields a valid square, so tilted diamonds/squares are miscounted.\"}, {\"line\": 11, \"score\": 0.2, \"reason\": \"Loop bound interacts with the possibly wrong offset on line 13; if that offset is fixed to i+k+1... i+2(k+1), this bound stays valid, so lower suspicion but worth rechecking after the fix.\"}, {\"line\": 6, \"score\": 0.1, \"reason\": \"Axis-aligned loop bounds look correct (i+k+1<=8), but bounds were audited per the debugging guidance and appear fine.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/67f00ccb97913ddd2cd4d1a213c15f2bab416adb31d1b4223b33e7c3b1de0dc4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.95,
+        "reason": "For k>=1 the four offsets (e.g. (2,0),(0,2),(1,4),(4,2) for k=1) do not form a square; s[i+1] should likely be s[i+k+1]. Only k=0 yields a valid square, so tilted diamonds/squares are miscounted."
+      },
+      {
+        "line": 11,
+        "score": 0.2,
+        "reason": "Loop bound interacts with the possibly wrong offset on line 13; if that offset is fixed to i+k+1... i+2(k+1), this bound stays valid, so lower suspicion but worth rechecking after the fix."
+      },
+      {
+        "line": 6,
+        "score": 0.1,
+        "reason": "Axis-aligned loop bounds look correct (i+k+1<=8), but bounds were audited per the debugging guidance and appear fine."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    13
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "760",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "41891f309c335ed83192010e36cdcea3c51557d1c4453e41aa48dc51321b8448",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 5717,
+  "prompt_tokens_estimate": 1430,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

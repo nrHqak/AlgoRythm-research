@@ -1,0 +1,73 @@
+{
+  "run_id": "caec6e64810c3fd684b217c64758534fa753786625d111e4b8238065f0e8a3e4",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "5692a971e844a4d3d501b25092dd990ebb82c510324dbfc23e4ff28342eb05f4",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "53927639",
+  "task_id": "abc341_d",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:35.779642Z",
+  "latency": 2.364090082992334,
+  "token_usage": {
+    "prompt_tokens": 986,
+    "completion_tokens": 112,
+    "total_tokens": 1098,
+    "cost": 0.0001655,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001655,
+      "upstream_inference_prompt_cost": 0.0001095,
+      "upstream_inference_completions_cost": 5.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 34,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 9, \"score\": 0.95, \"reason\": \"Inclusion-exclusion wrong: count divisible by either is cnt_n + cnt_m - cnt_d, not subtracting lcm twice\"}, {\"line\": 21, \"score\": 0.15, \"reason\": \"Binary search condition seems fine; lower confidence check\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/caec6e64810c3fd684b217c64758534fa753786625d111e4b8238065f0e8a3e4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 9,
+        "score": 0.95,
+        "reason": "Inclusion-exclusion wrong: count divisible by either is cnt_n + cnt_m - cnt_d, not subtracting lcm twice"
+      },
+      {
+        "line": 21,
+        "score": 0.15,
+        "reason": "Binary search condition seems fine; lower confidence check"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "829",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9bcba4d7f1eb128211846817fdfdc727a47e66f90f13c4060ae6470ccd08d950",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3881,
+  "prompt_tokens_estimate": 971,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

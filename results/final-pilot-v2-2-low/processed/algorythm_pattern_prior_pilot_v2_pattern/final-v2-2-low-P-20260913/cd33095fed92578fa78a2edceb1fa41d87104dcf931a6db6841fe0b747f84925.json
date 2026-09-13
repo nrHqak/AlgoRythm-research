@@ -1,0 +1,93 @@
+{
+  "run_id": "cd33095fed92578fa78a2edceb1fa41d87104dcf931a6db6841fe0b747f84925",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b9507ee1af76320811fe684f16e7cccdbf3857f2e13ed583980ad5936c519a13",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:53.693476Z",
+  "latency": 24.059002291003708,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 1774,
+    "total_tokens": 2986,
+    "cost": 0.00093056,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00093056,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.000887
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1522,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"len(b) used instead of len(b)//2; pairs within group b, count wrong (e.g. b=3,c=3 gives 3 vs correct 2)\"}, {\"line\": 14, \"score\": 0.5, \"reason\": \"swap makes b smaller, but formula on line 15 then miscounts; also recursion choice may drop valid pairings\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"surplus cross-pairing via calc2(e,g) may exceed available pairing capacity; bounds on surplus questionable\"}, {\"line\": 38, \"score\": 0.4, \"reason\": \"symmetric surplus case; calc2(d,f) recursion may overcount leftover pairs\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"base greedy min sums assume all min-side elements pairable, ignoring lower-bit constraints\"}, {\"line\": 3, \"score\": 0.2, \"reason\": \"base case returns len(a)//2 pairs, assuming all remaining elements pairable at XOR>=m\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/cd33095fed92578fa78a2edceb1fa41d87104dcf931a6db6841fe0b747f84925.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.9,
+        "reason": "len(b) used instead of len(b)//2; pairs within group b, count wrong (e.g. b=3,c=3 gives 3 vs correct 2)"
+      },
+      {
+        "line": 14,
+        "score": 0.5,
+        "reason": "swap makes b smaller, but formula on line 15 then miscounts; also recursion choice may drop valid pairings"
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "surplus cross-pairing via calc2(e,g) may exceed available pairing capacity; bounds on surplus questionable"
+      },
+      {
+        "line": 38,
+        "score": 0.4,
+        "reason": "symmetric surplus case; calc2(d,f) recursion may overcount leftover pairs"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "base greedy min sums assume all min-side elements pairable, ignoring lower-bit constraints"
+      },
+      {
+        "line": 3,
+        "score": 0.2,
+        "reason": "base case returns len(a)//2 pairs, assuming all remaining elements pairable at XOR>=m"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

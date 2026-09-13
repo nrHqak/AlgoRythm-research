@@ -1,0 +1,78 @@
+{
+  "run_id": "498b249930dca1fa8b6f3ffcb23231fb641c5f36d777ca3b57b218a5cf4d02be",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "bfef976a71d6770cdae88a34ce61b5423344b94a2d43a7202415efc2572746d8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54718266",
+  "task_id": "abc308_d",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:53.783358Z",
+  "latency": 3.077632625005208,
+  "token_usage": {
+    "prompt_tokens": 929,
+    "completion_tokens": 149,
+    "total_tokens": 1078,
+    "cost": 0.00010633,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00010633,
+      "upstream_inference_prompt_cost": 3.183e-05,
+      "upstream_inference_completions_cost": 7.45e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 35,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 27, \"score\": 0.95, \"reason\": \"Checks grid char (always truthy string) instead of visited flag bool[h][w]; should verify cell was reached.\"}, {\"line\": 11, \"score\": 0.3, \"reason\": \"Shadows builtin bool, risky naming but functionally okay here.\"}, {\"line\": 16, \"score\": 0.2, \"reason\": \"Snuke sequence wraps s->s; sequence itself appears intended.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/498b249930dca1fa8b6f3ffcb23231fb641c5f36d777ca3b57b218a5cf4d02be.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 27,
+        "score": 0.95,
+        "reason": "Checks grid char (always truthy string) instead of visited flag bool[h][w]; should verify cell was reached."
+      },
+      {
+        "line": 11,
+        "score": 0.3,
+        "reason": "Shadows builtin bool, risky naming but functionally okay here."
+      },
+      {
+        "line": 16,
+        "score": 0.2,
+        "reason": "Snuke sequence wraps s->s; sequence itself appears intended."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 30,
+  "loc": 30,
+  "evaluation_denominator": 30,
+  "faulty_lines": [
+    27
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "619",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "11f049fac55c78da937115bc49f4eaf0a43413e947ebfc8226aff1df1d682517",
+  "prior_hash": null,
+  "prompt_chars": 3401,
+  "prompt_tokens_estimate": 851,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

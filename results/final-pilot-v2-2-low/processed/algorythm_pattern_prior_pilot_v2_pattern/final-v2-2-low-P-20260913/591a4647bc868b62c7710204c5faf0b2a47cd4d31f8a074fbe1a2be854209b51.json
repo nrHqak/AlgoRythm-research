@@ -1,0 +1,88 @@
+{
+  "run_id": "591a4647bc868b62c7710204c5faf0b2a47cd4d31f8a074fbe1a2be854209b51",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "716756a0c150da049bdadcfa4c2e2f39ec85889d2e878c2020733b69d647799b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:51:33.643697Z",
+  "latency": 15.336345583025832,
+  "token_usage": {
+    "prompt_tokens": 1208,
+    "completion_tokens": 1023,
+    "total_tokens": 2231,
+    "cost": 0.0006927,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0006927,
+      "upstream_inference_prompt_cost": 0.0001812,
+      "upstream_inference_completions_cost": 0.0005115
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 722,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.75, \"reason\": \"When C2[j-1] (or C1[j-1]) takes over as C1[j], its color isn't checked against the pushed-down C1[j]; stale V1[j] moved to C2[j] could share the new C1[j]'s color, breaking the two-distinct-color invariant.\"}, {\"line\": 34, \"score\": 0.6, \"reason\": \"elif only checks incoming color against C1[j]; if V2[j-1] has same color as new C1[j] after a swap in the first branch it can be accepted incorrectly, and tie handling with old C2[j] is lost.\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"On repeated color for j=0, discarding to -INF instead of carrying a valid alternative may lose reachable states.\"}, {\"line\": 20, \"score\": 0.4, \"reason\": \"V2[j]+vi assumes V2[j] has a different color and is a valid predecessor; no guard that V2[j] was set.\"}, {\"line\": 17, \"score\": 0.3, \"reason\": \"Blindly adding vi when C1[j] != ci trusts the invariant that previous state had distinct alternate color; can compound earlier invariant breakage.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/591a4647bc868b62c7710204c5faf0b2a47cd4d31f8a074fbe1a2be854209b51.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.75,
+        "reason": "When C2[j-1] (or C1[j-1]) takes over as C1[j], its color isn't checked against the pushed-down C1[j]; stale V1[j] moved to C2[j] could share the new C1[j]'s color, breaking the two-distinct-color invariant."
+      },
+      {
+        "line": 34,
+        "score": 0.6,
+        "reason": "elif only checks incoming color against C1[j]; if V2[j-1] has same color as new C1[j] after a swap in the first branch it can be accepted incorrectly, and tie handling with old C2[j] is lost."
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "On repeated color for j=0, discarding to -INF instead of carrying a valid alternative may lose reachable states."
+      },
+      {
+        "line": 20,
+        "score": 0.4,
+        "reason": "V2[j]+vi assumes V2[j] has a different color and is a valid predecessor; no guard that V2[j] was set."
+      },
+      {
+        "line": 17,
+        "score": 0.3,
+        "reason": "Blindly adding vi when C1[j] != ci trusts the invariant that previous state had distinct alternate color; can compound earlier invariant breakage."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": null,
+  "prompt_chars": 3988,
+  "prompt_tokens_estimate": 997,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

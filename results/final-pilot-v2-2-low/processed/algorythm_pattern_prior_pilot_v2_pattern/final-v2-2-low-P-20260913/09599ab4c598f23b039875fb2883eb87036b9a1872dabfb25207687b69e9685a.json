@@ -1,0 +1,73 @@
+{
+  "run_id": "09599ab4c598f23b039875fb2883eb87036b9a1872dabfb25207687b69e9685a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "3bbc52bbb708aac60f9b9bd642eff3273e5be515bb3caf7e285adcc305dd33ac",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "46196763",
+  "task_id": "abc322_b",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:28.519454Z",
+  "latency": 2.4446349169593304,
+  "token_usage": {
+    "prompt_tokens": 965,
+    "completion_tokens": 145,
+    "total_tokens": 1110,
+    "cost": 0.00017885,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00017885,
+      "upstream_inference_prompt_cost": 0.00010635,
+      "upstream_inference_completions_cost": 7.25e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 54,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.95, \"reason\": \"S[-i] at i=0 is S[0], not last char; should use S[N-1-i] or S[-i-1] for suffix check\"}, {\"line\": 9, \"score\": 0.1, \"reason\": \"prefix check itself is correct, given proper line 14 fix\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/09599ab4c598f23b039875fb2883eb87036b9a1872dabfb25207687b69e9685a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.95,
+        "reason": "S[-i] at i=0 is S[0], not last char; should use S[N-1-i] or S[-i-1] for suffix check"
+      },
+      {
+        "line": 9,
+        "score": 0.1,
+        "reason": "prefix check itself is correct, given proper line 14 fix"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "54",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "879bf3e14625a146d0e99cdbeb504e2a5638247365e28fb35c7cfb40c646dd21",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 3934,
+  "prompt_tokens_estimate": 984,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

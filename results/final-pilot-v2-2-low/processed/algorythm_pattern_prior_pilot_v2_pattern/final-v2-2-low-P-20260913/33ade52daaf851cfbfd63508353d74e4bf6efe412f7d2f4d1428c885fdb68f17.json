@@ -1,0 +1,78 @@
+{
+  "run_id": "33ade52daaf851cfbfd63508353d74e4bf6efe412f7d2f4d1428c885fdb68f17",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "e99fdc2aa4300d0f5c599948161b0d20d45d22c26513f345e7fbc261ba40ddaa",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:48:33.326134Z",
+  "latency": 7.781373125035316,
+  "token_usage": {
+    "prompt_tokens": 1016,
+    "completion_tokens": 502,
+    "total_tokens": 1518,
+    "cost": 0.0002882,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002882,
+      "upstream_inference_prompt_cost": 3.72e-05,
+      "upstream_inference_completions_cost": 0.000251
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 363,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"Outcomes j>i can't go to dp[0]=0; they re-roll the same wheel, so clamping them to dp[max(0,i-j)] is wrong.\"}, {\"line\": 22, \"score\": 0.5, \"reason\": \"Divides by all nonzero outcomes num, but outcomes overshooting i should be excluded from both sum and denominator.\"}, {\"line\": 24, \"score\": 0.2, \"reason\": \"Cost term c*p/num is only correct if denominator properly excludes overshooting outcomes.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/33ade52daaf851cfbfd63508353d74e4bf6efe412f7d2f4d1428c885fdb68f17.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "Outcomes j>i can't go to dp[0]=0; they re-roll the same wheel, so clamping them to dp[max(0,i-j)] is wrong."
+      },
+      {
+        "line": 22,
+        "score": 0.5,
+        "reason": "Divides by all nonzero outcomes num, but outcomes overshooting i should be excluded from both sum and denominator."
+      },
+      {
+        "line": 24,
+        "score": 0.2,
+        "reason": "Cost term c*p/num is only correct if denominator properly excludes overshooting outcomes."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 3965,
+  "prompt_tokens_estimate": 992,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

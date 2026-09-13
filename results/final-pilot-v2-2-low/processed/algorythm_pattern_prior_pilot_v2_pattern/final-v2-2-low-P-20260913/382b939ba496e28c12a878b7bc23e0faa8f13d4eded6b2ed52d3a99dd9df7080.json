@@ -1,0 +1,78 @@
+{
+  "run_id": "382b939ba496e28c12a878b7bc23e0faa8f13d4eded6b2ed52d3a99dd9df7080",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a347101bb4a0d66f44bc662d4debaa207c0d5c186757497ee0fdaf5975ce8f39",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:46:02.246190Z",
+  "latency": 4.974672875017859,
+  "token_usage": {
+    "prompt_tokens": 1045,
+    "completion_tokens": 247,
+    "total_tokens": 1292,
+    "cost": 0.00015737,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00015737,
+      "upstream_inference_prompt_cost": 3.387e-05,
+      "upstream_inference_completions_cost": 0.0001235
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 102,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =, so unreachable cells (value 1) are never reset to 0, leaving stale values that pollute later max computations.\"}, {\"line\": 19, \"score\": 0.3, \"reason\": \"max of possibly-unreachable neighbors (value 1) plus 1 wrongly yields reachable path; consequence of line 22 bug but also a place to guard.\"}, {\"line\": 5, \"score\": 0.1, \"reason\": \"Base case value 1 is fine but interacts with the reset logic; correct if reset worked.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/382b939ba496e28c12a878b7bc23e0faa8f13d4eded6b2ed52d3a99dd9df7080.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =, so unreachable cells (value 1) are never reset to 0, leaving stale values that pollute later max computations."
+      },
+      {
+        "line": 19,
+        "score": 0.3,
+        "reason": "max of possibly-unreachable neighbors (value 1) plus 1 wrongly yields reachable path; consequence of line 22 bug but also a place to guard."
+      },
+      {
+        "line": 5,
+        "score": 0.1,
+        "reason": "Base case value 1 is fine but interacts with the reset logic; correct if reset worked."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4046,
+  "prompt_tokens_estimate": 1012,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

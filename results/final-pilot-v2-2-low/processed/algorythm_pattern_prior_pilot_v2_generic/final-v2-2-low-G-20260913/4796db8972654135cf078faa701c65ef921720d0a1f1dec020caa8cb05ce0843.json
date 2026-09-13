@@ -1,0 +1,68 @@
+{
+  "run_id": "4796db8972654135cf078faa701c65ef921720d0a1f1dec020caa8cb05ce0843",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "02cad16d419bb1f5e763761c303183646ec3f19b436c1cca6f014ceb464b99d4",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54718266",
+  "task_id": "abc308_d",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:49.727304Z",
+  "latency": 1.8488972919876687,
+  "token_usage": {
+    "prompt_tokens": 929,
+    "completion_tokens": 86,
+    "total_tokens": 1015,
+    "cost": 7.483e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.483e-05,
+      "upstream_inference_prompt_cost": 3.183e-05,
+      "upstream_inference_completions_cost": 4.3e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 32,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 27, \"score\": 0.95, \"reason\": \"Checks grid[h][w] (always truthy non-empty string) instead of visited bool[h][w]; should test bool[h][w]\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/4796db8972654135cf078faa701c65ef921720d0a1f1dec020caa8cb05ce0843.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 27,
+        "score": 0.95,
+        "reason": "Checks grid[h][w] (always truthy non-empty string) instead of visited bool[h][w]; should test bool[h][w]"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 30,
+  "loc": 30,
+  "evaluation_denominator": 30,
+  "faulty_lines": [
+    27
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "619",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "11f049fac55c78da937115bc49f4eaf0a43413e947ebfc8226aff1df1d682517",
+  "prior_hash": null,
+  "prompt_chars": 3401,
+  "prompt_tokens_estimate": 851,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

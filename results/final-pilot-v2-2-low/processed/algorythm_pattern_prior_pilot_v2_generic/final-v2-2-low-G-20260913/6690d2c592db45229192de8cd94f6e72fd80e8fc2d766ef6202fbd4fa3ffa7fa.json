@@ -1,0 +1,78 @@
+{
+  "run_id": "6690d2c592db45229192de8cd94f6e72fd80e8fc2d766ef6202fbd4fa3ffa7fa",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "5f346b5cbfb469cff30d0f909228f035d3391908a9363171d8b2797df189818b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44917428",
+  "task_id": "abc275_c",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:27:07.098469Z",
+  "latency": 9.625578249979299,
+  "token_usage": {
+    "prompt_tokens": 1682,
+    "completion_tokens": 795,
+    "total_tokens": 2477,
+    "cost": 0.00045012,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00045012,
+      "upstream_inference_prompt_cost": 5.262e-05,
+      "upstream_inference_completions_cost": 0.0003975
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 633,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.95, \"reason\": \"Third vertex should be (i+k+2, j+2k+2), not (i+1, j+2k+2); vector p2->p3 must be (k+1,k+1) to close the square\"}, {\"line\": 11, \"score\": 0.3, \"reason\": \"Range 7-2*k combined with offset 2k+2 touches boundary; verify no squares missed for larger k\"}, {\"line\": 45, \"score\": 0.25, \"reason\": \"range(9-2-k) may under-iterate; check max index i+2+k stays within and all squares counted\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/6690d2c592db45229192de8cd94f6e72fd80e8fc2d766ef6202fbd4fa3ffa7fa.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.95,
+        "reason": "Third vertex should be (i+k+2, j+2k+2), not (i+1, j+2k+2); vector p2->p3 must be (k+1,k+1) to close the square"
+      },
+      {
+        "line": 11,
+        "score": 0.3,
+        "reason": "Range 7-2*k combined with offset 2k+2 touches boundary; verify no squares missed for larger k"
+      },
+      {
+        "line": 45,
+        "score": 0.25,
+        "reason": "range(9-2-k) may under-iterate; check max index i+2+k stays within and all squares counted"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    13
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "760",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "41891f309c335ed83192010e36cdcea3c51557d1c4453e41aa48dc51321b8448",
+  "prior_hash": null,
+  "prompt_chars": 4873,
+  "prompt_tokens_estimate": 1219,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

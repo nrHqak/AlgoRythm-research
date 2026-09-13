@@ -1,0 +1,73 @@
+{
+  "run_id": "323e6e167fa32cc7021887c7e062cfa8d54a0125ac18e867996d6ba8ca56e898",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "18a80a79fdee0143a8f8d484e66874b6f20127614b9054b44cd0d32a03514ba9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:14:56.959710Z",
+  "latency": 2.88480137498118,
+  "token_usage": {
+    "prompt_tokens": 876,
+    "completion_tokens": 147,
+    "total_tokens": 1023,
+    "cost": 0.00010506,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00010506,
+      "upstream_inference_prompt_cost": 3.156e-05,
+      "upstream_inference_completions_cost": 7.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 62,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =, so unreachable cells never reset to 0, counting fake paths.\"}, {\"line\": 19, \"score\": 0.5, \"reason\": \"Adding 1 when a neighbor is 0 fabricates path; relies on broken reset at line 22.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/323e6e167fa32cc7021887c7e062cfa8d54a0125ac18e867996d6ba8ca56e898.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =, so unreachable cells never reset to 0, counting fake paths."
+      },
+      {
+        "line": 19,
+        "score": 0.5,
+        "reason": "Adding 1 when a neighbor is 0 fabricates path; relies on broken reset at line 22."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": null,
+  "prompt_chars": 3173,
+  "prompt_tokens_estimate": 794,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

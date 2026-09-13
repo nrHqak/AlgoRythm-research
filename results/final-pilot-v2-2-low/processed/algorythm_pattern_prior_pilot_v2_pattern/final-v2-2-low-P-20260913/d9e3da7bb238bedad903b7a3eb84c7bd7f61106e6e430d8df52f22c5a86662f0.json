@@ -1,0 +1,83 @@
+{
+  "run_id": "d9e3da7bb238bedad903b7a3eb84c7bd7f61106e6e430d8df52f22c5a86662f0",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "ca88af94cc4611be51ae259a5afa929111d4eb874fd668488291941ca8263810",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:51:29.037556Z",
+  "latency": 10.730190582980867,
+  "token_usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 660,
+    "total_tokens": 2037,
+    "cost": 0.00053655,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00053655,
+      "upstream_inference_prompt_cost": 0.00020655,
+      "upstream_inference_completions_cost": 0.00033
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 478,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 33, \"score\": 0.9, \"reason\": \"Candidate from j-1 state lacks +vi when promoted to V1[j]; value offset inconsistent with updated V1[j].\"}, {\"line\": 28, \"score\": 0.8, \"reason\": \"Compares V[j-1] (without vi) against V1[j] (with vi); should compare V[j-1]+vi.\"}, {\"line\": 36, \"score\": 0.75, \"reason\": \"V2[j] set to V[j-1] without adding vi, inconsistent offset for second-best candidate.\"}, {\"line\": 20, \"score\": 0.3, \"reason\": \"Same-color fallback uses V2[j]; if V2 still sentinel this is fine, but depends on reset ordering above.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/d9e3da7bb238bedad903b7a3eb84c7bd7f61106e6e430d8df52f22c5a86662f0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 33,
+        "score": 0.9,
+        "reason": "Candidate from j-1 state lacks +vi when promoted to V1[j]; value offset inconsistent with updated V1[j]."
+      },
+      {
+        "line": 28,
+        "score": 0.8,
+        "reason": "Compares V[j-1] (without vi) against V1[j] (with vi); should compare V[j-1]+vi."
+      },
+      {
+        "line": 36,
+        "score": 0.75,
+        "reason": "V2[j] set to V[j-1] without adding vi, inconsistent offset for second-best candidate."
+      },
+      {
+        "line": 20,
+        "score": 0.3,
+        "reason": "Same-color fallback uses V2[j]; if V2 still sentinel this is fine, but depends on reset ordering above."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4861,
+  "prompt_tokens_estimate": 1216,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

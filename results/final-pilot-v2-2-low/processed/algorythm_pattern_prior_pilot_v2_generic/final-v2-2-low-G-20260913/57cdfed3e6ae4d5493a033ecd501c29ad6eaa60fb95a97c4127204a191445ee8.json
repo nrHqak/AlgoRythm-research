@@ -1,0 +1,83 @@
+{
+  "run_id": "57cdfed3e6ae4d5493a033ecd501c29ad6eaa60fb95a97c4127204a191445ee8",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "fb42bc9c0a55ffe1e056d9e4ce06eed52fcb376832af4cbdc244e18b37d0a5df",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44917428",
+  "task_id": "abc275_c",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:27:14.558153Z",
+  "latency": 17.084922040987294,
+  "token_usage": {
+    "prompt_tokens": 1845,
+    "completion_tokens": 1246,
+    "total_tokens": 3091,
+    "cost": 0.00068471,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00068471,
+      "upstream_inference_prompt_cost": 6.171e-05,
+      "upstream_inference_completions_cost": 0.000623
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1059,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 44, \"score\": 0.75, \"reason\": \"k list [3,5] omits small/large k values, missing squares with side vectors (2,1),(2,2),(2,6); undercounts rotated squares\"}, {\"line\": 51, \"score\": 0.7, \"reason\": \"k in [4,5] misses k=1,2,3 for side vector (3,k) squares, so those square sizes are never counted\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"rotated-square loop only covers four k values; boundary of enumeration may miss a size\"}, {\"line\": 37, \"score\": 0.15, \"reason\": \"range(4-k) bound depends on exact k coverage; off-by-one here would drop edge squares\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/57cdfed3e6ae4d5493a033ecd501c29ad6eaa60fb95a97c4127204a191445ee8.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 44,
+        "score": 0.75,
+        "reason": "k list [3,5] omits small/large k values, missing squares with side vectors (2,1),(2,2),(2,6); undercounts rotated squares"
+      },
+      {
+        "line": 51,
+        "score": 0.7,
+        "reason": "k in [4,5] misses k=1,2,3 for side vector (3,k) squares, so those square sizes are never counted"
+      },
+      {
+        "line": 10,
+        "score": 0.2,
+        "reason": "rotated-square loop only covers four k values; boundary of enumeration may miss a size"
+      },
+      {
+        "line": 37,
+        "score": 0.15,
+        "reason": "range(4-k) bound depends on exact k coverage; off-by-one here would drop edge squares"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    13
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "760",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "41891f309c335ed83192010e36cdcea3c51557d1c4453e41aa48dc51321b8448",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 5717,
+  "prompt_tokens_estimate": 1430,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

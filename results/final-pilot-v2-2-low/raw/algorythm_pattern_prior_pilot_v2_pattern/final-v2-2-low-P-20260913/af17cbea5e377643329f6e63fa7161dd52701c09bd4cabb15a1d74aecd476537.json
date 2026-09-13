@@ -1,0 +1,145 @@
+{
+  "run_id": "af17cbea5e377643329f6e63fa7161dd52701c09bd4cabb15a1d74aecd476537",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4592a64fd40dbd834fbae2eb9fb4be7df20665ac2a95bfb8c538ef33a92d3070",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:29.623481+00:00",
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 41991921\nTask ID: abc304_g\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def calc1(a, m, t):\n2:   if t == -1:\n3:     return len(a) // 2\n4:   if len(a) < 2:\n5:     return 0\n6:   bit = 1 << t\n7:   b = []\n8:   c = []\n9:   for i in a:\n10:     if i & bit: c.append(i)\n11:     else: b.append(i)\n12:   if m & bit: return calc2(b, c, m, t - 1)\n13:   else:\n14:     if len(b) > len(c): b, c = c, b\n15:     res = len(b) + min((len(c) - len(b)) // 2, calc1(c, m, t - 1))\n16:     return res\n17: def calc2(b, c, m, t):\n18:   if t == -1: return min(len(b), len(c))\n19:   if len(b) == 0 or len(c) == 0: return 0\n20:   bit = 1 << t\n21:   d = []\n22:   e = []\n23:   f = []\n24:   g = []\n25:   for i in b:\n26:     if i & bit: e.append(i)\n27:     else: d.append(i)\n28:   for i in c:\n29:     if i & bit: g.append(i)\n30:     else: f.append(i)\n31:   if m & bit:\n32:     return calc2(e, f, m, t - 1) + calc2(d, g, m, t - 1)\n33:   else:\n34:     res = min(len(e), len(f)) + min(len(d), len(g))\n35:     if len(e) > len(f) and len(g) > len(d):\n36:       res += min(len(e) - len(f), len(g) - len(d), calc2(e, g, m, t - 1))\n37:     elif len(e) < len(f) and len(g) < len(d):\n38:       res += min(len(f) - len(e), len(d) - len(g), calc2(d, f, m, t - 1))\n39:     return res\n40: n = int(input())\n41: a = list(map(int, input().split()))\n42: l = 0\n43: r = 10 ** 10\n44: while l + 1 < r:\n45:   m = (l + r) // 2\n46:   if calc1(a, m, 29) >= (n + 1) // 2: l = m\n47:   else: r = m\n48: print(l)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"Leftover c-pairs already exceed m (bit set vs m's 0), so capping with calc1(c,m,t-1) wrongly undercounts; should be just (len(c)-len(b))//2.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"(n+1)//2 pair target could be wrong if odd n is possible; also relies on calc1 semantics of '>='.\"}, {\"line\": 3, \"score\": 0.1, \"reason\": \"Base case counts all pairs at full-prefix equality; plausible off-by-strictness if predicate is strict '>'.\"}]}",
+  "latency": 26.942110375035554,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 2091,
+    "total_tokens": 3303,
+    "cost": 0.0011889,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0011889,
+      "upstream_inference_prompt_cost": 0.0001434,
+      "upstream_inference_completions_cost": 0.0010455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1934,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250643-rHAGOYcLf3mAIrrM4zh9",
+    "provider_created": 1789250643,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 6750,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250643-rHAGOYcLf3mAIrrM4zh9",
+    "object": "chat.completion",
+    "created": 1789250643,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"Leftover c-pairs already exceed m (bit set vs m's 0), so capping with calc1(c,m,t-1) wrongly undercounts; should be just (len(c)-len(b))//2.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"(n+1)//2 pair target could be wrong if odd n is possible; also relies on calc1 semantics of '>='.\"}, {\"line\": 3, \"score\": 0.1, \"reason\": \"Base case counts all pairs at full-prefix equality; plausible off-by-strictness if predicate is strict '>'.\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC304G: maximize XOR pairwise matching min. calc2 line 35-38 branch logic: leftovers pairing when m bit not set, excess must pair among themselves giving XOR > m, recursing on e-g vs... Actually leftover excess in e must pair with excess in g (both bit set) — that's fine. But also leftover from... hmm, line 34: res counts min pairs; leftover elements in the majority side... If len(e)>len(f) and len(g)>len(d), excess e pairs with excess g — calc2(e,g,...) but those both have bit set, XOR lacks bit, fine. Correct.\n\nLine 15: min((len(c)-len(b))//2, calc1(c,m,t-1)) — pairs within c beyond matching b... actually standard: matched pairs = len(b), remaining in c is len(c)-len(b), internal pairs give XOR with bit ≥ m+... calc1 for threshold m+1? Actually binary search for max min XOR ≥ ... calc1 counts pairs with XOR > m? Boundary condition: pairs with XOR ≥ some value... The min formula seems right.\n\nLine 2-3: t==-1 return len(a)//2 — but calc1 counts pairs with XOR ≥ ... need XOR > m exactly? In calc1 when m bit set, pairs must have bit set giving XOR>m... calc1 computes number of pairs with XOR ≥ ... hmm. When all bits of m consumed, remaining pairs have XOR prefix equal to m, so XOR ≥ m strictly? Actually equal to m's prefix; pairs remaining XOR equals m at consumed bits, any lower bits arbitrary. So count = len(a)//2, meaning pairs with XOR > m? No—XOR > m pairs; prefix strictly greater counted in calc2 branches, equal prefix counted as len//2 including XOR == m. So predicate \"count of pairs with XOR > m or XOR == m ≥ ...\" — binary search finds largest l with count ≥ n/2, counts pairs with XOR ≥ ... hmm, count includes XOR == m and > m, so l = max m such that min match ≥ m... pairs with XOR ≥ m count ≥ n/2 → l = max achievable min? That's consistent.\n\nLine 44-46: r=10^10 > 2^30 ~ 1.07e9, fine since a_i ≤ 2^30. m up to 2^30-1 fine.\n\nPotential bug: line 3, len(a)//2 vs needing... fine.\n\nLine 15: leftover c size len(c)-len(b); internal pairing pairs with bit 1 on both → XOR lacks bit, i.e., XOR < threshold-with-bit... condition is XOR ≥ m where m bit 0: pairs with bit 0 in c still satisfy XOR > m since bit differs... wait m bit is 0, pairs inside c have bit 1 > 0 so XOR > m regardless of lower bits, so should count all (len(c)-len(b))//2? No wait, matching is max min — we count maximum matching where every pair XOR ≥ something? Actually we binary search: count pairs... hmm this is max matching count of pairs whose XOR > m? ABC304G: choose pairs maximizing min XOR. Binary search on answer X, check whether we can pair so all pairs XOR ≥ X. calc1 returns max number of pairs with XOR > m... hmm.\n\nActually check(x): can we achieve min ≥ x+1 i.e. pairs with XOR > m where m=x? Predicate uses \">=\", binary search l,r with l=m if calc ≥ (n+1)//2. calc1 = max matching with XOR > m? If pairs have XOR > m... but then at t==-1 (equal prefix to m) pairs with equal everything—XOR can't exceed m. Return len//2 counts pairs with XOR == m? Those don't satisfy > m. So calc1 counts pairs with XOR ≥ m+... Confusion. Likely intended calc1 = max matching with XOR ≥ m... then predicate ≥ n/2 gives answer l = max m with matching all pairs XOR ≥ m. That's the standard. Then line 15: len(b) pairs cross (bit differs from m's 0 → XOR bit 1 > m's bit → ≥ m regardless), remaining len(c)-len(b) elements pair inside c, bit same as m's 0 → need lower bits XOR ≥ lower m: calc1(c, m, t-1). min of internal pairs and excess/2: excess = len(c)-len(b), internal pairs limited by min(excess//2, calc1(...)). Correct.\n\ncalc2: pairs XOR > m given prefix... b elements have bit 0, c bit 1? b and c are the two groups with differing bit, so any pair has bit 1 > m's bit 1 → ≥ m regardless. So t==-1 return min(len(b),len(c)) counts all cross pairs. Fine.\n\nLine 34-38: m bit 0. Cross matching: e-f and d-g pairs have bit 1 → always good. Leftovers: if e>f and g>d, leftover e (bit 1) pairs with leftover g (bit 1): need calc2(e,g,...)? e and g both have bit 1, XOR bit 0 equals m bit 0, so need lower bits ≥: calc2(e,g,m,t-1) — but calc2 with b,c different bit groups... calc2 expects b and c to be complementary groups? Actually calc2's semantics: number of pairs between b and c with XOR ≥ m. But leftover e,g pairs: pairs within same group, not between. Hmm—calc2(b,c,...) counts cross pairs min(len) etc.? It treats pairs as between b and c. But here e,g leftover pairing is within-set pairing needing XOR ≥ m — that's a different function (calc1 on combined?). But calc2(e,g,...) counts pairs e×g which is what we want, and since e and g share the bit, cross pairs have bit 0 = m bit 0, so recursing works with the m bit 0 branch of calc2... but calc2's structure assumes b,c differ in already-consumed bits? Actually calc2's recursion is symmetric and doesn't care. Seems fine.\n\nHmm, but the elif line 37-38: leftover f and d pair: f bit 1... wait f is c's bit-0 group, d is b's bit-0 group. len(f)>len(e) and len(d)>len(g): leftover f and d both bit 0 → calc2(d,f,...). OK.\n\nThe real bug might be line 46: (n+1)//2 — n could be odd, n pairs = n//2, so check should be n//2? ABC304G guarantees n even I think. n up to 500? Actually constraint n ≤ 1000, even? \"N is even\" I believe. Hmm.\n\nLine 43: r = 10^10 > 2^30, fine.\n\nBinary search condition l+1<r with r=10^10: answer could be up to 2^30-1 < r fine.\n\nLine 46 t=29: values < 2^30, bits 0..29, ok.\n\nWhat about calc1 line 14: if len(b) > len(c) swap — matches smaller side with larger, leftover inside larger needing XOR ≥ m... wait leftover inside c: pairs within c have bit 1 > m bit 0 → XOR > m always! So no need for calc1: internal pairs always qualify. Line 15 uses min(excess//2, calc1(c,...)) — calc1(c, m, t-1) counts pairs within c with XOR ≥ m at lower bits, but that's wrong: those pairs already satisfy XOR > m since bit differs from m's 0... wait pairs within c: c elements have bit 1, m bit 0, so XOR has bit 1 > m → XOR > m regardless of lower bits. So should just be (len(c)-len(b))//2, and min with calc1 undercounts! That's the bug. Line 15.\n\nWait but is calc1's semantics pairs with XOR ≥ m or > m? If predicate is XOR > m (strict), then binary search gives l+1 as answer... but print(l). Hmm. Let's define calc1 = max pairs with XOR > m. Then at t=-1, return 0, not len//2. So semantics must be ≥ m. With ≥ m: leftover c pairs have XOR > m ⊇ ≥ m, count all. calc1 undercounts. Yes line 15 is buggy: should be res = len(b) + (len(c)-len(b))//2... wait but if b>c swap makes b smaller, c larger, cross pairs = len(b), leftover in c = len(c)-len(b), all internally pairable → len(b)+(len(c)-len(b))//2. The min with calc1 wrongly restricts. Score high.\n\nAlso possibly the ternary check line 46 fine.\n\nRanking: line 15 high. Others lower: line 46, line 3.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC304G: maximize XOR pairwise matching min. calc2 line 35-38 branch logic: leftovers pairing when m bit not set, excess must pair among themselves giving XOR > m, recursing on e-g vs... Actually leftover excess in e must pair with excess in g (both bit set) — that's fine. But also leftover from... hmm, line 34: res counts min pairs; leftover elements in the majority side... If len(e)>len(f) and len(g)>len(d), excess e pairs with excess g — calc2(e,g,...) but those both have bit set, XOR lacks bit, fine. Correct.\n\nLine 15: min((len(c)-len(b))//2, calc1(c,m,t-1)) — pairs within c beyond matching b... actually standard: matched pairs = len(b), remaining in c is len(c)-len(b), internal pairs give XOR with bit ≥ m+... calc1 for threshold m+1? Actually binary search for max min XOR ≥ ... calc1 counts pairs with XOR > m? Boundary condition: pairs with XOR ≥ some value... The min formula seems right.\n\nLine 2-3: t==-1 return len(a)//2 — but calc1 counts pairs with XOR ≥ ... need XOR > m exactly? In calc1 when m bit set, pairs must have bit set giving XOR>m... calc1 computes number of pairs with XOR ≥ ... hmm. When all bits of m consumed, remaining pairs have XOR prefix equal to m, so XOR ≥ m strictly? Actually equal to m's prefix; pairs remaining XOR equals m at consumed bits, any lower bits arbitrary. So count = len(a)//2, meaning pairs with XOR > m? No—XOR > m pairs; prefix strictly greater counted in calc2 branches, equal prefix counted as len//2 including XOR == m. So predicate \"count of pairs with XOR > m or XOR == m ≥ ...\" — binary search finds largest l with count ≥ n/2, counts pairs with XOR ≥ ... hmm, count includes XOR == m and > m, so l = max m such that min match ≥ m... pairs with XOR ≥ m count ≥ n/2 → l = max achievable min? That's consistent.\n\nLine 44-46: r=10^10 > 2^30 ~ 1.07e9, fine since a_i ≤ 2^30. m up to 2^30-1 fine.\n\nPotential bug: line 3, len(a)//2 vs needing... fine.\n\nLine 15: leftover c size len(c)-len(b); internal pairing pairs with bit 1 on both → XOR lacks bit, i.e., XOR < threshold-with-bit... condition is XOR ≥ m where m bit 0: pairs with bit 0 in c still satisfy XOR > m since bit differs... wait m bit is 0, pairs inside c have bit 1 > 0 so XOR > m regardless of lower bits, so should count all (len(c)-len(b))//2? No wait, matching is max min — we count maximum matching where every pair XOR ≥ something? Actually we binary search: count pairs... hmm this is max matching count of pairs whose XOR > m? ABC304G: choose pairs maximizing min XOR. Binary search on answer X, check whether we can pair so all pairs XOR ≥ X. calc1 returns max number of pairs with XOR > m... hmm.\n\nActually check(x): can we achieve min ≥ x+1 i.e. pairs with XOR > m where m=x? Predicate uses \">=\", binary search l,r with l=m if calc ≥ (n+1)//2. calc1 = max matching with XOR > m? If pairs have XOR > m... but then at t==-1 (equal prefix to m) pairs with equal everything—XOR can't exceed m. Return len//2 counts pairs with XOR == m? Those don't satisfy > m. So calc1 counts pairs with XOR ≥ m+... Confusion. Likely intended calc1 = max matching with XOR ≥ m... then predicate ≥ n/2 gives answer l = max m with matching all pairs XOR ≥ m. That's the standard. Then line 15: len(b) pairs cross (bit differs from m's 0 → XOR bit 1 > m's bit → ≥ m regardless), remaining len(c)-len(b) elements pair inside c, bit same as m's 0 → need lower bits XOR ≥ lower m: calc1(c, m, t-1). min of internal pairs and excess/2: excess = len(c)-len(b), internal pairs limited by min(excess//2, calc1(...)). Correct.\n\ncalc2: pairs XOR > m given prefix... b elements have bit 0, c bit 1? b and c are the two groups with differing bit, so any pair has bit 1 > m's bit 1 → ≥ m regardless. So t==-1 return min(len(b),len(c)) counts all cross pairs. Fine.\n\nLine 34-38: m bit 0. Cross matching: e-f and d-g pairs have bit 1 → always good. Leftovers: if e>f and g>d, leftover e (bit 1) pairs with leftover g (bit 1): need calc2(e,g,...)? e and g both have bit 1, XOR bit 0 equals m bit 0, so need lower bits ≥: calc2(e,g,m,t-1) — but calc2 with b,c different bit groups... calc2 expects b and c to be complementary groups? Actually calc2's semantics: number of pairs between b and c with XOR ≥ m. But leftover e,g pairs: pairs within same group, not between. Hmm—calc2(b,c,...) counts cross pairs min(len) etc.? It treats pairs as between b and c. But here e,g leftover pairing is within-set pairing needing XOR ≥ m — that's a different function (calc1 on combined?). But calc2(e,g,...) counts pairs e×g which is what we want, and since e and g share the bit, cross pairs have bit 0 = m bit 0, so recursing works with the m bit 0 branch of calc2... but calc2's structure assumes b,c differ in already-consumed bits? Actually calc2's recursion is symmetric and doesn't care. Seems fine.\n\nHmm, but the elif line 37-38: leftover f and d pair: f bit 1... wait f is c's bit-0 group, d is b's bit-0 group. len(f)>len(e) and len(d)>len(g): leftover f and d both bit 0 → calc2(d,f,...). OK.\n\nThe real bug might be line 46: (n+1)//2 — n could be odd, n pairs = n//2, so check should be n//2? ABC304G guarantees n even I think. n up to 500? Actually constraint n ≤ 1000, even? \"N is even\" I believe. Hmm.\n\nLine 43: r = 10^10 > 2^30, fine.\n\nBinary search condition l+1<r with r=10^10: answer could be up to 2^30-1 < r fine.\n\nLine 46 t=29: values < 2^30, bits 0..29, ok.\n\nWhat about calc1 line 14: if len(b) > len(c) swap — matches smaller side with larger, leftover inside larger needing XOR ≥ m... wait leftover inside c: pairs within c have bit 1 > m bit 0 → XOR > m always! So no need for calc1: internal pairs always qualify. Line 15 uses min(excess//2, calc1(c,...)) — calc1(c, m, t-1) counts pairs within c with XOR ≥ m at lower bits, but that's wrong: those pairs already satisfy XOR > m since bit differs from m's 0... wait pairs within c: c elements have bit 1, m bit 0, so XOR has bit 1 > m → XOR > m regardless of lower bits. So should just be (len(c)-len(b))//2, and min with calc1 undercounts! That's the bug. Line 15.\n\nWait but is calc1's semantics pairs with XOR ≥ m or > m? If predicate is XOR > m (strict), then binary search gives l+1 as answer... but print(l). Hmm. Let's define calc1 = max pairs with XOR > m. Then at t=-1, return 0, not len//2. So semantics must be ≥ m. With ≥ m: leftover c pairs have XOR > m ⊇ ≥ m, count all. calc1 undercounts. Yes line 15 is buggy: should be res = len(b) + (len(c)-len(b))//2... wait but if b>c swap makes b smaller, c larger, cross pairs = len(b), leftover in c = len(c)-len(b), all internally pairable → len(b)+(len(c)-len(b))//2. The min with calc1 wrongly restricts. Score high.\n\nAlso possibly the ternary check line 46 fine.\n\nRanking: line 15 high. Others lower: line 46, line 3.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1212,
+      "completion_tokens": 2091,
+      "total_tokens": 3303,
+      "cost": 0.0011889,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011889,
+        "upstream_inference_prompt_cost": 0.0001434,
+        "upstream_inference_completions_cost": 0.0010455
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1934,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

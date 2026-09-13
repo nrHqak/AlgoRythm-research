@@ -1,0 +1,68 @@
+{
+  "run_id": "d02c949188576d65a9baaf11ab5c44520c4c77c0c055b663a9c361c78efc0aba",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "6c7ace143c3d32dd9d7d31dbeb8477080f243f48799390b7ffe4975748339e00",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45289055",
+  "task_id": "abc257_a",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:26:09.721177Z",
+  "latency": 3.0590124579612166,
+  "token_usage": {
+    "prompt_tokens": 1271,
+    "completion_tokens": 107,
+    "total_tokens": 1378,
+    "cost": 0.00024415,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00024415,
+      "upstream_inference_prompt_cost": 0.00019065,
+      "upstream_inference_completions_cost": 5.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 47,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Should be chr of (X-1)//N; X//N-1 is wrong at X=N boundary (gives '@' via -1 or off by one).\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/d02c949188576d65a9baaf11ab5c44520c4c77c0c055b663a9c361c78efc0aba.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 40,
+        "score": 0.95,
+        "reason": "Should be chr of (X-1)//N; X//N-1 is wrong at X=N boundary (gives '@' via -1 or off by one)."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 44,
+  "loc": 44,
+  "evaluation_denominator": 44,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "22",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "ac3951dd06b5a04dd4457b15d9ab51da6ead38da4ce924461c5aba902f5da665",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4650,
+  "prompt_tokens_estimate": 1163,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

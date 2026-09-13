@@ -1,0 +1,73 @@
+{
+  "run_id": "856d454a0e1bca75cc81101ab90c5d810867f1af6f26eef06c50f7f08b5e0b7a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b685727f9dda79728298f8757a0db803045d391a9b7f5902409692503991ec33",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:27.888853Z",
+  "latency": 3.4879207080230117,
+  "token_usage": {
+    "prompt_tokens": 1004,
+    "completion_tokens": 171,
+    "total_tokens": 1175,
+    "cost": 0.0001209,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001209,
+      "upstream_inference_prompt_cost": 3.54e-05,
+      "upstream_inference_completions_cost": 8.55e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 97,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.2, \"reason\": \"Edges look correct; check if undirected addition is intended given problem's interval semantics\"}, {\"line\": 22, \"score\": 0.1, \"reason\": \"all(visited) correctly checks reachability of node N from 0\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/856d454a0e1bca75cc81101ab90c5d810867f1af6f26eef06c50f7f08b5e0b7a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.2,
+        "reason": "Edges look correct; check if undirected addition is intended given problem's interval semantics"
+      },
+      {
+        "line": 22,
+        "score": 0.1,
+        "reason": "all(visited) correctly checks reachability of node N from 0"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4034,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

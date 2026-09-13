@@ -1,0 +1,78 @@
+{
+  "run_id": "9c195ad67b96918565758152964200c2164c88b350aa061203ec8b3fc7ff3467",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a8c04972175fa42c4f054690528ca19ee6706442bc351352c431d8eb445c55fa",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45923968",
+  "task_id": "abc300_f",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:54.065509Z",
+  "latency": 4.902326458017342,
+  "token_usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 289,
+    "total_tokens": 1260,
+    "cost": 0.00025175,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00025175,
+      "upstream_inference_prompt_cost": 0.00010725,
+      "upstream_inference_completions_cost": 0.0001445
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 141,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 19, \"score\": 0.95, \"reason\": \"When c%N < i the x-count needs wraparound (+t); code omits it, giving wrong count for substrings crossing the period boundary.\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"Predicate total<=K with ok=-1 is standard, but correctness depends on the buggy count from line 19; only mildly suspect itself.\"}, {\"line\": 25, \"score\": 0.2, \"reason\": \"ok may stay -1 when even empty fails, yielding ok-i=-1-i; usually fine given problem constraints but boundary sensitive.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/9c195ad67b96918565758152964200c2164c88b350aa061203ec8b3fc7ff3467.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 19,
+        "score": 0.95,
+        "reason": "When c%N < i the x-count needs wraparound (+t); code omits it, giving wrong count for substrings crossing the period boundary."
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "Predicate total<=K with ok=-1 is standard, but correctness depends on the buggy count from line 19; only mildly suspect itself."
+      },
+      {
+        "line": 25,
+        "score": 0.2,
+        "reason": "ok may stay -1 when even empty fails, yielding ok-i=-1-i; usually fine given problem constraints but boundary sensitive."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1846",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "37790e649562c4f91097c53800b97383f25e6af4f8db49b3881c68f7205fd4f8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3869,
+  "prompt_tokens_estimate": 968,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

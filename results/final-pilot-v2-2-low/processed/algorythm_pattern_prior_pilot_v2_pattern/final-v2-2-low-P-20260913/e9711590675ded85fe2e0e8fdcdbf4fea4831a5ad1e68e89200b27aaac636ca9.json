@@ -1,0 +1,88 @@
+{
+  "run_id": "e9711590675ded85fe2e0e8fdcdbf4fea4831a5ad1e68e89200b27aaac636ca9",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "818cec68ae8f8041ba3c231b87454244f8ca121f1d4fd72c6c9054595d778bbd",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:45:25.105868Z",
+  "latency": 19.987016750033945,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 1320,
+    "total_tokens": 3097,
+    "cost": 0.00071919,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1728,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00071919,
+      "upstream_inference_prompt_cost": 5.919e-05,
+      "upstream_inference_completions_cost": 0.00066
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1125,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.6, \"reason\": \"+1 applied to dp_y unconditionally inside max, so previous -1 entry also gets shifted; combine order may mask real optimum\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"dp_x transition lets both children be Y freely; parent-X constraint on children may be too permissive\"}, {\"line\": 48, \"score\": 0.4, \"reason\": \"variable a is never used; a-related feasibility check on leaf X count appears missing\"}, {\"line\": 58, \"score\": 0.4, \"reason\": \"root-Y check depends on dp_y built with the suspicious +1 at line 34\"}, {\"line\": 26, \"score\": 0.2, \"reason\": \"assumes every internal node has exactly two children; crashes or wrong for other shapes\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/e9711590675ded85fe2e0e8fdcdbf4fea4831a5ad1e68e89200b27aaac636ca9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.6,
+        "reason": "+1 applied to dp_y unconditionally inside max, so previous -1 entry also gets shifted; combine order may mask real optimum"
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "dp_x transition lets both children be Y freely; parent-X constraint on children may be too permissive"
+      },
+      {
+        "line": 48,
+        "score": 0.4,
+        "reason": "variable a is never used; a-related feasibility check on leaf X count appears missing"
+      },
+      {
+        "line": 58,
+        "score": 0.4,
+        "reason": "root-Y check depends on dp_y built with the suspicious +1 at line 34"
+      },
+      {
+        "line": 26,
+        "score": 0.2,
+        "reason": "assumes every internal node has exactly two children; crashes or wrong for other shapes"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "f6d95d55943f533ee2ca5718dd33ffde9605bd1c8b9da4e5668258f15f878ec7",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "29870b87f853bed20f3082e027b2e4ac251297cf62f18c9c04897e5a6173d43b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:45:56.952183Z",
+  "latency": 4.205158374970779,
+  "token_usage": {
+    "prompt_tokens": 1045,
+    "completion_tokens": 236,
+    "total_tokens": 1281,
+    "cost": 0.00015187,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00015187,
+      "upstream_inference_prompt_cost": 3.387e-05,
+      "upstream_inference_completions_cost": 0.000118
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 117,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =, so unreachable cells stay at 1 and incorrectly propagate through walls.\"}, {\"line\": 19, \"score\": 0.4, \"reason\": \"Recurrence adds 1 even when both predecessors are unreachable; relies on broken reset at line 22.\"}, {\"line\": 24, \"score\": 0.1, \"reason\": \"ans update is fine but would record bogus path lengths from unfixed unreachable cells.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/f6d95d55943f533ee2ca5718dd33ffde9605bd1c8b9da4e5668258f15f878ec7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =, so unreachable cells stay at 1 and incorrectly propagate through walls."
+      },
+      {
+        "line": 19,
+        "score": 0.4,
+        "reason": "Recurrence adds 1 even when both predecessors are unreachable; relies on broken reset at line 22."
+      },
+      {
+        "line": 24,
+        "score": 0.1,
+        "reason": "ans update is fine but would record bogus path lengths from unfixed unreachable cells."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4046,
+  "prompt_tokens_estimate": 1012,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

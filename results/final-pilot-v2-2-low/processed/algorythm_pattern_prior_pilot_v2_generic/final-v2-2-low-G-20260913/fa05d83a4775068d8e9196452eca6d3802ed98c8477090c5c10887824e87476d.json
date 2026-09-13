@@ -1,0 +1,83 @@
+{
+  "run_id": "fa05d83a4775068d8e9196452eca6d3802ed98c8477090c5c10887824e87476d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "6684416e2bf1124f8df1de2a92786566d774ea88d1e6f2437f7804a5e0305c4a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:14.326596Z",
+  "latency": 19.716558500018436,
+  "token_usage": {
+    "prompt_tokens": 1974,
+    "completion_tokens": 1255,
+    "total_tokens": 3229,
+    "cost": 0.0008852,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008852,
+      "upstream_inference_prompt_cost": 0.0002577,
+      "upstream_inference_completions_cost": 0.0006275
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1100,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 61, \"score\": 0.8, \"reason\": \"Calls operate_list[-1](...) instead of appending, a genuine logic/typo bug in rollback bookkeeping\"}, {\"line\": 146, \"score\": 0.5, \"reason\": \"dp[i]+1 computed even when dp[i] is -inf (unreachable), corrupting sentinel comparisons\"}, {\"line\": 144, \"score\": 0.3, \"reason\": \"Tie order among equal AA values could matter if dp propagation assumptions break\"}, {\"line\": 137, \"score\": 0.2, \"reason\": \"Uses lst[0] for component's A value; assumes uniform value within component\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/fa05d83a4775068d8e9196452eca6d3802ed98c8477090c5c10887824e87476d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 61,
+        "score": 0.8,
+        "reason": "Calls operate_list[-1](...) instead of appending, a genuine logic/typo bug in rollback bookkeeping"
+      },
+      {
+        "line": 146,
+        "score": 0.5,
+        "reason": "dp[i]+1 computed even when dp[i] is -inf (unreachable), corrupting sentinel comparisons"
+      },
+      {
+        "line": 144,
+        "score": 0.3,
+        "reason": "Tie order among equal AA values could matter if dp propagation assumptions break"
+      },
+      {
+        "line": 137,
+        "score": 0.2,
+        "reason": "Uses lst[0] for component's A value; assumes uniform value within component"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": null,
+  "prompt_chars": 7635,
+  "prompt_tokens_estimate": 1909,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

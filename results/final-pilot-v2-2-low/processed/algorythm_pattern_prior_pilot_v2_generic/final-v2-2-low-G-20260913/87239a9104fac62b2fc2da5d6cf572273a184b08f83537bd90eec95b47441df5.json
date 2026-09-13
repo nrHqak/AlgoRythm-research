@@ -1,0 +1,83 @@
+{
+  "run_id": "87239a9104fac62b2fc2da5d6cf572273a184b08f83537bd90eec95b47441df5",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "9405a6bd770fe47544507ab5692f5695d4844d66695cf31dc80e0c4d842edd52",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:15.665418Z",
+  "latency": 11.213150499970652,
+  "token_usage": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 740,
+    "total_tokens": 1769,
+    "cost": 0.00040147,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00040147,
+      "upstream_inference_prompt_cost": 3.147e-05,
+      "upstream_inference_completions_cost": 0.00037
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 565,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"Zero-value faces map to dp[i] itself, injecting INF self-reference; they must be excluded since /num already accounts for them.\"}, {\"line\": 17, \"score\": 0.85, \"reason\": \"Zero faces should be skipped in the expectation sum (continue), not added as dp[i]; only counted for zr.\"}, {\"line\": 22, \"score\": 0.7, \"reason\": \"Accumulates dp[i]/num for zero outcomes, making now self-referential and likely INF.\"}, {\"line\": 19, \"score\": 0.15, \"reason\": \"num=p-zr is correct only if zero faces are truly excluded from now; suspicious only via interaction.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/87239a9104fac62b2fc2da5d6cf572273a184b08f83537bd90eec95b47441df5.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "Zero-value faces map to dp[i] itself, injecting INF self-reference; they must be excluded since /num already accounts for them."
+      },
+      {
+        "line": 17,
+        "score": 0.85,
+        "reason": "Zero faces should be skipped in the expectation sum (continue), not added as dp[i]; only counted for zr."
+      },
+      {
+        "line": 22,
+        "score": 0.7,
+        "reason": "Accumulates dp[i]/num for zero outcomes, making now self-referential and likely INF."
+      },
+      {
+        "line": 19,
+        "score": 0.15,
+        "reason": "num=p-zr is correct only if zero faces are truly excluded from now; suspicious only via interaction."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4027,
+  "prompt_tokens_estimate": 1007,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

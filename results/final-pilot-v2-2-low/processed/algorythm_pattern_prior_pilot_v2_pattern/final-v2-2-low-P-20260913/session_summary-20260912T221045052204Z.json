@@ -1,0 +1,11 @@
+{
+  "session_id": "final-v2-2-low-P-20260913",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "started_at": "2026-09-12T21:44:20.655944+00:00",
+  "completed_at": "2026-09-12T22:10:45.052105+00:00",
+  "created_runs": 300,
+  "successful_runs": 300,
+  "parser_failures": 0,
+  "provider_failures": 0,
+  "engineering_only": false
+}

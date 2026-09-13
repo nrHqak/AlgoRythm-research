@@ -1,0 +1,145 @@
+{
+  "run_id": "5c98ee3de154cdd34e54b2796a5209f5fb7a9bd9f50a5c260c7c78ec8a2b6218",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ebb3106a152f0eb3ced08ede36196a30ea38a9c09d4b2deff78fb5cc376f99ad",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:19.483681+00:00",
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": null,
+  "prompt_chars": 7635,
+  "prompt_tokens_estimate": 1909,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 55029036\nTask ID: abc335_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: from collections import defaultdict\n2: \n3: class UnionFind:\n4:     def __init__(self,N,label=None,f=None,weighted=False,rollback=False):\n5:         self.N=N\n6:         self.parents=[None]*self.N\n7:         self.size=[1]*self.N\n8:         self.roots={i for i in range(self.N)}\n9:         self.label=label\n10:         if self.label!=None:\n11:             self.label=[x for x in label]\n12:         self.f=f\n13:         self.weighted=weighted\n14:         if self.weighted:\n15:             self.weight=[0]*self.N\n16:         self.rollback=rollback\n17:         if self.rollback:\n18:             self.operate_list=[]\n19:             self.operate_set=[]\n20: \n21:     def Find(self,x):\n22:         stack=[]\n23:         while self.parents[x]!=None:\n24:             stack.append(x)\n25:             x=self.parents[x]\n26:         if not self.rollback:\n27:             if self.weighted:\n28:                 w=0\n29:                 for y in stack[::-1]:\n30:                     self.parents[y]=x\n31:                     w+=self.weight[y]\n32:                     self.weight[y]=w\n33:             else:\n34:                 for y in stack[::-1]:\n35:                     self.parents[y]=x\n36:         return x\n37: \n38:     def Union(self,x,y,w=None):\n39:         root_x=self.Find(x)\n40:         root_y=self.Find(y)\n41:         if self.rollback:\n42:             self.operate_list.append([])\n43:             self.operate_set.append([])\n44:         if root_x==root_y:\n45:             if self.weighted:\n46:                 if self.weight[y]-self.weight[x]==w:\n47:                     return True\n48:                 else:\n49:                     return False\n50:         else:\n51:             if self.size[root_x]<self.size[root_y]:\n52:                 x,y=y,x\n53:                 root_x,root_y=root_y,root_x\n54:                 if self.weighted:\n55:                     w=-w\n56:             if self.rollback:\n57:                 self.operate_list[-1].append((self.parents,root_y,self.parents[root_y]))\n58:                 self.operate_list[-1].append((self.size,root_x,self.size[root_x]))\n59:                 self.operate_set[-1].append(root_y)\n60:                 if self.label!=None:\n61:                     self.operate_list[-1]((self.label,root_x,self.label[root_x]))\n62:                 if self.weighted:\n63:                     self.operate_list[-1].append((self.weight,root_y,self.weight[root_y]))\n64:             self.parents[root_y]=root_x\n65:             self.size[root_x]+=self.size[root_y]\n66:             self.roots.remove(root_y)\n67:             if self.label!=None:\n68:                 self.label[root_x]=self.f(self.label[root_x],self.label[root_y])\n69:             if self.weighted:\n70:                 self.weight[root_y]=w+self.weight[x]-self.weight[y]\n71: \n72:     def Size(self,x):\n73:         return self.size[self.Find(x)]\n74: \n75:     def Same(self,x,y):\n76:         return self.Find(x)==self.Find(y)\n77: \n78:     def Label(self,x):\n79:         return self.label[self.Find(x)]\n80: \n81:     def Weight(self,x,y):\n82:         root_x=self.Find(x)\n83:         root_y=self.Find(y)\n84:         if root_x!=root_y:\n85:             return None\n86:         return self.weight[y]-self.weight[x]\n87: \n88:     def Roots(self):\n89:         return list(self.roots)\n90: \n91:     def Linked_Components_Count(self):\n92:         return len(self.roots)\n93: \n94:     def Linked_Components(self):\n95:         linked_components=defaultdict(list)\n96:         for x in range(self.N):\n97:             linked_components[self.Find(x)].append(x)\n98:         return linked_components\n99: \n100:     def Rollback(self):\n101:         assert self.rollback\n102:         if self.operate_list:\n103:             for lst,x,v in self.operate_list.pop():\n104:                 lst[x]=v\n105:             for x in self.operate_set.pop():\n106:                 self.roots.add(x)            \n107:             return True\n108:         else:\n109:             return False\n110: \n111:     def __str__(self):\n112:         linked_components=defaultdict(list)\n113:         for x in range(self.N):\n114:             linked_components[self.Find(x)].append(x)\n115:         return \"\\n\".join(f\"{r}: {linked_components[r]}\" for r in sorted(list(linked_components.keys())))\n116: \n117: N,M=map(int,input().split())\n118: A=list(map(int,input().split()))\n119: edges=[]\n120: UF=UnionFind(N)\n121: for m in range(M):\n122:     u,v=map(int,input().split())\n123:     u-=1;v-=1\n124:     if A[u]==A[v]:\n125:         UF.Union(u,v)\n126:     else:\n127:         if A[u]>A[v]:\n128:             u,v=v,u\n129:         edges.append((u,v))\n130: idx=[None]*N\n131: lc=UF.Linked_Components()\n132: le=len(lc)\n133: AA=[]\n134: for i,lst in enumerate(lc.values()):\n135:     for x in lst:\n136:         idx[x]=i\n137:     AA.append(A[lst[0]])\n138: graph=[[] for i in range(le)]\n139: for u,v in edges:\n140:     graph[idx[u]].append(idx[v])\n141: inf=1<<30\n142: dp=[-inf]*le\n143: dp[idx[0]]=1\n144: for i in sorted([i for i in range(le)],key=lambda i:AA[i]):\n145:     for j in graph[i]:\n146:         dp[j]=max(dp[j],dp[i]+1)\n147: ans=dp[idx[N-1]]\n148: if ans==-inf:\n149:     ans=0\n150: print(ans)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"Should add size of component j (or dp initialized to component size), not +1; answer counts vertices not components.\"}, {\"line\": 143, \"score\": 0.8, \"reason\": \"dp should be initialized to the component's vertex count (UF.Size), not 1, since answer counts vertices visited.\"}]}",
+  "latency": 5.153808959003072,
+  "token_usage": {
+    "prompt_tokens": 1974,
+    "completion_tokens": 292,
+    "total_tokens": 2266,
+    "cost": 0.0002117,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002117,
+      "upstream_inference_prompt_cost": 6.57e-05,
+      "upstream_inference_completions_cost": 0.000146
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 200,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248074-ZV9ptx8Ov0QQH3sNYkd5",
+    "provider_created": 1789248074,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 868,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248074-ZV9ptx8Ov0QQH3sNYkd5",
+    "object": "chat.completion",
+    "created": 1789248074,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"Should add size of component j (or dp initialized to component size), not +1; answer counts vertices not components.\"}, {\"line\": 143, \"score\": 0.8, \"reason\": \"dp should be initialized to the component's vertex count (UF.Size), not 1, since answer counts vertices visited.\"}]}",
+          "refusal": null,
+          "reasoning": "ABC335E: answer should be length of longest path... actually E asks maximum number of vertices visited where A nondecreasing (can move along edges with A[u]≤A[v]... you can move both directions? Nondecreasing path). Answer is number of vertices, so dp should be component size sum, not +1. dp[i] should be size of component; transitions dp[j]=dp[i]+size[j]. Also ties: edges with equal A within components already merged, but edges between components with equal A... can't exist since equal values merged. Actually merging equal A vertices means edges between different components have different A values — fine. Also ordering: processing in sorted A order, edges from smaller A to larger, correct direction.\n\nLine 143: dp should be size of component, line 146 dp[i]+1 wrong: should add size of component j. Line 143 dp=1 vs size[idx[0]]. Most suspicious: 146 and 143.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "ABC335E: answer should be length of longest path... actually E asks maximum number of vertices visited where A nondecreasing (can move along edges with A[u]≤A[v]... you can move both directions? Nondecreasing path). Answer is number of vertices, so dp should be component size sum, not +1. dp[i] should be size of component; transitions dp[j]=dp[i]+size[j]. Also ties: edges with equal A within components already merged, but edges between components with equal A... can't exist since equal values merged. Actually merging equal A vertices means edges between different components have different A values — fine. Also ordering: processing in sorted A order, edges from smaller A to larger, correct direction.\n\nLine 143: dp should be size of component, line 146 dp[i]+1 wrong: should add size of component j. Line 143 dp=1 vs size[idx[0]]. Most suspicious: 146 and 143.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1974,
+      "completion_tokens": 292,
+      "total_tokens": 2266,
+      "cost": 0.0002117,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1920,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002117,
+        "upstream_inference_prompt_cost": 6.57e-05,
+        "upstream_inference_completions_cost": 0.000146
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 200,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

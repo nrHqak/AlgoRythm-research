@@ -1,0 +1,83 @@
+{
+  "run_id": "96d92882d2b746f2c617b089f62ef5a41110f1be814cbd9b4582a4a8f2f6f0c7",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "cb9316b2bc29c75ad81b54ff5ad5c021fa1b6bdc2c65681df85abc285a97cf8b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45923968",
+  "task_id": "abc300_f",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:28.919520Z",
+  "latency": 19.10968941700412,
+  "token_usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 1384,
+    "total_tokens": 2355,
+    "cost": 0.00072245,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00072245,
+      "upstream_inference_prompt_cost": 3.045e-05,
+      "upstream_inference_completions_cost": 0.000692
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1188,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.95, \"reason\": \"Subtracting Sa[i] ignores that start i sits in copy i//N; should subtract i//N*t + Sa[i%N], overcounting x for large i.\"}, {\"line\": 18, \"score\": 0.5, \"reason\": \"Full-copy count (c//N)*t assumes i=0 origin; paired with line 20 gives wrong count for i beyond first copy.\"}, {\"line\": 19, \"score\": 0.3, \"reason\": \"Sa[c%N] uses c relative to position 0, inconsistent with a start offset i; part of the same offset error.\"}, {\"line\": 21, \"score\": 0.2, \"reason\": \"Predicate direction total<=K is plausible, but relies on the incorrect total from lines 18-20.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/96d92882d2b746f2c617b089f62ef5a41110f1be814cbd9b4582a4a8f2f6f0c7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.95,
+        "reason": "Subtracting Sa[i] ignores that start i sits in copy i//N; should subtract i//N*t + Sa[i%N], overcounting x for large i."
+      },
+      {
+        "line": 18,
+        "score": 0.5,
+        "reason": "Full-copy count (c//N)*t assumes i=0 origin; paired with line 20 gives wrong count for i beyond first copy."
+      },
+      {
+        "line": 19,
+        "score": 0.3,
+        "reason": "Sa[c%N] uses c relative to position 0, inconsistent with a start offset i; part of the same offset error."
+      },
+      {
+        "line": 21,
+        "score": 0.2,
+        "reason": "Predicate direction total<=K is plausible, but relies on the incorrect total from lines 18-20."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1846",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "37790e649562c4f91097c53800b97383f25e6af4f8db49b3881c68f7205fd4f8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3869,
+  "prompt_tokens_estimate": 968,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

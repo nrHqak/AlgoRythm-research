@@ -1,0 +1,68 @@
+{
+  "run_id": "3f807d47bd03bece3a3ecf0a1aec3677f75cfbcad959dcaa2edc8a86eac1b2a1",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "463b12fc3d06b831737d7a8a89479dc1457bedb6f74ba2a1647167001b1f5365",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "46169156",
+  "task_id": "abc305_b",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:32.330295Z",
+  "latency": 1.9087003329768777,
+  "token_usage": {
+    "prompt_tokens": 880,
+    "completion_tokens": 52,
+    "total_tokens": 932,
+    "cost": 5.816e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.816e-05,
+      "upstream_inference_prompt_cost": 3.216e-05,
+      "upstream_inference_completions_cost": 2.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.9, \"reason\": \"q=='A' branch wrongly overwrites short (p's value) instead of leaving long=0; default long=0 would suffice\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/3f807d47bd03bece3a3ecf0a1aec3677f75cfbcad959dcaa2edc8a86eac1b2a1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.9,
+        "reason": "q=='A' branch wrongly overwrites short (p's value) instead of leaving long=0; default long=0 would suffice"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    21
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "23",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "5b0814f068501653f6262319e85fdcbda853873103acd67453199e0ae95a808a",
+  "prior_hash": null,
+  "prompt_chars": 3142,
+  "prompt_tokens_estimate": 786,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

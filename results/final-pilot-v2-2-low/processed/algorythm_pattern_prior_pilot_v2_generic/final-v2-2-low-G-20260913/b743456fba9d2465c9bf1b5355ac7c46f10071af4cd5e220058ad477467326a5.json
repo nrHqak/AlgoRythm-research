@@ -1,0 +1,88 @@
+{
+  "run_id": "b743456fba9d2465c9bf1b5355ac7c46f10071af4cd5e220058ad477467326a5",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "89451ec879d4b9536025902e3ce1ecd5e3d113140cb87d9f80aa0dfea328b504",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43234248",
+  "task_id": "arc148_b",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:26:06.644668Z",
+  "latency": 81.76088575000176,
+  "token_usage": {
+    "prompt_tokens": 1114,
+    "completion_tokens": 6165,
+    "total_tokens": 7279,
+    "cost": 0.00311904,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00311904,
+      "upstream_inference_prompt_cost": 3.654e-05,
+      "upstream_inference_completions_cost": 0.0030825
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5926,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 37, \"score\": 0.55, \"reason\": \"Loop bound/endpoints: candidates from idxP to N may miss or include wrong reversal endpoints; verify r range inclusivity.\"}, {\"line\": 38, \"score\": 0.5, \"reason\": \"Slice/reverse/translate boundary S[idxP:i] plus prefix/suffix concat is the core logic; off-by-one here corrupts candidates.\"}, {\"line\": 22, \"score\": 0.45, \"reason\": \"Custom input strips last char unconditionally; CRLF or missing newline corrupts S used in all comparisons.\"}, {\"line\": 31, \"score\": 0.2, \"reason\": \"Early-exit edge check may mishandle mandatory-operation cases (all 'p' or all 'd') if identity reversal is not allowed.\"}, {\"line\": 34, \"score\": 0.1, \"reason\": \"idxP anchoring assumes l must equal first 'p' index; if false, candidates set is incomplete.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/b743456fba9d2465c9bf1b5355ac7c46f10071af4cd5e220058ad477467326a5.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 37,
+        "score": 0.55,
+        "reason": "Loop bound/endpoints: candidates from idxP to N may miss or include wrong reversal endpoints; verify r range inclusivity."
+      },
+      {
+        "line": 38,
+        "score": 0.5,
+        "reason": "Slice/reverse/translate boundary S[idxP:i] plus prefix/suffix concat is the core logic; off-by-one here corrupts candidates."
+      },
+      {
+        "line": 22,
+        "score": 0.45,
+        "reason": "Custom input strips last char unconditionally; CRLF or missing newline corrupts S used in all comparisons."
+      },
+      {
+        "line": 31,
+        "score": 0.2,
+        "reason": "Early-exit edge check may mishandle mandatory-operation cases (all 'p' or all 'd') if identity reversal is not allowed."
+      },
+      {
+        "line": 34,
+        "score": 0.1,
+        "reason": "idxP anchoring assumes l must equal first 'p' index; if false, candidates set is incomplete."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 40,
+  "loc": 40,
+  "evaluation_denominator": 40,
+  "faulty_lines": [
+    32
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "975",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "82d630b57084457439e1cd07c63f357ce91fcd52b782d528845d9398eeec7849",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4396,
+  "prompt_tokens_estimate": 1099,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

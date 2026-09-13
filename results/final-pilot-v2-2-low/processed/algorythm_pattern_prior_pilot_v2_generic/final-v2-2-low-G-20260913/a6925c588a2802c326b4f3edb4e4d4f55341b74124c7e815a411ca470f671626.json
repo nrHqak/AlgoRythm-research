@@ -1,0 +1,88 @@
+{
+  "run_id": "a6925c588a2802c326b4f3edb4e4d4f55341b74124c7e815a411ca470f671626",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "08fb67910b21d34c845cd458a657ebad41ece7b322e0a1a9a92f318fa72c0bb9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:31:16.833444Z",
+  "latency": 22.6353705409565,
+  "token_usage": {
+    "prompt_tokens": 865,
+    "completion_tokens": 1592,
+    "total_tokens": 2457,
+    "cost": 0.00082591,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00082591,
+      "upstream_inference_prompt_cost": 2.991e-05,
+      "upstream_inference_completions_cost": 0.000796
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1371,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 24, \"score\": 0.6, \"reason\": \"Cost formula V[j]+(K-i) plus min-update is the classic off-by-one spot; swap-count boundary likely wrong.\"}, {\"line\": 23, \"score\": 0.5, \"reason\": \"bisect_right gives first prefix max strictly greater; equality handling or index choice may not match intended condition.\"}, {\"line\": 20, \"score\": 0.3, \"reason\": \"INF sentinel: if no valid pair exists m stays INF, printed instead of a valid answer.\"}, {\"line\": 22, \"score\": 0.2, \"reason\": \"Loop over all K left elements is fine, but i is 0-indexed and feeds the cost formula, compounding off-by-one risk.\"}, {\"line\": 15, \"score\": 0.1, \"reason\": \"range(1, N-K) assumes K<N; edge case K=N or N-K small could break M/V setup.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/a6925c588a2802c326b4f3edb4e4d4f55341b74124c7e815a411ca470f671626.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 24,
+        "score": 0.6,
+        "reason": "Cost formula V[j]+(K-i) plus min-update is the classic off-by-one spot; swap-count boundary likely wrong."
+      },
+      {
+        "line": 23,
+        "score": 0.5,
+        "reason": "bisect_right gives first prefix max strictly greater; equality handling or index choice may not match intended condition."
+      },
+      {
+        "line": 20,
+        "score": 0.3,
+        "reason": "INF sentinel: if no valid pair exists m stays INF, printed instead of a valid answer."
+      },
+      {
+        "line": 22,
+        "score": 0.2,
+        "reason": "Loop over all K left elements is fine, but i is 0-indexed and feeds the cost formula, compounding off-by-one risk."
+      },
+      {
+        "line": 15,
+        "score": 0.1,
+        "reason": "range(1, N-K) assumes K<N; edge case K=N or N-K small could break M/V setup."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": null,
+  "prompt_chars": 3192,
+  "prompt_tokens_estimate": 798,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

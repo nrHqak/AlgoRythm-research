@@ -1,0 +1,83 @@
+{
+  "run_id": "15523cadf7a125091613b7c0cfc094079ae777fed0949cf9484d0a566077fe9f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ec120865033f807ee7e78ea77006ce0da406a863e08aff76c7e15756ada7fd7b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:13.004865Z",
+  "latency": 18.393996333004907,
+  "token_usage": {
+    "prompt_tokens": 2156,
+    "completion_tokens": 1141,
+    "total_tokens": 3297,
+    "cost": 0.0008555,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008555,
+      "upstream_inference_prompt_cost": 0.000285,
+      "upstream_inference_completions_cost": 0.0005705
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 992,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"dp[i]+1 on unreachable dp[i]=-inf yields -inf+1, letting unreachable components appear reachable\"}, {\"line\": 148, \"score\": 0.5, \"reason\": \"sentinel check fails because -inf+k never equals -inf after propagation from line 146\"}, {\"line\": 143, \"score\": 0.3, \"reason\": \"initialization is fine but sentinel choice interacts with the missing reachability check\"}, {\"line\": 141, \"score\": 0.2, \"reason\": \"sentinel value should be None or checked differently to avoid arithmetic on it\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/15523cadf7a125091613b7c0cfc094079ae777fed0949cf9484d0a566077fe9f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.9,
+        "reason": "dp[i]+1 on unreachable dp[i]=-inf yields -inf+1, letting unreachable components appear reachable"
+      },
+      {
+        "line": 148,
+        "score": 0.5,
+        "reason": "sentinel check fails because -inf+k never equals -inf after propagation from line 146"
+      },
+      {
+        "line": 143,
+        "score": 0.3,
+        "reason": "initialization is fine but sentinel choice interacts with the missing reachability check"
+      },
+      {
+        "line": 141,
+        "score": 0.2,
+        "reason": "sentinel value should be None or checked differently to avoid arithmetic on it"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 8570,
+  "prompt_tokens_estimate": 2143,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

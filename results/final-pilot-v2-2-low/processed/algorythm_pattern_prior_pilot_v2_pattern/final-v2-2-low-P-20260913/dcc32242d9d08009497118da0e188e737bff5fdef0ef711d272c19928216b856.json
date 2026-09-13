@@ -1,0 +1,83 @@
+{
+  "run_id": "dcc32242d9d08009497118da0e188e737bff5fdef0ef711d272c19928216b856",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "c8f213ac47b5ebb1f46b9e4fad7af14e43a9367b8a5190cee699b97085e1fa3a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:24.698499Z",
+  "latency": 16.53421700000763,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 1108,
+    "total_tokens": 2320,
+    "cost": 0.00059756,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00059756,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.000554
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 927,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"Uses calc1 on all of c instead of only the surplus (c beyond len(b)), potentially overcounting pairs already matched across groups\"}, {\"line\": 36, \"score\": 0.6, \"reason\": \"Surplus cross-pairing only considers one diagonal (e,g); leftover same-bit elements could also pair with opposite side in other configurations\"}, {\"line\": 38, \"score\": 0.5, \"reason\": \"Mirror case of surplus handling; if 36/37 logic is incomplete this symmetric branch is too\"}, {\"line\": 46, \"score\": 0.3, \"reason\": \"Binary search feasibility uses count >= ceil(n/2); with n odd one element stays unpaired, verify threshold matches intended pairing count\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/dcc32242d9d08009497118da0e188e737bff5fdef0ef711d272c19928216b856.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.85,
+        "reason": "Uses calc1 on all of c instead of only the surplus (c beyond len(b)), potentially overcounting pairs already matched across groups"
+      },
+      {
+        "line": 36,
+        "score": 0.6,
+        "reason": "Surplus cross-pairing only considers one diagonal (e,g); leftover same-bit elements could also pair with opposite side in other configurations"
+      },
+      {
+        "line": 38,
+        "score": 0.5,
+        "reason": "Mirror case of surplus handling; if 36/37 logic is incomplete this symmetric branch is too"
+      },
+      {
+        "line": 46,
+        "score": 0.3,
+        "reason": "Binary search feasibility uses count >= ceil(n/2); with n odd one element stays unpaired, verify threshold matches intended pairing count"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

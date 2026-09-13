@@ -1,0 +1,73 @@
+{
+  "run_id": "7ae253936e8f8cd399d120ce5d65e32399ad4c2974e0640ef4bb9da6e34b64e0",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "9cc249c41ff8a2fdd6564386207ce9d840ae66a31827df7f5abb3cddca790e14",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45923968",
+  "task_id": "abc300_f",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:13.852811Z",
+  "latency": 4.043928999977652,
+  "token_usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 199,
+    "total_tokens": 1170,
+    "cost": 0.00012995,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00012995,
+      "upstream_inference_prompt_cost": 3.045e-05,
+      "upstream_inference_completions_cost": 9.95e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 107,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.9, \"reason\": \"Subarray [i, ok] has length ok-i+1; using ok-i undercounts by one for every starting index.\"}, {\"line\": 14, \"score\": 0.3, \"reason\": \"Upper bound M*N may exclude valid endpoint position M*N-1... actually inclusive search limit; minor concern.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/7ae253936e8f8cd399d120ce5d65e32399ad4c2974e0640ef4bb9da6e34b64e0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.9,
+        "reason": "Subarray [i, ok] has length ok-i+1; using ok-i undercounts by one for every starting index."
+      },
+      {
+        "line": 14,
+        "score": 0.3,
+        "reason": "Upper bound M*N may exclude valid endpoint position M*N-1... actually inclusive search limit; minor concern."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1846",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "37790e649562c4f91097c53800b97383f25e6af4f8db49b3881c68f7205fd4f8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3869,
+  "prompt_tokens_estimate": 968,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

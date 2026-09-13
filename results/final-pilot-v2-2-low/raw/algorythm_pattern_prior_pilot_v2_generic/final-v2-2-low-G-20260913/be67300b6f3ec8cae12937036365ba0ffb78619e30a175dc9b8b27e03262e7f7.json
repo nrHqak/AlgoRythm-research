@@ -1,0 +1,145 @@
+{
+  "run_id": "be67300b6f3ec8cae12937036365ba0ffb78619e30a175dc9b8b27e03262e7f7",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "2d0f475c2ecb801894f22ac5b278fc2eb8fa2541b9933baccba2529a446693f2",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:19.272336+00:00",
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 41991921\nTask ID: abc304_g\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def calc1(a, m, t):\n2:   if t == -1:\n3:     return len(a) // 2\n4:   if len(a) < 2:\n5:     return 0\n6:   bit = 1 << t\n7:   b = []\n8:   c = []\n9:   for i in a:\n10:     if i & bit: c.append(i)\n11:     else: b.append(i)\n12:   if m & bit: return calc2(b, c, m, t - 1)\n13:   else:\n14:     if len(b) > len(c): b, c = c, b\n15:     res = len(b) + min((len(c) - len(b)) // 2, calc1(c, m, t - 1))\n16:     return res\n17: def calc2(b, c, m, t):\n18:   if t == -1: return min(len(b), len(c))\n19:   if len(b) == 0 or len(c) == 0: return 0\n20:   bit = 1 << t\n21:   d = []\n22:   e = []\n23:   f = []\n24:   g = []\n25:   for i in b:\n26:     if i & bit: e.append(i)\n27:     else: d.append(i)\n28:   for i in c:\n29:     if i & bit: g.append(i)\n30:     else: f.append(i)\n31:   if m & bit:\n32:     return calc2(e, f, m, t - 1) + calc2(d, g, m, t - 1)\n33:   else:\n34:     res = min(len(e), len(f)) + min(len(d), len(g))\n35:     if len(e) > len(f) and len(g) > len(d):\n36:       res += min(len(e) - len(f), len(g) - len(d), calc2(e, g, m, t - 1))\n37:     elif len(e) < len(f) and len(g) < len(d):\n38:       res += min(len(f) - len(e), len(d) - len(g), calc2(d, f, m, t - 1))\n39:     return res\n40: n = int(input())\n41: a = list(map(int, input().split()))\n42: l = 0\n43: r = 10 ** 10\n44: while l + 1 < r:\n45:   m = (l + r) // 2\n46:   if calc1(a, m, 29) >= (n + 1) // 2: l = m\n47:   else: r = m\n48: print(l)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program contains a logical fault. Before ranking the full source, check these standard failure points for buggy programs first, in order:\n1. check whether every loop's start and end bounds are correct, including whether an endpoint should be inclusive or exclusive\n2. check whether each comparison or conditional test uses the right operator and the right direction, including strict versus non-strict comparisons\n3. check whether variables that accumulate or track state are initialized correctly and updated in the right order relative to their use\n4. check whether the boundary cases are handled, such as the first item, the last item, or an empty or single-element input\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"Recurses on all of c instead of only the unmatched leftover of size len(c)-len(b), overcounting pairs.\"}, {\"line\": 3, \"score\": 0.5, \"reason\": \"Base case len(a)//2 assumes greedy pairing succeeds without checking XOR against remaining m bits.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Leftover counts len(e)-len(f) and len(g)-len(d) pair internally as whole counts, recursion may not account correctly.\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Symmetric leftover case; unmatched elements within one group are never recursed on.\"}, {\"line\": 34, \"score\": 0.2, \"reason\": \"Counting only cross pairs min(e,f)+min(d,g) drops leftover elements' internal pairing entirely.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"Threshold (n+1)//2 may mismatch needed median rank depending on exact pair-count semantics.\"}]}",
+  "latency": 27.933368166035507,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 1871,
+    "total_tokens": 3246,
+    "cost": 0.00110335,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00110335,
+      "upstream_inference_prompt_cost": 0.00016785,
+      "upstream_inference_completions_cost": 0.0009355
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1624,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248831-54COMCw8920Ugl9C1PYq",
+    "provider_created": 1789248831,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 6087,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248831-54COMCw8920Ugl9C1PYq",
+    "object": "chat.completion",
+    "created": 1789248831,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"Recurses on all of c instead of only the unmatched leftover of size len(c)-len(b), overcounting pairs.\"}, {\"line\": 3, \"score\": 0.5, \"reason\": \"Base case len(a)//2 assumes greedy pairing succeeds without checking XOR against remaining m bits.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Leftover counts len(e)-len(f) and len(g)-len(d) pair internally as whole counts, recursion may not account correctly.\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Symmetric leftover case; unmatched elements within one group are never recursed on.\"}, {\"line\": 34, \"score\": 0.2, \"reason\": \"Counting only cross pairs min(e,f)+min(d,g) drops leftover elements' internal pairing entirely.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"Threshold (n+1)//2 may mismatch needed median rank depending on exact pair-count semantics.\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC304 G problem (maximize median XOR over pairs... actually G is \"max medians of XOR\"?). Binary search on answer; calc counts number of pairs with XOR >= m. Condition: pairs matching count ≥ ... The known correct approach: count pairs with xor >= m ≥ n/2. Let me look for bugs.\n\nLine 15: res = len(b) + min((len(c)-len(b))//2, calc1(c,m,t-1)). Hmm, calc1 counts matched pairs? Seems calc1 counts pairs with XOR >= m... Actually likely calc1 counts number of \"good pairs\"? If m bit is 0, good pairs include all cross pairs (b,c) plus pairs within b with xor>=m plus within c. All cross pairs: len(b)*len(c)? But line 15 gives len(b)+... Hmm maybe it's about pairing/matching? This is G: pick pairing (matching) maximize minimum XOR? Actually abc304_g \"max medians\"? ABC304 G is \"Max Medians of XOR\"? Let me recall: ABC304 G is \"max (median of XORs over pairs)\"—yes, it's about pairing 2n numbers into n pairs, maximize median of XORs; answer is the k-th largest. So calc counts number of pairs achievable with XOR >= m in a perfect matching (greedy on trie). Standard solution: greedy trie: at bit where m bit is 0, pairs across (b,c) contribute min(len(b),len(c))? Hmm matching pairs across groups: you can form min(len(b),len(c)) pairs? Actually cross pairs between b and c all satisfy xor bit =1 ≥ requirement at this bit; within groups need recursively. Greedy: pair elements across b and c as much as possible: count min(len(b),len(c)); leftover elements stay within their group recursively.\n\nLine 15: if len(b) > len(c) swap so len(b) ≤ len(c). res should be len(b) (min) + pairs from leftover in c: but leftover is c-b elements, which need calc1(c leftover, ...). Line 15 computes (len(c)-len(b))//2 — dividing by 2, wrong? Leftover c has len(c)-len(b) elements, pairs formed = (len(c)-len(b))//2 but calc1 presumably counts pairs not elements, and calc1 expects list; line 15 calls calc1(c, m, t-1) on all of c, not just leftover! That's the bug: should be len(b) + min((len(c)-len(b))//2, ...) with recursion on leftover subset. Actually known editorial solution: f(a) = if bit of m is 0: min(len(b),len(c)) + f(c - matched leftover)? Hmm.\n\nActually the standard solution for 304 G: answer via trie counting pairs with xor >= x greedily: cnt(x) = number of pairs in optimal? Count function: number of pairs (i,j) with a_i xor a_j >= x is computable via trie, then check cnt >= n/2? No—that doesn't ensure matching exists but actually max min matching = median threshold via Hall's; the known solution: binary search x, count pairs with xor >= x via trie (all pairs), check count >= number needed... Hmm actually ABC304G solution: binary search, count number of pairs (unordered) with XOR >= x using trie; if count >= n/2 then feasible? That's not obviously a matching but it's the editorial solution I believe (max matching min = median; by a theorem number of feasible pairs ≥ ... ). Actually known accepted solution: count pairs with a_i^a_j >= x; if count ≥ ceil(n/2)? and answer.\n\nIf calc1 counts all pairs with xor>=m: base t=-1 returns len(a)//2 — hmm, should be C(len,2)=len*(len-1)/2 for all pairs xor... at t=-1 with m>0? t=-1 reached when m's bits exhausted (m has ≤30 bits), all remaining pairs have xor < ... no, xor>=m trivially? If we descended all bits of m, remaining pairs all satisfy? No—if at every level we accounted properly... base returns len(a)//2, suspicious but maybe they count matched pairs (greedy matching), len//2 pairs. Hmm, but there's no ordering constraint so a matching can pair arbitrarily, so //2 pairs each with xor ≥ 0? but m bits exhausted means m=... m could still be positive with fewer than 30 bits; then all remaining pairs with xor ≥ leftover bits? This is getting complex. Given \"median of n pairs\", the check uses (n+1)//2 — should be n/2 pairs? Pairs count = n; median is the (n+1)/2-th largest... Condition: number of pairs with xor>=m ≥ (n+1)//2? For maximizing median you need at least floor(n/2)+1 = (n+1)//2? n pairs, median = ceil(n/2)-th... maximized min matching ≥ m iff at least ceil(n/2) pairs... hmm fine.\n\nThe clear bug candidates: line 15 recursion uses full c instead of leftover; but maybe correct formula is len(b) + min((len(c)-len(b))//2, ...) without recursion? Original correct code (I recall): f(a): split by bit; if m bit set: f(b)+... returns calc2. If bit not set: cross pairs freely: min(len(b),len(c)) then leftover recurses on bigger group: min(count leftover pairs, f(leftover group)). Leftover of c has (len(c)-len(b)) elements → pairs (len(c)-len(b))//2... wait but only leftover in c? b fully matched to c elements min count; remaining in c: len(c)-len(b) elements, recurse. Line 15: calc1(c,...) uses all of c, overcounting. That seems the bug: line 15.\n\nAlso line 14 swap fine. Line 32: pairs (e,f) and (d,g) recursively — fine. Lines 35-38 leftover logic: cross matches min(e,f)+min(d,g), leftovers in e and g both... when len(e)>len(f) and len(g)>len(d), leftovers e-len(f) in e and g-len(d) in g must pair with each other, recursion calc2(e,g). Correct formula per editorial: cross matches give min pairs, leftover recursion. But if only one side has leftover (e.g., len(e)>len(f) but len(g)≤len(d)), leftover elements in e can pair within? Actually leftover in e must pair among themselves (all in same group), handled where? It's dropped—res omits e-f leftovers pairing internally. Hmm in calc2 leftover elements pair within same group at bit=1... m bit is 0 here, so leftover in group e pairs within e giving xor of bit 1 ≥ current m? No—lower bits still matter. The editorial: when bit of m is 0 in matching setting, pairs cross (b,c) arbitrary, leftover within each group: count floor((len leftover)/2) forced... but those must also satisfy remaining m bits — need recursion. Known correct solution just counts pairs with xor ≥ x using trie, not matching. I'll trust line 15 as main bug.\n\nRank: line 15 high, line 3 (base case //2 vs count of all pairs?) medium, line 36/38 medium, line 46 check (n+1)//2 vs n//2? For median of n pairs, need count ≥ floor(n/2)+1 = (n+1)//2. Fine.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC304 G problem (maximize median XOR over pairs... actually G is \"max medians of XOR\"?). Binary search on answer; calc counts number of pairs with XOR >= m. Condition: pairs matching count ≥ ... The known correct approach: count pairs with xor >= m ≥ n/2. Let me look for bugs.\n\nLine 15: res = len(b) + min((len(c)-len(b))//2, calc1(c,m,t-1)). Hmm, calc1 counts matched pairs? Seems calc1 counts pairs with XOR >= m... Actually likely calc1 counts number of \"good pairs\"? If m bit is 0, good pairs include all cross pairs (b,c) plus pairs within b with xor>=m plus within c. All cross pairs: len(b)*len(c)? But line 15 gives len(b)+... Hmm maybe it's about pairing/matching? This is G: pick pairing (matching) maximize minimum XOR? Actually abc304_g \"max medians\"? ABC304 G is \"Max Medians of XOR\"? Let me recall: ABC304 G is \"max (median of XORs over pairs)\"—yes, it's about pairing 2n numbers into n pairs, maximize median of XORs; answer is the k-th largest. So calc counts number of pairs achievable with XOR >= m in a perfect matching (greedy on trie). Standard solution: greedy trie: at bit where m bit is 0, pairs across (b,c) contribute min(len(b),len(c))? Hmm matching pairs across groups: you can form min(len(b),len(c)) pairs? Actually cross pairs between b and c all satisfy xor bit =1 ≥ requirement at this bit; within groups need recursively. Greedy: pair elements across b and c as much as possible: count min(len(b),len(c)); leftover elements stay within their group recursively.\n\nLine 15: if len(b) > len(c) swap so len(b) ≤ len(c). res should be len(b) (min) + pairs from leftover in c: but leftover is c-b elements, which need calc1(c leftover, ...). Line 15 computes (len(c)-len(b))//2 — dividing by 2, wrong? Leftover c has len(c)-len(b) elements, pairs formed = (len(c)-len(b))//2 but calc1 presumably counts pairs not elements, and calc1 expects list; line 15 calls calc1(c, m, t-1) on all of c, not just leftover! That's the bug: should be len(b) + min((len(c)-len(b))//2, ...) with recursion on leftover subset. Actually known editorial solution: f(a) = if bit of m is 0: min(len(b),len(c)) + f(c - matched leftover)? Hmm.\n\nActually the standard solution for 304 G: answer via trie counting pairs with xor >= x greedily: cnt(x) = number of pairs in optimal? Count function: number of pairs (i,j) with a_i xor a_j >= x is computable via trie, then check cnt >= n/2? No—that doesn't ensure matching exists but actually max min matching = median threshold via Hall's; the known solution: binary search x, count pairs with xor >= x via trie (all pairs), check count >= number needed... Hmm actually ABC304G solution: binary search, count number of pairs (unordered) with XOR >= x using trie; if count >= n/2 then feasible? That's not obviously a matching but it's the editorial solution I believe (max matching min = median; by a theorem number of feasible pairs ≥ ... ). Actually known accepted solution: count pairs with a_i^a_j >= x; if count ≥ ceil(n/2)? and answer.\n\nIf calc1 counts all pairs with xor>=m: base t=-1 returns len(a)//2 — hmm, should be C(len,2)=len*(len-1)/2 for all pairs xor... at t=-1 with m>0? t=-1 reached when m's bits exhausted (m has ≤30 bits), all remaining pairs have xor < ... no, xor>=m trivially? If we descended all bits of m, remaining pairs all satisfy? No—if at every level we accounted properly... base returns len(a)//2, suspicious but maybe they count matched pairs (greedy matching), len//2 pairs. Hmm, but there's no ordering constraint so a matching can pair arbitrarily, so //2 pairs each with xor ≥ 0? but m bits exhausted means m=... m could still be positive with fewer than 30 bits; then all remaining pairs with xor ≥ leftover bits? This is getting complex. Given \"median of n pairs\", the check uses (n+1)//2 — should be n/2 pairs? Pairs count = n; median is the (n+1)/2-th largest... Condition: number of pairs with xor>=m ≥ (n+1)//2? For maximizing median you need at least floor(n/2)+1 = (n+1)//2? n pairs, median = ceil(n/2)-th... maximized min matching ≥ m iff at least ceil(n/2) pairs... hmm fine.\n\nThe clear bug candidates: line 15 recursion uses full c instead of leftover; but maybe correct formula is len(b) + min((len(c)-len(b))//2, ...) without recursion? Original correct code (I recall): f(a): split by bit; if m bit set: f(b)+... returns calc2. If bit not set: cross pairs freely: min(len(b),len(c)) then leftover recurses on bigger group: min(count leftover pairs, f(leftover group)). Leftover of c has (len(c)-len(b)) elements → pairs (len(c)-len(b))//2... wait but only leftover in c? b fully matched to c elements min count; remaining in c: len(c)-len(b) elements, recurse. Line 15: calc1(c,...) uses all of c, overcounting. That seems the bug: line 15.\n\nAlso line 14 swap fine. Line 32: pairs (e,f) and (d,g) recursively — fine. Lines 35-38 leftover logic: cross matches min(e,f)+min(d,g), leftovers in e and g both... when len(e)>len(f) and len(g)>len(d), leftovers e-len(f) in e and g-len(d) in g must pair with each other, recursion calc2(e,g). Correct formula per editorial: cross matches give min pairs, leftover recursion. But if only one side has leftover (e.g., len(e)>len(f) but len(g)≤len(d)), leftover elements in e can pair within? Actually leftover in e must pair among themselves (all in same group), handled where? It's dropped—res omits e-f leftovers pairing internally. Hmm in calc2 leftover elements pair within same group at bit=1... m bit is 0 here, so leftover in group e pairs within e giving xor of bit 1 ≥ current m? No—lower bits still matter. The editorial: when bit of m is 0 in matching setting, pairs cross (b,c) arbitrary, leftover within each group: count floor((len leftover)/2) forced... but those must also satisfy remaining m bits — need recursion. Known correct solution just counts pairs with xor ≥ x using trie, not matching. I'll trust line 15 as main bug.\n\nRank: line 15 high, line 3 (base case //2 vs count of all pairs?) medium, line 36/38 medium, line 46 check (n+1)//2 vs n//2? For median of n pairs, need count ≥ floor(n/2)+1 = (n+1)//2. Fine.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1375,
+      "completion_tokens": 1871,
+      "total_tokens": 3246,
+      "cost": 0.00110335,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00110335,
+        "upstream_inference_prompt_cost": 0.00016785,
+        "upstream_inference_completions_cost": 0.0009355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1624,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

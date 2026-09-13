@@ -1,0 +1,78 @@
+{
+  "run_id": "c0896a22d9ae849927b7344519360ee9e74f0553dee920882b497f0f04cdc26f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b9cae6c3db90447aab46f84d1c1ff1185f5e711867d0e3c392ccafd06dda5758",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:48:56.126016Z",
+  "latency": 7.334052042046096,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 515,
+    "total_tokens": 1689,
+    "cost": 0.00029536,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00029536,
+      "upstream_inference_prompt_cost": 3.786e-05,
+      "upstream_inference_completions_cost": 0.0002575
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 368,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 31, \"score\": 0.85, \"reason\": \"Pattern 3 (both bits 1) has cost 2, not 1; initial dp should be dp[0][3]=2.\"}, {\"line\": 38, \"score\": 0.6, \"reason\": \"Checks maze[i-1][j^k]; likely should validate pattern k of previous row, i.e. maze[i-1][k].\"}, {\"line\": 40, \"score\": 0.2, \"reason\": \"Final row adds no cost, but j chosen at row H-1 was never charged; cost accounting may be off here.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/c0896a22d9ae849927b7344519360ee9e74f0553dee920882b497f0f04cdc26f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 31,
+        "score": 0.85,
+        "reason": "Pattern 3 (both bits 1) has cost 2, not 1; initial dp should be dp[0][3]=2."
+      },
+      {
+        "line": 38,
+        "score": 0.6,
+        "reason": "Checks maze[i-1][j^k]; likely should validate pattern k of previous row, i.e. maze[i-1][k]."
+      },
+      {
+        "line": 40,
+        "score": 0.2,
+        "reason": "Final row adds no cost, but j chosen at row H-1 was never charged; cost accounting may be off here."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

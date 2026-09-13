@@ -1,0 +1,83 @@
+{
+  "run_id": "3327e272f1873a3df04f8b13249c727541f633b891a0aa5e3426f499c872be85",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "648ac608950598b695c971d1a010a000b71530d75822db09a57b12f229639b42",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43438224",
+  "task_id": "arc164_e",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:17:00.889617Z",
+  "latency": 4.86975050001638,
+  "token_usage": {
+    "prompt_tokens": 1287,
+    "completion_tokens": 291,
+    "total_tokens": 1578,
+    "cost": 0.00018495,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00018495,
+      "upstream_inference_prompt_cost": 3.945e-05,
+      "upstream_inference_completions_cost": 0.0001455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 140,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 45, \"score\": 0.7, \"reason\": \"Uses L[i] where line 43 uses ni; asymmetry suggests left boundary cost uses wrong index\"}, {\"line\": 43, \"score\": 0.5, \"reason\": \"Counterpart asymmetry with line 45; one of these indices is likely wrong\"}, {\"line\": 31, \"score\": 0.4, \"reason\": \"range(M-1) may iterate one segment too few/many for DP over segments\"}, {\"line\": 49, \"score\": 0.3, \"reason\": \"Final output indexing Y[s] and d vs Q special case could misreport answer\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/3327e272f1873a3df04f8b13249c727541f633b891a0aa5e3426f499c872be85.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 45,
+        "score": 0.7,
+        "reason": "Uses L[i] where line 43 uses ni; asymmetry suggests left boundary cost uses wrong index"
+      },
+      {
+        "line": 43,
+        "score": 0.5,
+        "reason": "Counterpart asymmetry with line 45; one of these indices is likely wrong"
+      },
+      {
+        "line": 31,
+        "score": 0.4,
+        "reason": "range(M-1) may iterate one segment too few/many for DP over segments"
+      },
+      {
+        "line": 49,
+        "score": 0.3,
+        "reason": "Final output indexing Y[s] and d vs Q special case could misreport answer"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    16
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2651",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "130fd19c5f926c1c78a64c7afc4a82e6209b03d62faff0d3175d2533c5fb3de3",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4663,
+  "prompt_tokens_estimate": 1166,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

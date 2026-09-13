@@ -1,0 +1,78 @@
+{
+  "run_id": "d31f4a77740bdd4f091299da52809d949870f183fdc908f3c479f411e88aa066",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "12aa81bf9c296b141c1e33e60d0dc7a2103600b9f0f518d3f1b68bba62e86174",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:35:46.452046Z",
+  "latency": 38.49161045800429,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 2477,
+    "total_tokens": 3689,
+    "cost": 0.00128206,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00128206,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.0012385
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2333,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 43, \"score\": 0.9, \"reason\": \"Upper bound 10^10 exceeds max possible XOR (<2^30); calc1 ignores m's bits above 29, making predicate non-monotone and binary search wrong.\"}, {\"line\": 46, \"score\": 0.3, \"reason\": \"Binary search assumes monotonicity that fails when m exceeds 2^30 due to unmasked high bits of m.\"}, {\"line\": 15, \"score\": 0.2, \"reason\": \"Greedy matching could undercount if pairing within smaller group beats cross pairing; less likely but possible.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/d31f4a77740bdd4f091299da52809d949870f183fdc908f3c479f411e88aa066.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 43,
+        "score": 0.9,
+        "reason": "Upper bound 10^10 exceeds max possible XOR (<2^30); calc1 ignores m's bits above 29, making predicate non-monotone and binary search wrong."
+      },
+      {
+        "line": 46,
+        "score": 0.3,
+        "reason": "Binary search assumes monotonicity that fails when m exceeds 2^30 due to unmasked high bits of m."
+      },
+      {
+        "line": 15,
+        "score": 0.2,
+        "reason": "Greedy matching could undercount if pairing within smaller group beats cross pairing; less likely but possible."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "15e5dec5f4938bf726f25b1bcd7a82e88017b5a6c8bb35852e273e4fbddb6c9d",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "93bc61670c38bdbf4ede49e452b42becbdb894af212eb46fc157ccc4443a4157",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:44:43.744630Z",
+  "latency": 23.038094000017736,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 1575,
+    "total_tokens": 3352,
+    "cost": 0.00101565,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00101565,
+      "upstream_inference_prompt_cost": 0.00022815,
+      "upstream_inference_completions_cost": 0.0007875
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1415,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"+1 added outside max; dp_y combination ignores that children states may need separate handling, off-by-one capacity likely\"}, {\"line\": 55, \"score\": 0.4, \"reason\": \"Root-Y case shifts +1 to leaf count instead of reducing non-leaf requirement, possibly double-counting root\"}, {\"line\": 42, \"score\": 0.3, \"reason\": \"dp_x combination may incorrectly allow both children to take dp_y states simultaneously depending on constraints\"}, {\"line\": 51, \"score\": 0.2, \"reason\": \"Comparison of dp capacity with y_non_leaf_count may misalign index semantics of dp_x\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/15e5dec5f4938bf726f25b1bcd7a82e88017b5a6c8bb35852e273e4fbddb6c9d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.5,
+        "reason": "+1 added outside max; dp_y combination ignores that children states may need separate handling, off-by-one capacity likely"
+      },
+      {
+        "line": 55,
+        "score": 0.4,
+        "reason": "Root-Y case shifts +1 to leaf count instead of reducing non-leaf requirement, possibly double-counting root"
+      },
+      {
+        "line": 42,
+        "score": 0.3,
+        "reason": "dp_x combination may incorrectly allow both children to take dp_y states simultaneously depending on constraints"
+      },
+      {
+        "line": 51,
+        "score": 0.2,
+        "reason": "Comparison of dp capacity with y_non_leaf_count may misalign index semantics of dp_x"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

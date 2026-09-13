@@ -1,0 +1,78 @@
+{
+  "run_id": "6e0636a13183e13632a6ce08f9178621f5caa9663060d8601537407293629c83",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "12860bdf53550b575603cd95d421f2bfa411663c51632dabf2ff80f60027e9c8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:38:14.888880Z",
+  "latency": 52.39123066700995,
+  "token_usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 3765,
+    "total_tokens": 5246,
+    "cost": 0.00206625,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00206625,
+      "upstream_inference_prompt_cost": 0.00018375,
+      "upstream_inference_completions_cost": 0.0018825
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3621,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 52, \"score\": 0.95, \"reason\": \"For s (on path), right[i*ln] is -1 so left[s] is overwritten from rc[1] (step toward t) with parent[s]=-1, breaking left jumps toward t\"}, {\"line\": 49, \"score\": 0.6, \"reason\": \"Guard checks only right; left for s was set on line 44 but still gets clobbered, so condition is insufficient\"}, {\"line\": 53, \"score\": 0.4, \"reason\": \"Assignment pair unconditionally overwrites the carefully seeded left value for endpoint s\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/6e0636a13183e13632a6ce08f9178621f5caa9663060d8601537407293629c83.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 52,
+        "score": 0.95,
+        "reason": "For s (on path), right[i*ln] is -1 so left[s] is overwritten from rc[1] (step toward t) with parent[s]=-1, breaking left jumps toward t"
+      },
+      {
+        "line": 49,
+        "score": 0.6,
+        "reason": "Guard checks only right; left for s was set on line 44 but still gets clobbered, so condition is insufficient"
+      },
+      {
+        "line": 53,
+        "score": 0.4,
+        "reason": "Assignment pair unconditionally overwrites the carefully seeded left value for endpoint s"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 5234,
+  "prompt_tokens_estimate": 1309,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

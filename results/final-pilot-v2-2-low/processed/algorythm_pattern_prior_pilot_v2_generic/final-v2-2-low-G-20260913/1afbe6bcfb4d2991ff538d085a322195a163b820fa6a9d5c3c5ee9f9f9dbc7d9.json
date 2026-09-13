@@ -1,0 +1,83 @@
+{
+  "run_id": "1afbe6bcfb4d2991ff538d085a322195a163b820fa6a9d5c3c5ee9f9f9dbc7d9",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "73114a0c01a3aacc42755fd2183a4087a5886335c4025539ac85dcfc635f7eb6",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43234248",
+  "task_id": "arc148_b",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:24:10.520589Z",
+  "latency": 14.727685209014453,
+  "token_usage": {
+    "prompt_tokens": 1114,
+    "completion_tokens": 909,
+    "total_tokens": 2023,
+    "cost": 0.0005832,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005832,
+      "upstream_inference_prompt_cost": 0.0001287,
+      "upstream_inference_completions_cost": 0.0004545
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 743,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 37, \"score\": 0.7, \"reason\": \"Loop bound range(idxP, N+1) includes i=idxP (empty interval) and may mis-handle the final endpoint; off-by-one suspicion on interval enumeration\"}, {\"line\": 38, \"score\": 0.4, \"reason\": \"Reverse-then-translate of slice; order/slice construction could diverge from intended interval flip\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"Assumes optimal left endpoint is first 'p'; wrong anchor would miss candidates\"}, {\"line\": 31, \"score\": 0.2, \"reason\": \"Edge-case guard prints S for all-same strings; verify no other cases need handling\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/1afbe6bcfb4d2991ff538d085a322195a163b820fa6a9d5c3c5ee9f9f9dbc7d9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 37,
+        "score": 0.7,
+        "reason": "Loop bound range(idxP, N+1) includes i=idxP (empty interval) and may mis-handle the final endpoint; off-by-one suspicion on interval enumeration"
+      },
+      {
+        "line": 38,
+        "score": 0.4,
+        "reason": "Reverse-then-translate of slice; order/slice construction could diverge from intended interval flip"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "Assumes optimal left endpoint is first 'p'; wrong anchor would miss candidates"
+      },
+      {
+        "line": 31,
+        "score": 0.2,
+        "reason": "Edge-case guard prints S for all-same strings; verify no other cases need handling"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 40,
+  "loc": 40,
+  "evaluation_denominator": 40,
+  "faulty_lines": [
+    32
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "975",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "82d630b57084457439e1cd07c63f357ce91fcd52b782d528845d9398eeec7849",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4396,
+  "prompt_tokens_estimate": 1099,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

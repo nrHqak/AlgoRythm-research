@@ -1,0 +1,83 @@
+{
+  "run_id": "954c76cafbf4cffbb747e6fb27e284f5356d9bd285bf8e9f059609f12c21d511",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c4837bdb2ccf1b52e4c3cfb294c26d2672d2bb6ced11e8ce3967d6b2eb0c9aff",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:39:02.692021Z",
+  "latency": 21.801537542021833,
+  "token_usage": {
+    "prompt_tokens": 1318,
+    "completion_tokens": 1505,
+    "total_tokens": 2823,
+    "cost": 0.0007966,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007966,
+      "upstream_inference_prompt_cost": 4.41e-05,
+      "upstream_inference_completions_cost": 0.0007525
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1314,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 52, \"score\": 0.85, \"reason\": \"Endpoint s has right=-1 but is on the path; its correct left value (next node toward t) gets overwritten with parent[s]=-1, breaking queries from s.\"}, {\"line\": 49, \"score\": 0.8, \"reason\": \"Guard tests right[i*ln] to skip path nodes, but s legitimately has right=-1, so s is misclassified as off-path.\"}, {\"line\": 51, \"score\": 0.4, \"reason\": \"For s this assigns parent=-1 into left/right; on-path nodes should be excluded entirely, not just those with right set.\"}, {\"line\": 43, \"score\": 0.2, \"reason\": \"Path-level initialization interacts badly with the off-path loop at s; loop itself is otherwise consistent.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/954c76cafbf4cffbb747e6fb27e284f5356d9bd285bf8e9f059609f12c21d511.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 52,
+        "score": 0.85,
+        "reason": "Endpoint s has right=-1 but is on the path; its correct left value (next node toward t) gets overwritten with parent[s]=-1, breaking queries from s."
+      },
+      {
+        "line": 49,
+        "score": 0.8,
+        "reason": "Guard tests right[i*ln] to skip path nodes, but s legitimately has right=-1, so s is misclassified as off-path."
+      },
+      {
+        "line": 51,
+        "score": 0.4,
+        "reason": "For s this assigns parent=-1 into left/right; on-path nodes should be excluded entirely, not just those with right set."
+      },
+      {
+        "line": 43,
+        "score": 0.2,
+        "reason": "Path-level initialization interacts badly with the off-path loop at s; loop itself is otherwise consistent."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": null,
+  "prompt_chars": 4390,
+  "prompt_tokens_estimate": 1098,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,73 @@
+{
+  "run_id": "982ceffa01dcc58ea682ccb524659b3fc27e8dc3d79b770971fe1546e4a9409c",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "68b9ca005a4c9e88c2e17b7cfd51ad74218988ba09e2b73a2ab812c61a5f1915",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45325123",
+  "task_id": "abc291_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:06.436302Z",
+  "latency": 5.3726780830184,
+  "token_usage": {
+    "prompt_tokens": 915,
+    "completion_tokens": 325,
+    "total_tokens": 1240,
+    "cost": 0.00019223,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019223,
+      "upstream_inference_prompt_cost": 2.973e-05,
+      "upstream_inference_completions_cost": 0.0001625
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 235,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"Initial queue with two or more zero-degree nodes is never checked, so ambiguity at the start is missed; check must also cover initial state\"}, {\"line\": 22, \"score\": 0.3, \"reason\": \"Uniqueness check only after processing; combined with line 12, early ambiguity can slip through\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/982ceffa01dcc58ea682ccb524659b3fc27e8dc3d79b770971fe1546e4a9409c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.9,
+        "reason": "Initial queue with two or more zero-degree nodes is never checked, so ambiguity at the start is missed; check must also cover initial state"
+      },
+      {
+        "line": 22,
+        "score": 0.3,
+        "reason": "Uniqueness check only after processing; combined with line 12, early ambiguity can slip through"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    15
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1069",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "005329430119bbedd0e5f536ae6a2f34fa47dd6694d0c20d404f2c303a32c86c",
+  "prior_hash": null,
+  "prompt_chars": 3351,
+  "prompt_tokens_estimate": 838,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "ba62a8b0ba55d5aff6e068961bd19a189fbaa5c44b7a8f4fc887c6de5d3f4a6d",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a0322e65ff5fa858a2eee95e28e311b86dc6af961dcdb805faaf74b9d07216e3",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:46:02.291589Z",
+  "latency": 5.022203458996955,
+  "token_usage": {
+    "prompt_tokens": 876,
+    "completion_tokens": 264,
+    "total_tokens": 1140,
+    "cost": 0.00016356,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00016356,
+      "upstream_inference_prompt_cost": 3.156e-05,
+      "upstream_inference_completions_cost": 0.000132
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 136,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =, so unreachable cells (s==1) are never reset to 0, letting walls propagate paths.\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"Check runs after increment; intent fine but depends on line 22 assignment working.\"}, {\"line\": 19, \"score\": 0.1, \"reason\": \"max of possibly-unreachable (0) neighbors plus 1 is intended, but only correct if unreachable reset works.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/ba62a8b0ba55d5aff6e068961bd19a189fbaa5c44b7a8f4fc887c6de5d3f4a6d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =, so unreachable cells (s==1) are never reset to 0, letting walls propagate paths."
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "Check runs after increment; intent fine but depends on line 22 assignment working."
+      },
+      {
+        "line": 19,
+        "score": 0.1,
+        "reason": "max of possibly-unreachable (0) neighbors plus 1 is intended, but only correct if unreachable reset works."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": null,
+  "prompt_chars": 3173,
+  "prompt_tokens_estimate": 794,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,88 @@
+{
+  "run_id": "6448b4df1dab6d501cec931c2b3fa8c778c8b5c1fd27c86bcbd681abc04b3473",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c94d509b6e1e3e9c64833644021257efa32a3e28cccc0355b1565fbe27b2e4d5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:42:27.143543Z",
+  "latency": 226.2686035829829,
+  "token_usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 18987,
+    "total_tokens": 20468,
+    "cost": 0.00953901,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1472,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00953901,
+      "upstream_inference_prompt_cost": 4.551e-05,
+      "upstream_inference_completions_cost": 0.0094935
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 18763,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 49, \"score\": 0.95, \"reason\": \"Skip condition checks only right[]; start node s has right=-1 (never set by line 45) so it is not skipped\"}, {\"line\": 52, \"score\": 0.75, \"reason\": \"For node s, this overwrites left[s*ln] (set to rc[1] toward t) with parent[s]=-1, breaking all lifts from s\"}, {\"line\": 48, \"score\": 0.4, \"reason\": \"Loop processes the diameter endpoint s and clobbers its path pointers; needs to also skip when left is set\"}, {\"line\": 45, \"score\": 0.25, \"reason\": \"right[c[i]] loop excludes last element, leaving right[s]=-1, which triggers the faulty overwrite of s\"}, {\"line\": 51, \"score\": 0.15, \"reason\": \"parent[s]=-1 assigned into lifting table; only harmful because s incorrectly reaches this branch\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/6448b4df1dab6d501cec931c2b3fa8c778c8b5c1fd27c86bcbd681abc04b3473.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 49,
+        "score": 0.95,
+        "reason": "Skip condition checks only right[]; start node s has right=-1 (never set by line 45) so it is not skipped"
+      },
+      {
+        "line": 52,
+        "score": 0.75,
+        "reason": "For node s, this overwrites left[s*ln] (set to rc[1] toward t) with parent[s]=-1, breaking all lifts from s"
+      },
+      {
+        "line": 48,
+        "score": 0.4,
+        "reason": "Loop processes the diameter endpoint s and clobbers its path pointers; needs to also skip when left is set"
+      },
+      {
+        "line": 45,
+        "score": 0.25,
+        "reason": "right[c[i]] loop excludes last element, leaving right[s]=-1, which triggers the faulty overwrite of s"
+      },
+      {
+        "line": 51,
+        "score": 0.15,
+        "reason": "parent[s]=-1 assigned into lifting table; only harmful because s incorrectly reaches this branch"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 5234,
+  "prompt_tokens_estimate": 1309,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

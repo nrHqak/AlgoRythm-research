@@ -1,0 +1,78 @@
+{
+  "run_id": "8d028d7e3528070b7ce95d3e6e3b1d95b01c0e77eb3b2d283ea1f665483574c3",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "6364dd9e30e41005a7d0ff45b0d1350a9042a8781405058d4f19efaa06dd3579",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45895898",
+  "task_id": "abc309_c",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:03:52.054861Z",
+  "latency": 7.9644161249743775,
+  "token_usage": {
+    "prompt_tokens": 1135,
+    "completion_tokens": 520,
+    "total_tokens": 1655,
+    "cost": 0.00029969,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00029969,
+      "upstream_inference_prompt_cost": 3.969e-05,
+      "upstream_inference_completions_cost": 0.00026
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 397,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.85, \"reason\": \"r must start at maxday+1; if cal(maxday) is true, answer exceeds maxday but search caps at maxday\"}, {\"line\": 26, \"score\": 0.3, \"reason\": \"predicate res>k is plausible but combined with bounds determines off-by-one behavior\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"special case prints 1 when r<=0; boundary init bug makes this path mishandled\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/8d028d7e3528070b7ce95d3e6e3b1d95b01c0e77eb3b2d283ea1f665483574c3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.85,
+        "reason": "r must start at maxday+1; if cal(maxday) is true, answer exceeds maxday but search caps at maxday"
+      },
+      {
+        "line": 26,
+        "score": 0.3,
+        "reason": "predicate res>k is plausible but combined with bounds determines off-by-one behavior"
+      },
+      {
+        "line": 46,
+        "score": 0.2,
+        "reason": "special case prints 1 when r<=0; boundary init bug makes this path mishandled"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 51,
+  "loc": 51,
+  "evaluation_denominator": 51,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "348",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bda9e3686ddfbc102c2f7c192374829b6a783b677acaf6135d0089b1bb854936",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4320,
+  "prompt_tokens_estimate": 1080,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

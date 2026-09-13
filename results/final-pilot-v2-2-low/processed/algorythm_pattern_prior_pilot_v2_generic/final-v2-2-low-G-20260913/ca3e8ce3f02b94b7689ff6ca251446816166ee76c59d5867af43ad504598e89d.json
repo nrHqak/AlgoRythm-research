@@ -1,0 +1,78 @@
+{
+  "run_id": "ca3e8ce3f02b94b7689ff6ca251446816166ee76c59d5867af43ad504598e89d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "679d3915e763df956c112c4d6005f477e580d8f8e5ed06de910d24c2f9181e6f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:17:59.699229Z",
+  "latency": 19.818907166016288,
+  "token_usage": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 1297,
+    "total_tokens": 2326,
+    "cost": 0.00067997,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00067997,
+      "upstream_inference_prompt_cost": 3.147e-05,
+      "upstream_inference_completions_cost": 0.0006485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1156,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"For j==0, id=max(0,i)=i, pulling uninitialized dp[i]=INF into the sum; zero rolls must be excluded from the second loop.\"}, {\"line\": 20, \"score\": 0.6, \"reason\": \"Loop includes zero slots that were already counted as rerolls, double-counting them incorrectly via line 21.\"}, {\"line\": 19, \"score\": 0.2, \"reason\": \"If all slots are zero, num becomes 0 and causes division by zero on lines 22/24.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/ca3e8ce3f02b94b7689ff6ca251446816166ee76c59d5867af43ad504598e89d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "For j==0, id=max(0,i)=i, pulling uninitialized dp[i]=INF into the sum; zero rolls must be excluded from the second loop."
+      },
+      {
+        "line": 20,
+        "score": 0.6,
+        "reason": "Loop includes zero slots that were already counted as rerolls, double-counting them incorrectly via line 21."
+      },
+      {
+        "line": 19,
+        "score": 0.2,
+        "reason": "If all slots are zero, num becomes 0 and causes division by zero on lines 22/24."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4027,
+  "prompt_tokens_estimate": 1007,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

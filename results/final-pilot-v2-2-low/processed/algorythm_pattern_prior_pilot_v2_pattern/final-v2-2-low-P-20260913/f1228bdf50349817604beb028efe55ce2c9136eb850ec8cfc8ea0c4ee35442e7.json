@@ -1,0 +1,83 @@
+{
+  "run_id": "f1228bdf50349817604beb028efe55ce2c9136eb850ec8cfc8ea0c4ee35442e7",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "6bc1c37047e86269aa93c8e2c616a00649c6b4cf9b4131a94835669d8beeafc9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:45.187226Z",
+  "latency": 8.975472624995746,
+  "token_usage": {
+    "prompt_tokens": 865,
+    "completion_tokens": 686,
+    "total_tokens": 1551,
+    "cost": 0.00047275,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00047275,
+      "upstream_inference_prompt_cost": 0.00012975,
+      "upstream_inference_completions_cost": 0.000343
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 518,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.8, \"reason\": \"Problem requires A[i]>A[j] (maximize j-i); code builds prefix max of R assuming A[i]<A[j], wrong comparison direction\"}, {\"line\": 23, \"score\": 0.7, \"reason\": \"bisect_right(M, L[i]) finds R values > L[i]; needed is R values strictly less than L[i]\"}, {\"line\": 24, \"score\": 0.6, \"reason\": \"Problem asks to maximize j-i over pairs, but code computes the minimum\"}, {\"line\": 21, \"score\": 0.4, \"reason\": \"Initializing m=INF and taking min aligns with minimizing, contradicting the maximize objective\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/f1228bdf50349817604beb028efe55ce2c9136eb850ec8cfc8ea0c4ee35442e7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.8,
+        "reason": "Problem requires A[i]>A[j] (maximize j-i); code builds prefix max of R assuming A[i]<A[j], wrong comparison direction"
+      },
+      {
+        "line": 23,
+        "score": 0.7,
+        "reason": "bisect_right(M, L[i]) finds R values > L[i]; needed is R values strictly less than L[i]"
+      },
+      {
+        "line": 24,
+        "score": 0.6,
+        "reason": "Problem asks to maximize j-i over pairs, but code computes the minimum"
+      },
+      {
+        "line": 21,
+        "score": 0.4,
+        "reason": "Initializing m=INF and taking min aligns with minimizing, contradicting the maximize objective"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": null,
+  "prompt_chars": 3192,
+  "prompt_tokens_estimate": 798,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

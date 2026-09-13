@@ -1,0 +1,73 @@
+{
+  "run_id": "c2cfd0671c56f33835e17c570a09093892ea5758b2890726c1351f99e81ef177",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "2a59cabbb96b4423df089b93c19c731c4de7e891ca08fed69a38e775ae238636",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54718266",
+  "task_id": "abc308_d",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:49.932590Z",
+  "latency": 2.0567370830103755,
+  "token_usage": {
+    "prompt_tokens": 1092,
+    "completion_tokens": 104,
+    "total_tokens": 1196,
+    "cost": 8.524e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.524e-05,
+      "upstream_inference_prompt_cost": 3.324e-05,
+      "upstream_inference_completions_cost": 5.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 17,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 27, \"score\": 0.95, \"reason\": \"Checks truthiness of grid cell character instead of visited flag bool[h][w]; non-dot chars are always truthy\"}, {\"line\": 16, \"score\": 0.3, \"reason\": \"Sequence s-n-u-k-e and dict mapping are plausible but verify letters match 'snukes' order\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/c2cfd0671c56f33835e17c570a09093892ea5758b2890726c1351f99e81ef177.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 27,
+        "score": 0.95,
+        "reason": "Checks truthiness of grid cell character instead of visited flag bool[h][w]; non-dot chars are always truthy"
+      },
+      {
+        "line": 16,
+        "score": 0.3,
+        "reason": "Sequence s-n-u-k-e and dict mapping are plausible but verify letters match 'snukes' order"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 30,
+  "loc": 30,
+  "evaluation_denominator": 30,
+  "faulty_lines": [
+    27
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "619",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "11f049fac55c78da937115bc49f4eaf0a43413e947ebfc8226aff1df1d682517",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4245,
+  "prompt_tokens_estimate": 1062,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

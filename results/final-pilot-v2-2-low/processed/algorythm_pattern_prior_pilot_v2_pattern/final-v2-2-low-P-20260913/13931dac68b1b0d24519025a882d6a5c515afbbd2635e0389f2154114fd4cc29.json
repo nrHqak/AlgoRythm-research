@@ -1,0 +1,88 @@
+{
+  "run_id": "13931dac68b1b0d24519025a882d6a5c515afbbd2635e0389f2154114fd4cc29",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "ac153f7ca67da85aa2d212d04e9f303f7f64bdf017a9686f645e3f67d6bccf4f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:15.516605Z",
+  "latency": 35.25461116596125,
+  "token_usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 2666,
+    "total_tokens": 4166,
+    "cost": 0.00138136,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1472,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00138136,
+      "upstream_inference_prompt_cost": 4.836e-05,
+      "upstream_inference_completions_cost": 0.001333
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2444,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 43, \"score\": 0.9, \"reason\": \"Loop bounds exclude endpoint s: right[s] and left[s] toward t never set, so queries from s wrongly return -1.\"}, {\"line\": 45, \"score\": 0.7, \"reason\": \"c[i+1] never reaches index of s's neighbor; s gets no outgoing level-0 pointer on the diameter path.\"}, {\"line\": 49, \"score\": 0.4, \"reason\": \"Guard skips only nodes with right set; s slips through and gets both pointers overwritten to -1.\"}, {\"line\": 52, \"score\": 0.35, \"reason\": \"Overwrites left for endpoint s with parent (-1), destroying needed step toward t for non-path-side queries.\"}, {\"line\": 68, \"score\": 0.15, \"reason\": \"Bit extraction is correct for k>=1 but assumes k fits table levels; minor off-by-one risk if ln too small.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/13931dac68b1b0d24519025a882d6a5c515afbbd2635e0389f2154114fd4cc29.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 43,
+        "score": 0.9,
+        "reason": "Loop bounds exclude endpoint s: right[s] and left[s] toward t never set, so queries from s wrongly return -1."
+      },
+      {
+        "line": 45,
+        "score": 0.7,
+        "reason": "c[i+1] never reaches index of s's neighbor; s gets no outgoing level-0 pointer on the diameter path."
+      },
+      {
+        "line": 49,
+        "score": 0.4,
+        "reason": "Guard skips only nodes with right set; s slips through and gets both pointers overwritten to -1."
+      },
+      {
+        "line": 52,
+        "score": 0.35,
+        "reason": "Overwrites left for endpoint s with parent (-1), destroying needed step toward t for non-path-side queries."
+      },
+      {
+        "line": 68,
+        "score": 0.15,
+        "reason": "Bit extraction is correct for k>=1 but assumes k fits table levels; minor off-by-one risk if ln too small."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 5295,
+  "prompt_tokens_estimate": 1324,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

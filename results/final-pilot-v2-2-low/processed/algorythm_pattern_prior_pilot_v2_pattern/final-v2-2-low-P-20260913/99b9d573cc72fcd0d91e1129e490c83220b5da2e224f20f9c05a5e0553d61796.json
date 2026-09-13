@@ -1,0 +1,78 @@
+{
+  "run_id": "99b9d573cc72fcd0d91e1129e490c83220b5da2e224f20f9c05a5e0553d61796",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d3b8923a2eef3d6f17fdf05f2adc665280cd76b36dc21cc006b6cc021e3dcb49",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:45:11.476327Z",
+  "latency": 6.355242040997837,
+  "token_usage": {
+    "prompt_tokens": 1946,
+    "completion_tokens": 338,
+    "total_tokens": 2284,
+    "cost": 0.0002305,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002305,
+      "upstream_inference_prompt_cost": 6.15e-05,
+      "upstream_inference_completions_cost": 0.000169
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 205,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.9, \"reason\": \"dp_y recurrence only combines children's dp_x states; it should also allow children taken via dp_y, dropping valid transitions\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"dp_x combines max(dp_x,dp_y) children freely; adjacency constraint may forbid some combinations\"}, {\"line\": 23, \"score\": 0.3, \"reason\": \"leaf base case dp_y[p][1]=0 assumes leaf always has one Y; index/validity of base state may be off\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/99b9d573cc72fcd0d91e1129e490c83220b5da2e224f20f9c05a5e0553d61796.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.9,
+        "reason": "dp_y recurrence only combines children's dp_x states; it should also allow children taken via dp_y, dropping valid transitions"
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "dp_x combines max(dp_x,dp_y) children freely; adjacency constraint may forbid some combinations"
+      },
+      {
+        "line": 23,
+        "score": 0.3,
+        "reason": "leaf base case dp_y[p][1]=0 assumes leaf always has one Y; index/validity of base state may be off"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 6460,
+  "prompt_tokens_estimate": 1615,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

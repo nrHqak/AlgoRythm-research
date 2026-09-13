@@ -1,0 +1,93 @@
+{
+  "run_id": "db53168879cfed139b59df43a636382b9a425bd9a25cee106278bc1e8ff72ba6",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "d4f92ad754213c13691e0bf33470aba8108fb6bd1e1c0b27f9732aeab2db8e10",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:53.307169Z",
+  "latency": 34.02098533400567,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 2276,
+    "total_tokens": 3651,
+    "cost": 0.00118297,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00118297,
+      "upstream_inference_prompt_cost": 4.497e-05,
+      "upstream_inference_completions_cost": 0.001138
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1993,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"When m bit is 0, formula 'len(b)+min((len(c)-len(b))//2,...)' mishandles odd |b|; should be len(b)//2 plus leftover handling, so pair count is inflated/incorrect\"}, {\"line\": 36, \"score\": 0.45, \"reason\": \"Leftover cross-matching only tried when e>f and g>d; missing case pairing leftovers within same side via recursion may drop valid matchings\"}, {\"line\": 38, \"score\": 0.45, \"reason\": \"Symmetric leftover branch; mirrors line 36 concern about unmatched leftover configurations\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"min(e,f)+min(d,g) leaves one leftover per group; leftover pairing coverage in following branches is incomplete\"}, {\"line\": 19, \"score\": 0.2, \"reason\": \"Returning 0 when one side empty ignores that only cross pairs are constrained here; likely correct but worth checking\"}, {\"line\": 46, \"score\": 0.15, \"reason\": \"Feasibility threshold (n+1)//2 assumes n even; for odd n max pairs is n//2 and bound may be unreachable\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/db53168879cfed139b59df43a636382b9a425bd9a25cee106278bc1e8ff72ba6.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.85,
+        "reason": "When m bit is 0, formula 'len(b)+min((len(c)-len(b))//2,...)' mishandles odd |b|; should be len(b)//2 plus leftover handling, so pair count is inflated/incorrect"
+      },
+      {
+        "line": 36,
+        "score": 0.45,
+        "reason": "Leftover cross-matching only tried when e>f and g>d; missing case pairing leftovers within same side via recursion may drop valid matchings"
+      },
+      {
+        "line": 38,
+        "score": 0.45,
+        "reason": "Symmetric leftover branch; mirrors line 36 concern about unmatched leftover configurations"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "min(e,f)+min(d,g) leaves one leftover per group; leftover pairing coverage in following branches is incomplete"
+      },
+      {
+        "line": 19,
+        "score": 0.2,
+        "reason": "Returning 0 when one side empty ignores that only cross pairs are constrained here; likely correct but worth checking"
+      },
+      {
+        "line": 46,
+        "score": 0.15,
+        "reason": "Feasibility threshold (n+1)//2 assumes n even; for odd n max pairs is n//2 and bound may be unreachable"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

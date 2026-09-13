@@ -1,0 +1,83 @@
+{
+  "run_id": "516df8df20beb8aa4169bb21ee2bd5453e89bc38174801fff6b0147854f1e5ff",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "4a1735711f614ede35d74cfaebaea742525543bffe3bc08d17a7c6dd49d1ae56",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:35:07.951193Z",
+  "latency": 48.66683316603303,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 3363,
+    "total_tokens": 4575,
+    "cost": 0.00172506,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00172506,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.0016815
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3155,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"Counts len(b) cross pairs unconditionally, but cross pairs still need lower bits >= m; overcounts. When m's bit is 0 the split is unnecessary and this formula is wrong.\"}, {\"line\": 14, \"score\": 0.5, \"reason\": \"Swap for min-side pairing is part of the flawed recurrence; the pairing strategy here ignores the xor>=m condition on cross pairs.\"}, {\"line\": 13, \"score\": 0.3, \"reason\": \"Whole else-branch structure is suspect: with m bit 0 the bit imposes no constraint, so answer should just recurse on the combined set.\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Leftover matching heuristic may miss mixed pairings, though exchange argument mostly covers it; less suspicious than line 15.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/516df8df20beb8aa4169bb21ee2bd5453e89bc38174801fff6b0147854f1e5ff.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.9,
+        "reason": "Counts len(b) cross pairs unconditionally, but cross pairs still need lower bits >= m; overcounts. When m's bit is 0 the split is unnecessary and this formula is wrong."
+      },
+      {
+        "line": 14,
+        "score": 0.5,
+        "reason": "Swap for min-side pairing is part of the flawed recurrence; the pairing strategy here ignores the xor>=m condition on cross pairs."
+      },
+      {
+        "line": 13,
+        "score": 0.3,
+        "reason": "Whole else-branch structure is suspect: with m bit 0 the bit imposes no constraint, so answer should just recurse on the combined set."
+      },
+      {
+        "line": 36,
+        "score": 0.2,
+        "reason": "Leftover matching heuristic may miss mixed pairings, though exchange argument mostly covers it; less suspicious than line 15."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

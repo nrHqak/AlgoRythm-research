@@ -1,0 +1,78 @@
+{
+  "run_id": "b8f9d93e750f2f7e10a1e6f48063c87f0574fca346a7ab57982e8baa31f8490b",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "258d8a95921a98835af50d874ca2b774c12304d5b641eddfaab0b2818970ff67",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:56.487597Z",
+  "latency": 9.532477791944984,
+  "token_usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 683,
+    "total_tokens": 1558,
+    "cost": 0.00037291,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00037291,
+      "upstream_inference_prompt_cost": 3.141e-05,
+      "upstream_inference_completions_cost": 0.0003415
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 536,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 8, \"score\": 0.8, \"reason\": \"low=1 excludes t=A[0]=0 as a candidate; if L-s < A[1], t=0 gives a smaller difference and is missed.\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"high=N excludes t=A[N+1]=L, which could be the closest choice; range should likely cover all A values.\"}, {\"line\": 9, \"score\": 0.2, \"reason\": \"invariant assumes A[low] satisfies predicate but low is unverified initially; combined with line 8 could miss optimum.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/b8f9d93e750f2f7e10a1e6f48063c87f0574fca346a7ab57982e8baa31f8490b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 8,
+        "score": 0.8,
+        "reason": "low=1 excludes t=A[0]=0 as a candidate; if L-s < A[1], t=0 gives a smaller difference and is missed."
+      },
+      {
+        "line": 7,
+        "score": 0.4,
+        "reason": "high=N excludes t=A[N+1]=L, which could be the closest choice; range should likely cover all A values."
+      },
+      {
+        "line": 9,
+        "score": 0.2,
+        "reason": "invariant assumes A[low] satisfies predicate but low is unverified initially; combined with line 8 could miss optimum."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": null,
+  "prompt_chars": 3161,
+  "prompt_tokens_estimate": 791,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

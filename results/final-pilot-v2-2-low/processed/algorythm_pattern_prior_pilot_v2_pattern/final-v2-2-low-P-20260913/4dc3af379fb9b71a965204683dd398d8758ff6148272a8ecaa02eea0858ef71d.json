@@ -1,0 +1,93 @@
+{
+  "run_id": "4dc3af379fb9b71a965204683dd398d8758ff6148272a8ecaa02eea0858ef71d",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4743a2705b4e469a8d2e9724a47fad08d3e51a953b88837f9119d32d135bf489",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44917428",
+  "task_id": "abc275_c",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:57:32.166538Z",
+  "latency": 51.869558625039645,
+  "token_usage": {
+    "prompt_tokens": 1682,
+    "completion_tokens": 4799,
+    "total_tokens": 6481,
+    "cost": 0.0026134,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0026134,
+      "upstream_inference_prompt_cost": 0.0002139,
+      "upstream_inference_completions_cost": 0.0023995
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4550,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 38, \"score\": 0.6, \"reason\": \"k only reaches 3, so squares with leg (1,8) fitting exactly in the 9x9 grid are never counted\"}, {\"line\": 45, \"score\": 0.5, \"reason\": \"k list {3,5} omits (2,7) squares that fit at offset 0 in the grid\"}, {\"line\": 52, \"score\": 0.45, \"reason\": \"k list {4,5} omits (3,6) squares spanning the full 9-wide board\"}, {\"line\": 40, \"score\": 0.3, \"reason\": \"with larger k this family would cover missing full-board squares; bounds tied to line 38\"}, {\"line\": 47, \"score\": 0.25, \"reason\": \"family only handles odd k; (2,7) squares absent from all checks\"}, {\"line\": 54, \"score\": 0.2, \"reason\": \"family misses k=6 (3,6) squares, suggesting wrong k set\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/4dc3af379fb9b71a965204683dd398d8758ff6148272a8ecaa02eea0858ef71d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 38,
+        "score": 0.6,
+        "reason": "k only reaches 3, so squares with leg (1,8) fitting exactly in the 9x9 grid are never counted"
+      },
+      {
+        "line": 45,
+        "score": 0.5,
+        "reason": "k list {3,5} omits (2,7) squares that fit at offset 0 in the grid"
+      },
+      {
+        "line": 52,
+        "score": 0.45,
+        "reason": "k list {4,5} omits (3,6) squares spanning the full 9-wide board"
+      },
+      {
+        "line": 40,
+        "score": 0.3,
+        "reason": "with larger k this family would cover missing full-board squares; bounds tied to line 38"
+      },
+      {
+        "line": 47,
+        "score": 0.25,
+        "reason": "family only handles odd k; (2,7) squares absent from all checks"
+      },
+      {
+        "line": 54,
+        "score": 0.2,
+        "reason": "family misses k=6 (3,6) squares, suggesting wrong k set"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    13
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "760",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "41891f309c335ed83192010e36cdcea3c51557d1c4453e41aa48dc51321b8448",
+  "prior_hash": null,
+  "prompt_chars": 4873,
+  "prompt_tokens_estimate": 1219,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

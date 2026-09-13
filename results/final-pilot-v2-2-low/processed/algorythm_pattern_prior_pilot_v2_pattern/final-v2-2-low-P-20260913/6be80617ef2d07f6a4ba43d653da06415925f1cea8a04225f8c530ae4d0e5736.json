@@ -1,0 +1,78 @@
+{
+  "run_id": "6be80617ef2d07f6a4ba43d653da06415925f1cea8a04225f8c530ae4d0e5736",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "3c7bf96f88f14049510eaecf85967f08538f74931438b5fe79d29321a3e479d7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:48:57.893026Z",
+  "latency": 9.100750415993389,
+  "token_usage": {
+    "prompt_tokens": 1343,
+    "completion_tokens": 668,
+    "total_tokens": 2011,
+    "cost": 0.00038185,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00038185,
+      "upstream_inference_prompt_cost": 4.785e-05,
+      "upstream_inference_completions_cost": 0.000334
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 500,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 42, \"score\": 0.95, \"reason\": \"Adds (j&1) but current row's flip is bit1 of state j; cost should be (j>>1)&1, mixing bit meanings\"}, {\"line\": 31, \"score\": 0.85, \"reason\": \"Base costs flip: dp[0][1] (bit0=row -1) gets cost 1 while dp[0][2] (row 0 flip) gets 0; bits swapped vs transition\"}, {\"line\": 32, \"score\": 0.85, \"reason\": \"dp[0][2]=0 sets row-0-flip cost to 0, contradicting line 36's bit convention where bit1 is current row\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/6be80617ef2d07f6a4ba43d653da06415925f1cea8a04225f8c530ae4d0e5736.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 42,
+        "score": 0.95,
+        "reason": "Adds (j&1) but current row's flip is bit1 of state j; cost should be (j>>1)&1, mixing bit meanings"
+      },
+      {
+        "line": 31,
+        "score": 0.85,
+        "reason": "Base costs flip: dp[0][1] (bit0=row -1) gets cost 1 while dp[0][2] (row 0 flip) gets 0; bits swapped vs transition"
+      },
+      {
+        "line": 32,
+        "score": 0.85,
+        "reason": "dp[0][2]=0 sets row-0-flip cost to 0, contradicting line 36's bit convention where bit1 is current row"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4931,
+  "prompt_tokens_estimate": 1233,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

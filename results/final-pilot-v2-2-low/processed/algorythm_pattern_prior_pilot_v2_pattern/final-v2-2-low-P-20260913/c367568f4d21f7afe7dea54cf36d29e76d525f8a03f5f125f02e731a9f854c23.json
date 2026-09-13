@@ -1,0 +1,78 @@
+{
+  "run_id": "c367568f4d21f7afe7dea54cf36d29e76d525f8a03f5f125f02e731a9f854c23",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "39a2c0b0eec821a95958165631d4c44911aa5b35e59d50a8cc62170296dcfe9c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45895898",
+  "task_id": "abc309_c",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:03:49.558803Z",
+  "latency": 5.467717166990042,
+  "token_usage": {
+    "prompt_tokens": 1135,
+    "completion_tokens": 327,
+    "total_tokens": 1462,
+    "cost": 0.00020319,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00020319,
+      "upstream_inference_prompt_cost": 3.969e-05,
+      "upstream_inference_completions_cost": 0.0001635
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 202,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 26, \"score\": 0.9, \"reason\": \"Predicate uses res>k; feasibility requires res<k, so answer off by one when res==k.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Search range maxday can't return maxday+1 when even maxday leaves sum>=k... actually misses k exactly at maxday.\"}, {\"line\": 46, \"score\": 0.3, \"reason\": \"Final r may exceed maxday when no valid day exists within range.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/c367568f4d21f7afe7dea54cf36d29e76d525f8a03f5f125f02e731a9f854c23.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 26,
+        "score": 0.9,
+        "reason": "Predicate uses res>k; feasibility requires res<k, so answer off by one when res==k."
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "Search range maxday can't return maxday+1 when even maxday leaves sum>=k... actually misses k exactly at maxday."
+      },
+      {
+        "line": 46,
+        "score": 0.3,
+        "reason": "Final r may exceed maxday when no valid day exists within range."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 51,
+  "loc": 51,
+  "evaluation_denominator": 51,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "348",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bda9e3686ddfbc102c2f7c192374829b6a783b677acaf6135d0089b1bb854936",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4320,
+  "prompt_tokens_estimate": 1080,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

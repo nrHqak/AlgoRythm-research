@@ -1,0 +1,78 @@
+{
+  "run_id": "170739fdf0f4cd45a9dc87770dafa8963a3bdf31925302368a4adb28a9812521",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "e24bf366568687640ae2537e97df05fd5d5af323c44f9419ff643a389eadb45a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:01:06.800161Z",
+  "latency": 9.90192787500564,
+  "token_usage": {
+    "prompt_tokens": 1025,
+    "completion_tokens": 661,
+    "total_tokens": 1686,
+    "cost": 0.00036137,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00036137,
+      "upstream_inference_prompt_cost": 3.087e-05,
+      "upstream_inference_completions_cost": 0.0003305
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 513,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.8, \"reason\": \"When no valid pair exists, m stays INF and prints 10^18; problem expects -1, so output lacks the no-answer conversion.\"}, {\"line\": 21, \"score\": 0.5, \"reason\": \"Initializing m to INF signals the 'not found' case; failure to translate it later is the root of the wrong output.\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"bisect_right(M, L[i]) can return len(M); relies on INF sentinel, correct, but boundary worth double-checking against strict inequality requirement.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/170739fdf0f4cd45a9dc87770dafa8963a3bdf31925302368a4adb28a9812521.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.8,
+        "reason": "When no valid pair exists, m stays INF and prints 10^18; problem expects -1, so output lacks the no-answer conversion."
+      },
+      {
+        "line": 21,
+        "score": 0.5,
+        "reason": "Initializing m to INF signals the 'not found' case; failure to translate it later is the root of the wrong output."
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "bisect_right(M, L[i]) can return len(M); relies on INF sentinel, correct, but boundary worth double-checking against strict inequality requirement."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4011,
+  "prompt_tokens_estimate": 1003,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

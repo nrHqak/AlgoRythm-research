@@ -1,0 +1,83 @@
+{
+  "run_id": "3bb1865deaacce17217512b77a41a26c031ce88053b615175aaea42d7d04591b",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "4ed7ceb80f30b43593ee21fc3acc0523565264e334efecc91fa4e74c568f3cbd",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "31456138",
+  "task_id": "arc139_c",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:23:40.650724Z",
+  "latency": 6.009638666990213,
+  "token_usage": {
+    "prompt_tokens": 1084,
+    "completion_tokens": 354,
+    "total_tokens": 1438,
+    "cost": 0.0003012,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003012,
+      "upstream_inference_prompt_cost": 0.0001242,
+      "upstream_inference_completions_cost": 0.000177
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 192,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 23, \"score\": 0.9, \"reason\": \"Loop starts at N-1, duplicating (N,N-1)/(N,N) cells already emitted; range should likely start after existing entries\"}, {\"line\": 17, \"score\": 0.7, \"reason\": \"Odd case starts at N+1, likely should start at N to include (N,N); off-by-one in loop start\"}, {\"line\": 10, \"score\": 0.4, \"reason\": \"Step-2 loop over rows may misalign 3x3 blocks with N parity\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"Boundary check for extra cell may mismatch intended construction\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/3bb1865deaacce17217512b77a41a26c031ce88053b615175aaea42d7d04591b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 23,
+        "score": 0.9,
+        "reason": "Loop starts at N-1, duplicating (N,N-1)/(N,N) cells already emitted; range should likely start after existing entries"
+      },
+      {
+        "line": 17,
+        "score": 0.7,
+        "reason": "Odd case starts at N+1, likely should start at N to include (N,N); off-by-one in loop start"
+      },
+      {
+        "line": 10,
+        "score": 0.4,
+        "reason": "Step-2 loop over rows may misalign 3x3 blocks with N parity"
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "Boundary check for extra cell may mismatch intended construction"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    28
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "2406",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bb7049a07cc05097ee9741a2bf125e6c1926e0f0756333659ea839b26c3f7e2f",
+  "prior_hash": null,
+  "prompt_chars": 3666,
+  "prompt_tokens_estimate": 917,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

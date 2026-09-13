@@ -1,0 +1,83 @@
+{
+  "run_id": "83716caf86b4950377a0fb145ed02b25d6401d36456c9bbcd6e16e898d563b32",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a97cc0069c42110269474d1d466666a0a995b17170f5c3e0fabf7c9356d7e4fc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:53:14.613270Z",
+  "latency": 9.607158250000793,
+  "token_usage": {
+    "prompt_tokens": 1974,
+    "completion_tokens": 622,
+    "total_tokens": 2596,
+    "cost": 0.0003767,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003767,
+      "upstream_inference_prompt_cost": 6.57e-05,
+      "upstream_inference_completions_cost": 0.000311
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 477,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.85, \"reason\": \"Propagates dp[i]+1 even when dp[i]==-inf, corrupting unreachable answers\"}, {\"line\": 148, \"score\": 0.6, \"reason\": \"Exact equality check misses corrupted -inf+1 values from line 146\"}, {\"line\": 143, \"score\": 0.2, \"reason\": \"Initialization fine, but only node 0's component starts valid; related to propagation bug\"}, {\"line\": 61, \"score\": 0.1, \"reason\": \"Missing .append in rollback logging; rollback unused here so likely harmless\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/83716caf86b4950377a0fb145ed02b25d6401d36456c9bbcd6e16e898d563b32.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.85,
+        "reason": "Propagates dp[i]+1 even when dp[i]==-inf, corrupting unreachable answers"
+      },
+      {
+        "line": 148,
+        "score": 0.6,
+        "reason": "Exact equality check misses corrupted -inf+1 values from line 146"
+      },
+      {
+        "line": 143,
+        "score": 0.2,
+        "reason": "Initialization fine, but only node 0's component starts valid; related to propagation bug"
+      },
+      {
+        "line": 61,
+        "score": 0.1,
+        "reason": "Missing .append in rollback logging; rollback unused here so likely harmless"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": null,
+  "prompt_chars": 7635,
+  "prompt_tokens_estimate": 1909,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

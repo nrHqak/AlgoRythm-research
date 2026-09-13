@@ -1,0 +1,73 @@
+{
+  "run_id": "7423d2d077ef31bb35d38315bbf46d9e9f6df958858c6228e98ee66c3c970780",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "99a6cb26b8acad5c6db149bd8fe79d20074ea46ae796bcae73b2916b63e67495",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:42.919375Z",
+  "latency": 2.8641383329522796,
+  "token_usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 102,
+    "total_tokens": 1019,
+    "cost": 8.103e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.103e-05,
+      "upstream_inference_prompt_cost": 3.003e-05,
+      "upstream_inference_completions_cost": 5.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 20,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.95, \"reason\": \"appendleft turns BFS into stack order, giving incorrect (non-shortest) distances\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"adjacent same-color check is fine; also D[dst_t][dst_a]==inf guards revisits correctly\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/7423d2d077ef31bb35d38315bbf46d9e9f6df958858c6228e98ee66c3c970780.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.95,
+        "reason": "appendleft turns BFS into stack order, giving incorrect (non-shortest) distances"
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "adjacent same-color check is fine; also D[dst_t][dst_a]==inf guards revisits correctly"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": null,
+  "prompt_chars": 3445,
+  "prompt_tokens_estimate": 862,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,73 @@
+{
+  "run_id": "a6e18ee1ade80aaa5f32e626b5f9663b0b95a8d641655d517cb30469b7350bfc",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "9d6afbd6d6664564bd78548861df99c6dc7528cfc47d7d4f48af8d896bb45e6a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:42.915913Z",
+  "latency": 2.8616805829806253,
+  "token_usage": {
+    "prompt_tokens": 1080,
+    "completion_tokens": 101,
+    "total_tokens": 1181,
+    "cost": 8.962e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.962e-05,
+      "upstream_inference_prompt_cost": 3.912e-05,
+      "upstream_inference_completions_cost": 5.05e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 19,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.9, \"reason\": \"BFS uses appendleft instead of append, breaking FIFO order and producing incorrect shortest distances\"}, {\"line\": 27, \"score\": 0.3, \"reason\": \"answer check at D[N-1][0] is correct intent, but relies on BFS correctness; minor\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/a6e18ee1ade80aaa5f32e626b5f9663b0b95a8d641655d517cb30469b7350bfc.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.9,
+        "reason": "BFS uses appendleft instead of append, breaking FIFO order and producing incorrect shortest distances"
+      },
+      {
+        "line": 27,
+        "score": 0.3,
+        "reason": "answer check at D[N-1][0] is correct intent, but relies on BFS correctness; minor"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4289,
+  "prompt_tokens_estimate": 1073,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

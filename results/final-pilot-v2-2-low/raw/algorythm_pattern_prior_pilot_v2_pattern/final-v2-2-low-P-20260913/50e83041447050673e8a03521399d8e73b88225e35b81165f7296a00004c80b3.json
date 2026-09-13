@@ -1,0 +1,145 @@
+{
+  "run_id": "50e83041447050673e8a03521399d8e73b88225e35b81165f7296a00004c80b3",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4f34451cb607d4be4c9b250ca9eb34b22d7368dc5dfb4ae53fb5e61362433af7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "53927639",
+  "task_id": "abc341_d",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:49.029005+00:00",
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "829",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9bcba4d7f1eb128211846817fdfdc727a47e66f90f13c4060ae6470ccd08d950",
+  "prior_hash": null,
+  "prompt_chars": 3037,
+  "prompt_tokens_estimate": 760,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 53927639\nTask ID: abc341_d\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: from math import lcm\n2: \n3: \n4: def count_divisible_by_either(x, n, m):\n5:     cnt_n = x // n\n6:     cnt_m = x // m\n7:     cnt_d = x // lcm(n, m)\n8: \n9:     return cnt_n + cnt_m - cnt_d * 2\n10: \n11: \n12: n, m, k = map(int, input().split())\n13: \n14: l = 1\n15: r = 10**18\n16: \n17: while r - l > 1:\n18:     mid = (l + r) // 2\n19:     cnt = count_divisible_by_either(mid, n, m)\n20:     # print(l, r, mid, cnt)\n21:     if cnt >= k:\n22:         r = mid\n23:     else:\n24:         l = mid\n25: \n26: \n27: print(r)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 9, \"score\": 0.95, \"reason\": \"Inclusion-exclusion should subtract the overlap once: cnt_n + cnt_m - cnt_d, not cnt_d*2.\"}, {\"line\": 15, \"score\": 0.15, \"reason\": \"Upper bound 10^18 may be too small for large n,m,k cases near maximum answer.\"}, {\"line\": 17, \"score\": 0.1, \"reason\": \"Binary search over [1,10^18] leaves l=1 unchecked as an answer candidate.\"}]}",
+  "latency": 3.066459041030612,
+  "token_usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 184,
+    "total_tokens": 1007,
+    "cost": 0.00012329,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00012329,
+      "upstream_inference_prompt_cost": 3.129e-05,
+      "upstream_inference_completions_cost": 9.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 56,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250386-5beRlxTdTEVTQAiBd4SV",
+    "provider_created": 1789250386,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 168,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250386-5beRlxTdTEVTQAiBd4SV",
+    "object": "chat.completion",
+    "created": 1789250386,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 9, \"score\": 0.95, \"reason\": \"Inclusion-exclusion should subtract the overlap once: cnt_n + cnt_m - cnt_d, not cnt_d*2.\"}, {\"line\": 15, \"score\": 0.15, \"reason\": \"Upper bound 10^18 may be too small for large n,m,k cases near maximum answer.\"}, {\"line\": 17, \"score\": 0.1, \"reason\": \"Binary search over [1,10^18] leaves l=1 unchecked as an answer candidate.\"}]}",
+          "refusal": null,
+          "reasoning": "Bug: inclusion-exclusion should be cnt_n + cnt_m - cnt_d, not *2. Also boundary: l=1 may be answer when k... and r-l>1 with l=1; if count at 1... fine. Line 9 main bug.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Bug: inclusion-exclusion should be cnt_n + cnt_m - cnt_d, not *2. Also boundary: l=1 may be answer when k... and r-l>1 with l=1; if count at 1... fine. Line 9 main bug.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 823,
+      "completion_tokens": 184,
+      "total_tokens": 1007,
+      "cost": 0.00012329,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00012329,
+        "upstream_inference_prompt_cost": 3.129e-05,
+        "upstream_inference_completions_cost": 9.2e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 56,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

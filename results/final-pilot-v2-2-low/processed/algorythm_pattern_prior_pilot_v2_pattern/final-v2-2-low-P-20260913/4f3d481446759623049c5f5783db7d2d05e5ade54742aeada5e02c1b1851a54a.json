@@ -1,0 +1,83 @@
+{
+  "run_id": "4f3d481446759623049c5f5783db7d2d05e5ade54742aeada5e02c1b1851a54a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "cbd45406bc092ae783b61b570fe209410b10e37289736a2b0bc94b31c68cd706",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:17.790310Z",
+  "latency": 11.035482125007547,
+  "token_usage": {
+    "prompt_tokens": 1104,
+    "completion_tokens": 857,
+    "total_tokens": 1961,
+    "cost": 0.00046354,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00046354,
+      "upstream_inference_prompt_cost": 3.504e-05,
+      "upstream_inference_completions_cost": 0.0004285
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 662,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.9, \"reason\": \"When digit equals previous, should add (d-1)*9^(N-1-i) before breaking; d*9^x-1 is a different, wrong value.\"}, {\"line\": 12, \"score\": 0.55, \"reason\": \"Loop starts at 9^0, counting the empty/zero-length number, adding 1 extra to the count for every mid.\"}, {\"line\": 27, \"score\": 0.45, \"reason\": \"Subtracting 1 for a valid mid looks like a compensating hack; strictly-less count likely needs +1 not -1.\"}, {\"line\": 18, \"score\": 0.2, \"reason\": \"d > prev case subtracts 1 (excluding prev digit); plausible but depends on count being strict vs inclusive.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/4f3d481446759623049c5f5783db7d2d05e5ade54742aeada5e02c1b1851a54a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.9,
+        "reason": "When digit equals previous, should add (d-1)*9^(N-1-i) before breaking; d*9^x-1 is a different, wrong value."
+      },
+      {
+        "line": 12,
+        "score": 0.55,
+        "reason": "Loop starts at 9^0, counting the empty/zero-length number, adding 1 extra to the count for every mid."
+      },
+      {
+        "line": 27,
+        "score": 0.45,
+        "reason": "Subtracting 1 for a valid mid looks like a compensating hack; strictly-less count likely needs +1 not -1."
+      },
+      {
+        "line": 18,
+        "score": 0.2,
+        "reason": "d > prev case subtracts 1 (excluding prev digit); plausible but depends on count being strict vs inclusive."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4377,
+  "prompt_tokens_estimate": 1095,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

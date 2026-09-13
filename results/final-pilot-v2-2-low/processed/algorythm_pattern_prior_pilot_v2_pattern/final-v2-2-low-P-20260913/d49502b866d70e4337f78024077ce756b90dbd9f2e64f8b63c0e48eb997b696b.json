@@ -1,0 +1,83 @@
+{
+  "run_id": "d49502b866d70e4337f78024077ce756b90dbd9f2e64f8b63c0e48eb997b696b",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "fedcd8b2432a9b41c1d8f825d3e61c5a4ae8996385d4c8e61b9fbf7c0661bcea",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:40.306841Z",
+  "latency": 15.596178500039969,
+  "token_usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 1000,
+    "total_tokens": 2006,
+    "cost": 0.0005357,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005357,
+      "upstream_inference_prompt_cost": 3.57e-05,
+      "upstream_inference_completions_cost": 0.0005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 845,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"Child inherits hp-1; insurance boost applied at parent must propagate, easy off-by-one here\"}, {\"line\": 29, \"score\": 0.4, \"reason\": \"Comparison with dic[i] and defaultdict access; boost condition may mis-handle uninsured nodes\"}, {\"line\": 31, \"score\": 0.3, \"reason\": \"Coverage check hp>=0 controls counting; boundary of insurance depth is sensitive\"}, {\"line\": 30, \"score\": 0.2, \"reason\": \"Reassigning hp to insurance value affects all descendants; verify intended semantics\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/d49502b866d70e4337f78024077ce756b90dbd9f2e64f8b63c0e48eb997b696b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.5,
+        "reason": "Child inherits hp-1; insurance boost applied at parent must propagate, easy off-by-one here"
+      },
+      {
+        "line": 29,
+        "score": 0.4,
+        "reason": "Comparison with dic[i] and defaultdict access; boost condition may mis-handle uninsured nodes"
+      },
+      {
+        "line": 31,
+        "score": 0.3,
+        "reason": "Coverage check hp>=0 controls counting; boundary of insurance depth is sensitive"
+      },
+      {
+        "line": 30,
+        "score": 0.2,
+        "reason": "Reassigning hp to insurance value affects all descendants; verify intended semantics"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": null,
+  "prompt_chars": 3652,
+  "prompt_tokens_estimate": 913,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

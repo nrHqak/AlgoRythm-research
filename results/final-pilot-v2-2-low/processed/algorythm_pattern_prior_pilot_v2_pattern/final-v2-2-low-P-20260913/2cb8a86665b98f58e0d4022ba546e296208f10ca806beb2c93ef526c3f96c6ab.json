@@ -1,0 +1,73 @@
+{
+  "run_id": "2cb8a86665b98f58e0d4022ba546e296208f10ca806beb2c93ef526c3f96c6ab",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "67cb472450f868a615756c8cbadf24e89f78b3b00582b4a2a38e6c5ef597f57a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:14.411838Z",
+  "latency": 3.6806840419885702,
+  "token_usage": {
+    "prompt_tokens": 1004,
+    "completion_tokens": 234,
+    "total_tokens": 1238,
+    "cost": 0.0002292,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002292,
+      "upstream_inference_prompt_cost": 0.0001122,
+      "upstream_inference_completions_cost": 0.000117
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 137,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Checks all(visited) but problem only requires node N reachable from 0; nodes > N unreachable by design, causing false 'No'.\"}, {\"line\": 10, \"score\": 0.15, \"reason\": \"l-1 conversion looks correct for prefix-sum model, but off-by-one here would also break connectivity; verified correct.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/2cb8a86665b98f58e0d4022ba546e296208f10ca806beb2c93ef526c3f96c6ab.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Checks all(visited) but problem only requires node N reachable from 0; nodes > N unreachable by design, causing false 'No'."
+      },
+      {
+        "line": 10,
+        "score": 0.15,
+        "reason": "l-1 conversion looks correct for prefix-sum model, but off-by-one here would also break connectivity; verified correct."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4034,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

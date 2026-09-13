@@ -1,0 +1,68 @@
+{
+  "run_id": "7193a8f9f680e81214a5fa35135f5a65580e34dbb1784a36e75ed1e86f7b2e4c",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "af504fbcfc10dd493d8fb1b52826bdcf441143495c5cc9210036c9f320cacf92",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "53927639",
+  "task_id": "abc341_d",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:47.993443Z",
+  "latency": 2.0301772080129012,
+  "token_usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 79,
+    "total_tokens": 902,
+    "cost": 7.079e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.079e-05,
+      "upstream_inference_prompt_cost": 3.129e-05,
+      "upstream_inference_completions_cost": 3.95e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 27,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 9, \"score\": 0.95, \"reason\": \"Inclusion-exclusion wrong: should subtract divisible-by-both count once, not twice (cnt_n + cnt_m - cnt_d).\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/7193a8f9f680e81214a5fa35135f5a65580e34dbb1784a36e75ed1e86f7b2e4c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 9,
+        "score": 0.95,
+        "reason": "Inclusion-exclusion wrong: should subtract divisible-by-both count once, not twice (cnt_n + cnt_m - cnt_d)."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "829",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9bcba4d7f1eb128211846817fdfdc727a47e66f90f13c4060ae6470ccd08d950",
+  "prior_hash": null,
+  "prompt_chars": 3037,
+  "prompt_tokens_estimate": 760,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

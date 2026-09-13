@@ -1,0 +1,83 @@
+{
+  "run_id": "99ca867cee0934f65ed717bc8131af6c5a744eaac44eec7209599e7d0bf98e83",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "22297a22f17572af2e02885220a29b3b65fd3270c22af9c3db771d725366b25a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:37:20.046202Z",
+  "latency": 3.403088791994378,
+  "token_usage": {
+    "prompt_tokens": 985,
+    "completion_tokens": 147,
+    "total_tokens": 1132,
+    "cost": 0.00010605,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00010605,
+      "upstream_inference_prompt_cost": 3.255e-05,
+      "upstream_inference_completions_cost": 7.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.5, \"reason\": \"all(visited) checks node 0 always true; if N==1 graph empty, fine—logic otherwise correct; main suspect is loop reachability for r=N vs l-=1 handling\"}, {\"line\": 11, \"score\": 0.4, \"reason\": \"edge direction correct after decrement; possible off-by-one if l==0 handled, seems fine\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"stack pop order irrelevant to connectivity\"}, {\"line\": 9, \"score\": 0.1, \"reason\": \"input parsing standard\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/99ca867cee0934f65ed717bc8131af6c5a744eaac44eec7209599e7d0bf98e83.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.5,
+        "reason": "all(visited) checks node 0 always true; if N==1 graph empty, fine—logic otherwise correct; main suspect is loop reachability for r=N vs l-=1 handling"
+      },
+      {
+        "line": 11,
+        "score": 0.4,
+        "reason": "edge direction correct after decrement; possible off-by-one if l==0 handled, seems fine"
+      },
+      {
+        "line": 17,
+        "score": 0.2,
+        "reason": "stack pop order irrelevant to connectivity"
+      },
+      {
+        "line": 9,
+        "score": 0.1,
+        "reason": "input parsing standard"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3973,
+  "prompt_tokens_estimate": 994,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

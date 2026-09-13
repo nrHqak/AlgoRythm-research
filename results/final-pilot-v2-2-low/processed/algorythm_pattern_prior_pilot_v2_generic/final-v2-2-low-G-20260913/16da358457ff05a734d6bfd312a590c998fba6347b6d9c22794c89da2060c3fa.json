@@ -1,0 +1,73 @@
+{
+  "run_id": "16da358457ff05a734d6bfd312a590c998fba6347b6d9c22794c89da2060c3fa",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "8a02e81e0e67f9d85e9beed59461a6259328e4f6f05f4fb23d2e34d81b113c46",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:14:57.190238Z",
+  "latency": 3.115999792004004,
+  "token_usage": {
+    "prompt_tokens": 1058,
+    "completion_tokens": 156,
+    "total_tokens": 1214,
+    "cost": 0.00011382,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00011382,
+      "upstream_inference_prompt_cost": 3.582e-05,
+      "upstream_inference_completions_cost": 7.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 73,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =, so unreachable cells are not reset to 0 and blocked state never propagates.\"}, {\"line\": 19, \"score\": 0.3, \"reason\": \"max+1 assumes both neighbors reachable; relies on broken zeroing of blocked cells.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/16da358457ff05a734d6bfd312a590c998fba6347b6d9c22794c89da2060c3fa.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =, so unreachable cells are not reset to 0 and blocked state never propagates."
+      },
+      {
+        "line": 19,
+        "score": 0.3,
+        "reason": "max+1 assumes both neighbors reachable; relies on broken zeroing of blocked cells."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4108,
+  "prompt_tokens_estimate": 1027,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

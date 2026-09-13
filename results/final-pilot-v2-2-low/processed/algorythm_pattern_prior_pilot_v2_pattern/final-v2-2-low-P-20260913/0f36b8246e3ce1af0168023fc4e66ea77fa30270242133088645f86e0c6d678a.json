@@ -1,0 +1,73 @@
+{
+  "run_id": "0f36b8246e3ce1af0168023fc4e66ea77fa30270242133088645f86e0c6d678a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "bc37ad89ba6ea564b550f86325d33d8c2f7d1fa839118bc2f33b8e0fdb5a10f1",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:32.403413Z",
+  "latency": 3.240293415961787,
+  "token_usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 183,
+    "total_tokens": 1100,
+    "cost": 0.00012153,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00012153,
+      "upstream_inference_prompt_cost": 3.003e-05,
+      "upstream_inference_completions_cost": 9.15e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 84,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.95, \"reason\": \"appendleft makes queue LIFO (DFS order), breaking BFS; shortest distances may be wrong.\"}, {\"line\": 27, \"score\": 0.3, \"reason\": \"Answer check D[N-1][0] ignores that C[N-1]!=C[0] is required for validity; if equal but D finite impossible though BFS guards it.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/0f36b8246e3ce1af0168023fc4e66ea77fa30270242133088645f86e0c6d678a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.95,
+        "reason": "appendleft makes queue LIFO (DFS order), breaking BFS; shortest distances may be wrong."
+      },
+      {
+        "line": 27,
+        "score": 0.3,
+        "reason": "Answer check D[N-1][0] ignores that C[N-1]!=C[0] is required for validity; if equal but D finite impossible though BFS guards it."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": null,
+  "prompt_chars": 3445,
+  "prompt_tokens_estimate": 862,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

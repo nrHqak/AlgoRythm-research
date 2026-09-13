@@ -1,0 +1,83 @@
+{
+  "run_id": "6e2c092ab155a47f861e1f222898c1f3eb9ce794b9c60f848b3d5386c878303f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "671be65a1471bc25f6afad371a25a17a03cbc09980d25a6154f0e1cf781db349",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:03:16.638471Z",
+  "latency": 8.056072791980114,
+  "token_usage": {
+    "prompt_tokens": 1035,
+    "completion_tokens": 473,
+    "total_tokens": 1508,
+    "cost": 0.00026887,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00026887,
+      "upstream_inference_prompt_cost": 3.237e-05,
+      "upstream_inference_completions_cost": 0.0002365
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 300,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 8, \"score\": 0.85, \"reason\": \"low initialized to 1 excludes A[0]=0; if no A[mid] satisfies dr>=dl, valid candidate at index 0 is never checked\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"high=N skips endpoints A[N+1]=L as candidate t, though usually dominated\"}, {\"line\": 14, \"score\": 0.25, \"reason\": \"dr>=dl finds largest t<=L-s; direction consistent, but strictness at equality boundary worth checking\"}, {\"line\": 9, \"score\": 0.15, \"reason\": \"while high-low>1 with low=1 start relies on invariant low satisfying predicate, which init may break\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/6e2c092ab155a47f861e1f222898c1f3eb9ce794b9c60f848b3d5386c878303f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 8,
+        "score": 0.85,
+        "reason": "low initialized to 1 excludes A[0]=0; if no A[mid] satisfies dr>=dl, valid candidate at index 0 is never checked"
+      },
+      {
+        "line": 7,
+        "score": 0.4,
+        "reason": "high=N skips endpoints A[N+1]=L as candidate t, though usually dominated"
+      },
+      {
+        "line": 14,
+        "score": 0.25,
+        "reason": "dr>=dl finds largest t<=L-s; direction consistent, but strictness at equality boundary worth checking"
+      },
+      {
+        "line": 9,
+        "score": 0.15,
+        "reason": "while high-low>1 with low=1 start relies on invariant low satisfying predicate, which init may break"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3980,
+  "prompt_tokens_estimate": 995,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

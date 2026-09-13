@@ -1,0 +1,145 @@
+{
+  "run_id": "15523cadf7a125091613b7c0cfc094079ae777fed0949cf9484d0a566077fe9f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ec120865033f807ee7e78ea77006ce0da406a863e08aff76c7e15756ada7fd7b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:13.004865+00:00",
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 8570,
+  "prompt_tokens_estimate": 2143,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 55029036\nTask ID: abc335_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: from collections import defaultdict\n2: \n3: class UnionFind:\n4:     def __init__(self,N,label=None,f=None,weighted=False,rollback=False):\n5:         self.N=N\n6:         self.parents=[None]*self.N\n7:         self.size=[1]*self.N\n8:         self.roots={i for i in range(self.N)}\n9:         self.label=label\n10:         if self.label!=None:\n11:             self.label=[x for x in label]\n12:         self.f=f\n13:         self.weighted=weighted\n14:         if self.weighted:\n15:             self.weight=[0]*self.N\n16:         self.rollback=rollback\n17:         if self.rollback:\n18:             self.operate_list=[]\n19:             self.operate_set=[]\n20: \n21:     def Find(self,x):\n22:         stack=[]\n23:         while self.parents[x]!=None:\n24:             stack.append(x)\n25:             x=self.parents[x]\n26:         if not self.rollback:\n27:             if self.weighted:\n28:                 w=0\n29:                 for y in stack[::-1]:\n30:                     self.parents[y]=x\n31:                     w+=self.weight[y]\n32:                     self.weight[y]=w\n33:             else:\n34:                 for y in stack[::-1]:\n35:                     self.parents[y]=x\n36:         return x\n37: \n38:     def Union(self,x,y,w=None):\n39:         root_x=self.Find(x)\n40:         root_y=self.Find(y)\n41:         if self.rollback:\n42:             self.operate_list.append([])\n43:             self.operate_set.append([])\n44:         if root_x==root_y:\n45:             if self.weighted:\n46:                 if self.weight[y]-self.weight[x]==w:\n47:                     return True\n48:                 else:\n49:                     return False\n50:         else:\n51:             if self.size[root_x]<self.size[root_y]:\n52:                 x,y=y,x\n53:                 root_x,root_y=root_y,root_x\n54:                 if self.weighted:\n55:                     w=-w\n56:             if self.rollback:\n57:                 self.operate_list[-1].append((self.parents,root_y,self.parents[root_y]))\n58:                 self.operate_list[-1].append((self.size,root_x,self.size[root_x]))\n59:                 self.operate_set[-1].append(root_y)\n60:                 if self.label!=None:\n61:                     self.operate_list[-1]((self.label,root_x,self.label[root_x]))\n62:                 if self.weighted:\n63:                     self.operate_list[-1].append((self.weight,root_y,self.weight[root_y]))\n64:             self.parents[root_y]=root_x\n65:             self.size[root_x]+=self.size[root_y]\n66:             self.roots.remove(root_y)\n67:             if self.label!=None:\n68:                 self.label[root_x]=self.f(self.label[root_x],self.label[root_y])\n69:             if self.weighted:\n70:                 self.weight[root_y]=w+self.weight[x]-self.weight[y]\n71: \n72:     def Size(self,x):\n73:         return self.size[self.Find(x)]\n74: \n75:     def Same(self,x,y):\n76:         return self.Find(x)==self.Find(y)\n77: \n78:     def Label(self,x):\n79:         return self.label[self.Find(x)]\n80: \n81:     def Weight(self,x,y):\n82:         root_x=self.Find(x)\n83:         root_y=self.Find(y)\n84:         if root_x!=root_y:\n85:             return None\n86:         return self.weight[y]-self.weight[x]\n87: \n88:     def Roots(self):\n89:         return list(self.roots)\n90: \n91:     def Linked_Components_Count(self):\n92:         return len(self.roots)\n93: \n94:     def Linked_Components(self):\n95:         linked_components=defaultdict(list)\n96:         for x in range(self.N):\n97:             linked_components[self.Find(x)].append(x)\n98:         return linked_components\n99: \n100:     def Rollback(self):\n101:         assert self.rollback\n102:         if self.operate_list:\n103:             for lst,x,v in self.operate_list.pop():\n104:                 lst[x]=v\n105:             for x in self.operate_set.pop():\n106:                 self.roots.add(x)            \n107:             return True\n108:         else:\n109:             return False\n110: \n111:     def __str__(self):\n112:         linked_components=defaultdict(list)\n113:         for x in range(self.N):\n114:             linked_components[self.Find(x)].append(x)\n115:         return \"\\n\".join(f\"{r}: {linked_components[r]}\" for r in sorted(list(linked_components.keys())))\n116: \n117: N,M=map(int,input().split())\n118: A=list(map(int,input().split()))\n119: edges=[]\n120: UF=UnionFind(N)\n121: for m in range(M):\n122:     u,v=map(int,input().split())\n123:     u-=1;v-=1\n124:     if A[u]==A[v]:\n125:         UF.Union(u,v)\n126:     else:\n127:         if A[u]>A[v]:\n128:             u,v=v,u\n129:         edges.append((u,v))\n130: idx=[None]*N\n131: lc=UF.Linked_Components()\n132: le=len(lc)\n133: AA=[]\n134: for i,lst in enumerate(lc.values()):\n135:     for x in lst:\n136:         idx[x]=i\n137:     AA.append(A[lst[0]])\n138: graph=[[] for i in range(le)]\n139: for u,v in edges:\n140:     graph[idx[u]].append(idx[v])\n141: inf=1<<30\n142: dp=[-inf]*le\n143: dp[idx[0]]=1\n144: for i in sorted([i for i in range(le)],key=lambda i:AA[i]):\n145:     for j in graph[i]:\n146:         dp[j]=max(dp[j],dp[i]+1)\n147: ans=dp[idx[N-1]]\n148: if ans==-inf:\n149:     ans=0\n150: print(ans)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program contains a logical fault. Before ranking the full source, check these standard failure points for buggy programs first, in order:\n1. check whether every loop's start and end bounds are correct, including whether an endpoint should be inclusive or exclusive\n2. check whether each comparison or conditional test uses the right operator and the right direction, including strict versus non-strict comparisons\n3. check whether variables that accumulate or track state are initialized correctly and updated in the right order relative to their use\n4. check whether the boundary cases are handled, such as the first item, the last item, or an empty or single-element input\n5. check whether the final value printed or returned is the one the task actually asks for\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"dp[i]+1 on unreachable dp[i]=-inf yields -inf+1, letting unreachable components appear reachable\"}, {\"line\": 148, \"score\": 0.5, \"reason\": \"sentinel check fails because -inf+k never equals -inf after propagation from line 146\"}, {\"line\": 143, \"score\": 0.3, \"reason\": \"initialization is fine but sentinel choice interacts with the missing reachability check\"}, {\"line\": 141, \"score\": 0.2, \"reason\": \"sentinel value should be None or checked differently to avoid arithmetic on it\"}]}",
+  "latency": 18.393996333004907,
+  "token_usage": {
+    "prompt_tokens": 2156,
+    "completion_tokens": 1141,
+    "total_tokens": 3297,
+    "cost": 0.0008555,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008555,
+      "upstream_inference_prompt_cost": 0.000285,
+      "upstream_inference_completions_cost": 0.0005705
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 992,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248054-syWP1gWamnH1tl3vX66K",
+    "provider_created": 1789248054,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 3751,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248054-syWP1gWamnH1tl3vX66K",
+    "object": "chat.completion",
+    "created": 1789248054,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"dp[i]+1 on unreachable dp[i]=-inf yields -inf+1, letting unreachable components appear reachable\"}, {\"line\": 148, \"score\": 0.5, \"reason\": \"sentinel check fails because -inf+k never equals -inf after propagation from line 146\"}, {\"line\": 143, \"score\": 0.3, \"reason\": \"initialization is fine but sentinel choice interacts with the missing reachability check\"}, {\"line\": 141, \"score\": 0.2, \"reason\": \"sentinel value should be None or checked differently to avoid arithmetic on it\"}]}",
+          "refusal": null,
+          "reasoning": "ABC335E: answer is number of distinct values on path including start and end. dp[idx[0]]=1 ok. But nodes reachable: dp[j] updated only from dp[i] with max value ordering; correct approach: dp[i]+1 only if A[i+1] exists (dp[i]!=-inf)? Actually dp[j]=max(dp[j],dp[i]+1) with dp[i]=-inf gives -inf+1 still very negative — fine.\n\nBug: ties in sorting: sorting by AA value alone; among equal values, order arbitrary — should sort by value only; edges only connect different values, so equal-value groups independent — ok.\n\nMain bug: answer should be 1 if start==end reachable; dp[idx[N-1]] when node N-1 is in same component as node 0 — dp is 1, correct. Hmm.\n\nActually bug: graph edges only added u->v direction, fine. But dp for the start component: if start==goal ans=1 fine. Real bug: when i == idx[0]? dp starts 1. Edges between components where target reached... Actually likely bug: dp[j]=max(dp[j],dp[i]+1) but should also only traverse if component connected... it's fine.\n\nReal issue: sorting key only AA[i]; ties broken arbitrarily — fine as argued.\n\nHmm, another: A[u]==A[v] union — ok. What about edges between components: idx[u] correct. dp init dp[idx[0]]=1 but idx[0] could... fine.\n\nWait: sorting must ensure we process source before target: edges go from smaller A to larger, sorted ascending — ok. Ties among equal values don't matter.\n\nWhat fails? Consider line 61: `self.operate_list[-1](...)` — missing .append, would crash, but label is None here so unused.\n\nLine 86 Weight: fine. Actually the known pitfall in abc335_e: answer is count of distinct values, dp must be count; dp[i]+1 fine.\n\nHmm — check line 127: if A[u]>A[v] swap so u smaller, edges directed upward, correct. Line 144 sorts by AA[i] — fine. Line 137: AA.append(A[lst[0]]) — lst[0] valid.\n\nLine 143: dp[idx[0]]=1; but what if idx[0]==idx[N-1]? ans=1 correct.\n\nLine 148: ans==-inf ->0; unreachable should be 0? Probably correct (0 means can't move? Actually expected maybe -1?). In ABC335E answer for unreachable... the problem guarantees connectivity? N,M with path always exists? Yes, guaranteed? Actually problem says 1 to N via edges, always connected? Edges given such that... yes.\n\nSubtle bug: dp[i]+1 when dp[i]=-inf is -inf+1, slight but max unaffected.\n\nAnother: sorted with key AA — but if two components equal value no edges between them, order irrelevant.\n\nHmm, could be that dp should only propagate from reachable, and equal-value A considered... Actually real fault: dp[idx[0]] =1, but nodes within the same component as start share dp; goal in same comp gets 1, correct.\n\nWait—components are by A-value equal edges; path from 1 to N with strictly... value counts. Consider dp[j]=max(dp[j], dp[i]+1) — but edges only added one direction; from component i to j where A[i]<A[j]. Good.\n\nMaybe bug: line 144 sorted key should be (AA[i], ...) nothing.\n\nHmm, then check Find path compression with rollback? Not used.\n\nMaybe the actual bug: line 137 uses lst[0], fine. Line 130 idx init None fine.\n\nConsider multi-edges into same component: fine.\n\nWhat about A values tie sorting stable... fine.\n\nPossibly bug: line 146 should update dp[j] only when dp[i] != -inf, since -inf+1 != -inf, and then -inf+1 could later be compared to -inf... max(-inf, -inf+1) = -inf+1, so unreachable component gets dp value like -inf+1, and then chains propagate! Eventually ans = -inf+k which != -inf, prints a huge negative number... wait -inf = 1<<30 positive. dp starts -(1<<30). Adding 1 repeatedly: still hugely negative, prints negative number instead of 0. Yes! That's the bug: line 146 without checking dp[i] reachability. Line 146 and 148.\n\nBut wait, does an unreachable component ever lead to goal? Yes possibly. So line 146 is the fault. Fix: if dp[i]==-inf continue.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "ABC335E: answer is number of distinct values on path including start and end. dp[idx[0]]=1 ok. But nodes reachable: dp[j] updated only from dp[i] with max value ordering; correct approach: dp[i]+1 only if A[i+1] exists (dp[i]!=-inf)? Actually dp[j]=max(dp[j],dp[i]+1) with dp[i]=-inf gives -inf+1 still very negative — fine.\n\nBug: ties in sorting: sorting by AA value alone; among equal values, order arbitrary — should sort by value only; edges only connect different values, so equal-value groups independent — ok.\n\nMain bug: answer should be 1 if start==end reachable; dp[idx[N-1]] when node N-1 is in same component as node 0 — dp is 1, correct. Hmm.\n\nActually bug: graph edges only added u->v direction, fine. But dp for the start component: if start==goal ans=1 fine. Real bug: when i == idx[0]? dp starts 1. Edges between components where target reached... Actually likely bug: dp[j]=max(dp[j],dp[i]+1) but should also only traverse if component connected... it's fine.\n\nReal issue: sorting key only AA[i]; ties broken arbitrarily — fine as argued.\n\nHmm, another: A[u]==A[v] union — ok. What about edges between components: idx[u] correct. dp init dp[idx[0]]=1 but idx[0] could... fine.\n\nWait: sorting must ensure we process source before target: edges go from smaller A to larger, sorted ascending — ok. Ties among equal values don't matter.\n\nWhat fails? Consider line 61: `self.operate_list[-1](...)` — missing .append, would crash, but label is None here so unused.\n\nLine 86 Weight: fine. Actually the known pitfall in abc335_e: answer is count of distinct values, dp must be count; dp[i]+1 fine.\n\nHmm — check line 127: if A[u]>A[v] swap so u smaller, edges directed upward, correct. Line 144 sorts by AA[i] — fine. Line 137: AA.append(A[lst[0]]) — lst[0] valid.\n\nLine 143: dp[idx[0]]=1; but what if idx[0]==idx[N-1]? ans=1 correct.\n\nLine 148: ans==-inf ->0; unreachable should be 0? Probably correct (0 means can't move? Actually expected maybe -1?). In ABC335E answer for unreachable... the problem guarantees connectivity? N,M with path always exists? Yes, guaranteed? Actually problem says 1 to N via edges, always connected? Edges given such that... yes.\n\nSubtle bug: dp[i]+1 when dp[i]=-inf is -inf+1, slight but max unaffected.\n\nAnother: sorted with key AA — but if two components equal value no edges between them, order irrelevant.\n\nHmm, could be that dp should only propagate from reachable, and equal-value A considered... Actually real fault: dp[idx[0]] =1, but nodes within the same component as start share dp; goal in same comp gets 1, correct.\n\nWait—components are by A-value equal edges; path from 1 to N with strictly... value counts. Consider dp[j]=max(dp[j], dp[i]+1) — but edges only added one direction; from component i to j where A[i]<A[j]. Good.\n\nMaybe bug: line 144 sorted key should be (AA[i], ...) nothing.\n\nHmm, then check Find path compression with rollback? Not used.\n\nMaybe the actual bug: line 137 uses lst[0], fine. Line 130 idx init None fine.\n\nConsider multi-edges into same component: fine.\n\nWhat about A values tie sorting stable... fine.\n\nPossibly bug: line 146 should update dp[j] only when dp[i] != -inf, since -inf+1 != -inf, and then -inf+1 could later be compared to -inf... max(-inf, -inf+1) = -inf+1, so unreachable component gets dp value like -inf+1, and then chains propagate! Eventually ans = -inf+k which != -inf, prints a huge negative number... wait -inf = 1<<30 positive. dp starts -(1<<30). Adding 1 repeatedly: still hugely negative, prints negative number instead of 0. Yes! That's the bug: line 146 without checking dp[i] reachability. Line 146 and 148.\n\nBut wait, does an unreachable component ever lead to goal? Yes possibly. So line 146 is the fault. Fix: if dp[i]==-inf continue.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2156,
+      "completion_tokens": 1141,
+      "total_tokens": 3297,
+      "cost": 0.0008555,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008555,
+        "upstream_inference_prompt_cost": 0.000285,
+        "upstream_inference_completions_cost": 0.0005705
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 992,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

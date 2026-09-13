@@ -1,0 +1,83 @@
+{
+  "run_id": "817ce0be8de96b4af2261d1c497654c78c5fe688ee886ed97a231fe6a5e60efb",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "f1a89c6933705ccf15b2e57e5316145df8a01125a9d8520399e5251c313b96f1",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:16.296169Z",
+  "latency": 10.767448750033509,
+  "token_usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 718,
+    "total_tokens": 1593,
+    "cost": 0.00039041,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00039041,
+      "upstream_inference_prompt_cost": 3.141e-05,
+      "upstream_inference_completions_cost": 0.000359
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 552,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 3, \"score\": 0.9, \"reason\": \"Array A is never sorted before binary searching; binary search on unsorted A can miss the optimal pair t.\"}, {\"line\": 2, \"score\": 0.3, \"reason\": \"If input isn't guaranteed sorted, values read here need sorting before search; missing sort originates here.\"}, {\"line\": 8, \"score\": 0.2, \"reason\": \"low=1 allows pairing element i with itself since i itself is in range; should skip index i.\"}, {\"line\": 14, \"score\": 0.2, \"reason\": \"Binary search direction must match sorted order; verify dr>=dl boundary logic with sorted, deduplicated indices.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/817ce0be8de96b4af2261d1c497654c78c5fe688ee886ed97a231fe6a5e60efb.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 3,
+        "score": 0.9,
+        "reason": "Array A is never sorted before binary searching; binary search on unsorted A can miss the optimal pair t."
+      },
+      {
+        "line": 2,
+        "score": 0.3,
+        "reason": "If input isn't guaranteed sorted, values read here need sorting before search; missing sort originates here."
+      },
+      {
+        "line": 8,
+        "score": 0.2,
+        "reason": "low=1 allows pairing element i with itself since i itself is in range; should skip index i."
+      },
+      {
+        "line": 14,
+        "score": 0.2,
+        "reason": "Binary search direction must match sorted order; verify dr>=dl boundary logic with sorted, deduplicated indices."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": null,
+  "prompt_chars": 3161,
+  "prompt_tokens_estimate": 791,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

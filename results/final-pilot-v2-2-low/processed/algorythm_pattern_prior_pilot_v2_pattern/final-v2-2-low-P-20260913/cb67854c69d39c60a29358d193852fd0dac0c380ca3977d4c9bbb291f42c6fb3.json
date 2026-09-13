@@ -1,0 +1,78 @@
+{
+  "run_id": "cb67854c69d39c60a29358d193852fd0dac0c380ca3977d4c9bbb291f42c6fb3",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d177274ad5b0d6ee501e129fbd0f401d274d904701b16cc50d48aa7be7d9e8a7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:52:20.747774Z",
+  "latency": 11.188124042004347,
+  "token_usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 652,
+    "total_tokens": 2029,
+    "cost": 0.00039431,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00039431,
+      "upstream_inference_prompt_cost": 6.831e-05,
+      "upstream_inference_completions_cost": 0.000326
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 497,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 42, \"score\": 0.9, \"reason\": \"When same color, setting V1[0] to -INF discards valid states from not taking the item; it should keep the old value.\"}, {\"line\": 20, \"score\": 0.4, \"reason\": \"Falls back to V2[j]+vi, but V2[j] was reset in a prior iteration ordering; second-best may be stale or lost.\"}, {\"line\": 28, \"score\": 0.3, \"reason\": \"Strict predecessor coverage: uses only j-1 of two candidates; edge cases in comparing C[j-1] with C1[j] could drop states.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/cb67854c69d39c60a29358d193852fd0dac0c380ca3977d4c9bbb291f42c6fb3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 42,
+        "score": 0.9,
+        "reason": "When same color, setting V1[0] to -INF discards valid states from not taking the item; it should keep the old value."
+      },
+      {
+        "line": 20,
+        "score": 0.4,
+        "reason": "Falls back to V2[j]+vi, but V2[j] was reset in a prior iteration ordering; second-best may be stale or lost."
+      },
+      {
+        "line": 28,
+        "score": 0.3,
+        "reason": "Strict predecessor coverage: uses only j-1 of two candidates; edge cases in comparing C[j-1] with C1[j] could drop states."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4861,
+  "prompt_tokens_estimate": 1216,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

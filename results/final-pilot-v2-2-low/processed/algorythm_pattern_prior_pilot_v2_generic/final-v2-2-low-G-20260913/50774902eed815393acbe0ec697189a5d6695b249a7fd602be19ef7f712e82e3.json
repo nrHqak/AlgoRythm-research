@@ -1,0 +1,88 @@
+{
+  "run_id": "50774902eed815393acbe0ec697189a5d6695b249a7fd602be19ef7f712e82e3",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "a6f3ed45a98ce0b1f74ce8a632a7f330eace90a80a463367721ff298dd2206c8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43438224",
+  "task_id": "arc164_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:16:49.295955Z",
+  "latency": 5.274856167030521,
+  "token_usage": {
+    "prompt_tokens": 1287,
+    "completion_tokens": 379,
+    "total_tokens": 1666,
+    "cost": 0.00022895,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00022895,
+      "upstream_inference_prompt_cost": 3.945e-05,
+      "upstream_inference_completions_cost": 0.0001895
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 166,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 45, \"score\": 0.75, \"reason\": \"Uses L[i] while line 43 uses R[ni]; asymmetry suggests wrong index (likely L[i-1] or consistent neighbor index).\"}, {\"line\": 43, \"score\": 0.6, \"reason\": \"Cost uses R[ni] which may count intervals opened to the right incorrectly depending on parity.\"}, {\"line\": 33, \"score\": 0.4, \"reason\": \"New DP array size i*2+5 may truncate reachable states, skipping valid transitions near the boundary.\"}, {\"line\": 35, \"score\": 0.35, \"reason\": \"Step choice (1 or 2) depending on parity may not cover all required segment boundaries.\"}, {\"line\": 49, \"score\": 0.3, \"reason\": \"Final print multiplies by 2; factor or the d==0 special case could be wrong for edge inputs.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/50774902eed815393acbe0ec697189a5d6695b249a7fd602be19ef7f712e82e3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 45,
+        "score": 0.75,
+        "reason": "Uses L[i] while line 43 uses R[ni]; asymmetry suggests wrong index (likely L[i-1] or consistent neighbor index)."
+      },
+      {
+        "line": 43,
+        "score": 0.6,
+        "reason": "Cost uses R[ni] which may count intervals opened to the right incorrectly depending on parity."
+      },
+      {
+        "line": 33,
+        "score": 0.4,
+        "reason": "New DP array size i*2+5 may truncate reachable states, skipping valid transitions near the boundary."
+      },
+      {
+        "line": 35,
+        "score": 0.35,
+        "reason": "Step choice (1 or 2) depending on parity may not cover all required segment boundaries."
+      },
+      {
+        "line": 49,
+        "score": 0.3,
+        "reason": "Final print multiplies by 2; factor or the d==0 special case could be wrong for edge inputs."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    16
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2651",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "130fd19c5f926c1c78a64c7afc4a82e6209b03d62faff0d3175d2533c5fb3de3",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4663,
+  "prompt_tokens_estimate": 1166,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

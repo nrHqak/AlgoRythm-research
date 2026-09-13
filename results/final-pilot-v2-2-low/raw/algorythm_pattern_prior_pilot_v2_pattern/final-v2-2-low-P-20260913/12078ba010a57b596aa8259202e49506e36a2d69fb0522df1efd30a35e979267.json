@@ -1,0 +1,145 @@
+{
+  "run_id": "12078ba010a57b596aa8259202e49506e36a2d69fb0522df1efd30a35e979267",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "1532824e697793b9116b1d91d7a8730154d7eaa76cc1236a9231eca8689e01f5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:24.391870+00:00",
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": null,
+  "prompt_chars": 3129,
+  "prompt_tokens_estimate": 783,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 52795863\nTask ID: abc238_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: import math\n2: import sys\n3: sys.setrecursionlimit(500_000)\n4: from collections import defaultdict\n5: \n6: N, Q = map(int, input().split())\n7: g = [[] for _ in range(N + 1)]\n8: for _ in range(Q):\n9:     l, r = map(int, input().split())\n10:     l -= 1\n11:     g[l].append(r)\n12:     g[r].append(l)\n13: visited = [False] * (N + 1)\n14: q = [0]\n15: visited[0] = True\n16: while len(q) > 0:\n17:     i = q.pop()\n18:     for j in g[i]:\n19:         if not visited[j]:\n20:             visited[j] = True\n21:             q.append(j)\n22: if all(visited):\n23:     print('Yes')\n24: else:\n25:     print('No')    \n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.6, \"reason\": \"Answer should depend only on connectivity of nodes 0 and N; checking all vertices is stricter than needed\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"Off-by-one decrement of l; standard approach uses l-1, so likely fine but boundary-sensitive\"}, {\"line\": 8, \"score\": 0.1, \"reason\": \"Loop count must match number of interval queries; miscount would break graph\"}]}",
+  "latency": 6.069250500004273,
+  "token_usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 401,
+    "total_tokens": 1223,
+    "cost": 0.00023164,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00023164,
+      "upstream_inference_prompt_cost": 3.114e-05,
+      "upstream_inference_completions_cost": 0.0002005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 284,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250778-GPa6FCdjiEh4huMp7lbw",
+    "provider_created": 1789250778,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 1173,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250778-GPa6FCdjiEh4huMp7lbw",
+    "object": "chat.completion",
+    "created": 1789250778,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 22, \"score\": 0.6, \"reason\": \"Answer should depend only on connectivity of nodes 0 and N; checking all vertices is stricter than needed\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"Off-by-one decrement of l; standard approach uses l-1, so likely fine but boundary-sensitive\"}, {\"line\": 8, \"score\": 0.1, \"reason\": \"Loop count must match number of interval queries; miscount would break graph\"}]}",
+          "refusal": null,
+          "reasoning": "Classic solution: check visited[0] and visited[N]. But all(visited) checks entire array including 0..N — actually all visited among 0..N means connectivity, which is correct? Connectivity from 0 to N in union of intervals implies whole graph connected? If 0 and N connected, all vertices connected. But all(visited) only passes if every vertex visited — equivalent since connected component containing 0 includes 0..N all vertices if connected. Actually if 0 connects to N, all vertices 0..N reachable. So correct... but input: Q intervals then next Q lines — code reads Q intervals, fine. Bug: l -= 1 makes node 0... N-1? If r can be N, nodes 0..N. Seems correct. Wait, potential bug: all(visited) over indices 0..N, size N+1, fine. Hmm, but maybe code reads Q lines correctly... Looks correct; but task says buggy. Edge: reading input with input() fine. Maybe bug: g edges appended twice fine. Hmm—possible issue: connectivity only via intervals; if visited all, yes. If not all visited, answer No iff 0 and N disconnected — equivalent. So maybe genuinely correct except... line 22 all(visited) correct anyway. Maybe intended answer relies on 0 and N; suspicious line 22.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Classic solution: check visited[0] and visited[N]. But all(visited) checks entire array including 0..N — actually all visited among 0..N means connectivity, which is correct? Connectivity from 0 to N in union of intervals implies whole graph connected? If 0 and N connected, all vertices connected. But all(visited) only passes if every vertex visited — equivalent since connected component containing 0 includes 0..N all vertices if connected. Actually if 0 connects to N, all vertices 0..N reachable. So correct... but input: Q intervals then next Q lines — code reads Q intervals, fine. Bug: l -= 1 makes node 0... N-1? If r can be N, nodes 0..N. Seems correct. Wait, potential bug: all(visited) over indices 0..N, size N+1, fine. Hmm, but maybe code reads Q lines correctly... Looks correct; but task says buggy. Edge: reading input with input() fine. Maybe bug: g edges appended twice fine. Hmm—possible issue: connectivity only via intervals; if visited all, yes. If not all visited, answer No iff 0 and N disconnected — equivalent. So maybe genuinely correct except... line 22 all(visited) correct anyway. Maybe intended answer relies on 0 and N; suspicious line 22.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 822,
+      "completion_tokens": 401,
+      "total_tokens": 1223,
+      "cost": 0.00023164,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00023164,
+        "upstream_inference_prompt_cost": 3.114e-05,
+        "upstream_inference_completions_cost": 0.0002005
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 284,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

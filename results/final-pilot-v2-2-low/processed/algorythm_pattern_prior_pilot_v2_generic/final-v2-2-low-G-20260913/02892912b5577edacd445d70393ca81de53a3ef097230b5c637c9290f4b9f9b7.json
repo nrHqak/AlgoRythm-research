@@ -1,0 +1,78 @@
+{
+  "run_id": "02892912b5577edacd445d70393ca81de53a3ef097230b5c637c9290f4b9f9b7",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "347f7d6e78d46957063e062265c403d99fb0e8a34a04233aad1342f0a6246538",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:17:09.788844Z",
+  "latency": 6.028041332960129,
+  "token_usage": {
+    "prompt_tokens": 847,
+    "completion_tokens": 310,
+    "total_tokens": 1157,
+    "cost": 0.00018221,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00018221,
+      "upstream_inference_prompt_cost": 2.721e-05,
+      "upstream_inference_completions_cost": 0.000155
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 183,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"For j==0, dp[i] (still INF) is added into 'now', making the choice wrongly infinite; zero-score rolls should contribute nothing\"}, {\"line\": 22, \"score\": 0.3, \"reason\": \"Division by num excludes zeros but zero terms still counted, related to line 21 error\"}, {\"line\": 24, \"score\": 0.1, \"reason\": \"Cost scaling c*p/num is correct; only suspicious due to contaminated 'now'\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/02892912b5577edacd445d70393ca81de53a3ef097230b5c637c9290f4b9f9b7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "For j==0, dp[i] (still INF) is added into 'now', making the choice wrongly infinite; zero-score rolls should contribute nothing"
+      },
+      {
+        "line": 22,
+        "score": 0.3,
+        "reason": "Division by num excludes zeros but zero terms still counted, related to line 21 error"
+      },
+      {
+        "line": 24,
+        "score": 0.1,
+        "reason": "Cost scaling c*p/num is correct; only suspicious due to contaminated 'now'"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": null,
+  "prompt_chars": 3092,
+  "prompt_tokens_estimate": 773,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

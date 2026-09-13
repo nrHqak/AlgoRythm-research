@@ -1,0 +1,78 @@
+{
+  "run_id": "fbc96c9faf3ba55170f03b98592de71d2a36c87d356c7121798f70c6f8800ea0",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4a8e1e81487fb9121c82dd3aa686be416ae288d59f762c5f4d7c0bdfb9597c0f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:10.674110Z",
+  "latency": 7.99258058302803,
+  "token_usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 593,
+    "total_tokens": 1965,
+    "cost": 0.0004639,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004639,
+      "upstream_inference_prompt_cost": 0.0001674,
+      "upstream_inference_completions_cost": 0.0002965
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 446,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 46, \"score\": 0.85, \"reason\": \"Uses (n+1)//2 pairs required; with odd n only n//2 pairs are possible, so ceiling overcounts and fails odd-n tests.\"}, {\"line\": 15, \"score\": 0.35, \"reason\": \"Leftover c pairs counted as (len(c)-len(b))//2 without verifying XOR >= m; only min branch checked, may miscount.\"}, {\"line\": 3, \"score\": 0.2, \"reason\": \"At t==-1 returns len(a)//2 unconditionally; correctness depends on m=0 edge semantics of predicate.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/fbc96c9faf3ba55170f03b98592de71d2a36c87d356c7121798f70c6f8800ea0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 46,
+        "score": 0.85,
+        "reason": "Uses (n+1)//2 pairs required; with odd n only n//2 pairs are possible, so ceiling overcounts and fails odd-n tests."
+      },
+      {
+        "line": 15,
+        "score": 0.35,
+        "reason": "Leftover c pairs counted as (len(c)-len(b))//2 without verifying XOR >= m; only min branch checked, may miscount."
+      },
+      {
+        "line": 3,
+        "score": 0.2,
+        "reason": "At t==-1 returns len(a)//2 unconditionally; correctness depends on m=0 edge semantics of predicate."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4729,
+  "prompt_tokens_estimate": 1183,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

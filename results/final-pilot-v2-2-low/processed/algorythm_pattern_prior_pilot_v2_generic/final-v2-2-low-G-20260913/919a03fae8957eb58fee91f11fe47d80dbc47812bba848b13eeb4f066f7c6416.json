@@ -1,0 +1,73 @@
+{
+  "run_id": "919a03fae8957eb58fee91f11fe47d80dbc47812bba848b13eeb4f066f7c6416",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "d56a30aa006fbd71f080fdb6a867a75fec101521189718aeb9ab74287f5f0a5f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43234248",
+  "task_id": "arc148_b",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:24:54.752194Z",
+  "latency": 9.86595245799981,
+  "token_usage": {
+    "prompt_tokens": 1114,
+    "completion_tokens": 593,
+    "total_tokens": 1707,
+    "cost": 0.00033304,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00033304,
+      "upstream_inference_prompt_cost": 3.654e-05,
+      "upstream_inference_completions_cost": 0.0002965
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 486,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 31, \"score\": 0.85, \"reason\": \"Early exit wrongly triggers when S has no 'd'; reversing a 'p' to 'd' could still improve S, only '\\\"p\\\" not in S' should exit.\"}, {\"line\": 37, \"score\": 0.2, \"reason\": \"Loop includes empty substring i=idxP (harmless) and correct N endpoint; lower risk but bounds are a usual suspect.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/919a03fae8957eb58fee91f11fe47d80dbc47812bba848b13eeb4f066f7c6416.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 31,
+        "score": 0.85,
+        "reason": "Early exit wrongly triggers when S has no 'd'; reversing a 'p' to 'd' could still improve S, only '\"p\" not in S' should exit."
+      },
+      {
+        "line": 37,
+        "score": 0.2,
+        "reason": "Loop includes empty substring i=idxP (harmless) and correct N endpoint; lower risk but bounds are a usual suspect."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 40,
+  "loc": 40,
+  "evaluation_denominator": 40,
+  "faulty_lines": [
+    32
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "975",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "82d630b57084457439e1cd07c63f357ce91fcd52b782d528845d9398eeec7849",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4396,
+  "prompt_tokens_estimate": 1099,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

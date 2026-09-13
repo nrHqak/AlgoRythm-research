@@ -1,0 +1,73 @@
+{
+  "run_id": "fe92e87cd338be5c96aa40a068ce63d963654df6ab4c0c57506f0c87ff810639",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "7e2a7be338417e11850f65dacb02a3847c62c1e7c3038590262d7af045aea816",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:14:54.066599Z",
+  "latency": 6.278440667025279,
+  "token_usage": {
+    "prompt_tokens": 1058,
+    "completion_tokens": 313,
+    "total_tokens": 1371,
+    "cost": 0.00019232,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019232,
+      "upstream_inference_prompt_cost": 3.582e-05,
+      "upstream_inference_completions_cost": 0.0001565
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 224,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == (comparison) instead of = so unreachable cells keep value 1, spreading fake paths and inflating answers.\"}, {\"line\": 19, \"score\": 0.2, \"reason\": \"max+1 reads stale '1' placeholders from unreachable cells; consequence of line 22 bug.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/fe92e87cd338be5c96aa40a068ce63d963654df6ab4c0c57506f0c87ff810639.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == (comparison) instead of = so unreachable cells keep value 1, spreading fake paths and inflating answers."
+      },
+      {
+        "line": 19,
+        "score": 0.2,
+        "reason": "max+1 reads stale '1' placeholders from unreachable cells; consequence of line 22 bug."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4108,
+  "prompt_tokens_estimate": 1027,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

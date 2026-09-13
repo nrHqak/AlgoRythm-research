@@ -1,0 +1,78 @@
+{
+  "run_id": "059b0096c63f047cc65ff78597192b4fde3080562f87260e66e3c6ce95f103d4",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "5df2509a6972cc69b305eaec875ba206b1d6f8bb67c6ee619265ecf2caac3b75",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "31456138",
+  "task_id": "arc139_c",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:55:08.940906Z",
+  "latency": 6.546460791956633,
+  "token_usage": {
+    "prompt_tokens": 1251,
+    "completion_tokens": 449,
+    "total_tokens": 1700,
+    "cost": 0.00026623,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1216,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00026623,
+      "upstream_inference_prompt_cost": 4.173e-05,
+      "upstream_inference_completions_cost": 0.0002245
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 323,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.9, \"reason\": \"Swap branch prints (u,v) instead of swapped (v,u), so coordinates are wrong after N/M swap.\"}, {\"line\": 23, \"score\": 0.4, \"reason\": \"Even-N loop starts at N-1; possible duplicate/missing cells near boundary, off-by-one suspect.\"}, {\"line\": 17, \"score\": 0.3, \"reason\": \"Odd-N tail range start N+1 may skip needed column N; boundary check warranted.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/059b0096c63f047cc65ff78597192b4fde3080562f87260e66e3c6ce95f103d4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.9,
+        "reason": "Swap branch prints (u,v) instead of swapped (v,u), so coordinates are wrong after N/M swap."
+      },
+      {
+        "line": 23,
+        "score": 0.4,
+        "reason": "Even-N loop starts at N-1; possible duplicate/missing cells near boundary, off-by-one suspect."
+      },
+      {
+        "line": 17,
+        "score": 0.3,
+        "reason": "Odd-N tail range start N+1 may skip needed column N; boundary check warranted."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    28
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "2406",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bb7049a07cc05097ee9741a2bf125e6c1926e0f0756333659ea839b26c3f7e2f",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4537,
+  "prompt_tokens_estimate": 1135,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

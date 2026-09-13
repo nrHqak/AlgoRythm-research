@@ -1,0 +1,145 @@
+{
+  "run_id": "c9acec8ef3cf40bcae065455d78baeaa99ec8869b5ede31164f54985e6e0a93b",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "bdd51f6e92b80ef8d7863540923f486c1c01eb32364d0617ffc21a86881ad386",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:20.746998+00:00",
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4557,
+  "prompt_tokens_estimate": 1140,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45971969\nTask ID: abc309_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: class Input_kyopro:\n2:     def II(self): return int(input())\n3:     def MI(self): return map( int,input().split())\n4:     def MS(self): return map(str,input().split())\n5:     def LMI(self): return list(self.MI())\n6:     def LMS(self): return list(self.MS())\n7:     def LLI(self,N): return [self.LMI() for _ in range(N)]\n8:     def LLS(self,N): return [self.LMS() for _ in range(N)]\n9:     def LS(self,N): return [input() for _ in range(N)]\n10:     def LSL(self,N): return [list(input()) for _ in range(N)]\n11:     def LI(self,N): return [self.II() for _ in range(N)]\n12: I=Input_kyopro()\n13: #入力\n14: from collections import defaultdict\n15: import sys\n16: sys.setrecursionlimit(10**8)\n17: N,M=I.MI()\n18: p=I.LMI()\n19: xy=I.LLI(M)\n20: dic=defaultdict(lambda : -1)\n21: for x,y in xy:\n22:     dic[x-1]=max(dic[x-1],y)\n23: G=[[] for _ in range(N)]\n24: for i in range(N-1):\n25:     G[p[i]-1].append(i+1)\n26: count=0\n27: def dfs(i,hp):\n28:     global count\n29:     if hp<dic[i]:\n30:         hp=dic[i]\n31:     if hp>=0:\n32:         count+=1\n33:     for nex in G[i]:\n34:         dfs(nex,hp-1)\n35: \n36: dfs(0,0)\n37: print(count)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using graph or grid traversal, DFS or BFS. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether nodes are marked visited at the correct moment, on push/enqueue versus on pop/dequeue, since the wrong moment causes duplicate work or missed nodes\n2. check whether the traversal follows the right discipline: first-in-first-out for BFS, last-in-first-out for DFS, with recursive calls unwinding properly\n3. check whether every valid neighbor is enumerated exactly once, including boundary checks for grid traversals\n4. check whether the goal or termination check happens at the correct point relative to enqueueing or dequeueing a node\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.7, \"reason\": \"Deep recursive DFS on a chain of up to ~3e5 nodes can hit Python's recursion/stack limit despite raised recursionlimit, causing failures on large tests\"}, {\"line\": 29, \"score\": 0.3, \"reason\": \"Only raises hp when below dic[i]; propagation of coverage via hp-1 is correct, so this is a mild double-check point\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Root starts with hp 0 but dic[0] is applied inside dfs, so this is likely fine; minor suspicion\"}]}",
+  "latency": 12.584347916999832,
+  "token_usage": {
+    "prompt_tokens": 1188,
+    "completion_tokens": 844,
+    "total_tokens": 2032,
+    "cost": 0.000485,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000485,
+      "upstream_inference_prompt_cost": 6.3e-05,
+      "upstream_inference_completions_cost": 0.000422
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 693,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250708-2HOYYxAekEp6Xj47SWMV",
+    "provider_created": 1789250708,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 2505,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250708-2HOYYxAekEp6Xj47SWMV",
+    "object": "chat.completion",
+    "created": 1789250708,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 34, \"score\": 0.7, \"reason\": \"Deep recursive DFS on a chain of up to ~3e5 nodes can hit Python's recursion/stack limit despite raised recursionlimit, causing failures on large tests\"}, {\"line\": 29, \"score\": 0.3, \"reason\": \"Only raises hp when below dic[i]; propagation of coverage via hp-1 is correct, so this is a mild double-check point\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Root starts with hp 0 but dic[0] is applied inside dfs, so this is likely fine; minor suspicion\"}]}",
+          "refusal": null,
+          "reasoning": "Known bug: must propagate max coverage per node; dfs with hp-1 works if initial hp per node updated by max with dic — actually the bug: dic only stores per-node max, hp propagates fine. Bug is recursion depth? No, likely counting: coverage counted when hp>=0, and dic updated only if hp<dic[i], that's fine. Actual known bug for ABC309E: dic[x-1] but x,y are 1-indexed — y is strength, fine. Hmm, but hp<dic[i] update... That seems correct. Bug: p list length N-1, ok. The real bug: recursion depth 10^5 with sys recursion limit set — ok. Maybe bug: dfs(0,0) but if dic[0]>0, covered. Actually real issue: for children, need max(hp-1, dic[child]) — that's handled at start of dfs. So where's the bug? Check hp>=0 condition: coverage hp>=0 means node covered if y>=depth-... standard: count covered if max insurance - depth >= 0. Correct.\n\nAh — bug: dfs is recursive, N up to 3e5, recursion may overflow despite limit (stack). But that's not a logical bug... Line 21-22: dic[x-1]=max — correct.\n\nWait, dic default -1; if hp<dic[i] then hp=dic[i]... fine. Hmm, maybe bug: y could be 0? No, y≥1.\n\nActually the bug: line 31 `if hp>=0` — hp could exceed... fine. Real known pitfall: input order — p comes before XY; correct. Hmm.\n\nMaybe the actual bug: should use max of hp at each node but count condition uses hp before propagation... it's fine.\n\nAlternatively, recursion failure: deep recursion in Python with 3e5 may actually crash (RecursionError) — but the problem states no crash. Perhaps the intended bug is that dfs(0,0) misses counting when N... no.\n\nReconsider: insurance x's descendants including x. dic[x-1] on node, propagating hp-1 each level, and max with dic at node — correct.\n\nWait line 22: dic[x-1] stores y, but should store y-... no, node x covered, so its hp = y, children y-1. Correct.\n\nHmm, maybe bug: `for x,y in xy` should be `x-1,y-1`? No.\n\nCould be line 29: `if hp<dic[i]` but also count uses hp before... fine. Perhaps bug is line 25: G[p[i]-1] correct.\n\nMaybe intended bug is that recursion for large N — actually accepted solutions use iterative BFS. Since tests fail, likely RecursionError... but \"compiles and runs\". I'll rank line 34 (recursive dfs, potential stack overflow) and line 36, plus a subtle one. Actually maybe line 29: hp<dic[i] — should always take max, but hp<dic handles it since dic default -1 and hp never < -1... hp starts 0, decreases; hp could be -5 < -1 → hp=-1, fine.\n\nI'll go with line 34 recursion depth as main suspect, and note counting at line 31.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Known bug: must propagate max coverage per node; dfs with hp-1 works if initial hp per node updated by max with dic — actually the bug: dic only stores per-node max, hp propagates fine. Bug is recursion depth? No, likely counting: coverage counted when hp>=0, and dic updated only if hp<dic[i], that's fine. Actual known bug for ABC309E: dic[x-1] but x,y are 1-indexed — y is strength, fine. Hmm, but hp<dic[i] update... That seems correct. Bug: p list length N-1, ok. The real bug: recursion depth 10^5 with sys recursion limit set — ok. Maybe bug: dfs(0,0) but if dic[0]>0, covered. Actually real issue: for children, need max(hp-1, dic[child]) — that's handled at start of dfs. So where's the bug? Check hp>=0 condition: coverage hp>=0 means node covered if y>=depth-... standard: count covered if max insurance - depth >= 0. Correct.\n\nAh — bug: dfs is recursive, N up to 3e5, recursion may overflow despite limit (stack). But that's not a logical bug... Line 21-22: dic[x-1]=max — correct.\n\nWait, dic default -1; if hp<dic[i] then hp=dic[i]... fine. Hmm, maybe bug: y could be 0? No, y≥1.\n\nActually the bug: line 31 `if hp>=0` — hp could exceed... fine. Real known pitfall: input order — p comes before XY; correct. Hmm.\n\nMaybe the actual bug: should use max of hp at each node but count condition uses hp before propagation... it's fine.\n\nAlternatively, recursion failure: deep recursion in Python with 3e5 may actually crash (RecursionError) — but the problem states no crash. Perhaps the intended bug is that dfs(0,0) misses counting when N... no.\n\nReconsider: insurance x's descendants including x. dic[x-1] on node, propagating hp-1 each level, and max with dic at node — correct.\n\nWait line 22: dic[x-1] stores y, but should store y-... no, node x covered, so its hp = y, children y-1. Correct.\n\nHmm, maybe bug: `for x,y in xy` should be `x-1,y-1`? No.\n\nCould be line 29: `if hp<dic[i]` but also count uses hp before... fine. Perhaps bug is line 25: G[p[i]-1] correct.\n\nMaybe intended bug is that recursion for large N — actually accepted solutions use iterative BFS. Since tests fail, likely RecursionError... but \"compiles and runs\". I'll rank line 34 (recursive dfs, potential stack overflow) and line 36, plus a subtle one. Actually maybe line 29: hp<dic[i] — should always take max, but hp<dic handles it since dic default -1 and hp never < -1... hp starts 0, decreases; hp could be -5 < -1 → hp=-1, fine.\n\nI'll go with line 34 recursion depth as main suspect, and note counting at line 31.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1188,
+      "completion_tokens": 844,
+      "total_tokens": 2032,
+      "cost": 0.000485,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000485,
+        "upstream_inference_prompt_cost": 6.3e-05,
+        "upstream_inference_completions_cost": 0.000422
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 693,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

@@ -1,0 +1,145 @@
+{
+  "run_id": "9f8c33be139ab098571ff30a9e1780c55beab0cf6150c76b4c4ff543a0cd93e3",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "0186b96088b54a7beb0113a185451a6a2d94f9a16d720b5f51d6b28881b00a3b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:03.564969+00:00",
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 41991921\nTask ID: abc304_g\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def calc1(a, m, t):\n2:   if t == -1:\n3:     return len(a) // 2\n4:   if len(a) < 2:\n5:     return 0\n6:   bit = 1 << t\n7:   b = []\n8:   c = []\n9:   for i in a:\n10:     if i & bit: c.append(i)\n11:     else: b.append(i)\n12:   if m & bit: return calc2(b, c, m, t - 1)\n13:   else:\n14:     if len(b) > len(c): b, c = c, b\n15:     res = len(b) + min((len(c) - len(b)) // 2, calc1(c, m, t - 1))\n16:     return res\n17: def calc2(b, c, m, t):\n18:   if t == -1: return min(len(b), len(c))\n19:   if len(b) == 0 or len(c) == 0: return 0\n20:   bit = 1 << t\n21:   d = []\n22:   e = []\n23:   f = []\n24:   g = []\n25:   for i in b:\n26:     if i & bit: e.append(i)\n27:     else: d.append(i)\n28:   for i in c:\n29:     if i & bit: g.append(i)\n30:     else: f.append(i)\n31:   if m & bit:\n32:     return calc2(e, f, m, t - 1) + calc2(d, g, m, t - 1)\n33:   else:\n34:     res = min(len(e), len(f)) + min(len(d), len(g))\n35:     if len(e) > len(f) and len(g) > len(d):\n36:       res += min(len(e) - len(f), len(g) - len(d), calc2(e, g, m, t - 1))\n37:     elif len(e) < len(f) and len(g) < len(d):\n38:       res += min(len(f) - len(e), len(d) - len(g), calc2(d, f, m, t - 1))\n39:     return res\n40: n = int(input())\n41: a = list(map(int, input().split()))\n42: l = 0\n43: r = 10 ** 10\n44: while l + 1 < r:\n45:   m = (l + r) // 2\n46:   if calc1(a, m, 29) >= (n + 1) // 2: l = m\n47:   else: r = m\n48: print(l)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 46, \"score\": 0.95, \"reason\": \"Requires (n+1)//2 pairs, but calc1 can produce at most n//2 pairs; for odd n condition never holds, always printing 0.\"}, {\"line\": 15, \"score\": 0.3, \"reason\": \"Mixing pair counts with surplus //2 in min could undercount leftover internal pairs' achievable XOR.\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Surplus handling via strict inequalities may miss cases where surpluses are unequal or recursion changes pairing.\"}]}",
+  "latency": 12.226266709039919,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 780,
+    "total_tokens": 1992,
+    "cost": 0.00043356,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00043356,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.00039
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 644,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248831-Om4kK6qhlgRIxy89aW7I",
+    "provider_created": 1789248831,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 2134,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248831-Om4kK6qhlgRIxy89aW7I",
+    "object": "chat.completion",
+    "created": 1789248831,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 46, \"score\": 0.95, \"reason\": \"Requires (n+1)//2 pairs, but calc1 can produce at most n//2 pairs; for odd n condition never holds, always printing 0.\"}, {\"line\": 15, \"score\": 0.3, \"reason\": \"Mixing pair counts with surplus //2 in min could undercount leftover internal pairs' achievable XOR.\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Surplus handling via strict inequalities may miss cases where surpluses are unequal or recursion changes pairing.\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC304G: maximum XOR matching. Known binary search + trie pairing. Line 35-38: when unmatched remainders, they can pair e with g (both bit=1 groups). In case 34 base res counts min pairs; surplus can only pair within same side... Actually the surplus of e over f pairs within b-side? Surplus elements in e must pair with elements of g (same bit side). Line 36 uses calc2(e,g) but the recursion m with bit unset — surplus e elements have bit set, g has bit set; pairing them recursively via calc2(e,g,m,t-1) seems fine, but surplus must include pair counting... Actually the subtle bug: line 35 condition should be >= handling. Also line 15: min((len(c)-len(b))//2, ...) — pairing surplus within c gives pairs each contributing value? When surplus c pairs internally, XOR of that pair's contribution is at least... actually internal pair in c with bit 0 at this level, answer counted as pair count contributes nothing to XOR here. Hmm (len(c)-len(b))//2 vs calc1(c): calc1(c,...) counts pairs. Seems plausible.\n\nLine 35/37: should also consider calc2(f,d)? Symmetric. But surpluses: e>f and g>d means surplus 1s on both sides pair via calc2(e,g). Correct.\n\nPotential bug: line 18 at t==-1 returns min(len(b),len(c)) — pairs fully matched, OK.\n\nLine 36/37 condition: case e>f and g>d covers one; but also e>f and g>d both having surplus 1s. However also case e<f and g<d symmetric. Seems right.\n\nLine 15: calc1(c, m, t-1) counts pairs within c achieving >= m. But actually if surplus is odd... fine.\n\nLine 43 r = 10**10: max value ~ 2^30 ≈ 1e9, n pairs. XOR max < 2^30? ai < 2^30? Problem: ai up to 2^30? abc304g: a_i ≤ 2^30? r should exceed answer; answer ≤ 2^30 ~ 1.07e9 < 1e10 fine.\n\nLine 2-3: t==-1 return len(a)//2 — all matched, fine.\n\nLine 46: bisect on calc1 >= (n+1)//2? Number of pairs is n//2 when n even; (n+1)//2 when n odd... n pairs = n//2; for odd n, n//2 = (n-1)//2. calc1 returns len(a)//2 pairs. Requirement should be n//2 pairs, not (n+1)//2. For odd n, (n+1)//2 > n//2, so condition never satisfied → l stays 0! Actually calc1 max is len(a)//2 = n//2 < (n+1)//2 for odd n. So line 46 is the bug. Score high.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC304G: maximum XOR matching. Known binary search + trie pairing. Line 35-38: when unmatched remainders, they can pair e with g (both bit=1 groups). In case 34 base res counts min pairs; surplus can only pair within same side... Actually the surplus of e over f pairs within b-side? Surplus elements in e must pair with elements of g (same bit side). Line 36 uses calc2(e,g) but the recursion m with bit unset — surplus e elements have bit set, g has bit set; pairing them recursively via calc2(e,g,m,t-1) seems fine, but surplus must include pair counting... Actually the subtle bug: line 35 condition should be >= handling. Also line 15: min((len(c)-len(b))//2, ...) — pairing surplus within c gives pairs each contributing value? When surplus c pairs internally, XOR of that pair's contribution is at least... actually internal pair in c with bit 0 at this level, answer counted as pair count contributes nothing to XOR here. Hmm (len(c)-len(b))//2 vs calc1(c): calc1(c,...) counts pairs. Seems plausible.\n\nLine 35/37: should also consider calc2(f,d)? Symmetric. But surpluses: e>f and g>d means surplus 1s on both sides pair via calc2(e,g). Correct.\n\nPotential bug: line 18 at t==-1 returns min(len(b),len(c)) — pairs fully matched, OK.\n\nLine 36/37 condition: case e>f and g>d covers one; but also e>f and g>d both having surplus 1s. However also case e<f and g<d symmetric. Seems right.\n\nLine 15: calc1(c, m, t-1) counts pairs within c achieving >= m. But actually if surplus is odd... fine.\n\nLine 43 r = 10**10: max value ~ 2^30 ≈ 1e9, n pairs. XOR max < 2^30? ai < 2^30? Problem: ai up to 2^30? abc304g: a_i ≤ 2^30? r should exceed answer; answer ≤ 2^30 ~ 1.07e9 < 1e10 fine.\n\nLine 2-3: t==-1 return len(a)//2 — all matched, fine.\n\nLine 46: bisect on calc1 >= (n+1)//2? Number of pairs is n//2 when n even; (n+1)//2 when n odd... n pairs = n//2; for odd n, n//2 = (n-1)//2. calc1 returns len(a)//2 pairs. Requirement should be n//2 pairs, not (n+1)//2. For odd n, (n+1)//2 > n//2, so condition never satisfied → l stays 0! Actually calc1 max is len(a)//2 = n//2 < (n+1)//2 for odd n. So line 46 is the bug. Score high.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1212,
+      "completion_tokens": 780,
+      "total_tokens": 1992,
+      "cost": 0.00043356,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00043356,
+        "upstream_inference_prompt_cost": 4.356e-05,
+        "upstream_inference_completions_cost": 0.00039
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 644,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

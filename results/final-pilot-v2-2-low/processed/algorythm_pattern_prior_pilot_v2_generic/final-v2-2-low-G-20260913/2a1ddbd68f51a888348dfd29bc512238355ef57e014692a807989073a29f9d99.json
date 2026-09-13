@@ -1,0 +1,93 @@
+{
+  "run_id": "2a1ddbd68f51a888348dfd29bc512238355ef57e014692a807989073a29f9d99",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "89d285a515962e39bd4fe0559b3760dd07c523787fd44057815cc7538194c4cf",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:19:04.059083Z",
+  "latency": 47.00094529095804,
+  "token_usage": {
+    "prompt_tokens": 1356,
+    "completion_tokens": 3525,
+    "total_tokens": 4881,
+    "cost": 0.00180462,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00180462,
+      "upstream_inference_prompt_cost": 4.212e-05,
+      "upstream_inference_completions_cost": 0.0017625
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3226,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.9, \"reason\": \"Marks the uniquely valid pattern 3^((x<<1)+y) as invalid instead of invalidating the forbidden patterns; validity is inverted and only one pattern marked per column\"}, {\"line\": 17, \"score\": 0.7, \"reason\": \"When x==1 (cell differs from below) pattern bit0=1 must be forbidden, but code forbids bit0=0 patterns (0 and 2), inverted condition\"}, {\"line\": 19, \"score\": 0.7, \"reason\": \"Mirror of line 17: forbids bit0=1 patterns when x==0, opposite of required constraint\"}, {\"line\": 23, \"score\": 0.6, \"reason\": \"Same inverted bit logic as row-0 case: forbids the wrong half of patterns for the last row\"}, {\"line\": 36, \"score\": 0.6, \"reason\": \"Compatibility test mixes (k&1) with (j&2), comparing wrong bit positions and wrong value; should compare k's top bit with j's bottom bit\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"Added cost (j&1) counts only one bit; transition cost should reflect flips of the current row pattern, likely (j>>1) or popcount\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/2a1ddbd68f51a888348dfd29bc512238355ef57e014692a807989073a29f9d99.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.9,
+        "reason": "Marks the uniquely valid pattern 3^((x<<1)+y) as invalid instead of invalidating the forbidden patterns; validity is inverted and only one pattern marked per column"
+      },
+      {
+        "line": 17,
+        "score": 0.7,
+        "reason": "When x==1 (cell differs from below) pattern bit0=1 must be forbidden, but code forbids bit0=0 patterns (0 and 2), inverted condition"
+      },
+      {
+        "line": 19,
+        "score": 0.7,
+        "reason": "Mirror of line 17: forbids bit0=1 patterns when x==0, opposite of required constraint"
+      },
+      {
+        "line": 23,
+        "score": 0.6,
+        "reason": "Same inverted bit logic as row-0 case: forbids the wrong half of patterns for the last row"
+      },
+      {
+        "line": 36,
+        "score": 0.6,
+        "reason": "Compatibility test mixes (k&1) with (j&2), comparing wrong bit positions and wrong value; should compare k's top bit with j's bottom bit"
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "Added cost (j&1) counts only one bit; transition cost should reflect flips of the current row pattern, likely (j>>1) or popcount"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4993,
+  "prompt_tokens_estimate": 1249,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

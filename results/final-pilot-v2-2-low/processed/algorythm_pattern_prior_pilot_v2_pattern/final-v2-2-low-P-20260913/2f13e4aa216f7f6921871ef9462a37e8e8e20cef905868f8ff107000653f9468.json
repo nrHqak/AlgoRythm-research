@@ -1,0 +1,93 @@
+{
+  "run_id": "2f13e4aa216f7f6921871ef9462a37e8e8e20cef905868f8ff107000653f9468",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a9f74f816c912979a10ca793b0aa5bf0b3fac363de3894bd005ff0c359167eb1",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:08.128719Z",
+  "latency": 38.492848333960865,
+  "token_usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 2775,
+    "total_tokens": 4147,
+    "cost": 0.00143202,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00143202,
+      "upstream_inference_prompt_cost": 4.452e-05,
+      "upstream_inference_completions_cost": 0.0013875
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2513,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 19, \"score\": 0.85, \"reason\": \"When one side is empty, remaining elements can still pair internally (XOR 0 fits), so returning 0 loses valid pairs\"}, {\"line\": 15, \"score\": 0.4, \"reason\": \"Sacrifices smaller side entirely; leftover pairing min((len(c)-len(b))//2, ...) may mishandle parity/leftover count\"}, {\"line\": 36, \"score\": 0.35, \"reason\": \"Extra pairing counted only via cross calc2(e,g); excess elements pairing among themselves (calc1-like) may be missed\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Symmetric leftover case uses calc2(d,f) only; same possible missing internal-pairing issue as line 36\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"Predicate threshold (n+1)//2 pairs must match problem's required matching size; easy off-by-one\"}, {\"line\": 3, \"score\": 0.15, \"reason\": \"Base case floor(len/2) assumes all remaining pairable, must match intended pair semantics\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/2f13e4aa216f7f6921871ef9462a37e8e8e20cef905868f8ff107000653f9468.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 19,
+        "score": 0.85,
+        "reason": "When one side is empty, remaining elements can still pair internally (XOR 0 fits), so returning 0 loses valid pairs"
+      },
+      {
+        "line": 15,
+        "score": 0.4,
+        "reason": "Sacrifices smaller side entirely; leftover pairing min((len(c)-len(b))//2, ...) may mishandle parity/leftover count"
+      },
+      {
+        "line": 36,
+        "score": 0.35,
+        "reason": "Extra pairing counted only via cross calc2(e,g); excess elements pairing among themselves (calc1-like) may be missed"
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "Symmetric leftover case uses calc2(d,f) only; same possible missing internal-pairing issue as line 36"
+      },
+      {
+        "line": 46,
+        "score": 0.2,
+        "reason": "Predicate threshold (n+1)//2 pairs must match problem's required matching size; easy off-by-one"
+      },
+      {
+        "line": 3,
+        "score": 0.15,
+        "reason": "Base case floor(len/2) assumes all remaining pairable, must match intended pair semantics"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4729,
+  "prompt_tokens_estimate": 1183,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

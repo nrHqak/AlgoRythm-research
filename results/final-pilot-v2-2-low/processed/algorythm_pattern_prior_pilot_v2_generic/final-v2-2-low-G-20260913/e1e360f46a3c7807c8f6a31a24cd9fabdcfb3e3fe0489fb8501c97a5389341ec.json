@@ -1,0 +1,83 @@
+{
+  "run_id": "e1e360f46a3c7807c8f6a31a24cd9fabdcfb3e3fe0489fb8501c97a5389341ec",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "1066ce45c3c268074d126d0958368d1fab01755b255b6fd75ffb5d3ec7a19bc1",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:37:10.599701Z",
+  "latency": 5.794441792008001,
+  "token_usage": {
+    "prompt_tokens": 985,
+    "completion_tokens": 309,
+    "total_tokens": 1294,
+    "cost": 0.00021009,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00021009,
+      "upstream_inference_prompt_cost": 5.559e-05,
+      "upstream_inference_completions_cost": 0.0001545
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 142,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 10, \"score\": 0.5, \"reason\": \"Off-by-one risk: converting l to l-1 creates vertices 0..N-1 paired with r; must ensure node indexing covers all N+1 checkpoints.\"}, {\"line\": 22, \"score\": 0.4, \"reason\": \"all(visited) checks indices 0..N; verify this matches intended range of reachable checkpoints.\"}, {\"line\": 11, \"score\": 0.3, \"reason\": \"Undirected edge insertion; direction of connectivity must span prefix sums correctly.\"}, {\"line\": 9, \"score\": 0.2, \"reason\": \"Input parsing bounds: l and r ranges must be read inclusively per problem constraints.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/e1e360f46a3c7807c8f6a31a24cd9fabdcfb3e3fe0489fb8501c97a5389341ec.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 10,
+        "score": 0.5,
+        "reason": "Off-by-one risk: converting l to l-1 creates vertices 0..N-1 paired with r; must ensure node indexing covers all N+1 checkpoints."
+      },
+      {
+        "line": 22,
+        "score": 0.4,
+        "reason": "all(visited) checks indices 0..N; verify this matches intended range of reachable checkpoints."
+      },
+      {
+        "line": 11,
+        "score": 0.3,
+        "reason": "Undirected edge insertion; direction of connectivity must span prefix sums correctly."
+      },
+      {
+        "line": 9,
+        "score": 0.2,
+        "reason": "Input parsing bounds: l and r ranges must be read inclusively per problem constraints."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 3973,
+  "prompt_tokens_estimate": 994,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

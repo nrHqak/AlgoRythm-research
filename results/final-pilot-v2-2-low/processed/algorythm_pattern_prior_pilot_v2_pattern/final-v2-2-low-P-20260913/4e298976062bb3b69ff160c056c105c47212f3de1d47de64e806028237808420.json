@@ -1,0 +1,78 @@
+{
+  "run_id": "4e298976062bb3b69ff160c056c105c47212f3de1d47de64e806028237808420",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "046f9d2d825e27b5c97445e754b6e996c08dbe6f0928159575b90547bb45336b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:18.389822Z",
+  "latency": 10.228319499990903,
+  "token_usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 667,
+    "total_tokens": 2039,
+    "cost": 0.00037802,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00037802,
+      "upstream_inference_prompt_cost": 4.452e-05,
+      "upstream_inference_completions_cost": 0.0003335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 534,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 46, \"score\": 0.7, \"reason\": \"Requires (n+1)//2 pairs, but at most n//2 pairs possible; fails for odd n as predicate never satisfied\"}, {\"line\": 36, \"score\": 0.5, \"reason\": \"Leftover cross-matching only considers e-g; alternative pairing (e,g)+(d,f) choice may be needed\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"Greedy min-count matching may not be optimal; other cross pairing (e,g)/(d,f) ignored\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/4e298976062bb3b69ff160c056c105c47212f3de1d47de64e806028237808420.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 46,
+        "score": 0.7,
+        "reason": "Requires (n+1)//2 pairs, but at most n//2 pairs possible; fails for odd n as predicate never satisfied"
+      },
+      {
+        "line": 36,
+        "score": 0.5,
+        "reason": "Leftover cross-matching only considers e-g; alternative pairing (e,g)+(d,f) choice may be needed"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "Greedy min-count matching may not be optimal; other cross pairing (e,g)/(d,f) ignored"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4729,
+  "prompt_tokens_estimate": 1183,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

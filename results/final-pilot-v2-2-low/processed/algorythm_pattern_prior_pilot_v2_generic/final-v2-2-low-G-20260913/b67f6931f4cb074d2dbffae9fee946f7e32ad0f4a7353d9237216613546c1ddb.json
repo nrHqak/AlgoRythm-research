@@ -1,0 +1,88 @@
+{
+  "run_id": "b67f6931f4cb074d2dbffae9fee946f7e32ad0f4a7353d9237216613546c1ddb",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c0cb644293513b6a082a82694bdc20e39458920b0c5dce656ba9b07d0f2fbd31",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:54.139711Z",
+  "latency": 34.85631212498993,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 2276,
+    "total_tokens": 3488,
+    "cost": 0.00118156,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00118156,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.001138
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2061,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"Counts (len(c)-len(b))//2 surplus pairs as automatically good; they still need XOR>=m, and calc1(c) counts pairs on full c, overcounting used elements\"}, {\"line\": 36, \"score\": 0.35, \"reason\": \"Cross-pairing only leftover e with g; recursive cap with differences may miscount valid leftover pairs\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Symmetric leftover case; same overcount concern in matching surplus pairs recursively\"}, {\"line\": 14, \"score\": 0.25, \"reason\": \"Swap forces pairing scheme; valid only if cross pairs with bit set always count, check assumption\"}, {\"line\": 3, \"score\": 0.15, \"reason\": \"Returns len(a)//2 assuming all XORs equal 0; fine only if all m lower bits are 0\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/b67f6931f4cb074d2dbffae9fee946f7e32ad0f4a7353d9237216613546c1ddb.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.9,
+        "reason": "Counts (len(c)-len(b))//2 surplus pairs as automatically good; they still need XOR>=m, and calc1(c) counts pairs on full c, overcounting used elements"
+      },
+      {
+        "line": 36,
+        "score": 0.35,
+        "reason": "Cross-pairing only leftover e with g; recursive cap with differences may miscount valid leftover pairs"
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "Symmetric leftover case; same overcount concern in matching surplus pairs recursively"
+      },
+      {
+        "line": 14,
+        "score": 0.25,
+        "reason": "Swap forces pairing scheme; valid only if cross pairs with bit set always count, check assumption"
+      },
+      {
+        "line": 3,
+        "score": 0.15,
+        "reason": "Returns len(a)//2 assuming all XORs equal 0; fine only if all m lower bits are 0"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

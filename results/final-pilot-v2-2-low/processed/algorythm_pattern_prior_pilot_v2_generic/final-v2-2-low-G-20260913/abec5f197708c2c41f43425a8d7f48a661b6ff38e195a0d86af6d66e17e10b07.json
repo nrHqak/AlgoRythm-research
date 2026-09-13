@@ -1,0 +1,68 @@
+{
+  "run_id": "abec5f197708c2c41f43425a8d7f48a661b6ff38e195a0d86af6d66e17e10b07",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "854dcd638f8c07e706c2a1b3d36076aac65d09c6dd563643f1e6e432770b00bd",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52796362",
+  "task_id": "abc326_d",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:05.600138Z",
+  "latency": 3.7556451249984093,
+  "token_usage": {
+    "prompt_tokens": 2014,
+    "completion_tokens": 191,
+    "total_tokens": 2205,
+    "cost": 0.0003592,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003592,
+      "upstream_inference_prompt_cost": 0.0002637,
+      "upstream_inference_completions_cost": 9.55e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 138,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 139, \"score\": 0.95, \"reason\": \"elif missing: if N==5 prints 'No' from solve5 without exiting, solve3 then runs and may wrongly print 'Yes'\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/abec5f197708c2c41f43425a8d7f48a661b6ff38e195a0d86af6d66e17e10b07.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 139,
+        "score": 0.95,
+        "reason": "elif missing: if N==5 prints 'No' from solve5 without exiting, solve3 then runs and may wrongly print 'Yes'"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 139,
+  "loc": 139,
+  "evaluation_denominator": 139,
+  "faulty_lines": [
+    139
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "1371",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "198c32c344dbbb83f9ff67584103a1d4df443a3128b7009362f6e318dd56379f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 7077,
+  "prompt_tokens_estimate": 1770,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

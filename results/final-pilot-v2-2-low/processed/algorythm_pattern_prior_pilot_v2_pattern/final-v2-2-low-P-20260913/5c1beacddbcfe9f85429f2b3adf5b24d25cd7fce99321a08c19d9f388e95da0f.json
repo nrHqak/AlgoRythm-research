@@ -1,0 +1,83 @@
+{
+  "run_id": "5c1beacddbcfe9f85429f2b3adf5b24d25cd7fce99321a08c19d9f388e95da0f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "6cfaee90fd868b46acd046656429d4d2e3482c6fe01682e22e2ef6b946800b20",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43234248",
+  "task_id": "arc148_b",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:55:25.734189Z",
+  "latency": 12.63210079097189,
+  "token_usage": {
+    "prompt_tokens": 1118,
+    "completion_tokens": 769,
+    "total_tokens": 1887,
+    "cost": 0.0005138,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005138,
+      "upstream_inference_prompt_cost": 0.0001293,
+      "upstream_inference_completions_cost": 0.0003845
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 608,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 38, \"score\": 0.5, \"reason\": \"Candidate construction: reverse-then-translate order and slice bounds are plausible spot for subtle mismatch with intended operation\"}, {\"line\": 37, \"score\": 0.4, \"reason\": \"Loop range includes i=idxP (empty substring, yields S itself); possibly wrong endpoint handling for candidate set\"}, {\"line\": 31, \"score\": 0.3, \"reason\": \"Early exit when 'd' missing may skip valid transformations if only one of p/d absent\"}, {\"line\": 34, \"score\": 0.2, \"reason\": \"Fixing left endpoint at first 'p' assumes optimal substring must start there; may miss candidates\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/5c1beacddbcfe9f85429f2b3adf5b24d25cd7fce99321a08c19d9f388e95da0f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 38,
+        "score": 0.5,
+        "reason": "Candidate construction: reverse-then-translate order and slice bounds are plausible spot for subtle mismatch with intended operation"
+      },
+      {
+        "line": 37,
+        "score": 0.4,
+        "reason": "Loop range includes i=idxP (empty substring, yields S itself); possibly wrong endpoint handling for candidate set"
+      },
+      {
+        "line": 31,
+        "score": 0.3,
+        "reason": "Early exit when 'd' missing may skip valid transformations if only one of p/d absent"
+      },
+      {
+        "line": 34,
+        "score": 0.2,
+        "reason": "Fixing left endpoint at first 'p' assumes optimal substring must start there; may miss candidates"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 40,
+  "loc": 40,
+  "evaluation_denominator": 40,
+  "faulty_lines": [
+    32
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "975",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "82d630b57084457439e1cd07c63f357ce91fcd52b782d528845d9398eeec7849",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4423,
+  "prompt_tokens_estimate": 1106,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

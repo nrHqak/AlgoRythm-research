@@ -1,0 +1,626 @@
+{
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "session_id": "final-v2-2-low-P-20260913",
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "n_programs": 30,
+  "n_programs_in_analysis": 30,
+  "program_ids": [
+    "31456138",
+    "35962547",
+    "37067201",
+    "39201856",
+    "41991860",
+    "41991921",
+    "43171788",
+    "43234248",
+    "43438224",
+    "44805380",
+    "44917428",
+    "45289055",
+    "45325123",
+    "45463729",
+    "45545460",
+    "45759088",
+    "45808089",
+    "45895898",
+    "45923968",
+    "45971969",
+    "46169156",
+    "46196763",
+    "52795863",
+    "52796362",
+    "52899692",
+    "53927639",
+    "54010856",
+    "54718266",
+    "55003503",
+    "55029036"
+  ],
+  "n_run_records": 300,
+  "repetitions": 5,
+  "parser_failure_policy": "count_as_failure",
+  "engineering_only": false,
+  "settings": {
+    "provider": "openrouter",
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0.0,
+    "max_tokens": 32768
+  },
+  "topk": {
+    "top1": {
+      "conditions": {
+        "no_prior": {
+          "hits": 57,
+          "total": 150,
+          "rate": 0.38
+        },
+        "pattern_prior": {
+          "hits": 64,
+          "total": 150,
+          "rate": 0.4266666666666667
+        }
+      },
+      "per_repetition_exact_mcnemar": [
+        {
+          "repetition": 1,
+          "n_programs": 30,
+          "control_hits": 10,
+          "treatment_hits": 13,
+          "control_hit_treatment_miss": 1,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 5,
+          "exact_two_sided_p": 0.375,
+          "treatment_improvement_odds_ratio": 4.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 3.0
+        },
+        {
+          "repetition": 2,
+          "n_programs": 30,
+          "control_hits": 12,
+          "treatment_hits": 14,
+          "control_hit_treatment_miss": 4,
+          "control_miss_treatment_hit": 6,
+          "discordant_pairs": 10,
+          "exact_two_sided_p": 0.75390625,
+          "treatment_improvement_odds_ratio": 1.5,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.4444444444444444
+        },
+        {
+          "repetition": 3,
+          "n_programs": 30,
+          "control_hits": 11,
+          "treatment_hits": 13,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.6875,
+          "treatment_improvement_odds_ratio": 2.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.8
+        },
+        {
+          "repetition": 4,
+          "n_programs": 30,
+          "control_hits": 12,
+          "treatment_hits": 12,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 2,
+          "discordant_pairs": 4,
+          "exact_two_sided_p": 1.0,
+          "treatment_improvement_odds_ratio": 1.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.0
+        },
+        {
+          "repetition": 5,
+          "n_programs": 30,
+          "control_hits": 12,
+          "treatment_hits": 12,
+          "control_hit_treatment_miss": 4,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 8,
+          "exact_two_sided_p": 1.0,
+          "treatment_improvement_odds_ratio": 1.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.0
+        }
+      ],
+      "pooled_transitions": {
+        "both_miss": 73,
+        "treatment_only": 20,
+        "control_only": 13,
+        "both_hit": 44
+      },
+      "pooled_transition_warning": "Counts pool program-repetition pairs for visualization only; they are not an independent-sample test.",
+      "bootstrap": {
+        "unit": "program (repetitions retained within program means)",
+        "n_programs": 30,
+        "iterations": 10000,
+        "seed": 20260908,
+        "mean_delta": 0.04666666666666667,
+        "percentile_95_ci": [
+          -0.04000000000000001,
+          0.14666666666666667
+        ]
+      }
+    },
+    "top3": {
+      "conditions": {
+        "no_prior": {
+          "hits": 76,
+          "total": 150,
+          "rate": 0.5066666666666667
+        },
+        "pattern_prior": {
+          "hits": 85,
+          "total": 150,
+          "rate": 0.5666666666666667
+        }
+      },
+      "per_repetition_exact_mcnemar": [
+        {
+          "repetition": 1,
+          "n_programs": 30,
+          "control_hits": 14,
+          "treatment_hits": 16,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.6875,
+          "treatment_improvement_odds_ratio": 2.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.8
+        },
+        {
+          "repetition": 2,
+          "n_programs": 30,
+          "control_hits": 16,
+          "treatment_hits": 17,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 3,
+          "discordant_pairs": 5,
+          "exact_two_sided_p": 1.0,
+          "treatment_improvement_odds_ratio": 1.5,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.4
+        },
+        {
+          "repetition": 3,
+          "n_programs": 30,
+          "control_hits": 17,
+          "treatment_hits": 15,
+          "control_hit_treatment_miss": 4,
+          "control_miss_treatment_hit": 2,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.6875,
+          "treatment_improvement_odds_ratio": 0.5,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 0.5555555555555556
+        },
+        {
+          "repetition": 4,
+          "n_programs": 30,
+          "control_hits": 13,
+          "treatment_hits": 18,
+          "control_hit_treatment_miss": 0,
+          "control_miss_treatment_hit": 5,
+          "discordant_pairs": 5,
+          "exact_two_sided_p": 0.0625,
+          "treatment_improvement_odds_ratio": null,
+          "treatment_improvement_odds_ratio_is_infinite": true,
+          "haldane_anscombe_odds_ratio": 11.0
+        },
+        {
+          "repetition": 5,
+          "n_programs": 30,
+          "control_hits": 16,
+          "treatment_hits": 19,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 5,
+          "discordant_pairs": 7,
+          "exact_two_sided_p": 0.453125,
+          "treatment_improvement_odds_ratio": 2.5,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 2.2
+        }
+      ],
+      "pooled_transitions": {
+        "both_miss": 55,
+        "treatment_only": 19,
+        "control_only": 10,
+        "both_hit": 66
+      },
+      "pooled_transition_warning": "Counts pool program-repetition pairs for visualization only; they are not an independent-sample test.",
+      "bootstrap": {
+        "unit": "program (repetitions retained within program means)",
+        "n_programs": 30,
+        "iterations": 10000,
+        "seed": 20260909,
+        "mean_delta": 0.06000000000000001,
+        "percentile_95_ci": [
+          -0.039999999999999994,
+          0.16666666666666666
+        ]
+      }
+    },
+    "top5": {
+      "conditions": {
+        "no_prior": {
+          "hits": 81,
+          "total": 150,
+          "rate": 0.54
+        },
+        "pattern_prior": {
+          "hits": 86,
+          "total": 150,
+          "rate": 0.5733333333333334
+        }
+      },
+      "per_repetition_exact_mcnemar": [
+        {
+          "repetition": 1,
+          "n_programs": 30,
+          "control_hits": 14,
+          "treatment_hits": 16,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.6875,
+          "treatment_improvement_odds_ratio": 2.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.8
+        },
+        {
+          "repetition": 2,
+          "n_programs": 30,
+          "control_hits": 17,
+          "treatment_hits": 17,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 2,
+          "discordant_pairs": 4,
+          "exact_two_sided_p": 1.0,
+          "treatment_improvement_odds_ratio": 1.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.0
+        },
+        {
+          "repetition": 3,
+          "n_programs": 30,
+          "control_hits": 19,
+          "treatment_hits": 16,
+          "control_hit_treatment_miss": 4,
+          "control_miss_treatment_hit": 1,
+          "discordant_pairs": 5,
+          "exact_two_sided_p": 0.375,
+          "treatment_improvement_odds_ratio": 0.25,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 0.3333333333333333
+        },
+        {
+          "repetition": 4,
+          "n_programs": 30,
+          "control_hits": 14,
+          "treatment_hits": 18,
+          "control_hit_treatment_miss": 1,
+          "control_miss_treatment_hit": 5,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.21875,
+          "treatment_improvement_odds_ratio": 5.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 3.6666666666666665
+        },
+        {
+          "repetition": 5,
+          "n_programs": 30,
+          "control_hits": 17,
+          "treatment_hits": 19,
+          "control_hit_treatment_miss": 2,
+          "control_miss_treatment_hit": 4,
+          "discordant_pairs": 6,
+          "exact_two_sided_p": 0.6875,
+          "treatment_improvement_odds_ratio": 2.0,
+          "treatment_improvement_odds_ratio_is_infinite": false,
+          "haldane_anscombe_odds_ratio": 1.8
+        }
+      ],
+      "pooled_transitions": {
+        "both_miss": 53,
+        "treatment_only": 16,
+        "control_only": 11,
+        "both_hit": 70
+      },
+      "pooled_transition_warning": "Counts pool program-repetition pairs for visualization only; they are not an independent-sample test.",
+      "bootstrap": {
+        "unit": "program (repetitions retained within program means)",
+        "n_programs": 30,
+        "iterations": 10000,
+        "seed": 20260910,
+        "mean_delta": 0.03333333333333333,
+        "percentile_95_ci": [
+          -0.04666666666666667,
+          0.12000000000000001
+        ]
+      }
+    }
+  },
+  "exam": {
+    "n_programs": 30,
+    "control_mean": 0.480003493241777,
+    "treatment_mean": 0.44505486944649747,
+    "mean_difference_treatment_minus_control": -0.03494862379527952,
+    "wilcoxon_two_sided_p": 0.21460188629190946,
+    "paired_rank_biserial": -0.35294117647058826,
+    "cliffs_delta_descriptive": -0.04111111111111111,
+    "bootstrap": {
+      "unit": "program (repetitions retained within program means)",
+      "n_programs": 30,
+      "iterations": 10000,
+      "seed": 20260911,
+      "mean_delta": -0.03494862379527952,
+      "percentile_95_ci": [
+        -0.11897196432205193,
+        0.04269630501275244
+      ]
+    }
+  },
+  "per_pattern": {
+    "binary_search": {
+      "no_prior": {
+        "top1": {
+          "sum": 6.0,
+          "count": 35,
+          "mean": 0.17142857142857143
+        },
+        "top3": {
+          "sum": 9.0,
+          "count": 35,
+          "mean": 0.2571428571428571
+        },
+        "top5": {
+          "sum": 10.0,
+          "count": 35,
+          "mean": 0.2857142857142857
+        },
+        "exam": {
+          "sum": 25.528024132730014,
+          "count": 35,
+          "mean": 0.7293721180780004
+        }
+      },
+      "pattern_prior": {
+        "top1": {
+          "sum": 7.0,
+          "count": 35,
+          "mean": 0.2
+        },
+        "top3": {
+          "sum": 9.0,
+          "count": 35,
+          "mean": 0.2571428571428571
+        },
+        "top5": {
+          "sum": 9.0,
+          "count": 35,
+          "mean": 0.2571428571428571
+        },
+        "exam": {
+          "sum": 26.353815987933636,
+          "count": 35,
+          "mean": 0.7529661710838181
+        }
+      }
+    },
+    "brute_force_implementation": {
+      "no_prior": {
+        "top1": {
+          "sum": 27.0,
+          "count": 40,
+          "mean": 0.675
+        },
+        "top3": {
+          "sum": 30.0,
+          "count": 40,
+          "mean": 0.75
+        },
+        "top5": {
+          "sum": 31.0,
+          "count": 40,
+          "mean": 0.775
+        },
+        "exam": {
+          "sum": 9.870068396293062,
+          "count": 40,
+          "mean": 0.24675170990732656
+        }
+      },
+      "pattern_prior": {
+        "top1": {
+          "sum": 34.0,
+          "count": 40,
+          "mean": 0.85
+        },
+        "top3": {
+          "sum": 34.0,
+          "count": 40,
+          "mean": 0.85
+        },
+        "top5": {
+          "sum": 34.0,
+          "count": 40,
+          "mean": 0.85
+        },
+        "exam": {
+          "sum": 6.806859717045602,
+          "count": 40,
+          "mean": 0.17017149292614003
+        }
+      }
+    },
+    "dynamic_programming": {
+      "no_prior": {
+        "top1": {
+          "sum": 16.0,
+          "count": 40,
+          "mean": 0.4
+        },
+        "top3": {
+          "sum": 24.0,
+          "count": 40,
+          "mean": 0.6
+        },
+        "top5": {
+          "sum": 25.0,
+          "count": 40,
+          "mean": 0.625
+        },
+        "exam": {
+          "sum": 15.838496450808465,
+          "count": 40,
+          "mean": 0.39596241127021164
+        }
+      },
+      "pattern_prior": {
+        "top1": {
+          "sum": 12.0,
+          "count": 40,
+          "mean": 0.3
+        },
+        "top3": {
+          "sum": 23.0,
+          "count": 40,
+          "mean": 0.575
+        },
+        "top5": {
+          "sum": 24.0,
+          "count": 40,
+          "mean": 0.6
+        },
+        "exam": {
+          "sum": 16.776225883166553,
+          "count": 40,
+          "mean": 0.41940564707916383
+        }
+      }
+    },
+    "graph_traversal_dfs_bfs": {
+      "no_prior": {
+        "top1": {
+          "sum": 8.0,
+          "count": 35,
+          "mean": 0.22857142857142856
+        },
+        "top3": {
+          "sum": 13.0,
+          "count": 35,
+          "mean": 0.37142857142857144
+        },
+        "top5": {
+          "sum": 15.0,
+          "count": 35,
+          "mean": 0.42857142857142855
+        },
+        "exam": {
+          "sum": 20.763935006435005,
+          "count": 35,
+          "mean": 0.593255285898143
+        }
+      },
+      "pattern_prior": {
+        "top1": {
+          "sum": 11.0,
+          "count": 35,
+          "mean": 0.3142857142857143
+        },
+        "top3": {
+          "sum": 19.0,
+          "count": 35,
+          "mean": 0.5428571428571428
+        },
+        "top5": {
+          "sum": 19.0,
+          "count": 35,
+          "mean": 0.5428571428571428
+        },
+        "exam": {
+          "sum": 16.82132882882883,
+          "count": 35,
+          "mean": 0.4806093951093951
+        }
+      }
+    }
+  },
+  "safety": {
+    "run_count": 300,
+    "parser_failures": 0,
+    "provider_failures": 0,
+    "invalid_ranking_failures": 0
+  },
+  "exclusions": {
+    "count": 0,
+    "programs": [],
+    "selection_frozen_at": "2026-09-12T18:18:44.770989+00:00"
+  },
+  "adversarial": {
+    "per_pattern_top1_delta": {
+      "binary_search": 0.02857142857142858,
+      "brute_force_implementation": 0.17499999999999993,
+      "dynamic_programming": -0.10000000000000003,
+      "graph_traversal_dfs_bfs": 0.08571428571428572
+    },
+    "per_pattern_top1_net_hits": {
+      "binary_search": 1,
+      "brute_force_implementation": 7,
+      "dynamic_programming": -4,
+      "graph_traversal_dfs_bfs": 3
+    },
+    "dominant_positive_pattern": "brute_force_implementation",
+    "dominant_positive_pattern_share": 0.6363636363636364,
+    "leave_one_program_out_top1": {
+      "n_programs": 30,
+      "original_delta": 0.04666666666666667,
+      "min": 0.013793103448275865,
+      "max": 0.06896551724137931,
+      "most_influential": "44917428",
+      "delta_without_most_influential": 0.013793103448275865
+    },
+    "per_repetition_top1_delta": {
+      "1": 0.10000000000000003,
+      "2": 0.06666666666666665,
+      "3": 0.06666666666666671,
+      "4": 0.0,
+      "5": 0.0
+    },
+    "parser_failures_by_condition": {
+      "no_prior": {
+        "failures": 0,
+        "total": 150
+      },
+      "pattern_prior": {
+        "failures": 0,
+        "total": 150
+      }
+    },
+    "prompt_length_by_condition": {
+      "no_prior": {
+        "mean_chars": 3934.366666666667,
+        "mean_tokens_estimate": 984.0333333333333
+      },
+      "pattern_prior": {
+        "mean_chars": 4801.7,
+        "mean_tokens_estimate": 1200.8
+      }
+    },
+    "complete_case_sensitivity": {
+      "paired_program_repetitions": 150,
+      "top1_delta": 0.04666666666666667,
+      "exam_delta": -0.03494862379527952
+    }
+  },
+  "reproducibility": {
+    "runner_command": ".venv/bin/python -m experiments.run_pilot --config pilot/v2/config/pilot_v2_pattern.yaml --manifest data/manifests/pilot_manifest_v2_2.json --system-prompt pilot/v2/prompts/system_v2.txt --user-template pilot/prompts/control.txt --priors pilot/pattern_priors.json --provider openai_compatible --model z-ai/glm-5.3-flash --temperature 0.0 --max-tokens 32768 --workers 4 --condition-order counterbalanced --timeout 120.0 --output-root results/final-pilot-v2-2-low --experiment-log EXPERIMENT_LOG.md --provider-label openrouter --reasoning-effort low --base-url https://openrouter.ai/api/v1 --repetitions 5 --session-id final-v2-2-low-P-20260913 --model-freeze pilot/v2/MODEL_FREEZE_RECORD.json --openrouter-provider z-ai/fp8 --openrouter-provider-name Z.AI",
+    "analysis_command": "'/Users/sadibeknurmuhambet/Documents/ChatGPT/Algorythm Research/analysis/run_analysis.py' --config pilot/v2/config/pilot_v2_pattern.yaml --manifest data/manifests/pilot_manifest_v2_2.json --session-id final-v2-2-low-P-20260913 --results-root results/final-pilot-v2-2-low --report-root results/final-pilot-v2-2-low/analysis/P --parser-failure-policy count_as_failure",
+    "session_manifest": "results/final-pilot-v2-2-low/processed/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/session_manifest.json"
+  }
+}

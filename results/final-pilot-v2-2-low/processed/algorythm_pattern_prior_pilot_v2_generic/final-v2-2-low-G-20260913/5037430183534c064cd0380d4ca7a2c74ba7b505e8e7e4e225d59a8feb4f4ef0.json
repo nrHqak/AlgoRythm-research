@@ -1,0 +1,78 @@
+{
+  "run_id": "5037430183534c064cd0380d4ca7a2c74ba7b505e8e7e4e225d59a8feb4f4ef0",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "b994875eba89d6a4f675e3983b6a461e419bd7c296d38fb2b94d50a91c8f05d1",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "53927639",
+  "task_id": "abc341_d",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:46.505003Z",
+  "latency": 7.225243917026091,
+  "token_usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 497,
+    "total_tokens": 1320,
+    "cost": 0.00027979,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00027979,
+      "upstream_inference_prompt_cost": 3.129e-05,
+      "upstream_inference_completions_cost": 0.0002485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 362,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"Upper bound 10^18 can be too small; answer may exceed it, giving wrong result since invariant requires r to satisfy cnt>=k.\"}, {\"line\": 9, \"score\": 0.3, \"reason\": \"Inclusion-exclusion with double subtraction is correct only if intent counts numbers divisible by exactly one; verify formula.\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Loop with r-l>1 relies on r initially satisfying cnt>=k; fails if bound too small.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/5037430183534c064cd0380d4ca7a2c74ba7b505e8e7e4e225d59a8feb4f4ef0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.85,
+        "reason": "Upper bound 10^18 can be too small; answer may exceed it, giving wrong result since invariant requires r to satisfy cnt>=k."
+      },
+      {
+        "line": 9,
+        "score": 0.3,
+        "reason": "Inclusion-exclusion with double subtraction is correct only if intent counts numbers divisible by exactly one; verify formula."
+      },
+      {
+        "line": 17,
+        "score": 0.2,
+        "reason": "Loop with r-l>1 relies on r initially satisfying cnt>=k; fails if bound too small."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "829",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9bcba4d7f1eb128211846817fdfdc727a47e66f90f13c4060ae6470ccd08d950",
+  "prior_hash": null,
+  "prompt_chars": 3037,
+  "prompt_tokens_estimate": 760,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

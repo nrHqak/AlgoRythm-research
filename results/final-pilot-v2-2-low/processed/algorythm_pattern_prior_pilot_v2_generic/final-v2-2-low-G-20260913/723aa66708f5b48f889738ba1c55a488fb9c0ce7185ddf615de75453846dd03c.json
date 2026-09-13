@@ -1,0 +1,83 @@
+{
+  "run_id": "723aa66708f5b48f889738ba1c55a488fb9c0ce7185ddf615de75453846dd03c",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c6698727ec75f7c5889ed751ee1a3c1102b080869a735a93df1bb519a8258a25",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:32:42.724949Z",
+  "latency": 11.290048750001006,
+  "token_usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 726,
+    "total_tokens": 1764,
+    "cost": 0.0004803,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004803,
+      "upstream_inference_prompt_cost": 0.0001173,
+      "upstream_inference_completions_cost": 0.000363
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 553,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 7, \"score\": 0.8, \"reason\": \"Binary search range always [1,N]; may pair A[i] with itself (or wrong side) since range should exclude index i\"}, {\"line\": 8, \"score\": 0.6, \"reason\": \"low bound fixed at 1 allows self-pairing when i is small; should depend on i\"}, {\"line\": 9, \"score\": 0.4, \"reason\": \"while high-low>1 skips some candidates only if bounds wrong, but self-pair issue dominates\"}, {\"line\": 14, \"score\": 0.2, \"reason\": \"comparison direction: diff decreases with t, so dr>=dl should move toward larger t, which low=mid does; seems fine\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/723aa66708f5b48f889738ba1c55a488fb9c0ce7185ddf615de75453846dd03c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 7,
+        "score": 0.8,
+        "reason": "Binary search range always [1,N]; may pair A[i] with itself (or wrong side) since range should exclude index i"
+      },
+      {
+        "line": 8,
+        "score": 0.6,
+        "reason": "low bound fixed at 1 allows self-pairing when i is small; should depend on i"
+      },
+      {
+        "line": 9,
+        "score": 0.4,
+        "reason": "while high-low>1 skips some candidates only if bounds wrong, but self-pair issue dominates"
+      },
+      {
+        "line": 14,
+        "score": 0.2,
+        "reason": "comparison direction: diff decreases with t, so dr>=dl should move toward larger t, which low=mid does; seems fine"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4005,
+  "prompt_tokens_estimate": 1002,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

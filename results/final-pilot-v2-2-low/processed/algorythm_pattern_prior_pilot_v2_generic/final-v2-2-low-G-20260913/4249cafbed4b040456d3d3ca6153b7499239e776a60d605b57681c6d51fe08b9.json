@@ -1,0 +1,83 @@
+{
+  "run_id": "4249cafbed4b040456d3d3ca6153b7499239e776a60d605b57681c6d51fe08b9",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "9fd461af284f1949dc491c31e8d83dc91b9692b1e890cafc5eee95ec897b7d43",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:11.909746Z",
+  "latency": 17.30021795904031,
+  "token_usage": {
+    "prompt_tokens": 1208,
+    "completion_tokens": 1350,
+    "total_tokens": 2558,
+    "cost": 0.00071796,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00071796,
+      "upstream_inference_prompt_cost": 4.296e-05,
+      "upstream_inference_completions_cost": 0.000675
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1151,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 44, \"score\": 0.85, \"reason\": \"Valid answers can be negative (a_i may be negative); checking V1[k] < 0 wrongly reports -1. Should test against -INF.\"}, {\"line\": 42, \"score\": 0.3, \"reason\": \"When j=0 color repeats, V1[0] is set to -INF but C1[0]/fallback handling may lose the only reachable state.\"}, {\"line\": 20, \"score\": 0.25, \"reason\": \"Falls back to V2[j]+vi when colors match; if V2[j] was just reset/stale the value can be wrong.\"}, {\"line\": 34, \"score\": 0.2, \"reason\": \"elif update to second-best omits check against stale/reset V2 ordering subtleties; ties may be mishandled.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/4249cafbed4b040456d3d3ca6153b7499239e776a60d605b57681c6d51fe08b9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 44,
+        "score": 0.85,
+        "reason": "Valid answers can be negative (a_i may be negative); checking V1[k] < 0 wrongly reports -1. Should test against -INF."
+      },
+      {
+        "line": 42,
+        "score": 0.3,
+        "reason": "When j=0 color repeats, V1[0] is set to -INF but C1[0]/fallback handling may lose the only reachable state."
+      },
+      {
+        "line": 20,
+        "score": 0.25,
+        "reason": "Falls back to V2[j]+vi when colors match; if V2[j] was just reset/stale the value can be wrong."
+      },
+      {
+        "line": 34,
+        "score": 0.2,
+        "reason": "elif update to second-best omits check against stale/reset V2 ordering subtleties; ties may be mishandled."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": null,
+  "prompt_chars": 3988,
+  "prompt_tokens_estimate": 997,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

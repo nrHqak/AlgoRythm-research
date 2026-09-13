@@ -1,0 +1,93 @@
+{
+  "run_id": "fb7680288f46c886aa38ed02ea6f3d2c5b8003debbdb30d67b5363edc8faa3a2",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "03484b6b0387a117e09638606f99ef060ca969d4e45c31471ccf18d81c8cf267",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:03.560888Z",
+  "latency": 12.220472500019241,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 872,
+    "total_tokens": 2247,
+    "cost": 0.00060385,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00060385,
+      "upstream_inference_prompt_cost": 0.00016785,
+      "upstream_inference_completions_cost": 0.000436
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 616,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.95, \"reason\": \"Wrong pairing: pairs must have equal bits (e with g, d with f), but code pairs e-f and d-g, giving XOR bit 1 when m's bit is 0.\"}, {\"line\": 36, \"score\": 0.85, \"reason\": \"Leftover-pairing branch follows same inverted grouping (e,g pairing should be e-g? actually e with g is correct here but quantities checked against wrong swap conditions).\"}, {\"line\": 35, \"score\": 0.8, \"reason\": \"Condition compares e>f and g>d based on inverted pair assignments from line 34's wrong grouping.\"}, {\"line\": 38, \"score\": 0.8, \"reason\": \"Symmetric leftover branch inherits the inverted d/f pairing error.\"}, {\"line\": 37, \"score\": 0.75, \"reason\": \"Mirror condition of line 35, built on the same incorrect cross-group pairing.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"Binary search predicate; plausible but standard, less suspicious than the pairing logic.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/fb7680288f46c886aa38ed02ea6f3d2c5b8003debbdb30d67b5363edc8faa3a2.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.95,
+        "reason": "Wrong pairing: pairs must have equal bits (e with g, d with f), but code pairs e-f and d-g, giving XOR bit 1 when m's bit is 0."
+      },
+      {
+        "line": 36,
+        "score": 0.85,
+        "reason": "Leftover-pairing branch follows same inverted grouping (e,g pairing should be e-g? actually e with g is correct here but quantities checked against wrong swap conditions)."
+      },
+      {
+        "line": 35,
+        "score": 0.8,
+        "reason": "Condition compares e>f and g>d based on inverted pair assignments from line 34's wrong grouping."
+      },
+      {
+        "line": 38,
+        "score": 0.8,
+        "reason": "Symmetric leftover branch inherits the inverted d/f pairing error."
+      },
+      {
+        "line": 37,
+        "score": 0.75,
+        "reason": "Mirror condition of line 35, built on the same incorrect cross-group pairing."
+      },
+      {
+        "line": 46,
+        "score": 0.2,
+        "reason": "Binary search predicate; plausible but standard, less suspicious than the pairing logic."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

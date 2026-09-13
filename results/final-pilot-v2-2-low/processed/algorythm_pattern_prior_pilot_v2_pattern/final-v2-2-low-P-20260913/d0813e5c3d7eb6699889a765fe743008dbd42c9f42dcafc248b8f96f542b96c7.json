@@ -1,0 +1,73 @@
+{
+  "run_id": "d0813e5c3d7eb6699889a765fe743008dbd42c9f42dcafc248b8f96f542b96c7",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "5f7d1547c8aac819b27190cee16da078ed9080ae2af7ddc77643b68dac6992cb",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45325123",
+  "task_id": "abc291_e",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:10.719274Z",
+  "latency": 9.655345041013788,
+  "token_usage": {
+    "prompt_tokens": 1097,
+    "completion_tokens": 608,
+    "total_tokens": 1705,
+    "cost": 0.00033799,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00033799,
+      "upstream_inference_prompt_cost": 3.399e-05,
+      "upstream_inference_completions_cost": 0.000304
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 521,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.9, \"reason\": \"Uniqueness check runs after processing; queue of size 2 drops to 1 after pop, missing ambiguous orders\"}, {\"line\": 16, \"score\": 0.6, \"reason\": \"Pop should occur only when queue size is exactly 1; checking size before popping is the correct invariant\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/d0813e5c3d7eb6699889a765fe743008dbd42c9f42dcafc248b8f96f542b96c7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.9,
+        "reason": "Uniqueness check runs after processing; queue of size 2 drops to 1 after pop, missing ambiguous orders"
+      },
+      {
+        "line": 16,
+        "score": 0.6,
+        "reason": "Pop should occur only when queue size is exactly 1; checking size before popping is the correct invariant"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    15
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1069",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "005329430119bbedd0e5f536ae6a2f34fa47dd6694d0c20d404f2c303a32c86c",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4256,
+  "prompt_tokens_estimate": 1064,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

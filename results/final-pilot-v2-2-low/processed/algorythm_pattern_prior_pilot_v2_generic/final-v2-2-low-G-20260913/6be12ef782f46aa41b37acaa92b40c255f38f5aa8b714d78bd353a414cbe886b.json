@@ -1,0 +1,88 @@
+{
+  "run_id": "6be12ef782f46aa41b37acaa92b40c255f38f5aa8b714d78bd353a414cbe886b",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "4919df08de4f8434e2b415e7f651e2e1c3aef845e0898a1cc1809fee4a5e032e",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:17:39.872299Z",
+  "latency": 36.112709250010084,
+  "token_usage": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 2562,
+    "total_tokens": 3591,
+    "cost": 0.00139695,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00139695,
+      "upstream_inference_prompt_cost": 0.00011595,
+      "upstream_inference_completions_cost": 0.001281
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2356,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 24, \"score\": 0.55, \"reason\": \"Expected-value formula: cost/spin handling must divide by p then account for zero outcomes; grouping here is the most fragile spot\"}, {\"line\": 22, \"score\": 0.45, \"reason\": \"Dividing each dp term by num (nonzero count) instead of by p can double-handle the zero-outcome probability\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"Clamping overshooting spins to id=0 assumes they complete target; check boundary semantics\"}, {\"line\": 19, \"score\": 0.25, \"reason\": \"num=p-zr drives all probability division; if zero handling is off, this count is the root\"}, {\"line\": 7, \"score\": 0.1, \"reason\": \"dp sized m+1 with dp[0]=0; verify boundary indexing matches state definition\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/6be12ef782f46aa41b37acaa92b40c255f38f5aa8b714d78bd353a414cbe886b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 24,
+        "score": 0.55,
+        "reason": "Expected-value formula: cost/spin handling must divide by p then account for zero outcomes; grouping here is the most fragile spot"
+      },
+      {
+        "line": 22,
+        "score": 0.45,
+        "reason": "Dividing each dp term by num (nonzero count) instead of by p can double-handle the zero-outcome probability"
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "Clamping overshooting spins to id=0 assumes they complete target; check boundary semantics"
+      },
+      {
+        "line": 19,
+        "score": 0.25,
+        "reason": "num=p-zr drives all probability division; if zero handling is off, this count is the root"
+      },
+      {
+        "line": 7,
+        "score": 0.1,
+        "reason": "dp sized m+1 with dp[0]=0; verify boundary indexing matches state definition"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4027,
+  "prompt_tokens_estimate": 1007,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

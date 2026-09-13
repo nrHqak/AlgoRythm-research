@@ -1,0 +1,88 @@
+{
+  "run_id": "f99a703f4ecafcd8121898380cf3310be9a6a4edb3c79f359b7e4b2d14a5be59",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "e5a2b3d28fc80dcea4598118f1e5407af29a38b0ac46e120fe4b070b551439f8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:52.922343Z",
+  "latency": 23.94544645800488,
+  "token_usage": {
+    "prompt_tokens": 1318,
+    "completion_tokens": 1653,
+    "total_tokens": 2971,
+    "cost": 0.0009858,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0009858,
+      "upstream_inference_prompt_cost": 0.0001593,
+      "upstream_inference_completions_cost": 0.0008265
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1471,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.95, \"reason\": \"DFS stack (pop) makes time a discovery counter, not depth; dist from root is wrong\"}, {\"line\": 8, \"score\": 0.7, \"reason\": \"ti is pop order, so ti+1 is not distance from s in DFS\"}, {\"line\": 29, \"score\": 0.6, \"reason\": \"picks endpoint of diameter via corrupted 'time', so s may not be an endpoint\"}, {\"line\": 31, \"score\": 0.5, \"reason\": \"max(time) is discovery order, not tree depth, so d is wrong\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"LIFO pop causes the distance mislabeling; BFS queue intended\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/f99a703f4ecafcd8121898380cf3310be9a6a4edb3c79f359b7e4b2d14a5be59.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.95,
+        "reason": "DFS stack (pop) makes time a discovery counter, not depth; dist from root is wrong"
+      },
+      {
+        "line": 8,
+        "score": 0.7,
+        "reason": "ti is pop order, so ti+1 is not distance from s in DFS"
+      },
+      {
+        "line": 29,
+        "score": 0.6,
+        "reason": "picks endpoint of diameter via corrupted 'time', so s may not be an endpoint"
+      },
+      {
+        "line": 31,
+        "score": 0.5,
+        "reason": "max(time) is discovery order, not tree depth, so d is wrong"
+      },
+      {
+        "line": 7,
+        "score": 0.4,
+        "reason": "LIFO pop causes the distance mislabeling; BFS queue intended"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": null,
+  "prompt_chars": 4390,
+  "prompt_tokens_estimate": 1098,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

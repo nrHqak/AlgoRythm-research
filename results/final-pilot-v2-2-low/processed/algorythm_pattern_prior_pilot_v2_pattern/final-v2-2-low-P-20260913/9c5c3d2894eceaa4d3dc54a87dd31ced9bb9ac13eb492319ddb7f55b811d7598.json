@@ -1,0 +1,78 @@
+{
+  "run_id": "9c5c3d2894eceaa4d3dc54a87dd31ced9bb9ac13eb492319ddb7f55b811d7598",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "2b9ee0c84caf014719528e952bebc36b15ef5e34dc91809c29c774c6e98bc8d0",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:52:14.668558Z",
+  "latency": 5.110047459020279,
+  "token_usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 302,
+    "total_tokens": 1679,
+    "cost": 0.00019627,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019627,
+      "upstream_inference_prompt_cost": 4.527e-05,
+      "upstream_inference_completions_cost": 0.000151
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 151,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 42, \"score\": 0.9, \"reason\": \"When C1[0]==ci, C1[0] should be reset (e.g. to -1) along with V1[0]=-INF; keeping ci makes future transitions treat stale color as valid.\"}, {\"line\": 17, \"score\": 0.4, \"reason\": \"Adding vi to V1[j] without guarding against -INF sentinel can propagate invalid values incorrectly.\"}, {\"line\": 20, \"score\": 0.3, \"reason\": \"Falling back to V2[j]+vi may use a stale/reset second-best value; ordering of state updates is fragile.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/9c5c3d2894eceaa4d3dc54a87dd31ced9bb9ac13eb492319ddb7f55b811d7598.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 42,
+        "score": 0.9,
+        "reason": "When C1[0]==ci, C1[0] should be reset (e.g. to -1) along with V1[0]=-INF; keeping ci makes future transitions treat stale color as valid."
+      },
+      {
+        "line": 17,
+        "score": 0.4,
+        "reason": "Adding vi to V1[j] without guarding against -INF sentinel can propagate invalid values incorrectly."
+      },
+      {
+        "line": 20,
+        "score": 0.3,
+        "reason": "Falling back to V2[j]+vi may use a stale/reset second-best value; ordering of state updates is fragile."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4861,
+  "prompt_tokens_estimate": 1216,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

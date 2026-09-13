@@ -1,0 +1,83 @@
+{
+  "run_id": "1f13bdc4844accefe349ef0e2add0ee5f2a4b524bc721e0b1656e0f14ac3c18f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "a1ae86001e1b9adc5eceee36a05af8398dac3b77b1584cf46bc86cc6e9d08334",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:15:24.860148Z",
+  "latency": 26.03650679200655,
+  "token_usage": {
+    "prompt_tokens": 1898,
+    "completion_tokens": 1624,
+    "total_tokens": 3522,
+    "cost": 0.0010583,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0010583,
+      "upstream_inference_prompt_cost": 0.0002463,
+      "upstream_inference_completions_cost": 0.000812
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1458,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 125, \"score\": 0.85, \"reason\": \"State update only tracks LIS tails; problem needs LIS>=3 AND LDS>=3, so LDS dimension is missing entirely.\"}, {\"line\": 123, \"score\": 0.6, \"reason\": \"Transition enumerates x for a single monotone triple; no handling of decreasing-subsequence constraint as required by task.\"}, {\"line\": 136, \"score\": 0.5, \"reason\": \"Answer sums only increasing triples, counting sequences lacking an LDS of length 3.\"}, {\"line\": 114, \"score\": 0.3, \"reason\": \"Initial sentinel only seeds LIS tails; an LDS tracking component would need its own initialization.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/1f13bdc4844accefe349ef0e2add0ee5f2a4b524bc721e0b1656e0f14ac3c18f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 125,
+        "score": 0.85,
+        "reason": "State update only tracks LIS tails; problem needs LIS>=3 AND LDS>=3, so LDS dimension is missing entirely."
+      },
+      {
+        "line": 123,
+        "score": 0.6,
+        "reason": "Transition enumerates x for a single monotone triple; no handling of decreasing-subsequence constraint as required by task."
+      },
+      {
+        "line": 136,
+        "score": 0.5,
+        "reason": "Answer sums only increasing triples, counting sequences lacking an LDS of length 3."
+      },
+      {
+        "line": 114,
+        "score": 0.3,
+        "reason": "Initial sentinel only seeds LIS tails; an LDS tracking component would need its own initialization."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": null,
+  "prompt_chars": 6926,
+  "prompt_tokens_estimate": 1732,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

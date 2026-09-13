@@ -1,0 +1,88 @@
+{
+  "run_id": "3e09a20a371a59f9ac47f7fc29cf0b62301211e2d73e2ca1b6ee20abb90160f4",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "5529682081795327766b3f13c60f2cc8b87ffa78e908b168a127920fb2d1afb5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:52:09.547247Z",
+  "latency": 51.24321987503208,
+  "token_usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 4256,
+    "total_tokens": 5633,
+    "cost": 0.00233455,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00233455,
+      "upstream_inference_prompt_cost": 0.00020655,
+      "upstream_inference_completions_cost": 0.002128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4052,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"Second-best update condition may miss valid predecessors; tie/inequality handling at the elif diverges from intended recurrence\"}, {\"line\": 28, \"score\": 0.4, \"reason\": \"Promotion with >= may overwrite best entry incorrectly when candidate color equals current best color\"}, {\"line\": 20, \"score\": 0.35, \"reason\": \"Same-color fallback uses V2[j] even when it is an invalid sentinel, corrupting V1[j] over repeated items\"}, {\"line\": 42, \"score\": 0.3, \"reason\": \"Resetting V1[0] to -INF while keeping C1[0]=ci may mishandle repeated-color base case\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Blind += vi on uninitialized/invalid entries accumulates with -INF sentinel\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/3e09a20a371a59f9ac47f7fc29cf0b62301211e2d73e2ca1b6ee20abb90160f4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.5,
+        "reason": "Second-best update condition may miss valid predecessors; tie/inequality handling at the elif diverges from intended recurrence"
+      },
+      {
+        "line": 28,
+        "score": 0.4,
+        "reason": "Promotion with >= may overwrite best entry incorrectly when candidate color equals current best color"
+      },
+      {
+        "line": 20,
+        "score": 0.35,
+        "reason": "Same-color fallback uses V2[j] even when it is an invalid sentinel, corrupting V1[j] over repeated items"
+      },
+      {
+        "line": 42,
+        "score": 0.3,
+        "reason": "Resetting V1[0] to -INF while keeping C1[0]=ci may mishandle repeated-color base case"
+      },
+      {
+        "line": 17,
+        "score": 0.2,
+        "reason": "Blind += vi on uninitialized/invalid entries accumulates with -INF sentinel"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4861,
+  "prompt_tokens_estimate": 1216,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

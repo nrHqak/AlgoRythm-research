@@ -1,0 +1,145 @@
+{
+  "run_id": "97d67089eb5ed784fc374320715c6b011897378a3332c8495f2c8df2f7193781",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "264ded4eb4cc45d2ee55396a702db7c61cc9d9cdf439a7999dda1ab2b3a99a42",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:46.109138+00:00",
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 5295,
+  "prompt_tokens_estimate": 1324,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45545460\nTask ID: abc267_f\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def dfs(s):\n2:     time = [-1] * n\n3:     st = [s]\n4:     time[s] = 0\n5:     parent = [-1] * n\n6:     while st:\n7:         i = st.pop()\n8:         ti = time[i]\n9:         for j in edges[i]:\n10:             if time[j] > -1:\n11:                 continue\n12:             parent[j] = i\n13:             time[j] = ti + 1\n14:             st.append(j)\n15: \n16:     return time, parent\n17: \n18: \n19: n = int(input())\n20: edges = [[] for i in range(n)]\n21: for i in range(n - 1):\n22:     a, b = map(int, input().split())\n23:     a -= 1\n24:     b -= 1\n25:     edges[a].append(b)\n26:     edges[b].append(a)\n27: \n28: time, parent = dfs(0)\n29: s = time.index(max(time))\n30: time, parent = dfs(s)\n31: d = max(time)\n32: t = time.index(d)\n33: c = [t]\n34: while t != s:\n35:     t = parent[t]\n36:     c.append(t)\n37: rc = c.copy()\n38: rc.reverse()\n39: \n40: ln = len(bin(n)) - 1\n41: left = [-1] * (n * ln)\n42: right = [-1] * (n * ln)\n43: for i in range(len(c) - 1):\n44:     left[rc[i] * ln] = rc[i + 1]\n45:     right[c[i] * ln] = c[i + 1]\n46: \n47: \n48: for i in range(n):\n49:     if right[i * ln] > -1:\n50:         continue\n51:     p = parent[i]\n52:     left[i * ln] = p\n53:     right[i * ln] = p\n54: \n55: \n56: for j in range(ln - 1):\n57:     for i in range(n):\n58:         lij = left[i * ln + j]\n59:         if lij > -1:\n60:             left[i * ln + j + 1] = left[lij * ln + j]\n61:         rij = right[i * ln + j]\n62:         if rij > -1:\n63:             right[i * ln + j + 1] = right[rij * ln + j]\n64: \n65: \n66: def solve(go, u, k):\n67:     while k:\n68:         l = len(bin(k)) - 3\n69:         u = go[u * ln + l]\n70:         if u < 0:\n71:             return -1\n72:         k -= 1 << l\n73:     return u + 1\n74: \n75: \n76: q = int(input())\n77: for i in range(q):\n78:     u, k = map(int, input().split())\n79:     u -= 1\n80:     print(max(solve(left, u, k), solve(right, u, k)))\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using graph or grid traversal, DFS or BFS. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether nodes are marked visited at the correct moment, on push/enqueue versus on pop/dequeue, since the wrong moment causes duplicate work or missed nodes\n2. check whether the traversal follows the right discipline: first-in-first-out for BFS, last-in-first-out for DFS, with recursive calls unwinding properly\n3. check whether every valid neighbor is enumerated exactly once, including boundary checks for grid traversals\n4. check whether the goal or termination check happens at the correct point relative to enqueueing or dequeueing a node\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 49, \"score\": 0.85, \"reason\": \"Skip check only tests right[-1]; diameter end s has right=-1 but valid left, and gets overwritten with parent, corrupting both directions.\"}, {\"line\": 52, \"score\": 0.7, \"reason\": \"Sets left for node s on diameter path, destroying its correct left pointer (toward t).\"}, {\"line\": 53, \"score\": 0.7, \"reason\": \"Sets right for s to parent though s is a diameter endpoint where going right should return -1.\"}, {\"line\": 48, \"score\": 0.5, \"reason\": \"Loop applies parent fallback to all nodes, not just off-path nodes; should exclude both diameter endpoints.\"}, {\"line\": 43, \"score\": 0.2, \"reason\": \"Path pointer setup leaves left[t]=-1 correctly, but correctness depends on flawed skip logic at line 49.\"}, {\"line\": 68, \"score\": 0.1, \"reason\": \"Bit-length computation appears correct for highest set bit; unlikely fault.\"}, {\"line\": 40, \"score\": 0.1, \"reason\": \"ln gives one extra level, harmless; indexing stays in bounds.\"}]}",
+  "latency": 17.131749292020686,
+  "token_usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 1353,
+    "total_tokens": 2853,
+    "cost": 0.0008631,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008631,
+      "upstream_inference_prompt_cost": 0.0001866,
+      "upstream_inference_completions_cost": 0.0006765
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1077,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250789-C1rti48mww2hnEw7MT1k",
+    "provider_created": 1789250789,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 3375,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250789-C1rti48mww2hnEw7MT1k",
+    "object": "chat.completion",
+    "created": 1789250789,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 49, \"score\": 0.85, \"reason\": \"Skip check only tests right[-1]; diameter end s has right=-1 but valid left, and gets overwritten with parent, corrupting both directions.\"}, {\"line\": 52, \"score\": 0.7, \"reason\": \"Sets left for node s on diameter path, destroying its correct left pointer (toward t).\"}, {\"line\": 53, \"score\": 0.7, \"reason\": \"Sets right for s to parent though s is a diameter endpoint where going right should return -1.\"}, {\"line\": 48, \"score\": 0.5, \"reason\": \"Loop applies parent fallback to all nodes, not just off-path nodes; should exclude both diameter endpoints.\"}, {\"line\": 43, \"score\": 0.2, \"reason\": \"Path pointer setup leaves left[t]=-1 correctly, but correctness depends on flawed skip logic at line 49.\"}, {\"line\": 68, \"score\": 0.1, \"reason\": \"Bit-length computation appears correct for highest set bit; unlikely fault.\"}, {\"line\": 40, \"score\": 0.1, \"reason\": \"ln gives one extra level, harmless; indexing stays in bounds.\"}]}",
+          "refusal": null,
+          "reasoning": "This is binary lifting on a tree for k-th ancestor from vertex, going along diameter left/right. Known issue: ln = len(bin(n))-1; for n, bin(n) length ~ bits. Jump levels: left[i*ln] etc. In solve, l = len(bin(k))-3, which gives bit index (0-based) of highest bit — correct for ln bits? bin(k) for k with highest bit b: len(bin(k)) = b+3, so l=b. Need l ≤ ln-1. Fine.\n\nLine 40: ln = len(bin(n))-1; bits needed = n.bit_length(). bin(n) length = bit_length+2, so ln = bit_length+1, one extra. Fine (extra level harmless? level indices up to bit_length, left array size n*ln, indices i*ln+bit_length valid... yes fine).\n\nLine 43: loop over len(c)-1 sets left/right for path nodes at level 0. For nodes not on path, lines 51-53 set left/right to parent. But node s (start): parent[s] = -1, right[s*ln] = -1 initially (unless on path). For s not... s is on path (end). Path nodes get next step; last path node t gets... left[rc[last]] not set — rc[last]=t=s? Actually c path from t to s, rc reversed from s to t. Loop i in range(len(c)-1) sets left[rc[i]] for i up to len(c)-2, so left[t*ln] stays -1... then line 48: right[t*ln] = -1, not > -1, so it sets left[t]=right[t]=parent[t], which is wrong! Node t on the diameter should have no neighbor to the right (it's the end); setting it to parent corrupts. Hmm, actually for t, \"left\" direction is the other path direction — t has no further node. Parent is wrong.\n\nWait but also node s: left[s]=rc[1], right[s]=c[1]. Fine.\n\nNode t: should left=right=-1 (no way further). But lines 48-53 overwrite with parent. That's the bug? Actually for t, moving further in either direction off-diameter... solving: query (u,k) wants k-th vertex on path from u going left (away along diameter) or right. If u=t, going further means... Actually the intended semantics: for each node, left = move toward one end, right = toward other end, and going past the end returns -1. Node s: left moves along to t, right should be -1 (end). But line 48: right[s*ln] = c[0]-... right[s*ln] was set to c[1] at line 45? c[0]=t, right[c[0]*ln]=c[1]. s = rc[0], left[rc[0]]=rc[1]; right[c[0]] = c[1]. Since c[0]=t, right[t*ln]=c[1]=s. So right direction from t is toward s; left direction from s is toward t via rc. So node s: right[s*ln] remains -1? Only set if s in c at index <len-1... s=rc[last], so left[s] set only if index... left[rc[i]] for i≤len(c)-2; rc[len(c)-1]=t... wait c goes t...s, rc goes s...t. left[rc[i]]=rc[i+1], so left[t] = last set at i=len(c)-2? rc[len(c)-2] gets rc[len(c)-1]=t. So left[t] never set = -1; right[t] set = c[1]... wait right[c[i]]=c[i+1] for i≤len(c)-2, so right[c[len-2]] = c[len-1]=s. right[s]=c... s=c[0]? No, c[0]=t. right[c[len-1]] = right[s] never set = -1. Good.\n\nSo t: left[t]=-1 (correct, end), right[t]= next toward s. But line 48-49: right[t] > -1, so skip. Good. s: right[s]=-1 → line 49 false → sets left[s]=right[s]=parent[s]! Overwriting left[s]=rc[1] with parent[s], and right[s] should be -1 (end) but set to parent[s]. That's the bug: line 48-53 doesn't exclude s and t properly — condition should check both left and right, or check node not on path. The skip condition only checks right; nodes with right==-1 but on path (s, and nodes... only s) get corrupted. Fix: check both. So line 49 (or 48-53) is the bug.\n\nRanking: line 49 high, line 52/53 moderate, others low. Also line 43 loop maybe fine.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is binary lifting on a tree for k-th ancestor from vertex, going along diameter left/right. Known issue: ln = len(bin(n))-1; for n, bin(n) length ~ bits. Jump levels: left[i*ln] etc. In solve, l = len(bin(k))-3, which gives bit index (0-based) of highest bit — correct for ln bits? bin(k) for k with highest bit b: len(bin(k)) = b+3, so l=b. Need l ≤ ln-1. Fine.\n\nLine 40: ln = len(bin(n))-1; bits needed = n.bit_length(). bin(n) length = bit_length+2, so ln = bit_length+1, one extra. Fine (extra level harmless? level indices up to bit_length, left array size n*ln, indices i*ln+bit_length valid... yes fine).\n\nLine 43: loop over len(c)-1 sets left/right for path nodes at level 0. For nodes not on path, lines 51-53 set left/right to parent. But node s (start): parent[s] = -1, right[s*ln] = -1 initially (unless on path). For s not... s is on path (end). Path nodes get next step; last path node t gets... left[rc[last]] not set — rc[last]=t=s? Actually c path from t to s, rc reversed from s to t. Loop i in range(len(c)-1) sets left[rc[i]] for i up to len(c)-2, so left[t*ln] stays -1... then line 48: right[t*ln] = -1, not > -1, so it sets left[t]=right[t]=parent[t], which is wrong! Node t on the diameter should have no neighbor to the right (it's the end); setting it to parent corrupts. Hmm, actually for t, \"left\" direction is the other path direction — t has no further node. Parent is wrong.\n\nWait but also node s: left[s]=rc[1], right[s]=c[1]. Fine.\n\nNode t: should left=right=-1 (no way further). But lines 48-53 overwrite with parent. That's the bug? Actually for t, moving further in either direction off-diameter... solving: query (u,k) wants k-th vertex on path from u going left (away along diameter) or right. If u=t, going further means... Actually the intended semantics: for each node, left = move toward one end, right = toward other end, and going past the end returns -1. Node s: left moves along to t, right should be -1 (end). But line 48: right[s*ln] = c[0]-... right[s*ln] was set to c[1] at line 45? c[0]=t, right[c[0]*ln]=c[1]. s = rc[0], left[rc[0]]=rc[1]; right[c[0]] = c[1]. Since c[0]=t, right[t*ln]=c[1]=s. So right direction from t is toward s; left direction from s is toward t via rc. So node s: right[s*ln] remains -1? Only set if s in c at index <len-1... s=rc[last], so left[s] set only if index... left[rc[i]] for i≤len(c)-2; rc[len(c)-1]=t... wait c goes t...s, rc goes s...t. left[rc[i]]=rc[i+1], so left[t] = last set at i=len(c)-2? rc[len(c)-2] gets rc[len(c)-1]=t. So left[t] never set = -1; right[t] set = c[1]... wait right[c[i]]=c[i+1] for i≤len(c)-2, so right[c[len-2]] = c[len-1]=s. right[s]=c... s=c[0]? No, c[0]=t. right[c[len-1]] = right[s] never set = -1. Good.\n\nSo t: left[t]=-1 (correct, end), right[t]= next toward s. But line 48-49: right[t] > -1, so skip. Good. s: right[s]=-1 → line 49 false → sets left[s]=right[s]=parent[s]! Overwriting left[s]=rc[1] with parent[s], and right[s] should be -1 (end) but set to parent[s]. That's the bug: line 48-53 doesn't exclude s and t properly — condition should check both left and right, or check node not on path. The skip condition only checks right; nodes with right==-1 but on path (s, and nodes... only s) get corrupted. Fix: check both. So line 49 (or 48-53) is the bug.\n\nRanking: line 49 high, line 52/53 moderate, others low. Also line 43 loop maybe fine.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1500,
+      "completion_tokens": 1353,
+      "total_tokens": 2853,
+      "cost": 0.0008631,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008631,
+        "upstream_inference_prompt_cost": 0.0001866,
+        "upstream_inference_completions_cost": 0.0006765
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1077,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

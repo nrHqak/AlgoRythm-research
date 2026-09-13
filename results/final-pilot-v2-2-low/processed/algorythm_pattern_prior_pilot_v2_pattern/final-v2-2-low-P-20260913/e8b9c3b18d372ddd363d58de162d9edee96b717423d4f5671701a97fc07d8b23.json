@@ -1,0 +1,88 @@
+{
+  "run_id": "e8b9c3b18d372ddd363d58de162d9edee96b717423d4f5671701a97fc07d8b23",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "c0cf07817e4c4d01f93c68d702d39cf1dd254301873a23643f9beb35da1b1422",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:03:27.814280Z",
+  "latency": 19.23051750002196,
+  "token_usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 1332,
+    "total_tokens": 2207,
+    "cost": 0.00069741,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00069741,
+      "upstream_inference_prompt_cost": 3.141e-05,
+      "upstream_inference_completions_cost": 0.000666
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1128,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.5, \"reason\": \"Binary search predicate direction: dr>=dl is true for small t, so low=mid keeps the true side; easy to have this reversed or need strictness\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"high=N/low=1 initial bounds may exclude boundary cases; invariant low=true not guaranteed at start\"}, {\"line\": 18, \"score\": 0.35, \"reason\": \"A[low] may equal s (j==i), pairing person with themselves and producing invalid smaller difference\"}, {\"line\": 22, \"score\": 0.3, \"reason\": \"Same self-pairing risk for A[high] endpoint candidate\"}, {\"line\": 9, \"score\": 0.2, \"reason\": \"Loop condition high-low>1 can skip checking adjacent candidates when bounds start adjacent\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/e8b9c3b18d372ddd363d58de162d9edee96b717423d4f5671701a97fc07d8b23.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.5,
+        "reason": "Binary search predicate direction: dr>=dl is true for small t, so low=mid keeps the true side; easy to have this reversed or need strictness"
+      },
+      {
+        "line": 7,
+        "score": 0.4,
+        "reason": "high=N/low=1 initial bounds may exclude boundary cases; invariant low=true not guaranteed at start"
+      },
+      {
+        "line": 18,
+        "score": 0.35,
+        "reason": "A[low] may equal s (j==i), pairing person with themselves and producing invalid smaller difference"
+      },
+      {
+        "line": 22,
+        "score": 0.3,
+        "reason": "Same self-pairing risk for A[high] endpoint candidate"
+      },
+      {
+        "line": 9,
+        "score": 0.2,
+        "reason": "Loop condition high-low>1 can skip checking adjacent candidates when bounds start adjacent"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": null,
+  "prompt_chars": 3161,
+  "prompt_tokens_estimate": 791,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "1b31c4b91ad1a120e23a6d0cc6cc33c0b9d64a9c45e323ad9d9090eb8be9305d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "0ba8a80060adc26395ec2344cf13b66f309474aa3c57acf5576bf31a3fbc2b16",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52796362",
+  "task_id": "abc326_d",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:11.714078Z",
+  "latency": 4.916604832978919,
+  "token_usage": {
+    "prompt_tokens": 1851,
+    "completion_tokens": 312,
+    "total_tokens": 2163,
+    "cost": 0.00021861,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00021861,
+      "upstream_inference_prompt_cost": 6.261e-05,
+      "upstream_inference_completions_cost": 0.000156
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 187,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 139, \"score\": 0.95, \"reason\": \"else binds to N==4 check; when N==5 solve5 finishes without exiting and solve3 also runs\"}, {\"line\": 137, \"score\": 0.6, \"reason\": \"solve5 path lacks exit() after printing No, causing fallthrough into solve3 via the else on line 139\"}, {\"line\": 138, \"score\": 0.3, \"reason\": \"if/else structure here misroutes N==5 to solve3; chained elif intended\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/1b31c4b91ad1a120e23a6d0cc6cc33c0b9d64a9c45e323ad9d9090eb8be9305d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 139,
+        "score": 0.95,
+        "reason": "else binds to N==4 check; when N==5 solve5 finishes without exiting and solve3 also runs"
+      },
+      {
+        "line": 137,
+        "score": 0.6,
+        "reason": "solve5 path lacks exit() after printing No, causing fallthrough into solve3 via the else on line 139"
+      },
+      {
+        "line": 138,
+        "score": 0.3,
+        "reason": "if/else structure here misroutes N==5 to solve3; chained elif intended"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 139,
+  "loc": 139,
+  "evaluation_denominator": 139,
+  "faulty_lines": [
+    139
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "1371",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "198c32c344dbbb83f9ff67584103a1d4df443a3128b7009362f6e318dd56379f",
+  "prior_hash": null,
+  "prompt_chars": 6233,
+  "prompt_tokens_estimate": 1559,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

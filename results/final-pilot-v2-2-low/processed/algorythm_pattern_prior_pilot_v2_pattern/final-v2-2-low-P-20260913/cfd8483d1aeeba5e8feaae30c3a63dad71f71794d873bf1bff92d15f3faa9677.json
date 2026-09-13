@@ -1,0 +1,83 @@
+{
+  "run_id": "cfd8483d1aeeba5e8feaae30c3a63dad71f71794d873bf1bff92d15f3faa9677",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "469469596cab91653da877e8038f195878845b552fbb2ab3f84ff286344a7e02",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45923968",
+  "task_id": "abc300_f",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:00.557062Z",
+  "latency": 6.483234042010736,
+  "token_usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 383,
+    "total_tokens": 1354,
+    "cost": 0.00022195,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00022195,
+      "upstream_inference_prompt_cost": 3.045e-05,
+      "upstream_inference_completions_cost": 0.0001915
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 201,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.85, \"reason\": \"Search upper bound M*N is exclusive, so the full M*N-length range is never tested; answers of length M*N are missed.\"}, {\"line\": 15, \"score\": 0.4, \"reason\": \"Loop invariant ok=-1 means ans could use c<i if i>0 and no valid c found; ok-i negative then, but max guards partly.\"}, {\"line\": 16, \"score\": 0.3, \"reason\": \"Midpoint from (-1, M*N) is standard but low-bound convention off-by-one is a classic failure spot.\"}, {\"line\": 12, \"score\": 0.2, \"reason\": \"Loop over starts i in range(N) seems correct; verify start indexing matches prefix semantics.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/cfd8483d1aeeba5e8feaae30c3a63dad71f71794d873bf1bff92d15f3faa9677.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.85,
+        "reason": "Search upper bound M*N is exclusive, so the full M*N-length range is never tested; answers of length M*N are missed."
+      },
+      {
+        "line": 15,
+        "score": 0.4,
+        "reason": "Loop invariant ok=-1 means ans could use c<i if i>0 and no valid c found; ok-i negative then, but max guards partly."
+      },
+      {
+        "line": 16,
+        "score": 0.3,
+        "reason": "Midpoint from (-1, M*N) is standard but low-bound convention off-by-one is a classic failure spot."
+      },
+      {
+        "line": 12,
+        "score": 0.2,
+        "reason": "Loop over starts i in range(N) seems correct; verify start indexing matches prefix semantics."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1846",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "37790e649562c4f91097c53800b97383f25e6af4f8db49b3881c68f7205fd4f8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3869,
+  "prompt_tokens_estimate": 968,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "9f8c33be139ab098571ff30a9e1780c55beab0cf6150c76b4c4ff543a0cd93e3",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "0186b96088b54a7beb0113a185451a6a2d94f9a16d720b5f51d6b28881b00a3b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:03.564969Z",
+  "latency": 12.226266709039919,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 780,
+    "total_tokens": 1992,
+    "cost": 0.00043356,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00043356,
+      "upstream_inference_prompt_cost": 4.356e-05,
+      "upstream_inference_completions_cost": 0.00039
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 644,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 46, \"score\": 0.95, \"reason\": \"Requires (n+1)//2 pairs, but calc1 can produce at most n//2 pairs; for odd n condition never holds, always printing 0.\"}, {\"line\": 15, \"score\": 0.3, \"reason\": \"Mixing pair counts with surplus //2 in min could undercount leftover internal pairs' achievable XOR.\"}, {\"line\": 36, \"score\": 0.2, \"reason\": \"Surplus handling via strict inequalities may miss cases where surpluses are unequal or recursion changes pairing.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/9f8c33be139ab098571ff30a9e1780c55beab0cf6150c76b4c4ff543a0cd93e3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 46,
+        "score": 0.95,
+        "reason": "Requires (n+1)//2 pairs, but calc1 can produce at most n//2 pairs; for odd n condition never holds, always printing 0."
+      },
+      {
+        "line": 15,
+        "score": 0.3,
+        "reason": "Mixing pair counts with surplus //2 in min could undercount leftover internal pairs' achievable XOR."
+      },
+      {
+        "line": 36,
+        "score": 0.2,
+        "reason": "Surplus handling via strict inequalities may miss cases where surpluses are unequal or recursion changes pairing."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

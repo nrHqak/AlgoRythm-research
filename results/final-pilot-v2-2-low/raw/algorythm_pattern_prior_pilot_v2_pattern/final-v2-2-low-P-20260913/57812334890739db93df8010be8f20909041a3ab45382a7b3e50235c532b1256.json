@@ -1,0 +1,145 @@
+{
+  "run_id": "57812334890739db93df8010be8f20909041a3ab45382a7b3e50235c532b1256",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "351e0bd86b5e1b180f74392f68a8844df55cdc27b556e4859bfe61aa1d82fef7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:27.922042+00:00",
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": null,
+  "prompt_chars": 3445,
+  "prompt_tokens_estimate": 862,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45463729\nTask ID: abc289_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: import collections\n2: T=int(input())\n3: for t in range(T):\n4:     N,M=map(int,input().split())\n5:     C=list(map(int,input().split()))\n6:     G=[[] for i in range(N)]\n7:     for i in range(M):\n8:         u,v=map(int,input().split())\n9:         u-=1\n10:         v-=1\n11:         G[u].append(v)\n12:         G[v].append(u)\n13:         \n14:     inf=10**9+10\n15:     D=[[inf]*N for i in range(N)]\n16:     D[0][N-1]=0\n17:     Q=collections.deque()\n18:     Q.append((0,N-1,0))\n19:     while Q:\n20:         taka,aoki,cost=Q.popleft()\n21:         for dst_t in G[taka]:\n22:             for dst_a in G[aoki]:\n23:                 if D[dst_t][dst_a]==inf and C[dst_t]!=C[dst_a]:\n24:                     D[dst_t][dst_a]=cost+1\n25:                     Q.appendleft((dst_t,dst_a,cost+1))\n26:                     \n27:     ans=D[N-1][0]\n28:     if ans==inf:\n29:         ans=-1\n30:     print(ans)\n31:                     \n32:     \n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.9, \"reason\": \"BFS uses appendleft instead of append, breaking FIFO order and giving wrong distances\"}, {\"line\": 23, \"score\": 0.3, \"reason\": \"also checks C[dst_t]!=C[dst_a]; correct condition, less suspicious\"}]}",
+  "latency": 1.916711249970831,
+  "token_usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 87,
+    "total_tokens": 1004,
+    "cost": 0.00014265,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00014265,
+      "upstream_inference_prompt_cost": 9.915e-05,
+      "upstream_inference_completions_cost": 4.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 10,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789251026-AUyuZNQOVzcT9567ftWJ",
+    "provider_created": 1789251026,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 40,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789251026-AUyuZNQOVzcT9567ftWJ",
+    "object": "chat.completion",
+    "created": 1789251026,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 25, \"score\": 0.9, \"reason\": \"BFS uses appendleft instead of append, breaking FIFO order and giving wrong distances\"}, {\"line\": 23, \"score\": 0.3, \"reason\": \"also checks C[dst_t]!=C[dst_a]; correct condition, less suspicious\"}]}",
+          "refusal": null,
+          "reasoning": "Bug: appendleft in BFS should be append.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Bug: appendleft in BFS should be append.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 917,
+      "completion_tokens": 87,
+      "total_tokens": 1004,
+      "cost": 0.00014265,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00014265,
+        "upstream_inference_prompt_cost": 9.915e-05,
+        "upstream_inference_completions_cost": 4.35e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 10,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "391975ea910155b90c38be7b511129806c54e2569fdf5d2fb6d27f1f7f06993c",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "5f5a5ee25e24d165b9f929fc1da0c7b2822eddb87d29fdb196583a998d55eb06",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:01:11.834257Z",
+  "latency": 14.934649874980096,
+  "token_usage": {
+    "prompt_tokens": 865,
+    "completion_tokens": 1188,
+    "total_tokens": 2053,
+    "cost": 0.00072375,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00072375,
+      "upstream_inference_prompt_cost": 0.00012975,
+      "upstream_inference_completions_cost": 0.000594
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1008,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 23, \"score\": 0.6, \"reason\": \"bisect_right treats equal values as '<'; if the pairing condition should allow equality (or needs bisect_left), wrong j chosen\"}, {\"line\": 25, \"score\": 0.5, \"reason\": \"if no valid pair exists, m stays INF; problem likely expects -1 output in that case\"}, {\"line\": 24, \"score\": 0.4, \"reason\": \"swap-count formula (K-i-1)+(V[j]+1) may be off by one versus required (K-i)+(j-K+1)\"}, {\"line\": 22, \"score\": 0.2, \"reason\": \"loop over all left elements is fine, but if L[i] never qualifies only INF guard at line 25 matters\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/391975ea910155b90c38be7b511129806c54e2569fdf5d2fb6d27f1f7f06993c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 23,
+        "score": 0.6,
+        "reason": "bisect_right treats equal values as '<'; if the pairing condition should allow equality (or needs bisect_left), wrong j chosen"
+      },
+      {
+        "line": 25,
+        "score": 0.5,
+        "reason": "if no valid pair exists, m stays INF; problem likely expects -1 output in that case"
+      },
+      {
+        "line": 24,
+        "score": 0.4,
+        "reason": "swap-count formula (K-i-1)+(V[j]+1) may be off by one versus required (K-i)+(j-K+1)"
+      },
+      {
+        "line": 22,
+        "score": 0.2,
+        "reason": "loop over all left elements is fine, but if L[i] never qualifies only INF guard at line 25 matters"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": null,
+  "prompt_chars": 3192,
+  "prompt_tokens_estimate": 798,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

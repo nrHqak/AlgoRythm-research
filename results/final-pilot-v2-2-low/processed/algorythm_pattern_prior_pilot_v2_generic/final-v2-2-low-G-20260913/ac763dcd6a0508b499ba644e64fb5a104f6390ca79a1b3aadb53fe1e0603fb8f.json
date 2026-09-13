@@ -1,0 +1,88 @@
+{
+  "run_id": "ac763dcd6a0508b499ba644e64fb5a104f6390ca79a1b3aadb53fe1e0603fb8f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "1a8958df5f525c3404d30bbed502b3aff3d187cadc2f02408ac19a72aadf530e",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:20:21.309197Z",
+  "latency": 17.088100333989132,
+  "token_usage": {
+    "prompt_tokens": 1390,
+    "completion_tokens": 1197,
+    "total_tokens": 2587,
+    "cost": 0.0007686,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007686,
+      "upstream_inference_prompt_cost": 0.0001701,
+      "upstream_inference_completions_cost": 0.0005985
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 969,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 42, \"score\": 0.8, \"reason\": \"Second-best state for j=0 is never maintained (C2[0]/V2[0] never updated), so same-color fallback at line 20 is lost\"}, {\"line\": 20, \"score\": 0.6, \"reason\": \"Uses V2[j] even when C2[j] may equal ci or be invalid; second-best candidate not revalidated before reuse\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"Non-strict >= with stale/garbage V2 entries can promote invalid (-INF, wrong-color) second-best states\"}, {\"line\": 28, \"score\": 0.3, \"reason\": \"Comparisons against -INF-initialized states can wrongly shuffle C1/C2 colors on early iterations\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Blind V1[j] += vi assumes stored V1[j] corresponds to valid different-color prefix; may accumulate stale values\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/ac763dcd6a0508b499ba644e64fb5a104f6390ca79a1b3aadb53fe1e0603fb8f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 42,
+        "score": 0.8,
+        "reason": "Second-best state for j=0 is never maintained (C2[0]/V2[0] never updated), so same-color fallback at line 20 is lost"
+      },
+      {
+        "line": 20,
+        "score": 0.6,
+        "reason": "Uses V2[j] even when C2[j] may equal ci or be invalid; second-best candidate not revalidated before reuse"
+      },
+      {
+        "line": 34,
+        "score": 0.4,
+        "reason": "Non-strict >= with stale/garbage V2 entries can promote invalid (-INF, wrong-color) second-best states"
+      },
+      {
+        "line": 28,
+        "score": 0.3,
+        "reason": "Comparisons against -INF-initialized states can wrongly shuffle C1/C2 colors on early iterations"
+      },
+      {
+        "line": 17,
+        "score": 0.2,
+        "reason": "Blind V1[j] += vi assumes stored V1[j] corresponds to valid different-color prefix; may accumulate stale values"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4923,
+  "prompt_tokens_estimate": 1231,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

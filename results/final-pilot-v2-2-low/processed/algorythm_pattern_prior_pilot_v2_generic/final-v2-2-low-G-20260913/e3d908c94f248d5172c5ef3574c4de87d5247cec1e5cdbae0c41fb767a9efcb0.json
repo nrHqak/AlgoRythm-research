@@ -1,0 +1,68 @@
+{
+  "run_id": "e3d908c94f248d5172c5ef3574c4de87d5247cec1e5cdbae0c41fb767a9efcb0",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "0db096be787ce56b180d90fc6e5f79fef63705991b1ce7ccb725ee0ee84dd231",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:17:45.602666Z",
+  "latency": 5.721481624990702,
+  "token_usage": {
+    "prompt_tokens": 847,
+    "completion_tokens": 312,
+    "total_tokens": 1159,
+    "cost": 0.00018321,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00018321,
+      "upstream_inference_prompt_cost": 2.721e-05,
+      "upstream_inference_completions_cost": 0.000156
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 253,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 24, \"score\": 0.95, \"reason\": \"Cost formula wrong: should be (now + c) * p / num, not now + c*p/num; p/num must multiply both c and now.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/e3d908c94f248d5172c5ef3574c4de87d5247cec1e5cdbae0c41fb767a9efcb0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 24,
+        "score": 0.95,
+        "reason": "Cost formula wrong: should be (now + c) * p / num, not now + c*p/num; p/num must multiply both c and now."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": null,
+  "prompt_chars": 3092,
+  "prompt_tokens_estimate": 773,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,145 @@
+{
+  "run_id": "0e74151f051767bb75dedb53e8b7af8745eede71419e3f87496211ae99d8caa1",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "a526014bc341bdf33c02ee6e9a5b44995258f1c19942422a9b38c6de5895cbbe",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:26.129338+00:00",
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": null,
+  "prompt_chars": 7635,
+  "prompt_tokens_estimate": 1909,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 55029036\nTask ID: abc335_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: from collections import defaultdict\n2: \n3: class UnionFind:\n4:     def __init__(self,N,label=None,f=None,weighted=False,rollback=False):\n5:         self.N=N\n6:         self.parents=[None]*self.N\n7:         self.size=[1]*self.N\n8:         self.roots={i for i in range(self.N)}\n9:         self.label=label\n10:         if self.label!=None:\n11:             self.label=[x for x in label]\n12:         self.f=f\n13:         self.weighted=weighted\n14:         if self.weighted:\n15:             self.weight=[0]*self.N\n16:         self.rollback=rollback\n17:         if self.rollback:\n18:             self.operate_list=[]\n19:             self.operate_set=[]\n20: \n21:     def Find(self,x):\n22:         stack=[]\n23:         while self.parents[x]!=None:\n24:             stack.append(x)\n25:             x=self.parents[x]\n26:         if not self.rollback:\n27:             if self.weighted:\n28:                 w=0\n29:                 for y in stack[::-1]:\n30:                     self.parents[y]=x\n31:                     w+=self.weight[y]\n32:                     self.weight[y]=w\n33:             else:\n34:                 for y in stack[::-1]:\n35:                     self.parents[y]=x\n36:         return x\n37: \n38:     def Union(self,x,y,w=None):\n39:         root_x=self.Find(x)\n40:         root_y=self.Find(y)\n41:         if self.rollback:\n42:             self.operate_list.append([])\n43:             self.operate_set.append([])\n44:         if root_x==root_y:\n45:             if self.weighted:\n46:                 if self.weight[y]-self.weight[x]==w:\n47:                     return True\n48:                 else:\n49:                     return False\n50:         else:\n51:             if self.size[root_x]<self.size[root_y]:\n52:                 x,y=y,x\n53:                 root_x,root_y=root_y,root_x\n54:                 if self.weighted:\n55:                     w=-w\n56:             if self.rollback:\n57:                 self.operate_list[-1].append((self.parents,root_y,self.parents[root_y]))\n58:                 self.operate_list[-1].append((self.size,root_x,self.size[root_x]))\n59:                 self.operate_set[-1].append(root_y)\n60:                 if self.label!=None:\n61:                     self.operate_list[-1]((self.label,root_x,self.label[root_x]))\n62:                 if self.weighted:\n63:                     self.operate_list[-1].append((self.weight,root_y,self.weight[root_y]))\n64:             self.parents[root_y]=root_x\n65:             self.size[root_x]+=self.size[root_y]\n66:             self.roots.remove(root_y)\n67:             if self.label!=None:\n68:                 self.label[root_x]=self.f(self.label[root_x],self.label[root_y])\n69:             if self.weighted:\n70:                 self.weight[root_y]=w+self.weight[x]-self.weight[y]\n71: \n72:     def Size(self,x):\n73:         return self.size[self.Find(x)]\n74: \n75:     def Same(self,x,y):\n76:         return self.Find(x)==self.Find(y)\n77: \n78:     def Label(self,x):\n79:         return self.label[self.Find(x)]\n80: \n81:     def Weight(self,x,y):\n82:         root_x=self.Find(x)\n83:         root_y=self.Find(y)\n84:         if root_x!=root_y:\n85:             return None\n86:         return self.weight[y]-self.weight[x]\n87: \n88:     def Roots(self):\n89:         return list(self.roots)\n90: \n91:     def Linked_Components_Count(self):\n92:         return len(self.roots)\n93: \n94:     def Linked_Components(self):\n95:         linked_components=defaultdict(list)\n96:         for x in range(self.N):\n97:             linked_components[self.Find(x)].append(x)\n98:         return linked_components\n99: \n100:     def Rollback(self):\n101:         assert self.rollback\n102:         if self.operate_list:\n103:             for lst,x,v in self.operate_list.pop():\n104:                 lst[x]=v\n105:             for x in self.operate_set.pop():\n106:                 self.roots.add(x)            \n107:             return True\n108:         else:\n109:             return False\n110: \n111:     def __str__(self):\n112:         linked_components=defaultdict(list)\n113:         for x in range(self.N):\n114:             linked_components[self.Find(x)].append(x)\n115:         return \"\\n\".join(f\"{r}: {linked_components[r]}\" for r in sorted(list(linked_components.keys())))\n116: \n117: N,M=map(int,input().split())\n118: A=list(map(int,input().split()))\n119: edges=[]\n120: UF=UnionFind(N)\n121: for m in range(M):\n122:     u,v=map(int,input().split())\n123:     u-=1;v-=1\n124:     if A[u]==A[v]:\n125:         UF.Union(u,v)\n126:     else:\n127:         if A[u]>A[v]:\n128:             u,v=v,u\n129:         edges.append((u,v))\n130: idx=[None]*N\n131: lc=UF.Linked_Components()\n132: le=len(lc)\n133: AA=[]\n134: for i,lst in enumerate(lc.values()):\n135:     for x in lst:\n136:         idx[x]=i\n137:     AA.append(A[lst[0]])\n138: graph=[[] for i in range(le)]\n139: for u,v in edges:\n140:     graph[idx[u]].append(idx[v])\n141: inf=1<<30\n142: dp=[-inf]*le\n143: dp[idx[0]]=1\n144: for i in sorted([i for i in range(le)],key=lambda i:AA[i]):\n145:     for j in graph[i]:\n146:         dp[j]=max(dp[j],dp[i]+1)\n147: ans=dp[idx[N-1]]\n148: if ans==-inf:\n149:     ans=0\n150: print(ans)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.5, \"reason\": \"Relaxes unconditionally; propagates from unreachable nodes (dp=-inf) and lacks guard for valid transitions\"}, {\"line\": 144, \"score\": 0.4, \"reason\": \"Ties in AA values processed in arbitrary order; relaxation order may use stale dp[i]\"}, {\"line\": 143, \"score\": 0.3, \"reason\": \"Start dp set to 1; if start node unreachable consistency issues possible\"}, {\"line\": 61, \"score\": 0.2, \"reason\": \"Typo: calls operate_list[-1] instead of .append; latent bug if rollback used\"}]}",
+  "latency": 11.799448625009973,
+  "token_usage": {
+    "prompt_tokens": 1974,
+    "completion_tokens": 732,
+    "total_tokens": 2706,
+    "cost": 0.0004317,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004317,
+      "upstream_inference_prompt_cost": 6.57e-05,
+      "upstream_inference_completions_cost": 0.000366
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 578,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248074-Bx0XW066a7knWN7PVtUi",
+    "provider_created": 1789248074,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 2156,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248074-Bx0XW066a7knWN7PVtUi",
+    "object": "chat.completion",
+    "created": 1789248074,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 146, \"score\": 0.5, \"reason\": \"Relaxes unconditionally; propagates from unreachable nodes (dp=-inf) and lacks guard for valid transitions\"}, {\"line\": 144, \"score\": 0.4, \"reason\": \"Ties in AA values processed in arbitrary order; relaxation order may use stale dp[i]\"}, {\"line\": 143, \"score\": 0.3, \"reason\": \"Start dp set to 1; if start node unreachable consistency issues possible\"}, {\"line\": 61, \"score\": 0.2, \"reason\": \"Typo: calls operate_list[-1] instead of .append; latent bug if rollback used\"}]}",
+          "refusal": null,
+          "reasoning": "Bug: dp condition ABC335E requires non-decreasing A values along path; dp[j]=max(dp[j],dp[i]+1) only valid if A of j >= A of i? Actually path must have non-decreasing values. Edges go from smaller to larger. dp relaxation: dp[i]+1 valid only if AA[j]>=AA[i]—edges satisfy u<v by A. But also when AA[j]==AA[i]? Edges only added when A differ, and they're in different components, so equal values won't happen. Actual bug: graph should be bidirectional traversal sorted by value: edges only added from low to high, so dp propagates in sorted order — fine. Issue: dp[idx[0]]=1 but if i loop reaches idx[0] later... dp[i]+1 from dp[i] even when dp[i] is -inf? -inf+1 still tiny, fine. Bug: dp[j] update uses dp[i], but dp[i] may not be final? Sorted by A ascending, ties: components with equal A — edges between equal A components don't exist. Fine. Real bug likely: relaxation only from i to j, but if AA[j]... fine. Hmm: dp[i] could be -inf, dp[i]+1 = -inf+1 which when maxed with -inf gives -inf+1, slight garbage but still effectively -inf; then propagating adds up... could exceed? inf=1<<30, adding ≤N times negligible. Line 146: should be conditional. Another bug: line 144 sorting ties arbitrary, fine. Line 143: dp[idx[0]]=1 correct. Line 61: typo self.operate_list[-1](...) — but rollback unused. Likely fault: line 146 needs dp[j] only updated if AA[j] >= AA[i]? Already satisfied. Actually bug: dp must reset: nodes reachable only if A non-decreasing; correct. Hmm, maybe the condition should be that path visits non-decreasing A; edges oriented ascending works. Then answer = max over... dp[idx[N-1]] fine.\n\nWait: graph edges appended only once; but for equal-A edges? Merged. Seems correct... bug could be line 143: should set dp only if... fine. Line 146: should check AA[j] > AA[i]? equals impossible.\n\nPossible real bug: sorted key uses AA[i] but components with same A not linked... they can't be adjacent. Hmm—line 137: AA.append(A[lst[0]]) fine.\n\nMaybe line 144: dp propagation ordering with equal A among components not connected—doesn't matter.\n\nSuspect: line 146 missing guard dp[i]!=-inf—minor. Give ranking with line 146, 144, 143, 61.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Bug: dp condition ABC335E requires non-decreasing A values along path; dp[j]=max(dp[j],dp[i]+1) only valid if A of j >= A of i? Actually path must have non-decreasing values. Edges go from smaller to larger. dp relaxation: dp[i]+1 valid only if AA[j]>=AA[i]—edges satisfy u<v by A. But also when AA[j]==AA[i]? Edges only added when A differ, and they're in different components, so equal values won't happen. Actual bug: graph should be bidirectional traversal sorted by value: edges only added from low to high, so dp propagates in sorted order — fine. Issue: dp[idx[0]]=1 but if i loop reaches idx[0] later... dp[i]+1 from dp[i] even when dp[i] is -inf? -inf+1 still tiny, fine. Bug: dp[j] update uses dp[i], but dp[i] may not be final? Sorted by A ascending, ties: components with equal A — edges between equal A components don't exist. Fine. Real bug likely: relaxation only from i to j, but if AA[j]... fine. Hmm: dp[i] could be -inf, dp[i]+1 = -inf+1 which when maxed with -inf gives -inf+1, slight garbage but still effectively -inf; then propagating adds up... could exceed? inf=1<<30, adding ≤N times negligible. Line 146: should be conditional. Another bug: line 144 sorting ties arbitrary, fine. Line 143: dp[idx[0]]=1 correct. Line 61: typo self.operate_list[-1](...) — but rollback unused. Likely fault: line 146 needs dp[j] only updated if AA[j] >= AA[i]? Already satisfied. Actually bug: dp must reset: nodes reachable only if A non-decreasing; correct. Hmm, maybe the condition should be that path visits non-decreasing A; edges oriented ascending works. Then answer = max over... dp[idx[N-1]] fine.\n\nWait: graph edges appended only once; but for equal-A edges? Merged. Seems correct... bug could be line 143: should set dp only if... fine. Line 146: should check AA[j] > AA[i]? equals impossible.\n\nPossible real bug: sorted key uses AA[i] but components with same A not linked... they can't be adjacent. Hmm—line 137: AA.append(A[lst[0]]) fine.\n\nMaybe line 144: dp propagation ordering with equal A among components not connected—doesn't matter.\n\nSuspect: line 146 missing guard dp[i]!=-inf—minor. Give ranking with line 146, 144, 143, 61.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1974,
+      "completion_tokens": 732,
+      "total_tokens": 2706,
+      "cost": 0.0004317,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1920,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004317,
+        "upstream_inference_prompt_cost": 6.57e-05,
+        "upstream_inference_completions_cost": 0.000366
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 578,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

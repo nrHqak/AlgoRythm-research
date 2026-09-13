@@ -1,0 +1,73 @@
+{
+  "run_id": "10c70781b9eb5a009027e00c76d5ad8a2562d834406f8235c593f391f1a289be",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "f20ce8d2cb2ba684e9a7e889e2639607ad9b85f9a53b12079008fb9630b17a4a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "46169156",
+  "task_id": "abc305_b",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:33.408568Z",
+  "latency": 2.9883876250241883,
+  "token_usage": {
+    "prompt_tokens": 880,
+    "completion_tokens": 157,
+    "total_tokens": 1037,
+    "cost": 0.00011066,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00011066,
+      "upstream_inference_prompt_cost": 3.216e-05,
+      "upstream_inference_completions_cost": 7.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 82,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"q=='A' branch sets short=0 instead of long=0, clobbering p's value\"}, {\"line\": 6, \"score\": 0.2, \"reason\": \"redundant but harmless; correct value anyway\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/10c70781b9eb5a009027e00c76d5ad8a2562d834406f8235c593f391f1a289be.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "q=='A' branch sets short=0 instead of long=0, clobbering p's value"
+      },
+      {
+        "line": 6,
+        "score": 0.2,
+        "reason": "redundant but harmless; correct value anyway"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    21
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "23",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "5b0814f068501653f6262319e85fdcbda853873103acd67453199e0ae95a808a",
+  "prior_hash": null,
+  "prompt_chars": 3142,
+  "prompt_tokens_estimate": 786,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

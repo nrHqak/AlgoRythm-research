@@ -1,0 +1,145 @@
+{
+  "run_id": "dc0f7f1ebe009a56392704849b5b25e201d1241105776efc28aac9e4fdcbb6b4",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "fcbbb27fdd45466e5bfe75a5535d389b43dd819300ec081a6da8984bcf5725ef",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45289055",
+  "task_id": "abc257_a",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:56:33.109966+00:00",
+  "source_line_count": 44,
+  "loc": 44,
+  "evaluation_denominator": 44,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "22",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "ac3951dd06b5a04dd4457b15d9ab51da6ead38da4ce924461c5aba902f5da665",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4677,
+  "prompt_tokens_estimate": 1170,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45289055\nTask ID: abc257_a\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: import sys\n2: sys.setrecursionlimit(500*500)\n3: \n4: # if 'pypyjit' in sys.builtin_module_names:\n5: #     import pypyjit\n6: #     pypyjit.set_param('max_unroll_recursion=-1')\n7: input = sys.stdin.readline\n8: from math import gcd\n9: from functools import reduce\n10: # product('ABCD', repeat=2) => AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD\n11: from itertools import product\n12: # permutations('ABCD', 2) => AB AC AD BA BC BD CA CB CD DA DB DC\n13: from itertools import permutations\n14: # combinations('ABCD', 2) => AB AC AD BC BD CD\n15: from itertools import combinations\n16: from itertools import accumulate # 累積和作るやつ\n17: from collections import deque\n18: from collections import defaultdict\n19: from heapq import heappop, heappush\n20: from bisect import bisect_left\n21: # 0埋めされた二進数表現\n22: f'{9:05b}'\n23: \n24: alpha2num = lambda c: ord(c) - ord('a')\n25: num2alpha = lambda c: chr(c+ord('A'))\n26: popcnt = lambda x: bin(x).count(\"1\")\n27: \n28: # 数値判定\n29: \"1\".isdigit()\n30: \n31: \n32: dh = [-1, 0, 1, 0]\n33: dw = [0, -1, 0, 1]\n34: dh8 = [-1, -1, -1,  0,  0,  1,  1,  1]\n35: dw8 = [-1,  0,  1, -1,  1, -1,  0,  1]\n36: \n37: def resolve():\n38:   inf = 10**18+1\n39:   N, X = map(int, input()[:-1].split(\" \"))\n40:   c = num2alpha((X//N)-1)\n41: \n42:   print(c)\n43: \n44: resolve()\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using a direct brute-force implementation. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether every loop's bounds match the range stated by the problem, including whether an endpoint should be inclusive or exclusive\n2. check whether the code follows the problem statement's formula and order of operations faithfully, including integer versus floating-point division\n3. check whether a nested loop's index variable is accidentally reused or shadowed by an inner loop\n4. check whether the final accumulation or output step runs exactly once at the correct point, not inside a loop that repeats it\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Uses X//N-1 instead of (X-1)//N; wrong letter for non-multiples like X=N+1\"}, {\"line\": 39, \"score\": 0.1, \"reason\": \"Input parsing looks fine but tied to the faulty formula\"}]}",
+  "latency": 4.819425583991688,
+  "token_usage": {
+    "prompt_tokens": 1275,
+    "completion_tokens": 351,
+    "total_tokens": 1626,
+    "cost": 0.00022083,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1216,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00022083,
+      "upstream_inference_prompt_cost": 4.533e-05,
+      "upstream_inference_completions_cost": 0.0001755
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 270,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250188-urAVFBWairuVtUiyQ693",
+    "provider_created": 1789250188,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 570,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250188-urAVFBWairuVtUiyQ693",
+    "object": "chat.completion",
+    "created": 1789250188,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Uses X//N-1 instead of (X-1)//N; wrong letter for non-multiples like X=N+1\"}, {\"line\": 39, \"score\": 0.1, \"reason\": \"Input parsing looks fine but tied to the faulty formula\"}]}",
+          "refusal": null,
+          "reasoning": "ABC257A: answer letter is chr(ord('A') + (X-1)//N). Code uses X//N - 1, off by one at boundaries (e.g. X=N gives 'A'-... actually X=N → X//N-1=0 → 'A' correct; X=N+1 → 1 → 'B' but should be 'B'? (X-1)//N=1 → 'B'. X=2N → X//N-1=1 → 'B', should be 'B'. X=2N+1 → 2 → 'C', correct? (X-1)//N=2. Hmm actually X//N-1 == (X-1)//N when X not multiple of N... X=kN → (kN)//N-1 = k-1, (kN-1)//N = k-1. Same! Actually they're equal always for X≥1? X//N -1 vs (X-1)//N: X=qN+r, r>0: q-1 vs q. Different! X= N+1: X//N-1 = 0 → 'A', but should be (N)//N=1 → 'B'. So bug: needs (X-1)//N.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "ABC257A: answer letter is chr(ord('A') + (X-1)//N). Code uses X//N - 1, off by one at boundaries (e.g. X=N gives 'A'-... actually X=N → X//N-1=0 → 'A' correct; X=N+1 → 1 → 'B' but should be 'B'? (X-1)//N=1 → 'B'. X=2N → X//N-1=1 → 'B', should be 'B'. X=2N+1 → 2 → 'C', correct? (X-1)//N=2. Hmm actually X//N-1 == (X-1)//N when X not multiple of N... X=kN → (kN)//N-1 = k-1, (kN-1)//N = k-1. Same! Actually they're equal always for X≥1? X//N -1 vs (X-1)//N: X=qN+r, r>0: q-1 vs q. Different! X= N+1: X//N-1 = 0 → 'A', but should be (N)//N=1 → 'B'. So bug: needs (X-1)//N.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1275,
+      "completion_tokens": 351,
+      "total_tokens": 1626,
+      "cost": 0.00022083,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1216,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00022083,
+        "upstream_inference_prompt_cost": 4.533e-05,
+        "upstream_inference_completions_cost": 0.0001755
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 270,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

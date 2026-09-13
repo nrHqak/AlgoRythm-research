@@ -1,0 +1,78 @@
+{
+  "run_id": "98da5eb0610d1e9d6a9d0b0397b097577bda9affbe509209084eb871a5d26d32",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c4495a29efcb980fabb9df5ed304be4826b4df0a5ac9862c52c9bca5a269a14d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:37:16.635795Z",
+  "latency": 5.384205500013195,
+  "token_usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 215,
+    "total_tokens": 1037,
+    "cost": 0.00013864,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00013864,
+      "upstream_inference_prompt_cost": 3.114e-05,
+      "upstream_inference_completions_cost": 0.0001075
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 96,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.3, \"reason\": \"all(visited) checks indices 0..N, which is actually correct; connectivity from 0 to N is the right criterion.\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"l-1 edge construction matches standard solution; only suspect if off-by-one intended differently.\"}, {\"line\": 16, \"score\": 0.1, \"reason\": \"BFS/DFS stack traversal appears correct and complete.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/98da5eb0610d1e9d6a9d0b0397b097577bda9affbe509209084eb871a5d26d32.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.3,
+        "reason": "all(visited) checks indices 0..N, which is actually correct; connectivity from 0 to N is the right criterion."
+      },
+      {
+        "line": 10,
+        "score": 0.2,
+        "reason": "l-1 edge construction matches standard solution; only suspect if off-by-one intended differently."
+      },
+      {
+        "line": 16,
+        "score": 0.1,
+        "reason": "BFS/DFS stack traversal appears correct and complete."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": null,
+  "prompt_chars": 3129,
+  "prompt_tokens_estimate": 783,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

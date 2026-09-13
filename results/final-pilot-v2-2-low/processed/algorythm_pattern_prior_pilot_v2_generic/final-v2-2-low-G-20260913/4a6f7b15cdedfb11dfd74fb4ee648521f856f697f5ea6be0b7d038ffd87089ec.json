@@ -1,0 +1,88 @@
+{
+  "run_id": "4a6f7b15cdedfb11dfd74fb4ee648521f856f697f5ea6be0b7d038ffd87089ec",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "03346f9be122975ac7aebf32e438fd3fb02dcbcad58cbdc09bee899bdfb3de61",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45895898",
+  "task_id": "abc309_c",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:51.326131Z",
+  "latency": 22.281294415995944,
+  "token_usage": {
+    "prompt_tokens": 1138,
+    "completion_tokens": 1533,
+    "total_tokens": 2671,
+    "cost": 0.00080664,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00080664,
+      "upstream_inference_prompt_cost": 4.014e-05,
+      "upstream_inference_completions_cost": 0.0007665
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1318,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 26, \"score\": 0.6, \"reason\": \"Uses strict res>k; if the intended condition is res>=k the found day is off by one at boundaries.\"}, {\"line\": 41, \"score\": 0.5, \"reason\": \"Binary search direction hinges on cal's comparison; if inverted the search returns a maximum instead of minimum day.\"}, {\"line\": 46, \"score\": 0.4, \"reason\": \"Special-casing r<=0 may mishandle boundary when answer is exactly day 1 vs 0 from initial l=-1.\"}, {\"line\": 23, \"score\": 0.3, \"reason\": \"Strict vs non-strict a>=x decides whether day-x medicine counts; off-by-one here shifts the answer.\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Loop bound abs(r-l)>1 with l=-1 may terminate before checking candidate day 1 correctly.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/4a6f7b15cdedfb11dfd74fb4ee648521f856f697f5ea6be0b7d038ffd87089ec.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 26,
+        "score": 0.6,
+        "reason": "Uses strict res>k; if the intended condition is res>=k the found day is off by one at boundaries."
+      },
+      {
+        "line": 41,
+        "score": 0.5,
+        "reason": "Binary search direction hinges on cal's comparison; if inverted the search returns a maximum instead of minimum day."
+      },
+      {
+        "line": 46,
+        "score": 0.4,
+        "reason": "Special-casing r<=0 may mishandle boundary when answer is exactly day 1 vs 0 from initial l=-1."
+      },
+      {
+        "line": 23,
+        "score": 0.3,
+        "reason": "Strict vs non-strict a>=x decides whether day-x medicine counts; off-by-one here shifts the answer."
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "Loop bound abs(r-l)>1 with l=-1 may terminate before checking candidate day 1 correctly."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 51,
+  "loc": 51,
+  "evaluation_denominator": 51,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "348",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bda9e3686ddfbc102c2f7c192374829b6a783b677acaf6135d0089b1bb854936",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4345,
+  "prompt_tokens_estimate": 1087,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}
