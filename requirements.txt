@@ -9,3 +9,8 @@ requests==2.34.2
 tqdm==4.70.0
 PyYAML==6.0.3
 pytest==9.1.1
+# document build (paper/RKNP_SUBMISSION_FINAL_RU.*)
+python-docx==1.2.0
+reportlab==5.0.1
+# rendered-page QA only, not needed to build
+pymupdf==1.28.2
