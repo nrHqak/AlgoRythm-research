@@ -1,0 +1,68 @@
+{
+  "run_id": "58978c0884c0056f417d77759983c8fdf5e5d03aa4ac139da14cda270336ed63",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "32cc63e955463225e449220956d11746e15e698bbef3aae42640bb9d0e0fc216",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "55003503",
+  "task_id": "abc327_c",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:56:39.718773Z",
+  "latency": 1.7792817080044188,
+  "token_usage": {
+    "prompt_tokens": 1042,
+    "completion_tokens": 49,
+    "total_tokens": 1091,
+    "cost": 5.792e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.792e-05,
+      "upstream_inference_prompt_cost": 3.342e-05,
+      "upstream_inference_completions_cost": 2.45e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses data[row][col] without offsetting by block start i,j, so all blocks check the top-left block.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/58978c0884c0056f417d77759983c8fdf5e5d03aa4ac139da14cda270336ed63.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses data[row][col] without offsetting by block start i,j, so all blocks check the top-left block."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "169",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bf07dc150b4156f1d0d4da2457b284f622cb118c562d2d5a3ae4df8fae1dab0",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4296,
+  "prompt_tokens_estimate": 1074,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

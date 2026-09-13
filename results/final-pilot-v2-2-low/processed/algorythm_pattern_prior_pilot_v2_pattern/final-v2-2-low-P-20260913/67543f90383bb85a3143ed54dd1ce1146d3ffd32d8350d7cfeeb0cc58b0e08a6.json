@@ -1,0 +1,88 @@
+{
+  "run_id": "67543f90383bb85a3143ed54dd1ce1146d3ffd32d8350d7cfeeb0cc58b0e08a6",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d9d3cdbf9d0a0b300ba8fcbecef48423279ac08738eb9e2eb553f9e98601004c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:25.291201Z",
+  "latency": 22.609109917015303,
+  "token_usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 1619,
+    "total_tokens": 2831,
+    "cost": 0.0009529,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0009529,
+      "upstream_inference_prompt_cost": 0.0001434,
+      "upstream_inference_completions_cost": 0.0008095
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1396,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.75, \"reason\": \"Leftover pairs already have XOR bit 1 > m's 0 bit, so they are free; recursing via calc2 undercounts instead of min(surplus) pairs\"}, {\"line\": 38, \"score\": 0.75, \"reason\": \"Same issue: d,f leftovers have equal bits, pairs exceed m already, should not recurse with calc2\"}, {\"line\": 35, \"score\": 0.45, \"reason\": \"Condition misses mixed cases (e>f,g<d etc.) where leftovers still pair validly, undercounting pairs\"}, {\"line\": 37, \"score\": 0.4, \"reason\": \"Misses mixed surplus cases; leftovers of opposite bits can also pair since m bit is 0\"}, {\"line\": 15, \"score\": 0.25, \"reason\": \"Within-group pairing bound may over/undercount: should possibly use calc2-style handling of surplus vs len(c)//2\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/67543f90383bb85a3143ed54dd1ce1146d3ffd32d8350d7cfeeb0cc58b0e08a6.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.75,
+        "reason": "Leftover pairs already have XOR bit 1 > m's 0 bit, so they are free; recursing via calc2 undercounts instead of min(surplus) pairs"
+      },
+      {
+        "line": 38,
+        "score": 0.75,
+        "reason": "Same issue: d,f leftovers have equal bits, pairs exceed m already, should not recurse with calc2"
+      },
+      {
+        "line": 35,
+        "score": 0.45,
+        "reason": "Condition misses mixed cases (e>f,g<d etc.) where leftovers still pair validly, undercounting pairs"
+      },
+      {
+        "line": 37,
+        "score": 0.4,
+        "reason": "Misses mixed surplus cases; leftovers of opposite bits can also pair since m bit is 0"
+      },
+      {
+        "line": 15,
+        "score": 0.25,
+        "reason": "Within-group pairing bound may over/undercount: should possibly use calc2-style handling of surplus vs len(c)//2"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": null,
+  "prompt_chars": 3910,
+  "prompt_tokens_estimate": 978,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

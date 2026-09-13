@@ -1,0 +1,78 @@
+{
+  "run_id": "754ef0565672141d39d083f063908b06a087da93c4f1fec351937492ab4fbcbb",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "dc7482ceffa645086b8a07b120086e533b8ef139280a67274efdd0b277e8a4a8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:37:22.487716Z",
+  "latency": 5.844230916991364,
+  "token_usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 366,
+    "total_tokens": 1188,
+    "cost": 0.00021414,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00021414,
+      "upstream_inference_prompt_cost": 3.114e-05,
+      "upstream_inference_completions_cost": 0.000183
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 229,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 10, \"score\": 0.3, \"reason\": \"l is decremented before both appends; double-check that edges (l-1, r) match intended (l-1, r) prefix connection\"}, {\"line\": 22, \"score\": 0.2, \"reason\": \"all(visited) covers index N; node N is a valid prefix point, but verify range matches problem's node set\"}, {\"line\": 7, \"score\": 0.1, \"reason\": \"graph sized N+1 for nodes 0..N; verify this matches prefix-sum node count\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/754ef0565672141d39d083f063908b06a087da93c4f1fec351937492ab4fbcbb.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 10,
+        "score": 0.3,
+        "reason": "l is decremented before both appends; double-check that edges (l-1, r) match intended (l-1, r) prefix connection"
+      },
+      {
+        "line": 22,
+        "score": 0.2,
+        "reason": "all(visited) covers index N; node N is a valid prefix point, but verify range matches problem's node set"
+      },
+      {
+        "line": 7,
+        "score": 0.1,
+        "reason": "graph sized N+1 for nodes 0..N; verify this matches prefix-sum node count"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": null,
+  "prompt_chars": 3129,
+  "prompt_tokens_estimate": 783,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

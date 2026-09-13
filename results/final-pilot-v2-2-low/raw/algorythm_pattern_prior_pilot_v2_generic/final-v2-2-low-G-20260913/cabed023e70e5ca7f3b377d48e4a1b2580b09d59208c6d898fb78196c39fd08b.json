@@ -1,0 +1,145 @@
+{
+  "run_id": "cabed023e70e5ca7f3b377d48e4a1b2580b09d59208c6d898fb78196c39fd08b",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "59d73b4a82f7f32e546b3156c5a3b574fe73e9971923abb61f74ecfa1fe960cf",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:26.755598+00:00",
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4993,
+  "prompt_tokens_estimate": 1249,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45759088\nTask ID: abc283_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: H,W = map(int,input().split())\n2: A = [list(map(int,input().split())) for _ in range(H)]\n3: maze = [[1]*4 for _ in range(H)]\n4: for i in range(H):\n5:     for j in range(W):\n6:         F = True\n7:         if j >= 1:\n8:             if A[i][j] == A[i][j-1]:\n9:                 F = False\n10:         if j <= W-2:\n11:             if A[i][j] == A[i][j+1]:\n12:                 F = False\n13:         if F:\n14:             if i == 0:\n15:                 x = A[i][j]^A[i+1][j]\n16:                 if x == 1:\n17:                     maze[i][0],maze[i][2] = 0,0\n18:                 else:\n19:                     maze[i][1],maze[i][3] = 0,0\n20:             elif i == H-1:\n21:                 x = A[i][j]^A[i-1][j]\n22:                 if x == 1:\n23:                     maze[i][0],maze[i][1] = 0,0\n24:                 else:\n25:                     maze[i][2],maze[i][3] = 0,0\n26:             else:\n27:                 x,y = A[i][j]^A[i-1][j],A[i][j]^A[i+1][j]\n28:                 maze[i][3^((x<<1)+y)] = 0\n29: inf = 10**12\n30: dp = [[inf]*4 for _ in range(H+1)]\n31: dp[0][1],dp[0][3] = 1,1\n32: dp[0][0],dp[0][2] = 0,0\n33: for i in range(1,H+1):\n34:     for j in range(4):\n35:         for k in range(4):\n36:             if (k&1)^(j&2) == 1:\n37:                 continue\n38:             if maze[i-1][j^k]:\n39:                 if i == H:\n40:                     dp[i][j] = min(dp[i][j],dp[i-1][k])\n41:                 else:\n42:                     dp[i][j] = min(dp[i][j],dp[i-1][k]+(j&1))\n43: print(min(dp[-1]) if min(dp[-1]) < inf else -1)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program contains a logical fault. Before ranking the full source, check these standard failure points for buggy programs first, in order:\n1. check whether every loop's start and end bounds are correct, including whether an endpoint should be inclusive or exclusive\n2. check whether each comparison or conditional test uses the right operator and the right direction, including strict versus non-strict comparisons\n3. check whether variables that accumulate or track state are initialized correctly and updated in the right order relative to their use\n4. check whether the boundary cases are handled, such as the first item, the last item, or an empty or single-element input\n5. check whether the final value printed or returned is the one the task actually asks for\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.9, \"reason\": \"Skip condition is inverted: adjacent rows must differ, so transition should be skipped when (k&1)^(j&2)==0, not ==1\"}]}",
+  "latency": 9.697253458027262,
+  "token_usage": {
+    "prompt_tokens": 1356,
+    "completion_tokens": 596,
+    "total_tokens": 1952,
+    "cost": 0.00034012,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00034012,
+      "upstream_inference_prompt_cost": 4.212e-05,
+      "upstream_inference_completions_cost": 0.000298
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 540,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789247897-lQnhij6dCkoUJyDSN0I0",
+    "provider_created": 1789247897,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 1855,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789247897-lQnhij6dCkoUJyDSN0I0",
+    "object": "chat.completion",
+    "created": 1789247897,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 36, \"score\": 0.9, \"reason\": \"Skip condition is inverted: adjacent rows must differ, so transition should be skipped when (k&1)^(j&2)==0, not ==1\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC283E: min changes to make adjacent cells differ vertically. State: each row's top/bottom bits of each column? Actually state j is bitmask of bottom bits of row i-1 (which equals top bits of row i). Encoding: bit 0 = top, bit 1 = bottom of column 0? Actually maze[i][s] where s encodes top/bottom bits of two rows: s = (top<<1)+bottom? maze indexing 3^((x<<1)+y): if x=1 (differ from above), bottom must flip top... Let's trust: dp[i][j], j bits: bit1 = top of row i col, bit0 = bottom. Transition valid if bottom of prev (k bit0) differs-or-equal per constraint? Condition (k&1)^(j&2)==1: skip if bottom of prev differs from top of current? They should be equal... Actually they must be equal exactly? No—the value must differ between adjacent rows: bottom of row i-1 must differ from top of row i. So if they differ (xor==1), continue? Wait line 36 skips when xor==1, i.e., keeps when equal — but adjacency requires difference. Hmm, but maybe encoding bit0 = \"differs from neighbor above\" flag rather than bit value. Given maze construction: line 15, x = A[i][j]^A[i+1][j]; if x==1 they differ, sets maze[i][0],maze[i][2]=0. So maze states 0 and 2 (bottom bit 0) forbidden when differ... So state s: bit1 = A value? bit0 = whether differs? Actually s = (top_bit<<1)+bottom_diff. If differ, bottom bit0 =1, forbidden states bottom 0: states 0 and 2 — yes matches. So bit0 = difference flag, bit1 = top bit. Bottom of row i-1 must differ from top of row i → (k&1)^(j&2) should be 1 allowed, 0 forbidden. Line 36 continues when ==1 — backwards! Should be `== 0`. Strong suspicion line 36.\n\nAlso line 42 cost +(j&1): the cost is change of bottom bit relative to A — j&1 = whether bottom differs, cost 1 per differing column, correct. Line 31: dp[0][1],dp[0][3]=1 means top row with difference flag 1 costs 1 — correct.\n\nSo line 36 with high score.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC283E: min changes to make adjacent cells differ vertically. State: each row's top/bottom bits of each column? Actually state j is bitmask of bottom bits of row i-1 (which equals top bits of row i). Encoding: bit 0 = top, bit 1 = bottom of column 0? Actually maze[i][s] where s encodes top/bottom bits of two rows: s = (top<<1)+bottom? maze indexing 3^((x<<1)+y): if x=1 (differ from above), bottom must flip top... Let's trust: dp[i][j], j bits: bit1 = top of row i col, bit0 = bottom. Transition valid if bottom of prev (k bit0) differs-or-equal per constraint? Condition (k&1)^(j&2)==1: skip if bottom of prev differs from top of current? They should be equal... Actually they must be equal exactly? No—the value must differ between adjacent rows: bottom of row i-1 must differ from top of row i. So if they differ (xor==1), continue? Wait line 36 skips when xor==1, i.e., keeps when equal — but adjacency requires difference. Hmm, but maybe encoding bit0 = \"differs from neighbor above\" flag rather than bit value. Given maze construction: line 15, x = A[i][j]^A[i+1][j]; if x==1 they differ, sets maze[i][0],maze[i][2]=0. So maze states 0 and 2 (bottom bit 0) forbidden when differ... So state s: bit1 = A value? bit0 = whether differs? Actually s = (top_bit<<1)+bottom_diff. If differ, bottom bit0 =1, forbidden states bottom 0: states 0 and 2 — yes matches. So bit0 = difference flag, bit1 = top bit. Bottom of row i-1 must differ from top of row i → (k&1)^(j&2) should be 1 allowed, 0 forbidden. Line 36 continues when ==1 — backwards! Should be `== 0`. Strong suspicion line 36.\n\nAlso line 42 cost +(j&1): the cost is change of bottom bit relative to A — j&1 = whether bottom differs, cost 1 per differing column, correct. Line 31: dp[0][1],dp[0][3]=1 means top row with difference flag 1 costs 1 — correct.\n\nSo line 36 with high score.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1356,
+      "completion_tokens": 596,
+      "total_tokens": 1952,
+      "cost": 0.00034012,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1344,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00034012,
+        "upstream_inference_prompt_cost": 4.212e-05,
+        "upstream_inference_completions_cost": 0.000298
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 540,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

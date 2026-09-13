@@ -1,0 +1,88 @@
+{
+  "run_id": "9fe2441bdd868fac4d10ac83d54e63c6e5380de9bde6552cb31ab5a4652555a3",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b5b102111e2e3a2fc783fdb426a53968bd96fd8bf5b04b602dcf4a1fd4a3a648",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45895898",
+  "task_id": "abc309_c",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:02.668880Z",
+  "latency": 18.576900457963347,
+  "token_usage": {
+    "prompt_tokens": 975,
+    "completion_tokens": 1349,
+    "total_tokens": 2324,
+    "cost": 0.00070555,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00070555,
+      "upstream_inference_prompt_cost": 3.105e-05,
+      "upstream_inference_completions_cost": 0.0006745
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1126,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 26, \"score\": 0.6, \"reason\": \"Boundary condition res>k vs res>=k: pills equal to k on that day may be misclassified in binary search predicate\"}, {\"line\": 23, \"score\": 0.5, \"reason\": \"Uses >= x; off-by-one on which days' pills are counted at day x could shift the answer by one\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"r=maxday may exclude valid boundary; if predicate still true at maxday the search converges incorrectly\"}, {\"line\": 41, \"score\": 0.3, \"reason\": \"Direction of binary search update: comment says 'too much' but l=mid moves toward larger days; verify inversion is intended\"}, {\"line\": 38, \"score\": 0.2, \"reason\": \"Loop with l=-1 and abs(r-l)>1 is fragile; when predicate false everywhere r becomes 0, relying on special case line 46\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/9fe2441bdd868fac4d10ac83d54e63c6e5380de9bde6552cb31ab5a4652555a3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 26,
+        "score": 0.6,
+        "reason": "Boundary condition res>k vs res>=k: pills equal to k on that day may be misclassified in binary search predicate"
+      },
+      {
+        "line": 23,
+        "score": 0.5,
+        "reason": "Uses >= x; off-by-one on which days' pills are counted at day x could shift the answer by one"
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "r=maxday may exclude valid boundary; if predicate still true at maxday the search converges incorrectly"
+      },
+      {
+        "line": 41,
+        "score": 0.3,
+        "reason": "Direction of binary search update: comment says 'too much' but l=mid moves toward larger days; verify inversion is intended"
+      },
+      {
+        "line": 38,
+        "score": 0.2,
+        "reason": "Loop with l=-1 and abs(r-l)>1 is fragile; when predicate false everywhere r becomes 0, relying on special case line 46"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 51,
+  "loc": 51,
+  "evaluation_denominator": 51,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "348",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bda9e3686ddfbc102c2f7c192374829b6a783b677acaf6135d0089b1bb854936",
+  "prior_hash": null,
+  "prompt_chars": 3501,
+  "prompt_tokens_estimate": 876,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

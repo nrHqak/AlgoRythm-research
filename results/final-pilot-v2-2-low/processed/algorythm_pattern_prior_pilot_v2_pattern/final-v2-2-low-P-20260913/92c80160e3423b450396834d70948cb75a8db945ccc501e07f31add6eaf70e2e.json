@@ -1,0 +1,78 @@
+{
+  "run_id": "92c80160e3423b450396834d70948cb75a8db945ccc501e07f31add6eaf70e2e",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "982a99fea382e73e2819053124967c561a56d8b3edf78c710c6abd853b548ab7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52796362",
+  "task_id": "abc326_d",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:58:41.590610Z",
+  "latency": 5.300021167029627,
+  "token_usage": {
+    "prompt_tokens": 2018,
+    "completion_tokens": 280,
+    "total_tokens": 2298,
+    "cost": 0.0004043,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004043,
+      "upstream_inference_prompt_cost": 0.0002643,
+      "upstream_inference_completions_cost": 0.00014
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 156,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 139, \"score\": 0.95, \"reason\": \"N==5 case: solve5 runs then falls through to else, calling solve3 and printing wrong output\"}, {\"line\": 137, \"score\": 0.4, \"reason\": \"if/if/else chain misstructured; solve5 and solve3 can both run for N==5\"}, {\"line\": 116, \"score\": 0.2, \"reason\": \"solve3 checks R/C directly; fine for N==3 but gets invoked wrongly due to dispatch bug\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/92c80160e3423b450396834d70948cb75a8db945ccc501e07f31add6eaf70e2e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 139,
+        "score": 0.95,
+        "reason": "N==5 case: solve5 runs then falls through to else, calling solve3 and printing wrong output"
+      },
+      {
+        "line": 137,
+        "score": 0.4,
+        "reason": "if/if/else chain misstructured; solve5 and solve3 can both run for N==5"
+      },
+      {
+        "line": 116,
+        "score": 0.2,
+        "reason": "solve3 checks R/C directly; fine for N==3 but gets invoked wrongly due to dispatch bug"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 139,
+  "loc": 139,
+  "evaluation_denominator": 139,
+  "faulty_lines": [
+    139
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "1371",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "198c32c344dbbb83f9ff67584103a1d4df443a3128b7009362f6e318dd56379f",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 7104,
+  "prompt_tokens_estimate": 1776,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

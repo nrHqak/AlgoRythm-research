@@ -1,0 +1,73 @@
+{
+  "run_id": "3da4a9fd2c304f6a860d03cf8450fa212cad508a365b9fb71a75312fee448d3c",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "21e67cee10ff362eb5f22a22879fa1f81898461c82538d57c7f87a20fc912f1d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:46:42.121398Z",
+  "latency": 24.8734638330061,
+  "token_usage": {
+    "prompt_tokens": 2067,
+    "completion_tokens": 1626,
+    "total_tokens": 3693,
+    "cost": 0.00087729,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00087729,
+      "upstream_inference_prompt_cost": 6.429e-05,
+      "upstream_inference_completions_cost": 0.000813
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1539,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 136, \"score\": 0.95, \"reason\": \"Final sum of dp values is printed without taking modulo 998244353, so large answers are wrong.\"}, {\"line\": 125, \"score\": 0.2, \"reason\": \"Branch replaces a even when x<a; matches patience-sort convention but worth verifying against intended recurrence.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/3da4a9fd2c304f6a860d03cf8450fa212cad508a365b9fb71a75312fee448d3c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 136,
+        "score": 0.95,
+        "reason": "Final sum of dp values is printed without taking modulo 998244353, so large answers are wrong."
+      },
+      {
+        "line": 125,
+        "score": 0.2,
+        "reason": "Branch replaces a even when x<a; matches patience-sort convention but worth verifying against intended recurrence."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 7799,
+  "prompt_tokens_estimate": 1950,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

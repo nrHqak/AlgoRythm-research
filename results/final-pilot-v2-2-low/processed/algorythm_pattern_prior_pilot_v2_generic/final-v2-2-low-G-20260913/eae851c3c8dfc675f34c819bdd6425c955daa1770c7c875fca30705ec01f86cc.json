@@ -1,0 +1,88 @@
+{
+  "run_id": "eae851c3c8dfc675f34c819bdd6425c955daa1770c7c875fca30705ec01f86cc",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "10dbcb4f0edbd557bf5d0c29e0a680c7d3e7a842e148619f1b7885080ef093cc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:05.518159Z",
+  "latency": 14.857477042009123,
+  "token_usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 928,
+    "total_tokens": 1966,
+    "cost": 0.00049682,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00049682,
+      "upstream_inference_prompt_cost": 3.282e-05,
+      "upstream_inference_completions_cost": 0.000464
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 743,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.6, \"reason\": \"Using >= vs > in monotonic binary search can converge low/high onto mid == i, pairing s with itself\"}, {\"line\": 18, \"score\": 0.5, \"reason\": \"A[low] can equal A[i], giving spurious zero difference from self-pair\"}, {\"line\": 22, \"score\": 0.5, \"reason\": \"A[high] can equal A[i]; no check excludes comparing a person with themselves\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"d1 computed without verifying t1 != s, so invalid self-pair may enter minimum\"}, {\"line\": 25, \"score\": 0.3, \"reason\": \"d2 likewise lacks self-pair exclusion check\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/eae851c3c8dfc675f34c819bdd6425c955daa1770c7c875fca30705ec01f86cc.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.6,
+        "reason": "Using >= vs > in monotonic binary search can converge low/high onto mid == i, pairing s with itself"
+      },
+      {
+        "line": 18,
+        "score": 0.5,
+        "reason": "A[low] can equal A[i], giving spurious zero difference from self-pair"
+      },
+      {
+        "line": 22,
+        "score": 0.5,
+        "reason": "A[high] can equal A[i]; no check excludes comparing a person with themselves"
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "d1 computed without verifying t1 != s, so invalid self-pair may enter minimum"
+      },
+      {
+        "line": 25,
+        "score": 0.3,
+        "reason": "d2 likewise lacks self-pair exclusion check"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4005,
+  "prompt_tokens_estimate": 1002,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

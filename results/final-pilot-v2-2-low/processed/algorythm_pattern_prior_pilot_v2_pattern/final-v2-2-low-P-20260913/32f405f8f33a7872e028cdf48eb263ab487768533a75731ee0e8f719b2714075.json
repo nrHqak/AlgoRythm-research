@@ -1,0 +1,83 @@
+{
+  "run_id": "32f405f8f33a7872e028cdf48eb263ab487768533a75731ee0e8f719b2714075",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d837a0b2c2ebca6cb478964e11c64a9158d200265ebff492226f4dab28c36856",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:48.458345Z",
+  "latency": 19.480686041992158,
+  "token_usage": {
+    "prompt_tokens": 1318,
+    "completion_tokens": 1418,
+    "total_tokens": 2736,
+    "cost": 0.0008683,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008683,
+      "upstream_inference_prompt_cost": 0.0001593,
+      "upstream_inference_completions_cost": 0.000709
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1238,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 69, \"score\": 0.8, \"reason\": \"If k exceeds tree depth or l >= ln, index u*ln+l wraps to negative slot, giving garbage node instead of -1.\"}, {\"line\": 68, \"score\": 0.5, \"reason\": \"Top-bit computation okay, but combined with table bound ln it can select a level that was never filled.\"}, {\"line\": 40, \"score\": 0.3, \"reason\": \"ln = bit length of n; queries with k >= n need levels >= ln, out of table bounds -> wrong/negative index.\"}, {\"line\": 49, \"score\": 0.2, \"reason\": \"Skip condition assumes right already set; relies on all path nodes covered, subtle if endpoints mishandled.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/32f405f8f33a7872e028cdf48eb263ab487768533a75731ee0e8f719b2714075.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 69,
+        "score": 0.8,
+        "reason": "If k exceeds tree depth or l >= ln, index u*ln+l wraps to negative slot, giving garbage node instead of -1."
+      },
+      {
+        "line": 68,
+        "score": 0.5,
+        "reason": "Top-bit computation okay, but combined with table bound ln it can select a level that was never filled."
+      },
+      {
+        "line": 40,
+        "score": 0.3,
+        "reason": "ln = bit length of n; queries with k >= n need levels >= ln, out of table bounds -> wrong/negative index."
+      },
+      {
+        "line": 49,
+        "score": 0.2,
+        "reason": "Skip condition assumes right already set; relies on all path nodes covered, subtle if endpoints mishandled."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": null,
+  "prompt_chars": 4390,
+  "prompt_tokens_estimate": 1098,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

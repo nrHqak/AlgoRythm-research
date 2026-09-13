@@ -1,0 +1,78 @@
+{
+  "run_id": "8fc26597a8db2f5ace00f26f7206d23392e55a832c484090e7c62ed2c838f3df",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "55518c91de9c00fe5c3ebdf05e590c49a08c97667deed7f872c06c257fa3ffcf",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52796362",
+  "task_id": "abc326_d",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:11.289387Z",
+  "latency": 4.492522749991622,
+  "token_usage": {
+    "prompt_tokens": 2014,
+    "completion_tokens": 272,
+    "total_tokens": 2286,
+    "cost": 0.00020002,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1984,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00020002,
+      "upstream_inference_prompt_cost": 6.402e-05,
+      "upstream_inference_completions_cost": 0.000136
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 127,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 137, \"score\": 0.9, \"reason\": \"Missing else: N==5 runs solve5, then falls through to line 139's else/solve3; line 139's else wrongly attaches to N==4 check\"}, {\"line\": 139, \"score\": 0.75, \"reason\": \"else only pairs with the N==4 if, so N==5 wrongly executes solve3 afterwards, producing wrong output when solve5 prints No\"}, {\"line\": 24, \"score\": 0.3, \"reason\": \"Requires exactly 2 dots per column; correct for 5x5 but fragile assumption worth verifying\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/8fc26597a8db2f5ace00f26f7206d23392e55a832c484090e7c62ed2c838f3df.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 137,
+        "score": 0.9,
+        "reason": "Missing else: N==5 runs solve5, then falls through to line 139's else/solve3; line 139's else wrongly attaches to N==4 check"
+      },
+      {
+        "line": 139,
+        "score": 0.75,
+        "reason": "else only pairs with the N==4 if, so N==5 wrongly executes solve3 afterwards, producing wrong output when solve5 prints No"
+      },
+      {
+        "line": 24,
+        "score": 0.3,
+        "reason": "Requires exactly 2 dots per column; correct for 5x5 but fragile assumption worth verifying"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 139,
+  "loc": 139,
+  "evaluation_denominator": 139,
+  "faulty_lines": [
+    139
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "1371",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "198c32c344dbbb83f9ff67584103a1d4df443a3128b7009362f6e318dd56379f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 7077,
+  "prompt_tokens_estimate": 1770,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

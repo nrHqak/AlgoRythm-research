@@ -1,0 +1,78 @@
+{
+  "run_id": "12078ba010a57b596aa8259202e49506e36a2d69fb0522df1efd30a35e979267",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "1532824e697793b9116b1d91d7a8730154d7eaa76cc1236a9231eca8689e01f5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:24.391870Z",
+  "latency": 6.069250500004273,
+  "token_usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 401,
+    "total_tokens": 1223,
+    "cost": 0.00023164,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00023164,
+      "upstream_inference_prompt_cost": 3.114e-05,
+      "upstream_inference_completions_cost": 0.0002005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 284,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.6, \"reason\": \"Answer should depend only on connectivity of nodes 0 and N; checking all vertices is stricter than needed\"}, {\"line\": 10, \"score\": 0.2, \"reason\": \"Off-by-one decrement of l; standard approach uses l-1, so likely fine but boundary-sensitive\"}, {\"line\": 8, \"score\": 0.1, \"reason\": \"Loop count must match number of interval queries; miscount would break graph\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/12078ba010a57b596aa8259202e49506e36a2d69fb0522df1efd30a35e979267.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.6,
+        "reason": "Answer should depend only on connectivity of nodes 0 and N; checking all vertices is stricter than needed"
+      },
+      {
+        "line": 10,
+        "score": 0.2,
+        "reason": "Off-by-one decrement of l; standard approach uses l-1, so likely fine but boundary-sensitive"
+      },
+      {
+        "line": 8,
+        "score": 0.1,
+        "reason": "Loop count must match number of interval queries; miscount would break graph"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": null,
+  "prompt_chars": 3129,
+  "prompt_tokens_estimate": 783,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,88 @@
+{
+  "run_id": "a37ab80e9fe960250c0bea955e181ee16745577d846accdd329a8538326fcd1f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "95fde0a29ed37b876deb2614b9bce03326819bd7406955f0943efc12e405a0dc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:01:06.857597Z",
+  "latency": 9.959553457971197,
+  "token_usage": {
+    "prompt_tokens": 1025,
+    "completion_tokens": 728,
+    "total_tokens": 1753,
+    "cost": 0.00039487,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00039487,
+      "upstream_inference_prompt_cost": 3.087e-05,
+      "upstream_inference_completions_cost": 0.000364
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 518,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.6, \"reason\": \"If no valid pair exists, m stays INF and program prints INF instead of required -1.\"}, {\"line\": 20, \"score\": 0.5, \"reason\": \"Sentinel INF means no-pair case yields INF output; missing -1 handling originates here.\"}, {\"line\": 24, \"score\": 0.3, \"reason\": \"Swap cost formula V[j]+K-i must equal K+j-i for 0-based i; off-by-one possible if intended 1-based.\"}, {\"line\": 15, \"score\": 0.2, \"reason\": \"Edge case K==N makes R empty and R[0] crash; loop bounds rely on K<N assumption.\"}, {\"line\": 11, \"score\": 0.2, \"reason\": \"Splitting A at K assumes R nonempty; same edge-case concern as line 15.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/a37ab80e9fe960250c0bea955e181ee16745577d846accdd329a8538326fcd1f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.6,
+        "reason": "If no valid pair exists, m stays INF and program prints INF instead of required -1."
+      },
+      {
+        "line": 20,
+        "score": 0.5,
+        "reason": "Sentinel INF means no-pair case yields INF output; missing -1 handling originates here."
+      },
+      {
+        "line": 24,
+        "score": 0.3,
+        "reason": "Swap cost formula V[j]+K-i must equal K+j-i for 0-based i; off-by-one possible if intended 1-based."
+      },
+      {
+        "line": 15,
+        "score": 0.2,
+        "reason": "Edge case K==N makes R empty and R[0] crash; loop bounds rely on K<N assumption."
+      },
+      {
+        "line": 11,
+        "score": 0.2,
+        "reason": "Splitting A at K assumes R nonempty; same edge-case concern as line 15."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4011,
+  "prompt_tokens_estimate": 1003,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

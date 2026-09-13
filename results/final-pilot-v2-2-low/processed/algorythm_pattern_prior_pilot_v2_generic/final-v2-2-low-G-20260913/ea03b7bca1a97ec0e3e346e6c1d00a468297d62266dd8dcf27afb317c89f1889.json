@@ -1,0 +1,78 @@
+{
+  "run_id": "ea03b7bca1a97ec0e3e346e6c1d00a468297d62266dd8dcf27afb317c89f1889",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "75a30a228831de0794fe4ea52579e13e42dae20b46aab108935efa6c45c16080",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:35:15.255805Z",
+  "latency": 7.290649958013091,
+  "token_usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 408,
+    "total_tokens": 1414,
+    "cost": 0.0003165,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003165,
+      "upstream_inference_prompt_cost": 0.0001125,
+      "upstream_inference_completions_cost": 0.000204
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 285,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.6, \"reason\": \"Recursive dfs on a tree up to 3*10^5 deep can crash despite recursionlimit (C stack overflow); should be iterative\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"Passing hp-1 is fine, but deep recursion via this call risks stack overflow on large N\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"Coverage merge looks correct; unlikely source of the fault\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/ea03b7bca1a97ec0e3e346e6c1d00a468297d62266dd8dcf27afb317c89f1889.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.6,
+        "reason": "Recursive dfs on a tree up to 3*10^5 deep can crash despite recursionlimit (C stack overflow); should be iterative"
+      },
+      {
+        "line": 34,
+        "score": 0.4,
+        "reason": "Passing hp-1 is fine, but deep recursion via this call risks stack overflow on large N"
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "Coverage merge looks correct; unlikely source of the fault"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": null,
+  "prompt_chars": 3652,
+  "prompt_tokens_estimate": 913,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

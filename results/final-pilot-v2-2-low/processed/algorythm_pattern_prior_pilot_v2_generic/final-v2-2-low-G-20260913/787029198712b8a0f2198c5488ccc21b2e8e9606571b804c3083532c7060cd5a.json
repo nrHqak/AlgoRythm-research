@@ -1,0 +1,73 @@
+{
+  "run_id": "787029198712b8a0f2198c5488ccc21b2e8e9606571b804c3083532c7060cd5a",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "cf42a1c7eee3befffd4f24e68b245a37cb6c80d157781a7f897fb51fe1217723",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55003503",
+  "task_id": "abc327_c",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:26:18.640671Z",
+  "latency": 2.155374667025171,
+  "token_usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 105,
+    "total_tokens": 1143,
+    "cost": 8.532e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.532e-05,
+      "upstream_inference_prompt_cost": 3.282e-05,
+      "upstream_inference_completions_cost": 5.25e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 17,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses data[row][col] without adding block offsets i and j, so only the top-left block is checked repeatedly.\"}, {\"line\": 6, \"score\": 0.2, \"reason\": \"set(i) on each row is fine, but comparison against nine assumes ints; minor risk only.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/787029198712b8a0f2198c5488ccc21b2e8e9606571b804c3083532c7060cd5a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses data[row][col] without adding block offsets i and j, so only the top-left block is checked repeatedly."
+      },
+      {
+        "line": 6,
+        "score": 0.2,
+        "reason": "set(i) on each row is fine, but comparison against nine assumes ints; minor risk only."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "169",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bf07dc150b4156f1d0d4da2457b284f622cb118c562d2d5a3ae4df8fae1dab0",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4269,
+  "prompt_tokens_estimate": 1068,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

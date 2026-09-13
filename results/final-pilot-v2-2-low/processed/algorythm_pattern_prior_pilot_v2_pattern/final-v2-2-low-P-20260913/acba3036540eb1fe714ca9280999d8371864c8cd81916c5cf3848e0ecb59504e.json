@@ -1,0 +1,83 @@
+{
+  "run_id": "acba3036540eb1fe714ca9280999d8371864c8cd81916c5cf3848e0ecb59504e",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "436af5252bf81c105a1f0d99f6fae7d24389374d0fd255f561210ab085efaf66",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:09:54.111429Z",
+  "latency": 13.847684582986403,
+  "token_usage": {
+    "prompt_tokens": 1318,
+    "completion_tokens": 898,
+    "total_tokens": 2216,
+    "cost": 0.0006467,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0006467,
+      "upstream_inference_prompt_cost": 0.0001977,
+      "upstream_inference_completions_cost": 0.000449
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 718,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 52, \"score\": 0.9, \"reason\": \"For off-diameter nodes, left is set to parent (toward s) instead of next node toward t, so jumps toward endpoint t are wrong.\"}, {\"line\": 45, \"score\": 0.4, \"reason\": \"Both left and right chain along the diameter in opposite directions; verify direction matches rc/c indexing off-by-one.\"}, {\"line\": 68, \"score\": 0.2, \"reason\": \"Highest-bit exponent from len(bin(k))-3 looks correct but is fragile; recheck for k edge cases.\"}, {\"line\": 49, \"score\": 0.1, \"reason\": \"Condition right[i*ln] > -1 identifies diameter nodes; ok unless node equals t with left set already.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/acba3036540eb1fe714ca9280999d8371864c8cd81916c5cf3848e0ecb59504e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 52,
+        "score": 0.9,
+        "reason": "For off-diameter nodes, left is set to parent (toward s) instead of next node toward t, so jumps toward endpoint t are wrong."
+      },
+      {
+        "line": 45,
+        "score": 0.4,
+        "reason": "Both left and right chain along the diameter in opposite directions; verify direction matches rc/c indexing off-by-one."
+      },
+      {
+        "line": 68,
+        "score": 0.2,
+        "reason": "Highest-bit exponent from len(bin(k))-3 looks correct but is fragile; recheck for k edge cases."
+      },
+      {
+        "line": 49,
+        "score": 0.1,
+        "reason": "Condition right[i*ln] > -1 identifies diameter nodes; ok unless node equals t with left set already."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": null,
+  "prompt_chars": 4390,
+  "prompt_tokens_estimate": 1098,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

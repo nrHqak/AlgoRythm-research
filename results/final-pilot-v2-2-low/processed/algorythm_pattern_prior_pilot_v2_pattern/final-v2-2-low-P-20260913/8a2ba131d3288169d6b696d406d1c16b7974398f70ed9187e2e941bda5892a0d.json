@@ -1,0 +1,73 @@
+{
+  "run_id": "8a2ba131d3288169d6b696d406d1c16b7974398f70ed9187e2e941bda5892a0d",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "f775e64c04aa6587a1e6ebcd3654065d47251ab25d33008e801a1378bb1b2615",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "55003503",
+  "task_id": "abc327_c",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:56:40.175739Z",
+  "latency": 2.236954207997769,
+  "token_usage": {
+    "prompt_tokens": 1042,
+    "completion_tokens": 107,
+    "total_tokens": 1149,
+    "cost": 8.692e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.692e-05,
+      "upstream_inference_prompt_cost": 3.342e-05,
+      "upstream_inference_completions_cost": 5.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 20,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Block check uses data[row][col], ignoring offsets i and j; every 3x3 block checks the same top-left block.\"}, {\"line\": 20, \"score\": 0.1, \"reason\": \"Loop bounds are fine, but rely on line 22 using correct block offset.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/8a2ba131d3288169d6b696d406d1c16b7974398f70ed9187e2e941bda5892a0d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Block check uses data[row][col], ignoring offsets i and j; every 3x3 block checks the same top-left block."
+      },
+      {
+        "line": 20,
+        "score": 0.1,
+        "reason": "Loop bounds are fine, but rely on line 22 using correct block offset."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "169",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bf07dc150b4156f1d0d4da2457b284f622cb118c562d2d5a3ae4df8fae1dab0",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4296,
+  "prompt_tokens_estimate": 1074,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

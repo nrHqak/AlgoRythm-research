@@ -1,0 +1,88 @@
+{
+  "run_id": "c9ce86c9955b358074bf090482e50b0150b4cd7e6843d25499e727c8e09dd343",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "bc037cf2ab41092c3ba444440f5fd25040238d9d3a5bde40d45910a7e7a7d5fc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:03.074585Z",
+  "latency": 12.413794792024419,
+  "token_usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 758,
+    "total_tokens": 1796,
+    "cost": 0.00041182,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00041182,
+      "upstream_inference_prompt_cost": 3.282e-05,
+      "upstream_inference_completions_cost": 0.000379
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 533,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.7, \"reason\": \"Allows pairing s with itself (mid can equal i), yielding invalid d for j=i; correct solutions require distinct indices.\"}, {\"line\": 18, \"score\": 0.6, \"reason\": \"Binary search never excludes mid=i, so low may settle on A[i]=s, feeding the self-pair distance into the answer.\"}, {\"line\": 14, \"score\": 0.4, \"reason\": \"Tie comparison dr>=dl with low=mid determines which side is kept; off-by-one here misplaces the monotonic boundary.\"}, {\"line\": 7, \"score\": 0.3, \"reason\": \"Initializing high=N is only safe because line 26 checks both low and high; if predicate false at N boundary case may break.\"}, {\"line\": 9, \"score\": 0.2, \"reason\": \"Loop invariant low true, high false must hold at start; low=1 assumed true without verification.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/c9ce86c9955b358074bf090482e50b0150b4cd7e6843d25499e727c8e09dd343.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.7,
+        "reason": "Allows pairing s with itself (mid can equal i), yielding invalid d for j=i; correct solutions require distinct indices."
+      },
+      {
+        "line": 18,
+        "score": 0.6,
+        "reason": "Binary search never excludes mid=i, so low may settle on A[i]=s, feeding the self-pair distance into the answer."
+      },
+      {
+        "line": 14,
+        "score": 0.4,
+        "reason": "Tie comparison dr>=dl with low=mid determines which side is kept; off-by-one here misplaces the monotonic boundary."
+      },
+      {
+        "line": 7,
+        "score": 0.3,
+        "reason": "Initializing high=N is only safe because line 26 checks both low and high; if predicate false at N boundary case may break."
+      },
+      {
+        "line": 9,
+        "score": 0.2,
+        "reason": "Loop invariant low true, high false must hold at start; low=1 assumed true without verification."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4005,
+  "prompt_tokens_estimate": 1002,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

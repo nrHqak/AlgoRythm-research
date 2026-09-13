@@ -1,0 +1,83 @@
+{
+  "run_id": "21721f1fa558fb487ef0794613ef486471b7564d4997fc00a65bd06c11ef94af",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "515e49d374357ac3c4e11c0934f79c3c3ceb9ec438f32c96d782ea86501366cc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:49:24.027330Z",
+  "latency": 35.23603287496371,
+  "token_usage": {
+    "prompt_tokens": 1343,
+    "completion_tokens": 2603,
+    "total_tokens": 3946,
+    "cost": 0.00134935,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00134935,
+      "upstream_inference_prompt_cost": 4.785e-05,
+      "upstream_inference_completions_cost": 0.0013015
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2438,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 8, \"score\": 0.75, \"reason\": \"Compares A values of horizontal neighbors, not the vertical-diff counts; this row-invalidation test doesn't match the neighbor-count constraint\"}, {\"line\": 36, \"score\": 0.45, \"reason\": \"Transition check may drop valid predecessor states; verify compatibility condition covers all cases\"}, {\"line\": 31, \"score\": 0.35, \"reason\": \"Base case sets all four initial states; top-bit dummy rows may admit infeasible row-0 patterns\"}, {\"line\": 28, \"score\": 0.3, \"reason\": \"Marks exactly one valid diff pattern per interior row, assuming vertical diffs alone satisfy the count, ignoring horizontal residual\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/21721f1fa558fb487ef0794613ef486471b7564d4997fc00a65bd06c11ef94af.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 8,
+        "score": 0.75,
+        "reason": "Compares A values of horizontal neighbors, not the vertical-diff counts; this row-invalidation test doesn't match the neighbor-count constraint"
+      },
+      {
+        "line": 36,
+        "score": 0.45,
+        "reason": "Transition check may drop valid predecessor states; verify compatibility condition covers all cases"
+      },
+      {
+        "line": 31,
+        "score": 0.35,
+        "reason": "Base case sets all four initial states; top-bit dummy rows may admit infeasible row-0 patterns"
+      },
+      {
+        "line": 28,
+        "score": 0.3,
+        "reason": "Marks exactly one valid diff pattern per interior row, assuming vertical diffs alone satisfy the count, ignoring horizontal residual"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4931,
+  "prompt_tokens_estimate": 1233,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

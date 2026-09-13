@@ -1,0 +1,78 @@
+{
+  "run_id": "603edc24acd6a6e5c2fd433735aa2b2007045e01622d4c827b7685b5928f8b8e",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ca517ff24731145ff8b591212b50e4d0eb2267a09610e51bc3aab5ce3a46d88c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55003503",
+  "task_id": "abc327_c",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:26:19.071054Z",
+  "latency": 2.584268125006929,
+  "token_usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 135,
+    "total_tokens": 1010,
+    "cost": 9.891e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.891e-05,
+      "upstream_inference_prompt_cost": 3.141e-05,
+      "upstream_inference_completions_cost": 6.75e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 15,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Block check ignores block offsets i,j; always checks top-left 3x3 block instead of each block.\"}, {\"line\": 20, \"score\": 0.2, \"reason\": \"Loop iterates fixed 0..2, should be i+row offset, tied to line 22 bug.\"}, {\"line\": 21, \"score\": 0.2, \"reason\": \"Column loop should use j+col offset for each block.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/603edc24acd6a6e5c2fd433735aa2b2007045e01622d4c827b7685b5928f8b8e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Block check ignores block offsets i,j; always checks top-left 3x3 block instead of each block."
+      },
+      {
+        "line": 20,
+        "score": 0.2,
+        "reason": "Loop iterates fixed 0..2, should be i+row offset, tied to line 22 bug."
+      },
+      {
+        "line": 21,
+        "score": 0.2,
+        "reason": "Column loop should use j+col offset for each block."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "169",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bf07dc150b4156f1d0d4da2457b284f622cb118c562d2d5a3ae4df8fae1dab0",
+  "prior_hash": null,
+  "prompt_chars": 3425,
+  "prompt_tokens_estimate": 857,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

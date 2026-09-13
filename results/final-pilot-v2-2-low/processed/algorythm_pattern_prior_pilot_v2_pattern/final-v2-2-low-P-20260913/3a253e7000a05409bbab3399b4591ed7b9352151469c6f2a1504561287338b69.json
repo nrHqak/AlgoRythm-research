@@ -1,0 +1,73 @@
+{
+  "run_id": "3a253e7000a05409bbab3399b4591ed7b9352151469c6f2a1504561287338b69",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "0080410eae22c86be598f0c9c6f1f70d126b6c2b999aa3787990c8ab0f0cdb03",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45325123",
+  "task_id": "abc291_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:16.553240Z",
+  "latency": 5.823265790997539,
+  "token_usage": {
+    "prompt_tokens": 1097,
+    "completion_tokens": 341,
+    "total_tokens": 1438,
+    "cost": 0.00020449,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00020449,
+      "upstream_inference_prompt_cost": 3.399e-05,
+      "upstream_inference_completions_cost": 0.0001705
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 244,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 8, \"score\": 0.9, \"reason\": \"Self-loop X==Y is silently skipped; a self-loop is a cycle and must print No, so cyclic tests pass incorrectly.\"}, {\"line\": 22, \"score\": 0.3, \"reason\": \"Uniqueness check only after processing all neighbors; appended nodes counted correctly, but a mid-loop check may be intended; low suspicion.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/3a253e7000a05409bbab3399b4591ed7b9352151469c6f2a1504561287338b69.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 8,
+        "score": 0.9,
+        "reason": "Self-loop X==Y is silently skipped; a self-loop is a cycle and must print No, so cyclic tests pass incorrectly."
+      },
+      {
+        "line": 22,
+        "score": 0.3,
+        "reason": "Uniqueness check only after processing all neighbors; appended nodes counted correctly, but a mid-loop check may be intended; low suspicion."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    15
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1069",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "005329430119bbedd0e5f536ae6a2f34fa47dd6694d0c20d404f2c303a32c86c",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4256,
+  "prompt_tokens_estimate": 1064,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

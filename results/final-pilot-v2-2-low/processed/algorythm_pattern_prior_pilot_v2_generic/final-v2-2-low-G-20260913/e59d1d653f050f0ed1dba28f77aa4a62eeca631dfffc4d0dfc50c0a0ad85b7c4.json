@@ -1,0 +1,88 @@
+{
+  "run_id": "e59d1d653f050f0ed1dba28f77aa4a62eeca631dfffc4d0dfc50c0a0ad85b7c4",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "f59a6a1a0f0fc960242d25e87f60b9a41f4b82a9e07a2ff2a3d9309dc3831609",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:14:30.103385Z",
+  "latency": 10.520045374985784,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 634,
+    "total_tokens": 2411,
+    "cost": 0.00058355,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00058355,
+      "upstream_inference_prompt_cost": 0.00026655,
+      "upstream_inference_completions_cost": 0.000317
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 413,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.75, \"reason\": \"Children combined using only dp_x; a child written as Y (dp_y) should contribute an extra Y, so dp_y[p] transitions are wrong.\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"Should account for child written as Y adding to leaf Y count context; also mixes X/Y children symmetrically possibly incorrectly.\"}, {\"line\": 55, \"score\": 0.4, \"reason\": \"Root-as-Y off-by-one: y_leaf_count = b - c//2 + 1 may double count root's Y; suspicious boundary.\"}, {\"line\": 48, \"score\": 0.3, \"reason\": \"Root-X case formula b - c//2 could be off by one, parallel to line 55 concern.\"}, {\"line\": 26, \"score\": 0.2, \"reason\": \"Assumes exactly two children; fails if tree is not strictly binary.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/e59d1d653f050f0ed1dba28f77aa4a62eeca631dfffc4d0dfc50c0a0ad85b7c4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.75,
+        "reason": "Children combined using only dp_x; a child written as Y (dp_y) should contribute an extra Y, so dp_y[p] transitions are wrong."
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "Should account for child written as Y adding to leaf Y count context; also mixes X/Y children symmetrically possibly incorrectly."
+      },
+      {
+        "line": 55,
+        "score": 0.4,
+        "reason": "Root-as-Y off-by-one: y_leaf_count = b - c//2 + 1 may double count root's Y; suspicious boundary."
+      },
+      {
+        "line": 48,
+        "score": 0.3,
+        "reason": "Root-X case formula b - c//2 could be off by one, parallel to line 55 concern."
+      },
+      {
+        "line": 26,
+        "score": 0.2,
+        "reason": "Assumes exactly two children; fails if tree is not strictly binary."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

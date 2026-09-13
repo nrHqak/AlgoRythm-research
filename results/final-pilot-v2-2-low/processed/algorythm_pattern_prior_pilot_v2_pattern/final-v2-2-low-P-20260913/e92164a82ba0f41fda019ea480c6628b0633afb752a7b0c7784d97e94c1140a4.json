@@ -1,0 +1,78 @@
+{
+  "run_id": "e92164a82ba0f41fda019ea480c6628b0633afb752a7b0c7784d97e94c1140a4",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "f3aca110afbeef75c7da82e1f589020e4f69ad00bfa083d2edd7e66efb3bdd78",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:48:13.117613Z",
+  "latency": 8.666598208015785,
+  "token_usage": {
+    "prompt_tokens": 1016,
+    "completion_tokens": 581,
+    "total_tokens": 1597,
+    "cost": 0.0004045,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004045,
+      "upstream_inference_prompt_cost": 0.000114,
+      "upstream_inference_completions_cost": 0.0002905
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 432,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.95, \"reason\": \"Second loop includes j==0 rolls, adding dp[i] to now; zero-point rolls must be excluded (they should only shrink the denominator via num).\"}, {\"line\": 22, \"score\": 0.9, \"reason\": \"For j==0, id=i, so now self-references dp[i], making the recurrence cyclic; should skip zero-score outcomes here.\"}, {\"line\": 21, \"score\": 0.15, \"reason\": \"max(0,i-j) is correct only if j==0 cases are excluded; otherwise it hides the self-dependency bug.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/e92164a82ba0f41fda019ea480c6628b0633afb752a7b0c7784d97e94c1140a4.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.95,
+        "reason": "Second loop includes j==0 rolls, adding dp[i] to now; zero-point rolls must be excluded (they should only shrink the denominator via num)."
+      },
+      {
+        "line": 22,
+        "score": 0.9,
+        "reason": "For j==0, id=i, so now self-references dp[i], making the recurrence cyclic; should skip zero-score outcomes here."
+      },
+      {
+        "line": 21,
+        "score": 0.15,
+        "reason": "max(0,i-j) is correct only if j==0 cases are excluded; otherwise it hides the self-dependency bug."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 3965,
+  "prompt_tokens_estimate": 992,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

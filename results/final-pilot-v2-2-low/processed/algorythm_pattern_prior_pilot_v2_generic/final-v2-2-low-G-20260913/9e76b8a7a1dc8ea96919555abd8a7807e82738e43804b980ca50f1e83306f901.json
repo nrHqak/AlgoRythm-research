@@ -1,0 +1,93 @@
+{
+  "run_id": "9e76b8a7a1dc8ea96919555abd8a7807e82738e43804b980ca50f1e83306f901",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "1a03e3055a4eff82ae3aa4237345ddd138bc6b81334edb7e9398dd594675aa00",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "generic_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:20:04.208533Z",
+  "latency": 60.1410380830057,
+  "token_usage": {
+    "prompt_tokens": 1356,
+    "completion_tokens": 4607,
+    "total_tokens": 5963,
+    "cost": 0.00234562,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00234562,
+      "upstream_inference_prompt_cost": 4.212e-05,
+      "upstream_inference_completions_cost": 0.0023035
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4295,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.9, \"reason\": \"Compares (k&1) XOR (j&2) to 1, but j&2 is bit-weight 2, so mismatch cases yield 2/3 and are never skipped; wrong bits compared for state consistency.\"}, {\"line\": 28, \"score\": 0.65, \"reason\": \"Uses x (above) and zeroes only one index; vertical constraint depends on both row bits, forbidding indices where p_i and p_{i+1} are incompatible.\"}, {\"line\": 17, \"score\": 0.55, \"reason\": \"Forbidden row-value pairs differing between rows are states 1 and 2; code zeroes 0 and 2, marking a valid pair forbidden.\"}, {\"line\": 19, \"score\": 0.5, \"reason\": \"When A values are equal (no vertical constraint), code still zeroes states 1 and 3, wrongly forbidding valid configurations.\"}, {\"line\": 25, \"score\": 0.45, \"reason\": \"Same off-pair issue as line 17 mirrored: zeroes 2,3 instead of the differing-bit states 1,2 when A differs.\"}, {\"line\": 13, \"score\": 0.3, \"reason\": \"Vertical constraint is applied only when horizontal neighbors differ; the row-pair constraint should not be gated by horizontal equality of A.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/9e76b8a7a1dc8ea96919555abd8a7807e82738e43804b980ca50f1e83306f901.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.9,
+        "reason": "Compares (k&1) XOR (j&2) to 1, but j&2 is bit-weight 2, so mismatch cases yield 2/3 and are never skipped; wrong bits compared for state consistency."
+      },
+      {
+        "line": 28,
+        "score": 0.65,
+        "reason": "Uses x (above) and zeroes only one index; vertical constraint depends on both row bits, forbidding indices where p_i and p_{i+1} are incompatible."
+      },
+      {
+        "line": 17,
+        "score": 0.55,
+        "reason": "Forbidden row-value pairs differing between rows are states 1 and 2; code zeroes 0 and 2, marking a valid pair forbidden."
+      },
+      {
+        "line": 19,
+        "score": 0.5,
+        "reason": "When A values are equal (no vertical constraint), code still zeroes states 1 and 3, wrongly forbidding valid configurations."
+      },
+      {
+        "line": 25,
+        "score": 0.45,
+        "reason": "Same off-pair issue as line 17 mirrored: zeroes 2,3 instead of the differing-bit states 1,2 when A differs."
+      },
+      {
+        "line": 13,
+        "score": 0.3,
+        "reason": "Vertical constraint is applied only when horizontal neighbors differ; the row-pair constraint should not be gated by horizontal equality of A."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4993,
+  "prompt_tokens_estimate": 1249,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

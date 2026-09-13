@@ -1,0 +1,88 @@
+{
+  "run_id": "560827316f4e6161a5f1203a499428f8198e0b87e5b010b0615bf10d3cc50820",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "15d74552ecac22dc89e69945c065f62c1abc5cd52da8f6f5aefde4befd578acb",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:53:04.994613Z",
+  "latency": 41.06054358300753,
+  "token_usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 3111,
+    "total_tokens": 4488,
+    "cost": 0.00160077,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00160077,
+      "upstream_inference_prompt_cost": 4.527e-05,
+      "upstream_inference_completions_cost": 0.0015555
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2864,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.8, \"reason\": \"Missing color check: a same-color predecessor (C[j-1]==C1[j]) can overwrite V1[j] and silently discard the old best different-color value from C2.\"}, {\"line\": 34, \"score\": 0.5, \"reason\": \"Second-best update uses elif, so a valid different-color predecessor equal to old best may not restore the lost C2 candidate.\"}, {\"line\": 20, \"score\": 0.35, \"reason\": \"When colors match, relies on V2[j] being correct; if C2 tracking was wrong upstream, answer wrongly becomes invalid here.\"}, {\"line\": 42, \"score\": 0.25, \"reason\": \"j=0 second-best state V2[0] is never maintained, so index-0 predecessors offered at j=1 are incomplete.\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Blindly adds vi to V1[j]; if V1[j] sentinel handling or stale color mismatches exist, invalid states can propagate.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/560827316f4e6161a5f1203a499428f8198e0b87e5b010b0615bf10d3cc50820.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.8,
+        "reason": "Missing color check: a same-color predecessor (C[j-1]==C1[j]) can overwrite V1[j] and silently discard the old best different-color value from C2."
+      },
+      {
+        "line": 34,
+        "score": 0.5,
+        "reason": "Second-best update uses elif, so a valid different-color predecessor equal to old best may not restore the lost C2 candidate."
+      },
+      {
+        "line": 20,
+        "score": 0.35,
+        "reason": "When colors match, relies on V2[j] being correct; if C2 tracking was wrong upstream, answer wrongly becomes invalid here."
+      },
+      {
+        "line": 42,
+        "score": 0.25,
+        "reason": "j=0 second-best state V2[0] is never maintained, so index-0 predecessors offered at j=1 are incomplete."
+      },
+      {
+        "line": 17,
+        "score": 0.2,
+        "reason": "Blindly adds vi to V1[j]; if V1[j] sentinel handling or stale color mismatches exist, invalid states can propagate."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4861,
+  "prompt_tokens_estimate": 1216,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

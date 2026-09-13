@@ -1,0 +1,83 @@
+{
+  "run_id": "cd10c7f97efd6fb70b48e97adc1998fc07a4f14786f623a1cf99788e7c458edf",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "a08e51227190f1c2100ecf71aedac9fd481f8f8721534eb0116bb22497562b67",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43438224",
+  "task_id": "arc164_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:47:36.391232Z",
+  "latency": 9.824325583991595,
+  "token_usage": {
+    "prompt_tokens": 1105,
+    "completion_tokens": 574,
+    "total_tokens": 1679,
+    "cost": 0.00041435,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00041435,
+      "upstream_inference_prompt_cost": 0.00012735,
+      "upstream_inference_completions_cost": 0.000287
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 398,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 49, \"score\": 0.7, \"reason\": \"Printing Y[s]*2 is suspicious; the DP total likely already counts cost, doubling may be wrong.\"}, {\"line\": 45, \"score\": 0.5, \"reason\": \"Asymmetric with line 43: uses L[i] instead of L[ni]-style offset, possible boundary index mix-up.\"}, {\"line\": 43, \"score\": 0.4, \"reason\": \"Cost I[i]+R[ni] paired with odd boundary; pairing direction may be swapped with even case.\"}, {\"line\": 33, \"score\": 0.3, \"reason\": \"Array size i*2+5 is tight; transitions reaching nj = len(nY) are silently skipped, losing states.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/cd10c7f97efd6fb70b48e97adc1998fc07a4f14786f623a1cf99788e7c458edf.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 49,
+        "score": 0.7,
+        "reason": "Printing Y[s]*2 is suspicious; the DP total likely already counts cost, doubling may be wrong."
+      },
+      {
+        "line": 45,
+        "score": 0.5,
+        "reason": "Asymmetric with line 43: uses L[i] instead of L[ni]-style offset, possible boundary index mix-up."
+      },
+      {
+        "line": 43,
+        "score": 0.4,
+        "reason": "Cost I[i]+R[ni] paired with odd boundary; pairing direction may be swapped with even case."
+      },
+      {
+        "line": 33,
+        "score": 0.3,
+        "reason": "Array size i*2+5 is tight; transitions reaching nj = len(nY) are silently skipped, losing states."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    16
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2651",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "130fd19c5f926c1c78a64c7afc4a82e6209b03d62faff0d3175d2533c5fb3de3",
+  "prior_hash": null,
+  "prompt_chars": 3728,
+  "prompt_tokens_estimate": 932,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

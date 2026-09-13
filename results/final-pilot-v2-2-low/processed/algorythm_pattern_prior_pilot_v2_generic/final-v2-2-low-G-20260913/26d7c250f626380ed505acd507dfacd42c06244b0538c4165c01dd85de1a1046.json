@@ -1,0 +1,88 @@
+{
+  "run_id": "26d7c250f626380ed505acd507dfacd42c06244b0538c4165c01dd85de1a1046",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "5880a48ef982c2840af851f592d639dc8586f302bfe4889456c98303d901b797",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:32:15.815999Z",
+  "latency": 13.99643699999433,
+  "token_usage": {
+    "prompt_tokens": 944,
+    "completion_tokens": 865,
+    "total_tokens": 1809,
+    "cost": 0.00046658,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00046658,
+      "upstream_inference_prompt_cost": 3.408e-05,
+      "upstream_inference_completions_cost": 0.0004325
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 610,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.85, \"reason\": \"Equal-digit branch adds v*pow(9,...)-1, but valid smaller digits excluding bef count is v-1; the -1 offset is wrong and count diverges from line 18's pattern.\"}, {\"line\": 24, \"score\": 0.6, \"reason\": \"For digit smaller than previous, must still exclude nothing but count is inconsistent with other branches; term format differs suspiciously from line 18.\"}, {\"line\": 18, \"score\": 0.4, \"reason\": \"Counting formula doesn't multiply by number of valid prefixes so far; total count of valid numbers is undercounted for multi-digit mids.\"}, {\"line\": 27, \"score\": 0.3, \"reason\": \"Redundant trailing-pair adjustment: if TF is True no adjacent digits are equal, so this branch is dead or masks line 20's error.\"}, {\"line\": 13, \"score\": 0.2, \"reason\": \"First-digit term assumes all later digits free (9 choices), but should be 9 if adjacent-equality restriction applied sequentially.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/26d7c250f626380ed505acd507dfacd42c06244b0538c4165c01dd85de1a1046.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.85,
+        "reason": "Equal-digit branch adds v*pow(9,...)-1, but valid smaller digits excluding bef count is v-1; the -1 offset is wrong and count diverges from line 18's pattern."
+      },
+      {
+        "line": 24,
+        "score": 0.6,
+        "reason": "For digit smaller than previous, must still exclude nothing but count is inconsistent with other branches; term format differs suspiciously from line 18."
+      },
+      {
+        "line": 18,
+        "score": 0.4,
+        "reason": "Counting formula doesn't multiply by number of valid prefixes so far; total count of valid numbers is undercounted for multi-digit mids."
+      },
+      {
+        "line": 27,
+        "score": 0.3,
+        "reason": "Redundant trailing-pair adjustment: if TF is True no adjacent digits are equal, so this branch is dead or masks line 20's error."
+      },
+      {
+        "line": 13,
+        "score": 0.2,
+        "reason": "First-digit term assumes all later digits free (9 choices), but should be 9 if adjacent-equality restriction applied sequentially."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": null,
+  "prompt_chars": 3558,
+  "prompt_tokens_estimate": 890,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

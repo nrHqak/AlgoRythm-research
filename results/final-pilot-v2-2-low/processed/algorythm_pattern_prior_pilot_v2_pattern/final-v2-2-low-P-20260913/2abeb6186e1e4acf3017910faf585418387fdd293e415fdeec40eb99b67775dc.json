@@ -1,0 +1,73 @@
+{
+  "run_id": "2abeb6186e1e4acf3017910faf585418387fdd293e415fdeec40eb99b67775dc",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "53179f36cca2183c04f7951a9b177935b496339b5b54b5f03a1086130b6791f8",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:46:17.237025Z",
+  "latency": 13.626017042028252,
+  "token_usage": {
+    "prompt_tokens": 1898,
+    "completion_tokens": 840,
+    "total_tokens": 2738,
+    "cost": 0.0006663,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0006663,
+      "upstream_inference_prompt_cost": 0.0002463,
+      "upstream_inference_completions_cost": 0.00042
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 759,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 136, \"score\": 0.95, \"reason\": \"Final sum is printed without taking MOD 998244353, so large answers fail tests.\"}, {\"line\": 123, \"score\": 0.2, \"reason\": \"Loop over x up to m-1 is fine; transitions otherwise look correct.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/2abeb6186e1e4acf3017910faf585418387fdd293e415fdeec40eb99b67775dc.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 136,
+        "score": 0.95,
+        "reason": "Final sum is printed without taking MOD 998244353, so large answers fail tests."
+      },
+      {
+        "line": 123,
+        "score": 0.2,
+        "reason": "Loop over x up to m-1 is fine; transitions otherwise look correct."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": null,
+  "prompt_chars": 6926,
+  "prompt_tokens_estimate": 1732,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

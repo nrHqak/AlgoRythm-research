@@ -1,0 +1,83 @@
+{
+  "run_id": "ae9a4c44c1f2dde7cbd023d731f4b6a77d4f9257a82dd2742bdc7923cb8bff09",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "c9e9127d8c908da35e3b1b4820cc3c654da71681ee61b0c9ecde2111af24777a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:52:31.912607Z",
+  "latency": 7.975397375004832,
+  "token_usage": {
+    "prompt_tokens": 2143,
+    "completion_tokens": 499,
+    "total_tokens": 2642,
+    "cost": 0.00053255,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00053255,
+      "upstream_inference_prompt_cost": 0.00028305,
+      "upstream_inference_completions_cost": 0.0002495
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 333,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"Propagates dp[i]+1 even when dp[i]==-inf, turning unreachable -inf into -inf+1 and polluting reachable answers\"}, {\"line\": 142, \"score\": 0.4, \"reason\": \"Sentinel -inf participates in dp[i]+1 arithmetic; should be guarded or use a sentinel safe under addition\"}, {\"line\": 148, \"score\": 0.2, \"reason\": \"Check against -inf misses polluted values like -inf+1 produced by invalid transitions\"}, {\"line\": 143, \"score\": 0.1, \"reason\": \"Base case dp[idx[0]]=1 looks correct; counted vertices match +1 recurrence\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/ae9a4c44c1f2dde7cbd023d731f4b6a77d4f9257a82dd2742bdc7923cb8bff09.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.9,
+        "reason": "Propagates dp[i]+1 even when dp[i]==-inf, turning unreachable -inf into -inf+1 and polluting reachable answers"
+      },
+      {
+        "line": 142,
+        "score": 0.4,
+        "reason": "Sentinel -inf participates in dp[i]+1 arithmetic; should be guarded or use a sentinel safe under addition"
+      },
+      {
+        "line": 148,
+        "score": 0.2,
+        "reason": "Check against -inf misses polluted values like -inf+1 produced by invalid transitions"
+      },
+      {
+        "line": 143,
+        "score": 0.1,
+        "reason": "Base case dp[idx[0]]=1 looks correct; counted vertices match +1 recurrence"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8508,
+  "prompt_tokens_estimate": 2127,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

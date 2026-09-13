@@ -1,0 +1,73 @@
+{
+  "run_id": "732dbaadf56a985c37390a0d3de5e2884af6d935f801d35924accc1e82c9c141",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "f3c97aa490c52c1ecabeb9b5075b2efacab750b7666fc61086dd8f103a347210",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "46169156",
+  "task_id": "abc305_b",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:41.192098Z",
+  "latency": 2.314993083011359,
+  "token_usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 103,
+    "total_tokens": 1150,
+    "cost": 8.567e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.567e-05,
+      "upstream_inference_prompt_cost": 3.417e-05,
+      "upstream_inference_completions_cost": 5.15e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 22,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"When q=='A', code assigns short=0 instead of long=0, overwriting p's position\"}, {\"line\": 20, \"score\": 0.5, \"reason\": \"Branch for q=='A' should contribute to long, mirroring other q branches\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/732dbaadf56a985c37390a0d3de5e2884af6d935f801d35924accc1e82c9c141.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "When q=='A', code assigns short=0 instead of long=0, overwriting p's position"
+      },
+      {
+        "line": 20,
+        "score": 0.5,
+        "reason": "Branch for q=='A' should contribute to long, mirroring other q branches"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    21
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "23",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "5b0814f068501653f6262319e85fdcbda853873103acd67453199e0ae95a808a",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4013,
+  "prompt_tokens_estimate": 1004,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

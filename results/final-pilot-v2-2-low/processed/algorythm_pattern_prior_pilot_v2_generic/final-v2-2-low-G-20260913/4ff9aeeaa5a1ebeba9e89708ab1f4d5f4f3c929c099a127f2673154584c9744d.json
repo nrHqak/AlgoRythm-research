@@ -1,0 +1,78 @@
+{
+  "run_id": "4ff9aeeaa5a1ebeba9e89708ab1f4d5f4f3c929c099a127f2673154584c9744d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "3660d9a2fa098651ea32159818d1c6af84c6d36d16c9a641891f0afbde74c2a7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:08.465690Z",
+  "latency": 4.010031167010311,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 266,
+    "total_tokens": 1440,
+    "cost": 0.0002707,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002707,
+      "upstream_inference_prompt_cost": 0.0001377,
+      "upstream_inference_completions_cost": 0.000133
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 127,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.95, \"reason\": \"(k&1)^(j&2) compares bit with value 2, XOR never equals 1; should compare bit values (k&1)^((j>>1)&1)\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"maze indexing uses j^k, plausibility of state pairing depends on fix at line 36\"}, {\"line\": 42, \"score\": 0.2, \"reason\": \"cost added for bottom row bits, tied to j meaning; depends on line 36 convention\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/4ff9aeeaa5a1ebeba9e89708ab1f4d5f4f3c929c099a127f2673154584c9744d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.95,
+        "reason": "(k&1)^(j&2) compares bit with value 2, XOR never equals 1; should compare bit values (k&1)^((j>>1)&1)"
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "maze indexing uses j^k, plausibility of state pairing depends on fix at line 36"
+      },
+      {
+        "line": 42,
+        "score": 0.2,
+        "reason": "cost added for bottom row bits, tied to j meaning; depends on line 36 convention"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

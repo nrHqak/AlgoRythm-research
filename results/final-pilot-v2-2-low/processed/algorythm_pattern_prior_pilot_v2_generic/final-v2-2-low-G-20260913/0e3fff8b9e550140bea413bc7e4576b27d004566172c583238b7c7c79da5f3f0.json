@@ -1,0 +1,73 @@
+{
+  "run_id": "0e3fff8b9e550140bea413bc7e4576b27d004566172c583238b7c7c79da5f3f0",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "cf54e1f38d0ad94cf63e90ef949a76f6d72938fcf372a47e5df7da738bc3a574",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "46196763",
+  "task_id": "abc322_b",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:22.280532Z",
+  "latency": 6.302294375025667,
+  "token_usage": {
+    "prompt_tokens": 798,
+    "completion_tokens": 123,
+    "total_tokens": 921,
+    "cost": 8.904e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.904e-05,
+      "upstream_inference_prompt_cost": 2.754e-05,
+      "upstream_inference_completions_cost": 6.15e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 41,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.95, \"reason\": \"S[-0] is S[0]; negative index check wrong for i=0, should be S[N-1-i] or S[-i-1]\"}, {\"line\": 9, \"score\": 0.1, \"reason\": \"prefix check itself is fine\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/0e3fff8b9e550140bea413bc7e4576b27d004566172c583238b7c7c79da5f3f0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.95,
+        "reason": "S[-0] is S[0]; negative index check wrong for i=0, should be S[N-1-i] or S[-i-1]"
+      },
+      {
+        "line": 9,
+        "score": 0.1,
+        "reason": "prefix check itself is fine"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "54",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "879bf3e14625a146d0e99cdbeb504e2a5638247365e28fb35c7cfb40c646dd21",
+  "prior_hash": null,
+  "prompt_chars": 3063,
+  "prompt_tokens_estimate": 766,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

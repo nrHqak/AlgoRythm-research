@@ -1,0 +1,83 @@
+{
+  "run_id": "71b3de0eb45ebd08b787a0cc78a478d661db831590e41c343a1a81d3ba15493a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "20dc88181297c92491e70ba9e8564f3a71ad0ef013c28eadae79631f7f654883",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44805380",
+  "task_id": "abc232_d",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:46:03.607306Z",
+  "latency": 6.337141750031151,
+  "token_usage": {
+    "prompt_tokens": 1045,
+    "completion_tokens": 332,
+    "total_tokens": 1377,
+    "cost": 0.00019987,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019987,
+      "upstream_inference_prompt_cost": 3.387e-05,
+      "upstream_inference_completions_cost": 0.000166
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 176,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.95, \"reason\": \"Uses == instead of =; intended to reset unreachable cells to 0 but does nothing\"}, {\"line\": 19, \"score\": 0.8, \"reason\": \"max may pick 0 (unreachable predecessor), wrongly marking blocked/unreachable cells as reachable with distance 1\"}, {\"line\": 21, \"score\": 0.5, \"reason\": \"Guard only catches value 1; combined with line 19 marks unreachable cells as path length 1\"}, {\"line\": 11, \"score\": 0.2, \"reason\": \"Skip of walls is fine, but unreachable-cell tracking must happen here; minor\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/71b3de0eb45ebd08b787a0cc78a478d661db831590e41c343a1a81d3ba15493a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.95,
+        "reason": "Uses == instead of =; intended to reset unreachable cells to 0 but does nothing"
+      },
+      {
+        "line": 19,
+        "score": 0.8,
+        "reason": "max may pick 0 (unreachable predecessor), wrongly marking blocked/unreachable cells as reachable with distance 1"
+      },
+      {
+        "line": 21,
+        "score": 0.5,
+        "reason": "Guard only catches value 1; combined with line 19 marks unreachable cells as path length 1"
+      },
+      {
+        "line": 11,
+        "score": 0.2,
+        "reason": "Skip of walls is fine, but unreachable-cell tracking must happen here; minor"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "539",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "cf8cc64f1b1c2ecd5916546d98be11295101d1bbf153af91483ec4dc1e2abd78",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 4046,
+  "prompt_tokens_estimate": 1012,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

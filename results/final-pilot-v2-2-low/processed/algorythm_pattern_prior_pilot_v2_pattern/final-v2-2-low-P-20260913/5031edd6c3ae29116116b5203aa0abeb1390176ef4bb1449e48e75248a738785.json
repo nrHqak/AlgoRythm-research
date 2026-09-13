@@ -1,0 +1,78 @@
+{
+  "run_id": "5031edd6c3ae29116116b5203aa0abeb1390176ef4bb1449e48e75248a738785",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "39d68ae995659dc8b20333eaf739f75cd5b74ea9bb15f1a8a5821c7358dc68ce",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:38.358125Z",
+  "latency": 13.649203707987908,
+  "token_usage": {
+    "prompt_tokens": 1188,
+    "completion_tokens": 885,
+    "total_tokens": 2073,
+    "cost": 0.00048246,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00048246,
+      "upstream_inference_prompt_cost": 3.996e-05,
+      "upstream_inference_completions_cost": 0.0004425
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 719,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 31, \"score\": 0.85, \"reason\": \"Off-by-one: insurance strength y covers y generations, but hp>=0 counts one extra (distance y) node; should be hp>=1 given hp is decremented on each child edge.\"}, {\"line\": 29, \"score\": 0.25, \"reason\": \"If line 31 were fixed to hp>0, applying dic[i] as raw hp here would then be inconsistent; boundary between update and check is suspicious.\"}, {\"line\": 34, \"score\": 0.1, \"reason\": \"Passes hp-1 to child; correct only if the coverage check at line 31 uses >0; check/update ordering interplay worth verifying.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/5031edd6c3ae29116116b5203aa0abeb1390176ef4bb1449e48e75248a738785.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 31,
+        "score": 0.85,
+        "reason": "Off-by-one: insurance strength y covers y generations, but hp>=0 counts one extra (distance y) node; should be hp>=1 given hp is decremented on each child edge."
+      },
+      {
+        "line": 29,
+        "score": 0.25,
+        "reason": "If line 31 were fixed to hp>0, applying dic[i] as raw hp here would then be inconsistent; boundary between update and check is suspicious."
+      },
+      {
+        "line": 34,
+        "score": 0.1,
+        "reason": "Passes hp-1 to child; correct only if the coverage check at line 31 uses >0; check/update ordering interplay worth verifying."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4557,
+  "prompt_tokens_estimate": 1140,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

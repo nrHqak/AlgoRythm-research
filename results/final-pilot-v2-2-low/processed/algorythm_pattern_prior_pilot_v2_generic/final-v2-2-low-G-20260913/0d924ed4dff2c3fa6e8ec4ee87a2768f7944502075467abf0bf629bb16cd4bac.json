@@ -1,0 +1,78 @@
+{
+  "run_id": "0d924ed4dff2c3fa6e8ec4ee87a2768f7944502075467abf0bf629bb16cd4bac",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ac2ad23ffdf59afd18cf89e3d1860f17f0cbf5a30d2f3f23189ec7a39d29884f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:31:34.369802Z",
+  "latency": 17.5253072080086,
+  "token_usage": {
+    "prompt_tokens": 1028,
+    "completion_tokens": 1209,
+    "total_tokens": 2237,
+    "cost": 0.00063582,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00063582,
+      "upstream_inference_prompt_cost": 3.132e-05,
+      "upstream_inference_completions_cost": 0.0006045
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1064,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.85, \"reason\": \"Only strict prefix-maxima are recorded; a non-maximal R[j] that still exceeds L[i] at a smaller index is skipped, so the minimal j is missed\"}, {\"line\": 15, \"score\": 0.5, \"reason\": \"Building M/V only over prefix maxima cannot answer 'smallest j with R[j]>L[i]' for arbitrary L[i]\"}, {\"line\": 24, \"score\": 0.2, \"reason\": \"Cost formula assumes V[j] is the closest valid right index, which the prefix-maxima construction does not guarantee\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/0d924ed4dff2c3fa6e8ec4ee87a2768f7944502075467abf0bf629bb16cd4bac.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.85,
+        "reason": "Only strict prefix-maxima are recorded; a non-maximal R[j] that still exceeds L[i] at a smaller index is skipped, so the minimal j is missed"
+      },
+      {
+        "line": 15,
+        "score": 0.5,
+        "reason": "Building M/V only over prefix maxima cannot answer 'smallest j with R[j]>L[i]' for arbitrary L[i]"
+      },
+      {
+        "line": 24,
+        "score": 0.2,
+        "reason": "Cost formula assumes V[j] is the closest valid right index, which the prefix-maxima construction does not guarantee"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4036,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

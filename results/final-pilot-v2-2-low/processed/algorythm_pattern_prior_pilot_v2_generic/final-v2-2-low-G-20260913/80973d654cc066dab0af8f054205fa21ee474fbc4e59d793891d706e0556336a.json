@@ -1,0 +1,83 @@
+{
+  "run_id": "80973d654cc066dab0af8f054205fa21ee474fbc4e59d793891d706e0556336a",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c84e89de50bd5f4194a19e906eb1c78af446d1fc63a29019ea6db9f05d621f63",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:04.444321Z",
+  "latency": 24.562203499954194,
+  "token_usage": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 1560,
+    "total_tokens": 2589,
+    "cost": 0.00081147,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00081147,
+      "upstream_inference_prompt_cost": 3.147e-05,
+      "upstream_inference_completions_cost": 0.00078
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1390,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.5, \"reason\": \"max(0,i-j) clamps overshoots to dp[0]; suspicious boundary if overshooting rolls should be handled differently\"}, {\"line\": 22, \"score\": 0.4, \"reason\": \"divides accumulated dp sum by num; denominator choice (num vs p) is the classic spot for this DP\"}, {\"line\": 19, \"score\": 0.3, \"reason\": \"zero rolls are excluded from num, but zero outcomes keep position i and may need dp[i] in the sum\"}, {\"line\": 24, \"score\": 0.2, \"reason\": \"cost term c*p/num combined here; wrong trial-count factor would surface at this update\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/80973d654cc066dab0af8f054205fa21ee474fbc4e59d793891d706e0556336a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.5,
+        "reason": "max(0,i-j) clamps overshoots to dp[0]; suspicious boundary if overshooting rolls should be handled differently"
+      },
+      {
+        "line": 22,
+        "score": 0.4,
+        "reason": "divides accumulated dp sum by num; denominator choice (num vs p) is the classic spot for this DP"
+      },
+      {
+        "line": 19,
+        "score": 0.3,
+        "reason": "zero rolls are excluded from num, but zero outcomes keep position i and may need dp[i] in the sum"
+      },
+      {
+        "line": 24,
+        "score": 0.2,
+        "reason": "cost term c*p/num combined here; wrong trial-count factor would surface at this update"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 4027,
+  "prompt_tokens_estimate": 1007,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "e3f5d54b2b5f5659231f158edb8d3bf62be8278c44c7ea23335a486045d30461",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "7827ca24630bc022a2311729df560f2db36487f3015462d6e3ee3563f746f3ec",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:31:52.058516Z",
+  "latency": 17.67767995898612,
+  "token_usage": {
+    "prompt_tokens": 865,
+    "completion_tokens": 1105,
+    "total_tokens": 1970,
+    "cost": 0.00058241,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00058241,
+      "upstream_inference_prompt_cost": 2.991e-05,
+      "upstream_inference_completions_cost": 0.0005525
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 952,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.8, \"reason\": \"Prints huge sentinel value (or INF+...) instead of -1 when no valid pair exists\"}, {\"line\": 24, \"score\": 0.3, \"reason\": \"Cost formula must match V being a 0-based index into R plus K offset; off-by-one risk\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"bisect_right correctly requires strictly greater R value, but easy off-by-one suspect\"}, {\"line\": 15, \"score\": 0.1, \"reason\": \"Loop bound N-K correct; minor risk if K edge cases mishandled\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/e3f5d54b2b5f5659231f158edb8d3bf62be8278c44c7ea23335a486045d30461.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.8,
+        "reason": "Prints huge sentinel value (or INF+...) instead of -1 when no valid pair exists"
+      },
+      {
+        "line": 24,
+        "score": 0.3,
+        "reason": "Cost formula must match V being a 0-based index into R plus K offset; off-by-one risk"
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "bisect_right correctly requires strictly greater R value, but easy off-by-one suspect"
+      },
+      {
+        "line": 15,
+        "score": 0.1,
+        "reason": "Loop bound N-K correct; minor risk if K edge cases mishandled"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": null,
+  "prompt_chars": 3192,
+  "prompt_tokens_estimate": 798,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

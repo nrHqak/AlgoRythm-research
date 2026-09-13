@@ -1,0 +1,98 @@
+{
+  "run_id": "97d67089eb5ed784fc374320715c6b011897378a3332c8495f2c8df2f7193781",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "264ded4eb4cc45d2ee55396a702db7c61cc9d9cdf439a7999dda1ab2b3a99a42",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:46.109138Z",
+  "latency": 17.131749292020686,
+  "token_usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 1353,
+    "total_tokens": 2853,
+    "cost": 0.0008631,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008631,
+      "upstream_inference_prompt_cost": 0.0001866,
+      "upstream_inference_completions_cost": 0.0006765
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1077,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 49, \"score\": 0.85, \"reason\": \"Skip check only tests right[-1]; diameter end s has right=-1 but valid left, and gets overwritten with parent, corrupting both directions.\"}, {\"line\": 52, \"score\": 0.7, \"reason\": \"Sets left for node s on diameter path, destroying its correct left pointer (toward t).\"}, {\"line\": 53, \"score\": 0.7, \"reason\": \"Sets right for s to parent though s is a diameter endpoint where going right should return -1.\"}, {\"line\": 48, \"score\": 0.5, \"reason\": \"Loop applies parent fallback to all nodes, not just off-path nodes; should exclude both diameter endpoints.\"}, {\"line\": 43, \"score\": 0.2, \"reason\": \"Path pointer setup leaves left[t]=-1 correctly, but correctness depends on flawed skip logic at line 49.\"}, {\"line\": 68, \"score\": 0.1, \"reason\": \"Bit-length computation appears correct for highest set bit; unlikely fault.\"}, {\"line\": 40, \"score\": 0.1, \"reason\": \"ln gives one extra level, harmless; indexing stays in bounds.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/97d67089eb5ed784fc374320715c6b011897378a3332c8495f2c8df2f7193781.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 49,
+        "score": 0.85,
+        "reason": "Skip check only tests right[-1]; diameter end s has right=-1 but valid left, and gets overwritten with parent, corrupting both directions."
+      },
+      {
+        "line": 52,
+        "score": 0.7,
+        "reason": "Sets left for node s on diameter path, destroying its correct left pointer (toward t)."
+      },
+      {
+        "line": 53,
+        "score": 0.7,
+        "reason": "Sets right for s to parent though s is a diameter endpoint where going right should return -1."
+      },
+      {
+        "line": 48,
+        "score": 0.5,
+        "reason": "Loop applies parent fallback to all nodes, not just off-path nodes; should exclude both diameter endpoints."
+      },
+      {
+        "line": 43,
+        "score": 0.2,
+        "reason": "Path pointer setup leaves left[t]=-1 correctly, but correctness depends on flawed skip logic at line 49."
+      },
+      {
+        "line": 68,
+        "score": 0.1,
+        "reason": "Bit-length computation appears correct for highest set bit; unlikely fault."
+      },
+      {
+        "line": 40,
+        "score": 0.1,
+        "reason": "ln gives one extra level, harmless; indexing stays in bounds."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 5295,
+  "prompt_tokens_estimate": 1324,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

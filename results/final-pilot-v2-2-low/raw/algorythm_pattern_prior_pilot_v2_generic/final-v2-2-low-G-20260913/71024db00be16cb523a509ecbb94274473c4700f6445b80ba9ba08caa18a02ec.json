@@ -1,0 +1,145 @@
+{
+  "run_id": "71024db00be16cb523a509ecbb94274473c4700f6445b80ba9ba08caa18a02ec",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ab26c8950e86d62b54e8295ca6a078c9e36f6f4dbeb84d12c957e074f95a5902",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:29.450140+00:00",
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 41991921\nTask ID: abc304_g\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def calc1(a, m, t):\n2:   if t == -1:\n3:     return len(a) // 2\n4:   if len(a) < 2:\n5:     return 0\n6:   bit = 1 << t\n7:   b = []\n8:   c = []\n9:   for i in a:\n10:     if i & bit: c.append(i)\n11:     else: b.append(i)\n12:   if m & bit: return calc2(b, c, m, t - 1)\n13:   else:\n14:     if len(b) > len(c): b, c = c, b\n15:     res = len(b) + min((len(c) - len(b)) // 2, calc1(c, m, t - 1))\n16:     return res\n17: def calc2(b, c, m, t):\n18:   if t == -1: return min(len(b), len(c))\n19:   if len(b) == 0 or len(c) == 0: return 0\n20:   bit = 1 << t\n21:   d = []\n22:   e = []\n23:   f = []\n24:   g = []\n25:   for i in b:\n26:     if i & bit: e.append(i)\n27:     else: d.append(i)\n28:   for i in c:\n29:     if i & bit: g.append(i)\n30:     else: f.append(i)\n31:   if m & bit:\n32:     return calc2(e, f, m, t - 1) + calc2(d, g, m, t - 1)\n33:   else:\n34:     res = min(len(e), len(f)) + min(len(d), len(g))\n35:     if len(e) > len(f) and len(g) > len(d):\n36:       res += min(len(e) - len(f), len(g) - len(d), calc2(e, g, m, t - 1))\n37:     elif len(e) < len(f) and len(g) < len(d):\n38:       res += min(len(f) - len(e), len(d) - len(g), calc2(d, f, m, t - 1))\n39:     return res\n40: n = int(input())\n41: a = list(map(int, input().split()))\n42: l = 0\n43: r = 10 ** 10\n44: while l + 1 < r:\n45:   m = (l + r) // 2\n46:   if calc1(a, m, 29) >= (n + 1) // 2: l = m\n47:   else: r = m\n48: print(l)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program contains a logical fault. Before ranking the full source, check these standard failure points for buggy programs first, in order:\n1. check whether every loop's start and end bounds are correct, including whether an endpoint should be inclusive or exclusive\n2. check whether each comparison or conditional test uses the right operator and the right direction, including strict versus non-strict comparisons\n3. check whether variables that accumulate or track state are initialized correctly and updated in the right order relative to their use\n4. check whether the boundary cases are handled, such as the first item, the last item, or an empty or single-element input\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"calc1 counts pairs, so len(b) should be len(b)//2; adding all b elements overcounts pairs.\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"min(len(e),len(f))+min(len(d),len(g)) must be halved if result is pair count, matching line 15 convention.\"}, {\"line\": 36, \"score\": 0.3, \"reason\": \"Residual calc2 on leftovers may pair across both groups; leftover counts odd lengths could overcount.\"}]}",
+  "latency": 10.164689457975328,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 684,
+    "total_tokens": 2059,
+    "cost": 0.00038697,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1344,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00038697,
+      "upstream_inference_prompt_cost": 4.497e-05,
+      "upstream_inference_completions_cost": 0.000342
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 547,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789248859-PgISKXfG7HrDnM2rNRkm",
+    "provider_created": 1789248859,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 1887,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789248859-PgISKXfG7HrDnM2rNRkm",
+    "object": "chat.completion",
+    "created": 1789248859,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 15, \"score\": 0.85, \"reason\": \"calc1 counts pairs, so len(b) should be len(b)//2; adding all b elements overcounts pairs.\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"min(len(e),len(f))+min(len(d),len(g)) must be halved if result is pair count, matching line 15 convention.\"}, {\"line\": 36, \"score\": 0.3, \"reason\": \"Residual calc2 on leftovers may pair across both groups; leftover counts odd lengths could overcount.\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC304 G, max-XOR matching via binary search. Known tricky part: calc2's recurrences when deficits can't pair (calc2(e,g) requires m bit same... e and g both have bit set so XOR of bit is 0, fine). Also line 15: calc1 in else branch: pairings where both sides within b (no bit) pair via calc1(b,...) — but line 15 omits calc1(b, m, t-1)! Actually res = len(b) + min((len(c)-len(b))//2, calc1(c,...)). Wait calc1(b,...) counts pairs within b: len(b)//2? Since b is smaller, b pairs internally fully: should add calc1(b,...) = len(b)//2? Hmm, res = len(b)... Since we want matching count, b smaller: all of b can pair internally giving len(b)//2 pairs, plus min of leftover... Actually correct recurrence: res = len(b)//2 + ... hmm. Standard: pairs within b give calc1(b); pairs within c give calc1(c); answer = max. If |b|≤|c|: answer ≥ len(b)//2 (pair b internally) — using leftover formula: len(b) + min((len(c)-len(b))//2, calc1(c)) counts number of *elements* paired? len(b) elements = len(b)/2 pairs, plus pairs in c leftover. So res counts pairs? len(b) elements paired from b, plus (len(c)-len(b))//2 pairs of c leftovers — consistent if res is pairs? Hmm len(b) elements from b give len(b)/2 pairs, plus leftover c pairs: total = len(b)/2 + (len(c)-len(b))//2. But code adds len(b) fully — bug? Actually calc1 returns pairs count; at t==-1 returns len(a)//2 pairs. So line 15 should be len(b)//2 + min(...). Wait but len(b) could be odd... Comparing with known accepted solution: typically answer = |b|//2 + min((|c|-|b|)//2, calc1(c)). So line 15 bug: len(b) should be len(b)//2? Hmm, but wait maybe calc1 returns pairs — yes. So line 15 suspicious. But also line 46 binary search: fine. Line 3 fine.\n\nAlso line 35-38: the residual calc2 call crosses m bits 0 branch — that's the standard trick, fine.\n\nLine 15 most suspicious. Also possible line 14 swap when equal fine.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC304 G, max-XOR matching via binary search. Known tricky part: calc2's recurrences when deficits can't pair (calc2(e,g) requires m bit same... e and g both have bit set so XOR of bit is 0, fine). Also line 15: calc1 in else branch: pairings where both sides within b (no bit) pair via calc1(b,...) — but line 15 omits calc1(b, m, t-1)! Actually res = len(b) + min((len(c)-len(b))//2, calc1(c,...)). Wait calc1(b,...) counts pairs within b: len(b)//2? Since b is smaller, b pairs internally fully: should add calc1(b,...) = len(b)//2? Hmm, res = len(b)... Since we want matching count, b smaller: all of b can pair internally giving len(b)//2 pairs, plus min of leftover... Actually correct recurrence: res = len(b)//2 + ... hmm. Standard: pairs within b give calc1(b); pairs within c give calc1(c); answer = max. If |b|≤|c|: answer ≥ len(b)//2 (pair b internally) — using leftover formula: len(b) + min((len(c)-len(b))//2, calc1(c)) counts number of *elements* paired? len(b) elements = len(b)/2 pairs, plus pairs in c leftover. So res counts pairs? len(b) elements paired from b, plus (len(c)-len(b))//2 pairs of c leftovers — consistent if res is pairs? Hmm len(b) elements from b give len(b)/2 pairs, plus leftover c pairs: total = len(b)/2 + (len(c)-len(b))//2. But code adds len(b) fully — bug? Actually calc1 returns pairs count; at t==-1 returns len(a)//2 pairs. So line 15 should be len(b)//2 + min(...). Wait but len(b) could be odd... Comparing with known accepted solution: typically answer = |b|//2 + min((|c|-|b|)//2, calc1(c)). So line 15 bug: len(b) should be len(b)//2? Hmm, but wait maybe calc1 returns pairs — yes. So line 15 suspicious. But also line 46 binary search: fine. Line 3 fine.\n\nAlso line 35-38: the residual calc2 call crosses m bits 0 branch — that's the standard trick, fine.\n\nLine 15 most suspicious. Also possible line 14 swap when equal fine.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1375,
+      "completion_tokens": 684,
+      "total_tokens": 2059,
+      "cost": 0.00038697,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1344,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00038697,
+        "upstream_inference_prompt_cost": 4.497e-05,
+        "upstream_inference_completions_cost": 0.000342
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

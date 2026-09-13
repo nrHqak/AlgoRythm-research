@@ -1,0 +1,88 @@
+{
+  "run_id": "46e025a33f5bb2cf251a7a48313bdb824242efb35818187b65494341b9988b69",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "723e252b8e6c32726a51af3caadc991c3dfde0114daa191207114cdf42ab334d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43438224",
+  "task_id": "arc164_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:16:49.736504Z",
+  "latency": 5.714781708957162,
+  "token_usage": {
+    "prompt_tokens": 1105,
+    "completion_tokens": 320,
+    "total_tokens": 1425,
+    "cost": 0.00019519,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00019519,
+      "upstream_inference_prompt_cost": 3.519e-05,
+      "upstream_inference_completions_cost": 0.00016
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 102,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 33, \"score\": 0.7, \"reason\": \"DP state array size i*2+5 may be too small, dropping valid transitions via the bounds check at line 37.\"}, {\"line\": 49, \"score\": 0.6, \"reason\": \"Reading Y[s] may index beyond the last valid DP state after shrinking arrays each iteration; final state may sit elsewhere.\"}, {\"line\": 43, \"score\": 0.5, \"reason\": \"Cost uses I[i]+R[ni] for odd nj; L/R roles may be swapped relative to parity convention.\"}, {\"line\": 45, \"score\": 0.5, \"reason\": \"Cost uses L[i] for even nj; suspicious symmetric counterpart to line 43, one of these likely reversed.\"}, {\"line\": 35, \"score\": 0.3, \"reason\": \"Allowed jump (1,) when j odd restricts +2 moves; may incorrectly forbid valid states.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/46e025a33f5bb2cf251a7a48313bdb824242efb35818187b65494341b9988b69.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 33,
+        "score": 0.7,
+        "reason": "DP state array size i*2+5 may be too small, dropping valid transitions via the bounds check at line 37."
+      },
+      {
+        "line": 49,
+        "score": 0.6,
+        "reason": "Reading Y[s] may index beyond the last valid DP state after shrinking arrays each iteration; final state may sit elsewhere."
+      },
+      {
+        "line": 43,
+        "score": 0.5,
+        "reason": "Cost uses I[i]+R[ni] for odd nj; L/R roles may be swapped relative to parity convention."
+      },
+      {
+        "line": 45,
+        "score": 0.5,
+        "reason": "Cost uses L[i] for even nj; suspicious symmetric counterpart to line 43, one of these likely reversed."
+      },
+      {
+        "line": 35,
+        "score": 0.3,
+        "reason": "Allowed jump (1,) when j odd restricts +2 moves; may incorrectly forbid valid states."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    16
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2651",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "130fd19c5f926c1c78a64c7afc4a82e6209b03d62faff0d3175d2533c5fb3de3",
+  "prior_hash": null,
+  "prompt_chars": 3728,
+  "prompt_tokens_estimate": 932,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

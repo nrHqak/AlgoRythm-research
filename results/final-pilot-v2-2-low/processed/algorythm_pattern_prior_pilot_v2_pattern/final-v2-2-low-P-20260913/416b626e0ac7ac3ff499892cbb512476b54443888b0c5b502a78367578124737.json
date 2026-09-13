@@ -1,0 +1,78 @@
+{
+  "run_id": "416b626e0ac7ac3ff499892cbb512476b54443888b0c5b502a78367578124737",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b14f0343f4f4671fbd91fd08d3f663d30ebc6a2149745b7e7c1da2c717a82acb",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45923968",
+  "task_id": "abc300_f",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:09.797961Z",
+  "latency": 15.722611166012939,
+  "token_usage": {
+    "prompt_tokens": 811,
+    "completion_tokens": 987,
+    "total_tokens": 1798,
+    "cost": 0.00052299,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00052299,
+      "upstream_inference_prompt_cost": 2.949e-05,
+      "upstream_inference_completions_cost": 0.0004935
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 848,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.7, \"reason\": \"Binary search upper bound M*N excludes the full length M*N; when total x-count <= K, ok can only reach M*N-1, losing the full-length case.\"}, {\"line\": 13, \"score\": 0.3, \"reason\": \"ok=-1 initialization combined with bound above interacts with edge cases where no valid length exists.\"}, {\"line\": 16, \"score\": 0.2, \"reason\": \"Midpoint computed from ok=-1 could yield c values below i, giving negative totals that are spuriously accepted.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/416b626e0ac7ac3ff499892cbb512476b54443888b0c5b502a78367578124737.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.7,
+        "reason": "Binary search upper bound M*N excludes the full length M*N; when total x-count <= K, ok can only reach M*N-1, losing the full-length case."
+      },
+      {
+        "line": 13,
+        "score": 0.3,
+        "reason": "ok=-1 initialization combined with bound above interacts with edge cases where no valid length exists."
+      },
+      {
+        "line": 16,
+        "score": 0.2,
+        "reason": "Midpoint computed from ok=-1 could yield c values below i, giving negative totals that are spuriously accepted."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1846",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "37790e649562c4f91097c53800b97383f25e6af4f8db49b3881c68f7205fd4f8",
+  "prior_hash": null,
+  "prompt_chars": 3050,
+  "prompt_tokens_estimate": 763,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

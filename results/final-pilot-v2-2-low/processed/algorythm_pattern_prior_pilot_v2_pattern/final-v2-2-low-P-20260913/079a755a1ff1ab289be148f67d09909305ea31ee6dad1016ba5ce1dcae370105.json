@@ -1,0 +1,78 @@
+{
+  "run_id": "079a755a1ff1ab289be148f67d09909305ea31ee6dad1016ba5ce1dcae370105",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "0b84a5396674f5f4b61bce08fe0a89841f66c47c21f8adbdd815ebcab631a9c3",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "44917428",
+  "task_id": "abc275_c",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:16.047309Z",
+  "latency": 39.75871541700326,
+  "token_usage": {
+    "prompt_tokens": 1849,
+    "completion_tokens": 3824,
+    "total_tokens": 5673,
+    "cost": 0.00197431,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00197431,
+      "upstream_inference_prompt_cost": 6.231e-05,
+      "upstream_inference_completions_cost": 0.001912
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3685,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.95, \"reason\": \"Vertex formula for (d,d) squares is wrong: should be s[i+k+1][j+2*(k+1)], but code uses s[i+1][...], so points aren't a square for k>=1\"}, {\"line\": 11, \"score\": 0.2, \"reason\": \"Loop bound tied to same flawed k-family; suspect only via line 13's formula\"}, {\"line\": 12, \"score\": 0.2, \"reason\": \"Same loop family; formula error likely, bounds appear correct\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/079a755a1ff1ab289be148f67d09909305ea31ee6dad1016ba5ce1dcae370105.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.95,
+        "reason": "Vertex formula for (d,d) squares is wrong: should be s[i+k+1][j+2*(k+1)], but code uses s[i+1][...], so points aren't a square for k>=1"
+      },
+      {
+        "line": 11,
+        "score": 0.2,
+        "reason": "Loop bound tied to same flawed k-family; suspect only via line 13's formula"
+      },
+      {
+        "line": 12,
+        "score": 0.2,
+        "reason": "Same loop family; formula error likely, bounds appear correct"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 58,
+  "loc": 58,
+  "evaluation_denominator": 58,
+  "faulty_lines": [
+    13
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "760",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "41891f309c335ed83192010e36cdcea3c51557d1c4453e41aa48dc51321b8448",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 5744,
+  "prompt_tokens_estimate": 1436,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "2cc4ef9c3d054cbbc1c8d69122318460e606ae9a05b1d10fedf689de6e1161eb",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "e30370c535c66d768f30d8ad72072b21e9c2914568c1b968cb98d6a8d2f6605e",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:51:37.946393Z",
+  "latency": 19.63890000001993,
+  "token_usage": {
+    "prompt_tokens": 1208,
+    "completion_tokens": 1365,
+    "total_tokens": 2573,
+    "cost": 0.0008637,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008637,
+      "upstream_inference_prompt_cost": 0.0001812,
+      "upstream_inference_completions_cost": 0.0006825
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1199,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.75, \"reason\": \"When colors match, using V2[j]+vi may pull a stale second-best value after prior updates in same iteration\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"Duplicate-color case for j=0 discards value but keeps color, losing the 'no valid single item' state handling\"}, {\"line\": 34, \"score\": 0.4, \"reason\": \"elif with >= may misplace ties between best and second-best, dropping a distinct-color candidate\"}, {\"line\": 17, \"score\": 0.3, \"reason\": \"Adding vi to stale V1[j] when C1[j]!=ci can combine incompatible earlier states\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/2cc4ef9c3d054cbbc1c8d69122318460e606ae9a05b1d10fedf689de6e1161eb.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.75,
+        "reason": "When colors match, using V2[j]+vi may pull a stale second-best value after prior updates in same iteration"
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "Duplicate-color case for j=0 discards value but keeps color, losing the 'no valid single item' state handling"
+      },
+      {
+        "line": 34,
+        "score": 0.4,
+        "reason": "elif with >= may misplace ties between best and second-best, dropping a distinct-color candidate"
+      },
+      {
+        "line": 17,
+        "score": 0.3,
+        "reason": "Adding vi to stale V1[j] when C1[j]!=ci can combine incompatible earlier states"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": null,
+  "prompt_chars": 3988,
+  "prompt_tokens_estimate": 997,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

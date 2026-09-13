@@ -1,0 +1,83 @@
+{
+  "run_id": "c00a2ad0bb9af0629b7ac31642269cedcbde513c2034db186d3e6e40c8fd876e",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "92a8beac36caaf713fba2962925cc9e55f46880aa7eac8aa0085eec044ac7cd0",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:45:31.774378Z",
+  "latency": 6.657564499997534,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 403,
+    "total_tokens": 2180,
+    "cost": 0.00026069,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1728,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00026069,
+      "upstream_inference_prompt_cost": 5.919e-05,
+      "upstream_inference_completions_cost": 0.0002015
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 222,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.75, \"reason\": \"+1 applied outside max: when existing entry is -1, result becomes 0 even though max computed -1+... semantics; also conflates infeasible states with value 0\"}, {\"line\": 55, \"score\": 0.6, \"reason\": \"Root-Y case adds +1 to leaf Y count, but root is not a leaf; may miscount leaves when root is Y\"}, {\"line\": 42, \"score\": 0.4, \"reason\": \"dp_x transition ignores the +1 accounting pattern used in dp_y; possible off-by-one in node count\"}, {\"line\": 51, \"score\": 0.3, \"reason\": \"Comparison threshold y_non_leaf_count may need >= or boundary check versus dp semantics\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/c00a2ad0bb9af0629b7ac31642269cedcbde513c2034db186d3e6e40c8fd876e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.75,
+        "reason": "+1 applied outside max: when existing entry is -1, result becomes 0 even though max computed -1+... semantics; also conflates infeasible states with value 0"
+      },
+      {
+        "line": 55,
+        "score": 0.6,
+        "reason": "Root-Y case adds +1 to leaf Y count, but root is not a leaf; may miscount leaves when root is Y"
+      },
+      {
+        "line": 42,
+        "score": 0.4,
+        "reason": "dp_x transition ignores the +1 accounting pattern used in dp_y; possible off-by-one in node count"
+      },
+      {
+        "line": 51,
+        "score": 0.3,
+        "reason": "Comparison threshold y_non_leaf_count may need >= or boundary check versus dp semantics"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

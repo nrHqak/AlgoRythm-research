@@ -1,0 +1,78 @@
+{
+  "run_id": "e980415a627175a4c4d7c9bcc34c022951bc4191f946957caf6519dc95ca328a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "211c792ad127bc0d4eb937c8b6f704849b43699c3d41daaa4928de9453cd513d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43234248",
+  "task_id": "arc148_b",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:55:44.219481Z",
+  "latency": 12.214130166976247,
+  "token_usage": {
+    "prompt_tokens": 951,
+    "completion_tokens": 756,
+    "total_tokens": 1707,
+    "cost": 0.00041313,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00041313,
+      "upstream_inference_prompt_cost": 3.513e-05,
+      "upstream_inference_completions_cost": 0.000378
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 622,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 31, \"score\": 0.9, \"reason\": \"If S has no 'p', reversing all 'd's yields all 'p's, which is smaller; printing S is wrong here.\"}, {\"line\": 32, \"score\": 0.6, \"reason\": \"Prints S unchanged for all-'d' input instead of the all-'p' string produced by the operation.\"}, {\"line\": 37, \"score\": 0.15, \"reason\": \"Loop range includes i=idxP (empty op, harmless) and covers all end points correctly.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/e980415a627175a4c4d7c9bcc34c022951bc4191f946957caf6519dc95ca328a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 31,
+        "score": 0.9,
+        "reason": "If S has no 'p', reversing all 'd's yields all 'p's, which is smaller; printing S is wrong here."
+      },
+      {
+        "line": 32,
+        "score": 0.6,
+        "reason": "Prints S unchanged for all-'d' input instead of the all-'p' string produced by the operation."
+      },
+      {
+        "line": 37,
+        "score": 0.15,
+        "reason": "Loop range includes i=idxP (empty op, harmless) and covers all end points correctly."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 40,
+  "loc": 40,
+  "evaluation_denominator": 40,
+  "faulty_lines": [
+    32
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "975",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "82d630b57084457439e1cd07c63f357ce91fcd52b782d528845d9398eeec7849",
+  "prior_hash": null,
+  "prompt_chars": 3552,
+  "prompt_tokens_estimate": 888,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

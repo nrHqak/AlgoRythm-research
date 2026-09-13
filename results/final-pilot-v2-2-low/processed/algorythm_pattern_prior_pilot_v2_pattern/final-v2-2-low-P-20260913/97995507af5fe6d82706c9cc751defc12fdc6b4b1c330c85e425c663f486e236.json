@@ -1,0 +1,78 @@
+{
+  "run_id": "97995507af5fe6d82706c9cc751defc12fdc6b4b1c330c85e425c663f486e236",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "6bda9c0ccad380d1f3994cf113cf02b91c6e28bd4fc5fcbef62cd546bc40892c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:06.742079Z",
+  "latency": 13.726194208022207,
+  "token_usage": {
+    "prompt_tokens": 1104,
+    "completion_tokens": 841,
+    "total_tokens": 1945,
+    "cost": 0.0005477,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005477,
+      "upstream_inference_prompt_cost": 0.0001272,
+      "upstream_inference_completions_cost": 0.0004205
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 691,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"Counts shorter-length valid numbers as 9^i, but a number of length L has 9^L valid values; should be pow(9,i+1).\"}, {\"line\": 20, \"score\": 0.4, \"reason\": \"On equal digit, subtracting 1 after breaking may miscount; all completions of the equal prefix are valid-less-than-mid, extra -1 dubious.\"}, {\"line\": 27, \"score\": 0.2, \"reason\": \"Post-loop adjacent-equal adjustment can double-count with the break path logic; redundant given TF check.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/97995507af5fe6d82706c9cc751defc12fdc6b4b1c330c85e425c663f486e236.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.9,
+        "reason": "Counts shorter-length valid numbers as 9^i, but a number of length L has 9^L valid values; should be pow(9,i+1)."
+      },
+      {
+        "line": 20,
+        "score": 0.4,
+        "reason": "On equal digit, subtracting 1 after breaking may miscount; all completions of the equal prefix are valid-less-than-mid, extra -1 dubious."
+      },
+      {
+        "line": 27,
+        "score": 0.2,
+        "reason": "Post-loop adjacent-equal adjustment can double-count with the break path logic; redundant given TF check."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4377,
+  "prompt_tokens_estimate": 1095,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

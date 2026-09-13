@@ -1,0 +1,145 @@
+{
+  "run_id": "07b0a7fbefdcbd08e4dfe52739d8e0cbc21cd24bfa595c660774d16f8eab8d8e",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "452a20d0ef8252953d8d5d9309a05ddb62313b7fb129252013986ee91084f6d5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "46169156",
+  "task_id": "abc305_b",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:38.396260+00:00",
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    21
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "23",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "5b0814f068501653f6262319e85fdcbda853873103acd67453199e0ae95a808a",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4013,
+  "prompt_tokens_estimate": 1004,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 46169156\nTask ID: abc305_b\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: p,q=map(str, input().split())\n2: li=[3,4,8,9,14,23]\n3: long=0\n4: short=0\n5: if p=='A':\n6:     short=0\n7: elif p=='B':\n8:     short=li[0]\n9: elif p=='C':\n10:     short=li[1]\n11: elif p=='D':\n12:     short=li[2]\n13: elif p=='E':\n14:     short=li[3]\n15: elif p=='F':\n16:     short=li[4]\n17: elif p=='G':\n18:     short=li[5]\n19: \n20: if q=='A':\n21:     short=0\n22: elif q=='B':\n23:     long=li[0]\n24: elif q=='C':\n25:     long=li[1]\n26: elif q=='D':\n27:     long=li[2]\n28: elif q=='E':\n29:     long=li[3]\n30: elif q=='F':\n31:     long=li[4]\n32: elif q=='G':\n33:     long=li[5]\n34:     \n35: print(abs(long-short))\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using a direct brute-force implementation. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether every loop's bounds match the range stated by the problem, including whether an endpoint should be inclusive or exclusive\n2. check whether the code follows the problem statement's formula and order of operations faithfully, including integer versus floating-point division\n3. check whether a nested loop's index variable is accidentally reused or shadowed by an inner loop\n4. check whether the final accumulation or output step runs exactly once at the correct point, not inside a loop that repeats it\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"q=='A' should set long=0, but code overwrites short=0 instead\"}, {\"line\": 6, \"score\": 0.1, \"reason\": \"short=0 for p=='A' is correct default, redundant but harmless\"}]}",
+  "latency": 1.9794974169926718,
+  "token_usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 96,
+    "total_tokens": 1143,
+    "cost": 8.217e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.217e-05,
+      "upstream_inference_prompt_cost": 3.417e-05,
+      "upstream_inference_completions_cost": 4.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 19,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250376-aaUmz9Aw1H0FpdRq1i5q",
+    "provider_created": 1789250376,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 53,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250376-aaUmz9Aw1H0FpdRq1i5q",
+    "object": "chat.completion",
+    "created": 1789250376,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"q=='A' should set long=0, but code overwrites short=0 instead\"}, {\"line\": 6, \"score\": 0.1, \"reason\": \"short=0 for p=='A' is correct default, redundant but harmless\"}]}",
+          "refusal": null,
+          "reasoning": "Line 21: when q=='A', sets short=0 instead of long=0.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Line 21: when q=='A', sets short=0 instead of long=0.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1047,
+      "completion_tokens": 96,
+      "total_tokens": 1143,
+      "cost": 8.217e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.217e-05,
+        "upstream_inference_prompt_cost": 3.417e-05,
+        "upstream_inference_completions_cost": 4.8e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 19,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

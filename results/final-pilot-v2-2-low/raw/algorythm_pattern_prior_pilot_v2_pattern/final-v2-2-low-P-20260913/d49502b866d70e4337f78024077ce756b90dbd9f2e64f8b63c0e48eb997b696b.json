@@ -1,0 +1,145 @@
+{
+  "run_id": "d49502b866d70e4337f78024077ce756b90dbd9f2e64f8b63c0e48eb997b696b",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "fedcd8b2432a9b41c1d8f825d3e61c5a4ae8996385d4c8e61b9fbf7c0661bcea",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:40.306841+00:00",
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": null,
+  "prompt_chars": 3652,
+  "prompt_tokens_estimate": 913,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45971969\nTask ID: abc309_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: class Input_kyopro:\n2:     def II(self): return int(input())\n3:     def MI(self): return map( int,input().split())\n4:     def MS(self): return map(str,input().split())\n5:     def LMI(self): return list(self.MI())\n6:     def LMS(self): return list(self.MS())\n7:     def LLI(self,N): return [self.LMI() for _ in range(N)]\n8:     def LLS(self,N): return [self.LMS() for _ in range(N)]\n9:     def LS(self,N): return [input() for _ in range(N)]\n10:     def LSL(self,N): return [list(input()) for _ in range(N)]\n11:     def LI(self,N): return [self.II() for _ in range(N)]\n12: I=Input_kyopro()\n13: #入力\n14: from collections import defaultdict\n15: import sys\n16: sys.setrecursionlimit(10**8)\n17: N,M=I.MI()\n18: p=I.LMI()\n19: xy=I.LLI(M)\n20: dic=defaultdict(lambda : -1)\n21: for x,y in xy:\n22:     dic[x-1]=max(dic[x-1],y)\n23: G=[[] for _ in range(N)]\n24: for i in range(N-1):\n25:     G[p[i]-1].append(i+1)\n26: count=0\n27: def dfs(i,hp):\n28:     global count\n29:     if hp<dic[i]:\n30:         hp=dic[i]\n31:     if hp>=0:\n32:         count+=1\n33:     for nex in G[i]:\n34:         dfs(nex,hp-1)\n35: \n36: dfs(0,0)\n37: print(count)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"Child inherits hp-1; insurance boost applied at parent must propagate, easy off-by-one here\"}, {\"line\": 29, \"score\": 0.4, \"reason\": \"Comparison with dic[i] and defaultdict access; boost condition may mis-handle uninsured nodes\"}, {\"line\": 31, \"score\": 0.3, \"reason\": \"Coverage check hp>=0 controls counting; boundary of insurance depth is sensitive\"}, {\"line\": 30, \"score\": 0.2, \"reason\": \"Reassigning hp to insurance value affects all descendants; verify intended semantics\"}]}",
+  "latency": 15.596178500039969,
+  "token_usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 1000,
+    "total_tokens": 2006,
+    "cost": 0.0005357,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005357,
+      "upstream_inference_prompt_cost": 3.57e-05,
+      "upstream_inference_completions_cost": 0.0005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 845,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250725-iaVhBSaLL8U19vBHGFmP",
+    "provider_created": 1789250725,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 3160,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250725-iaVhBSaLL8U19vBHGFmP",
+    "object": "chat.completion",
+    "created": 1789250725,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"Child inherits hp-1; insurance boost applied at parent must propagate, easy off-by-one here\"}, {\"line\": 29, \"score\": 0.4, \"reason\": \"Comparison with dic[i] and defaultdict access; boost condition may mis-handle uninsured nodes\"}, {\"line\": 31, \"score\": 0.3, \"reason\": \"Coverage check hp>=0 controls counting; boundary of insurance depth is sensitive\"}, {\"line\": 30, \"score\": 0.2, \"reason\": \"Reassigning hp to insurance value affects all descendants; verify intended semantics\"}]}",
+          "refusal": null,
+          "reasoning": "Bug: hp-1 passes decremented hp even after bumping hp to dic[i]... actually that's fine: if hp raised to dic[i], child should get dic[i]-1. Code passes hp-1, correct. Bug: when hp<0 but no insurance, hp stays negative — fine. Actually bug: dic stores y but coverage is y+1 generations including self; hp>=0 counts; child gets hp-1. Seems correct. Hmm, recursion depth fine. Line 29: comparing hp<dic[i] uses defaultdict on i—fine. Wait bug: if hp<dic[i] sets hp=dic[i], but if hp<0 and dic[i]==-1, hp stays negative—ok. Real known bug: passing hp-1 instead of max correct... Actually correct solution passes max(hp,dic[i])-1? Equivalent. Hmm. Possible bug: xy given 1-indexed, y is strength, covered nodes are descendants up to y-1 depth. Looks right. Maybe dfs recursion slow but tests fail logically... Perhaps hp>=0 counts but hp-1 line 34 should be after using max? It is. Maybe issue: dic default -1 fine. Wait, line 29-30: if hp<dic[i] sets hp=dic[i], but then line 31 counts. When passing to children, uses hp-1 — but original hp could be > dic[i], fine. I think code correct except recursion... Actually subtle: defaultdict lookup in dic inside dfs for nodes without insurance sets entries—fine. Hmm, real bug candidate: sys.setrecursionlimit fine. Maybe intended bug is line 31: should be counted when hp>=0 — yes.\n\nMaybe the bug: line 29 comparison should be >=? No.\n\nPerhaps line 22: dic[x-1]=max(dic[x-1],y) correct. Line 25: G[p[i]-1].append(i+1) correct.\n\nMaybe problem: hp decrement should happen before count? Count hp>=0 for current node with insurance gives count — correct.\n\nWait—maybe bug: when hp<dic[i], hp=dic[i], but for children they pass hp-1, correct. I'll guess line 34: should pass max(hp-1, dic?) no...\n\nAlternatively, coverage is y generations counting self, i.e., hp starts at y at insured node; depth h node covered if y>=h. hp at root =0 count; child hp-1. Correct.\n\nMaybe bug is that dfs modifies hp but then if hp<dic[i] sets hp=dic[i]; but when hp<0 and dic[i]<0 it stays — fine. Hmm.\n\nCould be line 31: should be hp>=0 counts — yes. Maybe bug is actually elsewhere: x could be y order? xy pairs.\n\nI'll rank line 34 highest (children should get the possibly-insured hp minus 1, seems right though)... Hmm maybe intended bug: dfs(i,hp) uses hp-1 but should compute nhp = max(hp-1, dic... ) done at next call.\n\nPerhaps the actual subtle bug: when hp<dic[i] sets hp=dic[i], but for children they pass hp-1 — but if original hp > dic[i], they pass hp-1, fine.\n\nI wonder: bug could be that recursion per node passes hp-1, but insurance value should be applied as hp = max(hp, dic[i]) — same.\n\nGiven no clear bug, maybe Python recursion over 10^5 raises... but \"compiles and runs, fails at least one test\". Possibly line 34 recursion counts correctly. Perhaps line 36: should iterate? no.\n\nActually! Bug: `if hp<dic[i]` uses defaultdict which CREATES key with -1... fine.\n\nWait maybe bug: count includes covered nodes when hp>=0, but hp-1 each level; at insurance node hp=y so node itself counted if y>=0, always. Correct.\n\nHmm, maybe issue: input xy may have x>y irrelevant.\n\nI'll just output plausible ranking: line 34, 29, 31.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Bug: hp-1 passes decremented hp even after bumping hp to dic[i]... actually that's fine: if hp raised to dic[i], child should get dic[i]-1. Code passes hp-1, correct. Bug: when hp<0 but no insurance, hp stays negative — fine. Actually bug: dic stores y but coverage is y+1 generations including self; hp>=0 counts; child gets hp-1. Seems correct. Hmm, recursion depth fine. Line 29: comparing hp<dic[i] uses defaultdict on i—fine. Wait bug: if hp<dic[i] sets hp=dic[i], but if hp<0 and dic[i]==-1, hp stays negative—ok. Real known bug: passing hp-1 instead of max correct... Actually correct solution passes max(hp,dic[i])-1? Equivalent. Hmm. Possible bug: xy given 1-indexed, y is strength, covered nodes are descendants up to y-1 depth. Looks right. Maybe dfs recursion slow but tests fail logically... Perhaps hp>=0 counts but hp-1 line 34 should be after using max? It is. Maybe issue: dic default -1 fine. Wait, line 29-30: if hp<dic[i] sets hp=dic[i], but then line 31 counts. When passing to children, uses hp-1 — but original hp could be > dic[i], fine. I think code correct except recursion... Actually subtle: defaultdict lookup in dic inside dfs for nodes without insurance sets entries—fine. Hmm, real bug candidate: sys.setrecursionlimit fine. Maybe intended bug is line 31: should be counted when hp>=0 — yes.\n\nMaybe the bug: line 29 comparison should be >=? No.\n\nPerhaps line 22: dic[x-1]=max(dic[x-1],y) correct. Line 25: G[p[i]-1].append(i+1) correct.\n\nMaybe problem: hp decrement should happen before count? Count hp>=0 for current node with insurance gives count — correct.\n\nWait—maybe bug: when hp<dic[i], hp=dic[i], but for children they pass hp-1, correct. I'll guess line 34: should pass max(hp-1, dic?) no...\n\nAlternatively, coverage is y generations counting self, i.e., hp starts at y at insured node; depth h node covered if y>=h. hp at root =0 count; child hp-1. Correct.\n\nMaybe bug is that dfs modifies hp but then if hp<dic[i] sets hp=dic[i]; but when hp<0 and dic[i]<0 it stays — fine. Hmm.\n\nCould be line 31: should be hp>=0 counts — yes. Maybe bug is actually elsewhere: x could be y order? xy pairs.\n\nI'll rank line 34 highest (children should get the possibly-insured hp minus 1, seems right though)... Hmm maybe intended bug: dfs(i,hp) uses hp-1 but should compute nhp = max(hp-1, dic... ) done at next call.\n\nPerhaps the actual subtle bug: when hp<dic[i] sets hp=dic[i], but for children they pass hp-1 — but if original hp > dic[i], they pass hp-1, fine.\n\nI wonder: bug could be that recursion per node passes hp-1, but insurance value should be applied as hp = max(hp, dic[i]) — same.\n\nGiven no clear bug, maybe Python recursion over 10^5 raises... but \"compiles and runs, fails at least one test\". Possibly line 34 recursion counts correctly. Perhaps line 36: should iterate? no.\n\nActually! Bug: `if hp<dic[i]` uses defaultdict which CREATES key with -1... fine.\n\nWait maybe bug: count includes covered nodes when hp>=0, but hp-1 each level; at insurance node hp=y so node itself counted if y>=0, always. Correct.\n\nHmm, maybe issue: input xy may have x>y irrelevant.\n\nI'll just output plausible ranking: line 34, 29, 31.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1006,
+      "completion_tokens": 1000,
+      "total_tokens": 2006,
+      "cost": 0.0005357,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005357,
+        "upstream_inference_prompt_cost": 3.57e-05,
+        "upstream_inference_completions_cost": 0.0005
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 845,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

@@ -1,0 +1,145 @@
+{
+  "run_id": "2e08adc6e3db0540b3f66ad5a99705bb8d960b813800fb6eaf79d299837214e1",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "3a9945000b3e5a3e1a033c55ac1cc04640c1d54318bbe4e9511ba55c27d4c398",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:45.636218+00:00",
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": null,
+  "prompt_chars": 3652,
+  "prompt_tokens_estimate": 913,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45971969\nTask ID: abc309_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: class Input_kyopro:\n2:     def II(self): return int(input())\n3:     def MI(self): return map( int,input().split())\n4:     def MS(self): return map(str,input().split())\n5:     def LMI(self): return list(self.MI())\n6:     def LMS(self): return list(self.MS())\n7:     def LLI(self,N): return [self.LMI() for _ in range(N)]\n8:     def LLS(self,N): return [self.LMS() for _ in range(N)]\n9:     def LS(self,N): return [input() for _ in range(N)]\n10:     def LSL(self,N): return [list(input()) for _ in range(N)]\n11:     def LI(self,N): return [self.II() for _ in range(N)]\n12: I=Input_kyopro()\n13: #入力\n14: from collections import defaultdict\n15: import sys\n16: sys.setrecursionlimit(10**8)\n17: N,M=I.MI()\n18: p=I.LMI()\n19: xy=I.LLI(M)\n20: dic=defaultdict(lambda : -1)\n21: for x,y in xy:\n22:     dic[x-1]=max(dic[x-1],y)\n23: G=[[] for _ in range(N)]\n24: for i in range(N-1):\n25:     G[p[i]-1].append(i+1)\n26: count=0\n27: def dfs(i,hp):\n28:     global count\n29:     if hp<dic[i]:\n30:         hp=dic[i]\n31:     if hp>=0:\n32:         count+=1\n33:     for nex in G[i]:\n34:         dfs(nex,hp-1)\n35: \n36: dfs(0,0)\n37: print(count)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.7, \"reason\": \"Deep recursion on chain of N~2.5e5 likely overflows stack/TLE despite recursionlimit; iterative DFS needed\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Recursive entry point; depth N chain causes crash in Python even with raised recursionlimit\"}, {\"line\": 31, \"score\": 0.2, \"reason\": \"hp>=0 counting looks correct but boundary interacts with updated hp; double-check\"}]}",
+  "latency": 5.318311124981847,
+  "token_usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 330,
+    "total_tokens": 1336,
+    "cost": 0.0002007,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002007,
+      "upstream_inference_prompt_cost": 3.57e-05,
+      "upstream_inference_completions_cost": 0.000165
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 211,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250740-eCszlFPNYREPBvRnsAEs",
+    "provider_created": 1789250740,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 758,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250740-eCszlFPNYREPBvRnsAEs",
+    "object": "chat.completion",
+    "created": 1789250740,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 34, \"score\": 0.7, \"reason\": \"Deep recursion on chain of N~2.5e5 likely overflows stack/TLE despite recursionlimit; iterative DFS needed\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Recursive entry point; depth N chain causes crash in Python even with raised recursionlimit\"}, {\"line\": 31, \"score\": 0.2, \"reason\": \"hp>=0 counting looks correct but boundary interacts with updated hp; double-check\"}]}",
+          "refusal": null,
+          "reasoning": "Bug: dic[x-1]=max but if multiple entries for same node... actually fine. hp-1 applied even when hp raised? Passing hp-1 after setting hp=dic[i] — that's correct? hp=dic[i] then children get dic[i]-1. But bug: children call dfs(nex,hp-1) where hp already updated — fine. Issue: defaultdict access in dfs for non-covered nodes sets them to -1, harmless. Real bug: recursion depth on N up to 2.5e5 — likely fine but slow. Actually bug: line 22 stores per-x max, fine. Hmm, comparison hp>=0 correct. Wait: should be hp = max(hp, dic[i]) — it is. Recursion depth likely TLE/MLE... The logic seems correct actually. Possible bug: sys.setrecursionlimit fine. Maybe bug is that dfs recursion in Python with 2.5e5 depth — line 34 recursion. I'll flag line 34 and 36.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Bug: dic[x-1]=max but if multiple entries for same node... actually fine. hp-1 applied even when hp raised? Passing hp-1 after setting hp=dic[i] — that's correct? hp=dic[i] then children get dic[i]-1. But bug: children call dfs(nex,hp-1) where hp already updated — fine. Issue: defaultdict access in dfs for non-covered nodes sets them to -1, harmless. Real bug: recursion depth on N up to 2.5e5 — likely fine but slow. Actually bug: line 22 stores per-x max, fine. Hmm, comparison hp>=0 correct. Wait: should be hp = max(hp, dic[i]) — it is. Recursion depth likely TLE/MLE... The logic seems correct actually. Possible bug: sys.setrecursionlimit fine. Maybe bug is that dfs recursion in Python with 2.5e5 depth — line 34 recursion. I'll flag line 34 and 36.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1006,
+      "completion_tokens": 330,
+      "total_tokens": 1336,
+      "cost": 0.0002007,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002007,
+        "upstream_inference_prompt_cost": 3.57e-05,
+        "upstream_inference_completions_cost": 0.000165
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 211,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

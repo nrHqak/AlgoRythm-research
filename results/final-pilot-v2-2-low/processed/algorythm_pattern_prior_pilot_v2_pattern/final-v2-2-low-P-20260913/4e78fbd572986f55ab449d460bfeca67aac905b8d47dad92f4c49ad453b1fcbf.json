@@ -1,0 +1,73 @@
+{
+  "run_id": "4e78fbd572986f55ab449d460bfeca67aac905b8d47dad92f4c49ad453b1fcbf",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b29dc2b90b799c35ec9edf11741f7762797c74fc954f46509d2b54e39d957278",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "53927639",
+  "task_id": "abc341_d",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:59:51.301166Z",
+  "latency": 2.137522667006124,
+  "token_usage": {
+    "prompt_tokens": 983,
+    "completion_tokens": 111,
+    "total_tokens": 1094,
+    "cost": 8.775e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.775e-05,
+      "upstream_inference_prompt_cost": 3.225e-05,
+      "upstream_inference_completions_cost": 5.55e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 19,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 9, \"score\": 0.95, \"reason\": \"Inclusion-exclusion should subtract overlap once (cnt_n + cnt_m - cnt_d), but cnt_d is subtracted twice.\"}, {\"line\": 15, \"score\": 0.1, \"reason\": \"Upper bound 1e18 likely fine for k up to 1e12; minor risk if insufficient.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/4e78fbd572986f55ab449d460bfeca67aac905b8d47dad92f4c49ad453b1fcbf.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 9,
+        "score": 0.95,
+        "reason": "Inclusion-exclusion should subtract overlap once (cnt_n + cnt_m - cnt_d), but cnt_d is subtracted twice."
+      },
+      {
+        "line": 15,
+        "score": 0.1,
+        "reason": "Upper bound 1e18 likely fine for k up to 1e12; minor risk if insufficient."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    14
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "829",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9bcba4d7f1eb128211846817fdfdc727a47e66f90f13c4060ae6470ccd08d950",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 3856,
+  "prompt_tokens_estimate": 964,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

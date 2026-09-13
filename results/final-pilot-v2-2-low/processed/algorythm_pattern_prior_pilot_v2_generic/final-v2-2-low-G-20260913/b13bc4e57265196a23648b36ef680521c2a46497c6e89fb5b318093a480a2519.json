@@ -1,0 +1,78 @@
+{
+  "run_id": "b13bc4e57265196a23648b36ef680521c2a46497c6e89fb5b318093a480a2519",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "358ef5ba3b7a3070c8f836f2071bcfb3a01e98b89fad0dcfbd3d292bc3af0753",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:35:53.415775Z",
+  "latency": 6.953430292021949,
+  "token_usage": {
+    "prompt_tokens": 1169,
+    "completion_tokens": 398,
+    "total_tokens": 1567,
+    "cost": 0.00023611,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00023611,
+      "upstream_inference_prompt_cost": 3.711e-05,
+      "upstream_inference_completions_cost": 0.000199
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 282,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.7, \"reason\": \"Recursive DFS on a tree of up to 3*10^5 chained nodes exceeds recursion depth despite limit; should be iterative\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"Coverage boost comparison looks right but double-check direction and initialization with dic default -1\"}, {\"line\": 31, \"score\": 0.1, \"reason\": \"hp>=0 counting condition appears correct; minor boundary suspicion\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/b13bc4e57265196a23648b36ef680521c2a46497c6e89fb5b318093a480a2519.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.7,
+        "reason": "Recursive DFS on a tree of up to 3*10^5 chained nodes exceeds recursion depth despite limit; should be iterative"
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "Coverage boost comparison looks right but double-check direction and initialization with dic default -1"
+      },
+      {
+        "line": 31,
+        "score": 0.1,
+        "reason": "hp>=0 counting condition appears correct; minor boundary suspicion"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4496,
+  "prompt_tokens_estimate": 1124,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

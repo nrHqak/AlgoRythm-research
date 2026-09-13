@@ -1,0 +1,83 @@
+{
+  "run_id": "9a4e6c83c8105460af9f47ada60cdeaaf4435a83ae47ac67f141cb56cd50e7e0",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "d5e5cffca2641e1eaf67ffb86321ca57e27433f903e42963564c2e5656c0c57f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "37067201",
+  "task_id": "arc152_b",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:54.951443Z",
+  "latency": 7.998075290990528,
+  "token_usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 523,
+    "total_tokens": 1398,
+    "cost": 0.00029291,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00029291,
+      "upstream_inference_prompt_cost": 3.141e-05,
+      "upstream_inference_completions_cost": 0.0002615
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 354,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 14, \"score\": 0.7, \"reason\": \"Comparison dr>=dl may mis-handle equality/boundary, converging low to wrong candidate or to index i itself (self-pairing).\"}, {\"line\": 15, \"score\": 0.5, \"reason\": \"low=mid on ties can converge to mid==i, pairing element with itself, invalidating the answer.\"}, {\"line\": 7, \"score\": 0.3, \"reason\": \"high=N excludes endpoint A[N+1]=L from search; valid partner t may lie there.\"}, {\"line\": 12, \"score\": 0.2, \"reason\": \"dr formula must match intended path cost; off-by-sign here breaks the search invariant.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/9a4e6c83c8105460af9f47ada60cdeaaf4435a83ae47ac67f141cb56cd50e7e0.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 14,
+        "score": 0.7,
+        "reason": "Comparison dr>=dl may mis-handle equality/boundary, converging low to wrong candidate or to index i itself (self-pairing)."
+      },
+      {
+        "line": 15,
+        "score": 0.5,
+        "reason": "low=mid on ties can converge to mid==i, pairing element with itself, invalidating the answer."
+      },
+      {
+        "line": 7,
+        "score": 0.3,
+        "reason": "high=N excludes endpoint A[N+1]=L from search; valid partner t may lie there."
+      },
+      {
+        "line": 12,
+        "score": 0.2,
+        "reason": "dr formula must match intended path cost; off-by-sign here breaks the search invariant."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 27,
+  "loc": 27,
+  "evaluation_denominator": 27,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1628",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9715242529050b9c8514dc6a5f88ac536821f76512317e084527f46f12736476",
+  "prior_hash": null,
+  "prompt_chars": 3161,
+  "prompt_tokens_estimate": 791,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

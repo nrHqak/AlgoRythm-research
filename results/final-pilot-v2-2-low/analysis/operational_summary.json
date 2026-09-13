@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scientific_calls_completed": 600,
+  "sessions": {
+    "G": {
+      "session_id": "final-v2-2-low-G-20260913",
+      "calls": 300,
+      "successful": 299,
+      "parser_failures": 1,
+      "provider_failures": 0,
+      "started_at": "2026-09-12T21:14:19.529494+00:00",
+      "completed_at": "2026-09-12T21:43:53.793996+00:00"
+    },
+    "P": {
+      "session_id": "final-v2-2-low-P-20260913",
+      "calls": 300,
+      "successful": 300,
+      "parser_failures": 0,
+      "provider_failures": 0,
+      "started_at": "2026-09-12T21:44:20.655944+00:00",
+      "completed_at": "2026-09-12T22:10:45.052105+00:00"
+    }
+  },
+  "token_usage": {
+    "prompt_tokens": 718300,
+    "completion_tokens": 509495,
+    "reasoning_tokens": 429072,
+    "final_content_tokens": 80423,
+    "prompt_plus_completion_tokens": 1227795
+  },
+  "actual_openrouter_cost_usd": 0.2969667400000001,
+  "wall_clock": {
+    "definition": "from Session G start through Session P completion, including the integrity barrier",
+    "seconds": 3385.522611,
+    "hours": 0.9404229475
+  },
+  "analysis": {
+    "pipeline": "analysis.compare_v2_sessions",
+    "primary_unit": "program",
+    "parser_failure_policy": "count_as_failure",
+    "cross_session_result": "results/final-pilot-v2-2-low/analysis/C_vs_B.json"
+  }
+}

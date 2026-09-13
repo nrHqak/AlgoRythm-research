@@ -1,0 +1,73 @@
+{
+  "run_id": "01575bef2a1cef106f40e0160f1964e7d0c02fbc036d8feed2e6a01bcacd2a70",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "b8d6a427395eb84bfd80ec126994a61c30df0568aa3240fc0ead4c37b86ffe76",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "46169156",
+  "task_id": "abc305_b",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:29:30.409009Z",
+  "latency": 3.767198083049152,
+  "token_usage": {
+    "prompt_tokens": 880,
+    "completion_tokens": 100,
+    "total_tokens": 980,
+    "cost": 8.216e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.216e-05,
+      "upstream_inference_prompt_cost": 3.216e-05,
+      "upstream_inference_completions_cost": 5e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 11,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 21, \"score\": 0.95, \"reason\": \"For q=='A', assigns short=0 instead of long, corrupting the distance when A is the second note.\"}, {\"line\": 20, \"score\": 0.3, \"reason\": \"q branch initializes long, but the A case targets the wrong variable; branch structure intent is fine otherwise.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/01575bef2a1cef106f40e0160f1964e7d0c02fbc036d8feed2e6a01bcacd2a70.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 21,
+        "score": 0.95,
+        "reason": "For q=='A', assigns short=0 instead of long, corrupting the distance when A is the second note."
+      },
+      {
+        "line": 20,
+        "score": 0.3,
+        "reason": "q branch initializes long, but the A case targets the wrong variable; branch structure intent is fine otherwise."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    21
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "23",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "5b0814f068501653f6262319e85fdcbda853873103acd67453199e0ae95a808a",
+  "prior_hash": null,
+  "prompt_chars": 3142,
+  "prompt_tokens_estimate": 786,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

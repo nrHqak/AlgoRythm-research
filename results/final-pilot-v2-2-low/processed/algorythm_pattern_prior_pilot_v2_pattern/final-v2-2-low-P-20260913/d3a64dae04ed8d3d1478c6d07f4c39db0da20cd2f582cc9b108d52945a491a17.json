@@ -1,0 +1,88 @@
+{
+  "run_id": "d3a64dae04ed8d3d1478c6d07f4c39db0da20cd2f582cc9b108d52945a491a17",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "fe3d0aba9ebe7dc852e0202653e2fb573f3b67f7ed4f969e828ce3bcf5e19da4",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:00:56.885213Z",
+  "latency": 20.674884374951944,
+  "token_usage": {
+    "prompt_tokens": 1025,
+    "completion_tokens": 1592,
+    "total_tokens": 2617,
+    "cost": 0.00094975,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00094975,
+      "upstream_inference_prompt_cost": 0.00015375,
+      "upstream_inference_completions_cost": 0.000796
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1386,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.5, \"reason\": \"If no valid pair exists, m stays INF; problem likely expects -1 printed instead.\"}, {\"line\": 24, \"score\": 0.4, \"reason\": \"Cost formula V[j]+(K-i-1)+1 must equal (K+V[j])-i; off-by-one here is subtle and common.\"}, {\"line\": 23, \"score\": 0.3, \"reason\": \"bisect_right vs bisect_left: must ensure strictly greater comparison; wrong bisect admits equal values.\"}, {\"line\": 21, \"score\": 0.3, \"reason\": \"INF sentinel for no-swap case interacts with final print; may need -1 output.\"}, {\"line\": 20, \"score\": 0.2, \"reason\": \"INF appended to V guards lookup, but only valid if sentinel handling downstream is right.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/d3a64dae04ed8d3d1478c6d07f4c39db0da20cd2f582cc9b108d52945a491a17.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.5,
+        "reason": "If no valid pair exists, m stays INF; problem likely expects -1 printed instead."
+      },
+      {
+        "line": 24,
+        "score": 0.4,
+        "reason": "Cost formula V[j]+(K-i-1)+1 must equal (K+V[j])-i; off-by-one here is subtle and common."
+      },
+      {
+        "line": 23,
+        "score": 0.3,
+        "reason": "bisect_right vs bisect_left: must ensure strictly greater comparison; wrong bisect admits equal values."
+      },
+      {
+        "line": 21,
+        "score": 0.3,
+        "reason": "INF sentinel for no-swap case interacts with final print; may need -1 output."
+      },
+      {
+        "line": 20,
+        "score": 0.2,
+        "reason": "INF appended to V guards lookup, but only valid if sentinel handling downstream is right."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4011,
+  "prompt_tokens_estimate": 1003,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "6b5a1112371483b5de42a93606e0e5afd23ab688da34778e0d25507bb124bf9c",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "ec044b59ffa1da769be47b0502c63a3aba0482fa1c8deedc468f15da9581959d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:54:44.479996Z",
+  "latency": 12.906469374953303,
+  "token_usage": {
+    "prompt_tokens": 2143,
+    "completion_tokens": 769,
+    "total_tokens": 2912,
+    "cost": 0.00045251,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2112,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00045251,
+      "upstream_inference_prompt_cost": 6.801e-05,
+      "upstream_inference_completions_cost": 0.0003845
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 640,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.95, \"reason\": \"dp[i]+1 when dp[i]=-inf yields -inf+1, propagating garbage so unreachable nodes get non -inf values\"}, {\"line\": 148, \"score\": 0.6, \"reason\": \"sentinel check expects exactly -inf, but propagated -inf+k from line 146 makes this test miss unreachable targets\"}, {\"line\": 143, \"score\": 0.15, \"reason\": \"base case looks correct (value 1 at component of vertex 0), unlikely fault\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/6b5a1112371483b5de42a93606e0e5afd23ab688da34778e0d25507bb124bf9c.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.95,
+        "reason": "dp[i]+1 when dp[i]=-inf yields -inf+1, propagating garbage so unreachable nodes get non -inf values"
+      },
+      {
+        "line": 148,
+        "score": 0.6,
+        "reason": "sentinel check expects exactly -inf, but propagated -inf+k from line 146 makes this test miss unreachable targets"
+      },
+      {
+        "line": 143,
+        "score": 0.15,
+        "reason": "base case looks correct (value 1 at component of vertex 0), unlikely fault"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 8508,
+  "prompt_tokens_estimate": 2127,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

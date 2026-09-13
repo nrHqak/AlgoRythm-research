@@ -1,0 +1,88 @@
+{
+  "run_id": "0feef4fa0d84dc9c0ed160d3986e2361e89810382c6f419bae3f854bbef17757",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "8f52b80fa60f144c54423dde10a2d6e797976f42c823869e0bdff79e106d122b",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:41.503247Z",
+  "latency": 24.445241249981336,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 1735,
+    "total_tokens": 2909,
+    "cost": 0.00090536,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00090536,
+      "upstream_inference_prompt_cost": 3.786e-05,
+      "upstream_inference_completions_cost": 0.0008675
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1481,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 42, \"score\": 0.9, \"reason\": \"Transition adds only (j&1) as cost; flipping pattern j costs popcount(j), so bit 1's cost (j>>1) is never counted.\"}, {\"line\": 31, \"score\": 0.7, \"reason\": \"dp[0][3] set to 1 but state 3 has popcount 2; initialization cost inconsistent with state semantics.\"}, {\"line\": 32, \"score\": 0.7, \"reason\": \"dp[0][2] set to 0 but state 2 costs one flip (popcount 1); costs undercounted.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Compatibility check (k&1)^(j&2) may not verify all vertical-adjacency constraints between rows i-1 and i for every column.\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"maze[i-1][j^k] indexing of allowed states is an unusual encoding; off-by-one in which row's maze entry is checked is plausible.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/0feef4fa0d84dc9c0ed160d3986e2361e89810382c6f419bae3f854bbef17757.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 42,
+        "score": 0.9,
+        "reason": "Transition adds only (j&1) as cost; flipping pattern j costs popcount(j), so bit 1's cost (j>>1) is never counted."
+      },
+      {
+        "line": 31,
+        "score": 0.7,
+        "reason": "dp[0][3] set to 1 but state 3 has popcount 2; initialization cost inconsistent with state semantics."
+      },
+      {
+        "line": 32,
+        "score": 0.7,
+        "reason": "dp[0][2] set to 0 but state 2 costs one flip (popcount 1); costs undercounted."
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "Compatibility check (k&1)^(j&2) may not verify all vertical-adjacency constraints between rows i-1 and i for every column."
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "maze[i-1][j^k] indexing of allowed states is an unusual encoding; off-by-one in which row's maze entry is checked is plausible."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

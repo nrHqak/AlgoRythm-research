@@ -1,0 +1,73 @@
+{
+  "run_id": "1f92e0e1ec412eae266aa17f5642763bb03b13f37820a8620b4255a9b70a724f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "a63379d5c39c155daf20c95da5b64cfda062d5a47d7dde7dc033b26bf9850305",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:43:47.273139Z",
+  "latency": 2.6086728750378825,
+  "token_usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 119,
+    "total_tokens": 1036,
+    "cost": 8.953e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.953e-05,
+      "upstream_inference_prompt_cost": 3.003e-05,
+      "upstream_inference_completions_cost": 5.95e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 39,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.9, \"reason\": \"appendleft turns BFS into DFS-like order, breaking shortest-path correctness; should be append\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"color check looks correct, but verify goal condition N-1==0 handled; minor suspicion only\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/1f92e0e1ec412eae266aa17f5642763bb03b13f37820a8620b4255a9b70a724f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.9,
+        "reason": "appendleft turns BFS into DFS-like order, breaking shortest-path correctness; should be append"
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "color check looks correct, but verify goal condition N-1==0 handled; minor suspicion only"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": null,
+  "prompt_chars": 3445,
+  "prompt_tokens_estimate": 862,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

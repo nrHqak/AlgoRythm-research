@@ -1,0 +1,78 @@
+{
+  "run_id": "3dac77db1ea0e48845037923218a24bdc289a03f9fe7da296ba4d77a43b9839f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "daa2c83a3bddb727860b2371f631f5bf3f279ea152041286590eb401ac4d9015",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991860",
+  "task_id": "arc159_a",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:20.561666Z",
+  "latency": 5.034092625021003,
+  "token_usage": {
+    "prompt_tokens": 1066,
+    "completion_tokens": 272,
+    "total_tokens": 1338,
+    "cost": 0.00017302,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00017302,
+      "upstream_inference_prompt_cost": 3.702e-05,
+      "upstream_inference_completions_cost": 0.000136
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 132,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.9, \"reason\": \"Uses d.pop() (LIFO) instead of popleft(), so traversal is DFS-stack order and first-assigned distances may not be shortest\"}, {\"line\": 18, \"score\": 0.85, \"reason\": \"Same stack-pop issue in main loop; with LIFO, nodes can be enqueued with non-shortest distances, giving wrong dist2 values\"}, {\"line\": 20, \"score\": 0.5, \"reason\": \"Visited check occurs at push time; combined with LIFO order, earliest visit may lock in a longer distance\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/3dac77db1ea0e48845037923218a24bdc289a03f9fe7da296ba4d77a43b9839f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.9,
+        "reason": "Uses d.pop() (LIFO) instead of popleft(), so traversal is DFS-stack order and first-assigned distances may not be shortest"
+      },
+      {
+        "line": 18,
+        "score": 0.85,
+        "reason": "Same stack-pop issue in main loop; with LIFO, nodes can be enqueued with non-shortest distances, giving wrong dist2 values"
+      },
+      {
+        "line": 20,
+        "score": 0.5,
+        "reason": "Visited check occurs at push time; combined with LIFO order, earliest visit may lock in a longer distance"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 29,
+  "loc": 29,
+  "evaluation_denominator": 29,
+  "faulty_lines": [
+    23
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "698",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bc5c0f806d05992ad84adea48866cef26f9351fc7d01d9628a631da27e22d5e",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4212,
+  "prompt_tokens_estimate": 1053,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

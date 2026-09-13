@@ -1,0 +1,73 @@
+{
+  "run_id": "04c01f4ba2d69ef639ae920de21dd229a848bd0ff7e7fc956adde22038c0a63b",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "ebf1b56f2bf5bc8519410d8bf47d27a769d494232f20ab803d65b706dcea8603",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45325123",
+  "task_id": "abc291_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:37:08.520461Z",
+  "latency": 3.7165464169811457,
+  "token_usage": {
+    "prompt_tokens": 915,
+    "completion_tokens": 140,
+    "total_tokens": 1055,
+    "cost": 9.973e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.973e-05,
+      "upstream_inference_prompt_cost": 2.973e-05,
+      "upstream_inference_completions_cost": 7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 65,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"Multiple zero-degree nodes at start never trigger 'No'; uniqueness check only runs after processing a node\"}, {\"line\": 22, \"score\": 0.5, \"reason\": \"Queue-size check happens after full neighbor processing, missing initial ambiguity\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/04c01f4ba2d69ef639ae920de21dd229a848bd0ff7e7fc956adde22038c0a63b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.9,
+        "reason": "Multiple zero-degree nodes at start never trigger 'No'; uniqueness check only runs after processing a node"
+      },
+      {
+        "line": 22,
+        "score": 0.5,
+        "reason": "Queue-size check happens after full neighbor processing, missing initial ambiguity"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 35,
+  "loc": 35,
+  "evaluation_denominator": 35,
+  "faulty_lines": [
+    15
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1069",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "005329430119bbedd0e5f536ae6a2f34fa47dd6694d0c20d404f2c303a32c86c",
+  "prior_hash": null,
+  "prompt_chars": 3351,
+  "prompt_tokens_estimate": 838,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,68 @@
+{
+  "run_id": "b9b70f356d29fa276a236474d305b7118309a0bed11f0fa4cab9c0febb56eba7",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "d863ddb07c41998b16c540bd8a4efe91bc3171fc38fb994ce52cc7af3d919d6e",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:30:59.631547Z",
+  "latency": 5.433469791954849,
+  "token_usage": {
+    "prompt_tokens": 1028,
+    "completion_tokens": 299,
+    "total_tokens": 1327,
+    "cost": 0.00018082,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00018082,
+      "upstream_inference_prompt_cost": 3.132e-05,
+      "upstream_inference_completions_cost": 0.0001495
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 242,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 24, \"score\": 0.9, \"reason\": \"Extra +1 in cost formula; index V[j] already gives the position, cost should be V[j]+(K-i-1), off-by-one.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/b9b70f356d29fa276a236474d305b7118309a0bed11f0fa4cab9c0febb56eba7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 24,
+        "score": 0.9,
+        "reason": "Extra +1 in cost formula; index V[j] already gives the position, cost should be V[j]+(K-i-1), off-by-one."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4036,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

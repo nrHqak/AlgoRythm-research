@@ -1,0 +1,88 @@
+{
+  "run_id": "8569fbb3b4d8f0d1a6eb51d02084d70fbcf3ba6fb1e103f502ac5e3cefa412e1",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "b2ca16830e6a4f320047acebed77a4c95f9c79b484026a36fbe7bd848bcd3a22",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:20:25.753136Z",
+  "latency": 21.533375500002876,
+  "token_usage": {
+    "prompt_tokens": 1208,
+    "completion_tokens": 1404,
+    "total_tokens": 2612,
+    "cost": 0.0008448,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008448,
+      "upstream_inference_prompt_cost": 0.0001428,
+      "upstream_inference_completions_cost": 0.000702
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1202,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 28, \"score\": 0.6, \"reason\": \"Old V2[j]+vi is discarded during reset, losing a valid second-best candidate of a different color\"}, {\"line\": 24, \"score\": 0.5, \"reason\": \"Reset of V2 before considering old V2 as a candidate drops possible second-best values\"}, {\"line\": 20, \"score\": 0.4, \"reason\": \"Same-color update relies solely on V2[j]; if V2 was lost, best becomes -INF incorrectly\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"Elif guards on C1[j] which was possibly just reassigned, may skip valid second-best update\"}, {\"line\": 42, \"score\": 0.2, \"reason\": \"Same-color j=0 case sets -INF but should also update C2[0] as fallback candidate\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/8569fbb3b4d8f0d1a6eb51d02084d70fbcf3ba6fb1e103f502ac5e3cefa412e1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 28,
+        "score": 0.6,
+        "reason": "Old V2[j]+vi is discarded during reset, losing a valid second-best candidate of a different color"
+      },
+      {
+        "line": 24,
+        "score": 0.5,
+        "reason": "Reset of V2 before considering old V2 as a candidate drops possible second-best values"
+      },
+      {
+        "line": 20,
+        "score": 0.4,
+        "reason": "Same-color update relies solely on V2[j]; if V2 was lost, best becomes -INF incorrectly"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "Elif guards on C1[j] which was possibly just reassigned, may skip valid second-best update"
+      },
+      {
+        "line": 42,
+        "score": 0.2,
+        "reason": "Same-color j=0 case sets -INF but should also update C2[0] as fallback candidate"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": null,
+  "prompt_chars": 3988,
+  "prompt_tokens_estimate": 997,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

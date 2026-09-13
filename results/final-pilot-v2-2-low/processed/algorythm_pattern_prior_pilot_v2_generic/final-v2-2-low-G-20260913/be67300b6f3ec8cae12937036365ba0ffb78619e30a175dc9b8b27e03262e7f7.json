@@ -1,0 +1,93 @@
+{
+  "run_id": "be67300b6f3ec8cae12937036365ba0ffb78619e30a175dc9b8b27e03262e7f7",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "2d0f475c2ecb801894f22ac5b278fc2eb8fa2541b9933baccba2529a446693f2",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "generic_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:34:19.272336Z",
+  "latency": 27.933368166035507,
+  "token_usage": {
+    "prompt_tokens": 1375,
+    "completion_tokens": 1871,
+    "total_tokens": 3246,
+    "cost": 0.00110335,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00110335,
+      "upstream_inference_prompt_cost": 0.00016785,
+      "upstream_inference_completions_cost": 0.0009355
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1624,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 15, \"score\": 0.9, \"reason\": \"Recurses on all of c instead of only the unmatched leftover of size len(c)-len(b), overcounting pairs.\"}, {\"line\": 3, \"score\": 0.5, \"reason\": \"Base case len(a)//2 assumes greedy pairing succeeds without checking XOR against remaining m bits.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Leftover counts len(e)-len(f) and len(g)-len(d) pair internally as whole counts, recursion may not account correctly.\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"Symmetric leftover case; unmatched elements within one group are never recursed on.\"}, {\"line\": 34, \"score\": 0.2, \"reason\": \"Counting only cross pairs min(e,f)+min(d,g) drops leftover elements' internal pairing entirely.\"}, {\"line\": 46, \"score\": 0.2, \"reason\": \"Threshold (n+1)//2 may mismatch needed median rank depending on exact pair-count semantics.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/be67300b6f3ec8cae12937036365ba0ffb78619e30a175dc9b8b27e03262e7f7.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 15,
+        "score": 0.9,
+        "reason": "Recurses on all of c instead of only the unmatched leftover of size len(c)-len(b), overcounting pairs."
+      },
+      {
+        "line": 3,
+        "score": 0.5,
+        "reason": "Base case len(a)//2 assumes greedy pairing succeeds without checking XOR against remaining m bits."
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "Leftover counts len(e)-len(f) and len(g)-len(d) pair internally as whole counts, recursion may not account correctly."
+      },
+      {
+        "line": 38,
+        "score": 0.3,
+        "reason": "Symmetric leftover case; unmatched elements within one group are never recursed on."
+      },
+      {
+        "line": 34,
+        "score": 0.2,
+        "reason": "Counting only cross pairs min(e,f)+min(d,g) drops leftover elements' internal pairing entirely."
+      },
+      {
+        "line": 46,
+        "score": 0.2,
+        "reason": "Threshold (n+1)//2 may mismatch needed median rank depending on exact pair-count semantics."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4754,
+  "prompt_tokens_estimate": 1189,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

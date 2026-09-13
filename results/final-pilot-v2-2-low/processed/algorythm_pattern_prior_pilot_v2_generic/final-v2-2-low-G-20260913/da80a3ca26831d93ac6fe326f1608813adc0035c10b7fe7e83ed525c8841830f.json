@@ -1,0 +1,78 @@
+{
+  "run_id": "da80a3ca26831d93ac6fe326f1608813adc0035c10b7fe7e83ed525c8841830f",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "c16ca86bcaab05157ff0842075106aa9b7be9887fccc597334345df340420272",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:25.267623Z",
+  "latency": 10.93721041700337,
+  "token_usage": {
+    "prompt_tokens": 2156,
+    "completion_tokens": 607,
+    "total_tokens": 2763,
+    "cost": 0.00037346,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2112,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00037346,
+      "upstream_inference_prompt_cost": 6.996e-05,
+      "upstream_inference_completions_cost": 0.0003035
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 463,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"Relaxing with max lets dp[j] be improved after j is already processed; shortest-layer dp must only assign once (when dp[j] is -inf).\"}, {\"line\": 144, \"score\": 0.4, \"reason\": \"Sorting only by AA[i] leaves ties in arbitrary order, which breaks layer-by-layer dp propagation.\"}, {\"line\": 147, \"score\": 0.2, \"reason\": \"Answer convention: unreachable case yields 0, which matches problem only if counting vertices; verify off-by-one with dp init at 1.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/da80a3ca26831d93ac6fe326f1608813adc0035c10b7fe7e83ed525c8841830f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.9,
+        "reason": "Relaxing with max lets dp[j] be improved after j is already processed; shortest-layer dp must only assign once (when dp[j] is -inf)."
+      },
+      {
+        "line": 144,
+        "score": 0.4,
+        "reason": "Sorting only by AA[i] leaves ties in arbitrary order, which breaks layer-by-layer dp propagation."
+      },
+      {
+        "line": 147,
+        "score": 0.2,
+        "reason": "Answer convention: unreachable case yields 0, which matches problem only if counting vertices; verify off-by-one with dp init at 1."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 8570,
+  "prompt_tokens_estimate": 2143,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

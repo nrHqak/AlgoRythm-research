@@ -1,0 +1,68 @@
+{
+  "run_id": "12bfbb411d7f0c6dfc4feea91167aa4caadbfbe7e0210b4793290795a93174f8",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "b11ca3715e227a05a529242ad08312fa7d802dbfdc639ac93aef4e506099740a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45289055",
+  "task_id": "abc257_a",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:56:35.461774Z",
+  "latency": 2.340926250035409,
+  "token_usage": {
+    "prompt_tokens": 1275,
+    "completion_tokens": 84,
+    "total_tokens": 1359,
+    "cost": 8.733e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1216,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.733e-05,
+      "upstream_inference_prompt_cost": 4.533e-05,
+      "upstream_inference_completions_cost": 4.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 38,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 40, \"score\": 0.95, \"reason\": \"Should use (X-1)//N; X//N gives wrong letter at boundaries like X=N.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/12bfbb411d7f0c6dfc4feea91167aa4caadbfbe7e0210b4793290795a93174f8.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 40,
+        "score": 0.95,
+        "reason": "Should use (X-1)//N; X//N gives wrong letter at boundaries like X=N."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 44,
+  "loc": 44,
+  "evaluation_denominator": 44,
+  "faulty_lines": [
+    40
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "22",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "ac3951dd06b5a04dd4457b15d9ab51da6ead38da4ce924461c5aba902f5da665",
+  "prior_hash": "f32fd83713d902b58f7cb4e7a8b96807706dc024ca35917f31631d04f7eae71d",
+  "prompt_chars": 4677,
+  "prompt_tokens_estimate": 1170,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "e93781349b8e7ad4cf25d4623ac458e63dbb0edd7785cfc228aec99e176e2959",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "39201856",
+  "task_id": "arc157_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:14:27.852016Z",
+  "latency": 8.268537500000093,
+  "token_usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 416,
+    "total_tokens": 2193,
+    "cost": 0.00043615,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00043615,
+      "upstream_inference_prompt_cost": 0.00022815,
+      "upstream_inference_completions_cost": 0.000208
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 228,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.85, \"reason\": \"Adding +1 inside max turns stale -1 into 0, and children being Y (dp_y) is ignored; should consider max(dp_x,dp_y) of children.\"}, {\"line\": 42, \"score\": 0.35, \"reason\": \"dp_x combines max of both children states but children both Y may be invalid; lacks case separation for X parent constraint.\"}, {\"line\": 48, \"score\": 0.2, \"reason\": \"Root-X case assumes exactly c//2 non-leaf Y but children-of-Y structure may allow fewer; formula possibly too strict.\"}, {\"line\": 55, \"score\": 0.2, \"reason\": \"Root-Y y_leaf_count formula paired with line 34's incomplete dp_y recurrence may miscount.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/1237183a7b3eae7ac94cada0a1ba49db3407b90e1a5671cfdebb7c7f481f0dac.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.85,
+        "reason": "Adding +1 inside max turns stale -1 into 0, and children being Y (dp_y) is ignored; should consider max(dp_x,dp_y) of children."
+      },
+      {
+        "line": 42,
+        "score": 0.35,
+        "reason": "dp_x combines max of both children states but children both Y may be invalid; lacks case separation for X parent constraint."
+      },
+      {
+        "line": 48,
+        "score": 0.2,
+        "reason": "Root-X case assumes exactly c//2 non-leaf Y but children-of-Y structure may allow fewer; formula possibly too strict."
+      },
+      {
+        "line": 55,
+        "score": 0.2,
+        "reason": "Root-Y y_leaf_count formula paired with line 34's incomplete dp_y recurrence may miscount."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 93,
+  "loc": 93,
+  "evaluation_denominator": 93,
+  "faulty_lines": [
+    34
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2877",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "0cf13952ea4faa3d0a3daff6f08029fd048fe2214f361a60005b9646aa78c60e",
+  "prior_hash": null,
+  "prompt_chars": 5587,
+  "prompt_tokens_estimate": 1397,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

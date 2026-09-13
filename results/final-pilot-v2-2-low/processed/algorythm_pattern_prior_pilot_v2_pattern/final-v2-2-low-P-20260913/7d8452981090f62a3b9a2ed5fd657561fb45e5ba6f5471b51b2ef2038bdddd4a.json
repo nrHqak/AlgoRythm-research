@@ -1,0 +1,73 @@
+{
+  "run_id": "7d8452981090f62a3b9a2ed5fd657561fb45e5ba6f5471b51b2ef2038bdddd4a",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "960927eefd83325a015a66c18eb7d9bb6abbd71b37ab1ec92f8bf92c5b10f423",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45463729",
+  "task_id": "abc289_e",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:32.948728Z",
+  "latency": 3.785715625039302,
+  "token_usage": {
+    "prompt_tokens": 1099,
+    "completion_tokens": 226,
+    "total_tokens": 1325,
+    "cost": 0.00014729,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00014729,
+      "upstream_inference_prompt_cost": 3.429e-05,
+      "upstream_inference_completions_cost": 0.000113
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 129,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 25, \"score\": 0.95, \"reason\": \"appendleft turns BFS into DFS; state pushed with cost+1 may not be minimal, breaking shortest-path distances\"}, {\"line\": 20, \"score\": 0.2, \"reason\": \"loop variable t is shadowed by unpacked tuple name taka? actually 'taka' fine, but 't' reuse is harmless; minor style\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/7d8452981090f62a3b9a2ed5fd657561fb45e5ba6f5471b51b2ef2038bdddd4a.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 25,
+        "score": 0.95,
+        "reason": "appendleft turns BFS into DFS; state pushed with cost+1 may not be minimal, breaking shortest-path distances"
+      },
+      {
+        "line": 20,
+        "score": 0.2,
+        "reason": "loop variable t is shadowed by unpacked tuple name taka? actually 'taka' fine, but 't' reuse is harmless; minor style"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 32,
+  "loc": 32,
+  "evaluation_denominator": 32,
+  "faulty_lines": [
+    20
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1318",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "8d441df34ae1e7917100d12cdb23c9e76d5a34d7a28a7aa71a3ebd30d2a80933",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4350,
+  "prompt_tokens_estimate": 1088,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

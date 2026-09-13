@@ -1,0 +1,78 @@
+{
+  "run_id": "f4c48b038f2512f879e81fb3859e447f2c337fcc5b94fba0794a479a3302bc40",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "bd87d77ad8b7686de9798a4fb794f15069a77aef3f2319f3aceb3505e60aa6c5",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:16:07.940882Z",
+  "latency": 10.341167584003415,
+  "token_usage": {
+    "prompt_tokens": 1898,
+    "completion_tokens": 583,
+    "total_tokens": 2481,
+    "cost": 0.00035348,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1856,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00035348,
+      "upstream_inference_prompt_cost": 6.198e-05,
+      "upstream_inference_completions_cost": 0.0002915
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 449,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 130, \"score\": 0.95, \"reason\": \"When x>c, new top-3 should be (b,c,x), keeping b,c and dropping a; code keeps a,b instead.\"}, {\"line\": 128, \"score\": 0.2, \"reason\": \"x<=b branch replaces a with x; correct per patience logic, but adjacent to faulty else branch.\"}, {\"line\": 136, \"score\": 0.1, \"reason\": \"Sum over a<b<c of final states seems consistent with (m+1)-encoded top-3 states.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/f4c48b038f2512f879e81fb3859e447f2c337fcc5b94fba0794a479a3302bc40.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 130,
+        "score": 0.95,
+        "reason": "When x>c, new top-3 should be (b,c,x), keeping b,c and dropping a; code keeps a,b instead."
+      },
+      {
+        "line": 128,
+        "score": 0.2,
+        "reason": "x<=b branch replaces a with x; correct per patience logic, but adjacent to faulty else branch."
+      },
+      {
+        "line": 136,
+        "score": 0.1,
+        "reason": "Sum over a<b<c of final states seems consistent with (m+1)-encoded top-3 states."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": null,
+  "prompt_chars": 6926,
+  "prompt_tokens_estimate": 1732,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

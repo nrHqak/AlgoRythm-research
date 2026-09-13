@@ -1,0 +1,88 @@
+{
+  "run_id": "50be1361b98e85d2d91b122df011d9c2e951aee35940d9ba926b6340ec1613b1",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "81e30e9be3bb0d4b1aac10a62894a4f64defefc9327c30fddc9f96fdde9297e0",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:47:46.530676Z",
+  "latency": 19.966019959014375,
+  "token_usage": {
+    "prompt_tokens": 2067,
+    "completion_tokens": 1386,
+    "total_tokens": 3453,
+    "cost": 0.00075729,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00075729,
+      "upstream_inference_prompt_cost": 6.429e-05,
+      "upstream_inference_completions_cost": 0.000693
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1135,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 125, \"score\": 0.9, \"reason\": \"Branch condition inverted: when x>a the new largest triple should become (x,a,b), not (x,b,c); comparisons misassign which value is replaced.\"}, {\"line\": 124, \"score\": 0.8, \"reason\": \"Filter skips x>c, but new elements larger than c are exactly the ones that change the top-3 state; condition direction is backwards.\"}, {\"line\": 126, \"score\": 0.7, \"reason\": \"Replaces a with x but keeps b,c; correct top-3 after inserting x>a is (x,a,b), so a,b should shift.\"}, {\"line\": 128, \"score\": 0.6, \"reason\": \"Gives (a,x,c), dropping b; for b<x<=a correct state is (a,x,b) — c slot wrong.\"}, {\"line\": 130, \"score\": 0.4, \"reason\": \"Only correct for c<x<=b; for x<=c state should remain (a,b,c) with old c, this branch overwrites c unconditionally.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/50be1361b98e85d2d91b122df011d9c2e951aee35940d9ba926b6340ec1613b1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 125,
+        "score": 0.9,
+        "reason": "Branch condition inverted: when x>a the new largest triple should become (x,a,b), not (x,b,c); comparisons misassign which value is replaced."
+      },
+      {
+        "line": 124,
+        "score": 0.8,
+        "reason": "Filter skips x>c, but new elements larger than c are exactly the ones that change the top-3 state; condition direction is backwards."
+      },
+      {
+        "line": 126,
+        "score": 0.7,
+        "reason": "Replaces a with x but keeps b,c; correct top-3 after inserting x>a is (x,a,b), so a,b should shift."
+      },
+      {
+        "line": 128,
+        "score": 0.6,
+        "reason": "Gives (a,x,c), dropping b; for b<x<=a correct state is (a,x,b) — c slot wrong."
+      },
+      {
+        "line": 130,
+        "score": 0.4,
+        "reason": "Only correct for c<x<=b; for x<=c state should remain (a,b,c) with old c, this branch overwrites c unconditionally."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": "3e3a972f68be63a6a9b363145541cf3bcb3bc3181425d7db24cd59756e4e1dc4",
+  "prompt_chars": 7799,
+  "prompt_tokens_estimate": 1950,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,78 @@
+{
+  "run_id": "b6e6710ae9797f187306453a8fd724b7d83d65d5e2ed7ecedd6360e8bd575c06",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "e33cf2a4d4061dc8588f3631e0998f0aace201e4700f8474ceb7c51b2c70afea",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:32:28.980037Z",
+  "latency": 13.151115667016711,
+  "token_usage": {
+    "prompt_tokens": 944,
+    "completion_tokens": 936,
+    "total_tokens": 1880,
+    "cost": 0.00050208,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00050208,
+      "upstream_inference_prompt_cost": 3.408e-05,
+      "upstream_inference_completions_cost": 0.000468
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 784,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.9, \"reason\": \"When digit equals previous, should add (d-1)*9^k (exclude repeated digit); 'd*9^k - 1' subtracts 1 instead of 9^k.\"}, {\"line\": 27, \"score\": 0.5, \"reason\": \"Dead check: if TF is true no adjacent digits are equal, so this condition can never trigger and the -1 correction never applies.\"}, {\"line\": 13, \"score\": 0.3, \"reason\": \"First digit handling: leading digit cannot be 0, needs confirmation it matches the counting convention used elsewhere.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/b6e6710ae9797f187306453a8fd724b7d83d65d5e2ed7ecedd6360e8bd575c06.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.9,
+        "reason": "When digit equals previous, should add (d-1)*9^k (exclude repeated digit); 'd*9^k - 1' subtracts 1 instead of 9^k."
+      },
+      {
+        "line": 27,
+        "score": 0.5,
+        "reason": "Dead check: if TF is true no adjacent digits are equal, so this condition can never trigger and the -1 correction never applies."
+      },
+      {
+        "line": 13,
+        "score": 0.3,
+        "reason": "First digit handling: leading digit cannot be 0, needs confirmation it matches the counting convention used elsewhere."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": null,
+  "prompt_chars": 3558,
+  "prompt_tokens_estimate": 890,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

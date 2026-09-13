@@ -1,0 +1,83 @@
+{
+  "run_id": "5cdc27bfc77a6bddd97b288175bc96bf413fa899299182a47da7e65d22bbbb9b",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "897ac0e683ccf2ae0ec33fae86df44df72f8b30a22726c76d6b0fcd0e04a09cb",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:01:33.778643Z",
+  "latency": 16.259689291997347,
+  "token_usage": {
+    "prompt_tokens": 1104,
+    "completion_tokens": 1166,
+    "total_tokens": 2270,
+    "cost": 0.0007486,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007486,
+      "upstream_inference_prompt_cost": 0.0001656,
+      "upstream_inference_completions_cost": 0.000583
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 984,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.9, \"reason\": \"When digit equals previous, count should be (digit-1)*9^k, not digit*9^k-1; mismatched expression breaks the count.\"}, {\"line\": 27, \"score\": 0.75, \"reason\": \"If mid itself is valid, it must be added (ans+1), not subtracted; subtracting 1 undercounts.\"}, {\"line\": 18, \"score\": 0.25, \"reason\": \"Count of smaller digits avoiding previous should be digit-1 here since prev<digit; correct, but adjacent to faulty logic.\"}, {\"line\": 24, \"score\": 0.15, \"reason\": \"digit choices when d<bef; correct unless zero-leading edge cases arise.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/5cdc27bfc77a6bddd97b288175bc96bf413fa899299182a47da7e65d22bbbb9b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.9,
+        "reason": "When digit equals previous, count should be (digit-1)*9^k, not digit*9^k-1; mismatched expression breaks the count."
+      },
+      {
+        "line": 27,
+        "score": 0.75,
+        "reason": "If mid itself is valid, it must be added (ans+1), not subtracted; subtracting 1 undercounts."
+      },
+      {
+        "line": 18,
+        "score": 0.25,
+        "reason": "Count of smaller digits avoiding previous should be digit-1 here since prev<digit; correct, but adjacent to faulty logic."
+      },
+      {
+        "line": 24,
+        "score": 0.15,
+        "reason": "digit choices when d<bef; correct unless zero-leading edge cases arise."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4377,
+  "prompt_tokens_estimate": 1095,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

@@ -1,0 +1,83 @@
+{
+  "run_id": "46c06931340d465b6cf16602d285aedd21d35b9919ac9130bbddbe6929d55405",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "34b6674c0827539db6eacfca145727ddad110abb2207fc6480254023cc529f95",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "pattern_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:26.359369Z",
+  "latency": 19.604847874958068,
+  "token_usage": {
+    "prompt_tokens": 1104,
+    "completion_tokens": 1372,
+    "total_tokens": 2476,
+    "cost": 0.00072104,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00072104,
+      "upstream_inference_prompt_cost": 3.504e-05,
+      "upstream_inference_completions_cost": 0.000686
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1193,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.85, \"reason\": \"Subtracts 1 when a repeated digit is found, wrongly excluding mid even though mid itself is a repdigit and shouldn't be counted at all\"}, {\"line\": 27, \"score\": 0.6, \"reason\": \"Compensation only checks last two digits; repeat can occur anywhere, and cases reaching break at line 22 skip this check entirely\"}, {\"line\": 17, \"score\": 0.3, \"reason\": \"Counting d-1 valid smaller digits when d>bef assumes only bef is forbidden; boundary interaction with repeat detection is fragile\"}, {\"line\": 12, \"score\": 0.15, \"reason\": \"Sums all shorter-length counts unconditionally; fine, but interacts with the -1 corrections\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/46c06931340d465b6cf16602d285aedd21d35b9919ac9130bbddbe6929d55405.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.85,
+        "reason": "Subtracts 1 when a repeated digit is found, wrongly excluding mid even though mid itself is a repdigit and shouldn't be counted at all"
+      },
+      {
+        "line": 27,
+        "score": 0.6,
+        "reason": "Compensation only checks last two digits; repeat can occur anywhere, and cases reaching break at line 22 skip this check entirely"
+      },
+      {
+        "line": 17,
+        "score": 0.3,
+        "reason": "Counting d-1 valid smaller digits when d>bef assumes only bef is forbidden; boundary interaction with repeat detection is fragile"
+      },
+      {
+        "line": 12,
+        "score": 0.15,
+        "reason": "Sums all shorter-length counts unconditionally; fine, but interacts with the -1 corrections"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4377,
+  "prompt_tokens_estimate": 1095,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

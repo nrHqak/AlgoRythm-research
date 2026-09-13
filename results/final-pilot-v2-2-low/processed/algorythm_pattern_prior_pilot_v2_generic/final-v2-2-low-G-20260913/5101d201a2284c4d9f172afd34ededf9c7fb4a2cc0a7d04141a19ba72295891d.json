@@ -1,0 +1,78 @@
+{
+  "run_id": "5101d201a2284c4d9f172afd34ededf9c7fb4a2cc0a7d04141a19ba72295891d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "e061291fa169e1731447ebfd1f139dfd957bb27b2d21ea711a25aba4e24e935d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "43171788",
+  "task_id": "arc138_a",
+  "condition": "generic_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:31:27.380413Z",
+  "latency": 10.535944541974459,
+  "token_usage": {
+    "prompt_tokens": 1028,
+    "completion_tokens": 716,
+    "total_tokens": 1744,
+    "cost": 0.00038932,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00038932,
+      "upstream_inference_prompt_cost": 3.132e-05,
+      "upstream_inference_completions_cost": 0.000358
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 580,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 16, \"score\": 0.85, \"reason\": \"Strict '>' skips equal suffix values, missing valid pairs where L[i] < equal-to-max R value with smaller cost\"}, {\"line\": 24, \"score\": 0.6, \"reason\": \"Cost equals V[j]+K-i+1 (pair distance j-i+1); expression yields V[j]+K-i, off by one\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"bisect_right with strict-max M is consistent but ties to line 16 issue; suspect only if condition wrong\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/5101d201a2284c4d9f172afd34ededf9c7fb4a2cc0a7d04141a19ba72295891d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 16,
+        "score": 0.85,
+        "reason": "Strict '>' skips equal suffix values, missing valid pairs where L[i] < equal-to-max R value with smaller cost"
+      },
+      {
+        "line": 24,
+        "score": 0.6,
+        "reason": "Cost equals V[j]+K-i+1 (pair distance j-i+1); expression yields V[j]+K-i, off by one"
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "bisect_right with strict-max M is consistent but ties to line 16 issue; suspect only if condition wrong"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    25
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "837",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "6f1f02fbef08ceb354cf4ba30fed68333677a45ca7e8735e75d12ba4335c7f0f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4036,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

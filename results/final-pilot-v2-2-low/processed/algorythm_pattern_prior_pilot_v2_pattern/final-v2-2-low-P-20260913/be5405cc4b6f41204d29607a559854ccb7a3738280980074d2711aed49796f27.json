@@ -1,0 +1,78 @@
+{
+  "run_id": "be5405cc4b6f41204d29607a559854ccb7a3738280980074d2711aed49796f27",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "dec37170b76c15e9c9e3ba902ea8bab31c69c0219c4be9fb9e72a30431dddd78",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991860",
+  "task_id": "arc159_a",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:09:44.538013Z",
+  "latency": 4.27440154197393,
+  "token_usage": {
+    "prompt_tokens": 884,
+    "completion_tokens": 157,
+    "total_tokens": 1041,
+    "cost": 0.0001727,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001727,
+      "upstream_inference_prompt_cost": 9.42e-05,
+      "upstream_inference_completions_cost": 7.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 29,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 18, \"score\": 0.95, \"reason\": \"d.pop() pops from the right, making BFS a DFS; distances computed are wrong. Should be d.popleft().\"}, {\"line\": 13, \"score\": 0.8, \"reason\": \"Same stack behavior: pops i immediately after appending; combined with pop-based traversal breaks BFS distance layering.\"}, {\"line\": 29, \"score\": 0.15, \"reason\": \"s%n, t%n assumes infinite repetition; only correct if problem guarantees cyclic teleportation per block.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/be5405cc4b6f41204d29607a559854ccb7a3738280980074d2711aed49796f27.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 18,
+        "score": 0.95,
+        "reason": "d.pop() pops from the right, making BFS a DFS; distances computed are wrong. Should be d.popleft()."
+      },
+      {
+        "line": 13,
+        "score": 0.8,
+        "reason": "Same stack behavior: pops i immediately after appending; combined with pop-based traversal breaks BFS distance layering."
+      },
+      {
+        "line": 29,
+        "score": 0.15,
+        "reason": "s%n, t%n assumes infinite repetition; only correct if problem guarantees cyclic teleportation per block."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 29,
+  "loc": 29,
+  "evaluation_denominator": 29,
+  "faulty_lines": [
+    23
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "698",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bc5c0f806d05992ad84adea48866cef26f9351fc7d01d9628a631da27e22d5e",
+  "prior_hash": null,
+  "prompt_chars": 3307,
+  "prompt_tokens_estimate": 827,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

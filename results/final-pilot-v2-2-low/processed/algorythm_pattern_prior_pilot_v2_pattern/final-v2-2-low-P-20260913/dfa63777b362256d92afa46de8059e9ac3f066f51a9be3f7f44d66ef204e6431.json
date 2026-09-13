@@ -1,0 +1,78 @@
+{
+  "run_id": "dfa63777b362256d92afa46de8059e9ac3f066f51a9be3f7f44d66ef204e6431",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "85a4ea86e79623e136d40c88b9cead39dc66bc3987c68cc56a04c27a9310c8ea",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "pattern_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:05:44.827311Z",
+  "latency": 4.509223041997757,
+  "token_usage": {
+    "prompt_tokens": 1188,
+    "completion_tokens": 296,
+    "total_tokens": 1484,
+    "cost": 0.00018796,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00018796,
+      "upstream_inference_prompt_cost": 3.996e-05,
+      "upstream_inference_completions_cost": 0.000148
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 161,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.6, \"reason\": \"Recursive DFS on a tree of up to 3e5 chained nodes risks RecursionError despite limit; iterative traversal needed.\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"Recursion per child is deep; convert to iterative stack to avoid stack overflow on long chains.\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"dic[i] may be unset for most nodes; logic looks correct but compare uses default -1 which is fine—minor suspicion only.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/dfa63777b362256d92afa46de8059e9ac3f066f51a9be3f7f44d66ef204e6431.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.6,
+        "reason": "Recursive DFS on a tree of up to 3e5 chained nodes risks RecursionError despite limit; iterative traversal needed."
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "Recursion per child is deep; convert to iterative stack to avoid stack overflow on long chains."
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "dic[i] may be unset for most nodes; logic looks correct but compare uses default -1 which is fine—minor suspicion only."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4557,
+  "prompt_tokens_estimate": 1140,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

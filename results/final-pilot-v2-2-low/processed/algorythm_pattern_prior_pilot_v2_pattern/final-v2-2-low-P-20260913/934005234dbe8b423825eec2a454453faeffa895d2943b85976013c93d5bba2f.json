@@ -1,0 +1,78 @@
+{
+  "run_id": "934005234dbe8b423825eec2a454453faeffa895d2943b85976013c93d5bba2f",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "40af7785c3b6915d58531c996e17ce44aba266804b8e96923f2aeecf288aa651",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991860",
+  "task_id": "arc159_a",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:19.853964Z",
+  "latency": 4.326914791017771,
+  "token_usage": {
+    "prompt_tokens": 884,
+    "completion_tokens": 239,
+    "total_tokens": 1123,
+    "cost": 0.00015226,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00015226,
+      "upstream_inference_prompt_cost": 3.276e-05,
+      "upstream_inference_completions_cost": 0.0001195
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 118,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 13, \"score\": 0.9, \"reason\": \"uses d.pop() (stack) instead of d.popleft(), breaking BFS; dist2 may not be shortest distances\"}, {\"line\": 18, \"score\": 0.85, \"reason\": \"same stack pop in main loop causes non-shortest distance assignments for unweighted graph\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"s%n/t%n assumes k-periodicity; correct only if k multiple of n, minor concern\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/934005234dbe8b423825eec2a454453faeffa895d2943b85976013c93d5bba2f.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 13,
+        "score": 0.9,
+        "reason": "uses d.pop() (stack) instead of d.popleft(), breaking BFS; dist2 may not be shortest distances"
+      },
+      {
+        "line": 18,
+        "score": 0.85,
+        "reason": "same stack pop in main loop causes non-shortest distance assignments for unweighted graph"
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "s%n/t%n assumes k-periodicity; correct only if k multiple of n, minor concern"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 29,
+  "loc": 29,
+  "evaluation_denominator": 29,
+  "faulty_lines": [
+    23
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "698",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "3bc5c0f806d05992ad84adea48866cef26f9351fc7d01d9628a631da27e22d5e",
+  "prior_hash": null,
+  "prompt_chars": 3307,
+  "prompt_tokens_estimate": 827,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

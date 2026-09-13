@@ -1,0 +1,78 @@
+{
+  "run_id": "05c57636f9c300af160b72b7fdfaa3bc740c1dc944de9819445cd06048b9d7d8",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "77a0e5340b0fa20300e325926c4ddf976203b3a40a2a9a63a6ef4872319a536a",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "55029036",
+  "task_id": "abc335_e",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:21:55.564320Z",
+  "latency": 29.412058791029267,
+  "token_usage": {
+    "prompt_tokens": 1974,
+    "completion_tokens": 1977,
+    "total_tokens": 3951,
+    "cost": 0.0010542,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0010542,
+      "upstream_inference_prompt_cost": 6.57e-05,
+      "upstream_inference_completions_cost": 0.0009885
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1832,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 146, \"score\": 0.9, \"reason\": \"Propagates dp[i]+1 even when dp[i] is -inf (unreachable), turning it into a finite wrong value instead of leaving dp[j] unreachable.\"}, {\"line\": 144, \"score\": 0.3, \"reason\": \"Sorted processing is only safe if -inf states are never propagated; with the line-146 bug order matters less but remains suspect.\"}, {\"line\": 142, \"score\": 0.2, \"reason\": \"Sentinel -inf interacts badly with the +1 transition since -inf+1 is no longer the sentinel.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/05c57636f9c300af160b72b7fdfaa3bc740c1dc944de9819445cd06048b9d7d8.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 146,
+        "score": 0.9,
+        "reason": "Propagates dp[i]+1 even when dp[i] is -inf (unreachable), turning it into a finite wrong value instead of leaving dp[j] unreachable."
+      },
+      {
+        "line": 144,
+        "score": 0.3,
+        "reason": "Sorted processing is only safe if -inf states are never propagated; with the line-146 bug order matters less but remains suspect."
+      },
+      {
+        "line": 142,
+        "score": 0.2,
+        "reason": "Sentinel -inf interacts badly with the +1 transition since -inf+1 is no longer the sentinel."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 150,
+  "loc": 150,
+  "evaluation_denominator": 150,
+  "faulty_lines": [
+    148
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1540",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bdb7b6137694b54988527f15c7587e7eed8d95f9f0858ca542db584c8f2d2cb0",
+  "prior_hash": null,
+  "prompt_chars": 7635,
+  "prompt_tokens_estimate": 1909,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

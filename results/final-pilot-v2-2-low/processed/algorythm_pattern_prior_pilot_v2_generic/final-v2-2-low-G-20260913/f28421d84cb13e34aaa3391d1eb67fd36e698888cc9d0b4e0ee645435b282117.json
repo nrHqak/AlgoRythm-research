@@ -1,0 +1,78 @@
+{
+  "run_id": "f28421d84cb13e34aaa3391d1eb67fd36e698888cc9d0b4e0ee645435b282117",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "d32eb72b0d64caae2a396a7db2649652400d922413a212e967ec575f3dcf1d3f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45895898",
+  "task_id": "abc309_c",
+  "condition": "no_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:33:29.033379Z",
+  "latency": 6.255858333955985,
+  "token_usage": {
+    "prompt_tokens": 975,
+    "completion_tokens": 425,
+    "total_tokens": 1400,
+    "cost": 0.00024355,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00024355,
+      "upstream_inference_prompt_cost": 3.105e-05,
+      "upstream_inference_completions_cost": 0.0002125
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 303,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.9, \"reason\": \"r should be maxday+1; with r=maxday, valid answers greater than maxday (sum still > k at maxday) are missed\"}, {\"line\": 26, \"score\": 0.3, \"reason\": \"strict > vs >= boundary on res<=k; minor but affects edge cases\"}, {\"line\": 41, \"score\": 0.2, \"reason\": \"binary search direction depends on cal semantics; correct only if boundary convention holds\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/f28421d84cb13e34aaa3391d1eb67fd36e698888cc9d0b4e0ee645435b282117.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 36,
+        "score": 0.9,
+        "reason": "r should be maxday+1; with r=maxday, valid answers greater than maxday (sum still > k at maxday) are missed"
+      },
+      {
+        "line": 26,
+        "score": 0.3,
+        "reason": "strict > vs >= boundary on res<=k; minor but affects edge cases"
+      },
+      {
+        "line": 41,
+        "score": 0.2,
+        "reason": "binary search direction depends on cal semantics; correct only if boundary convention holds"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 51,
+  "loc": 51,
+  "evaluation_denominator": 51,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "348",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bda9e3686ddfbc102c2f7c192374829b6a783b677acaf6135d0089b1bb854936",
+  "prior_hash": null,
+  "prompt_chars": 3501,
+  "prompt_tokens_estimate": 876,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

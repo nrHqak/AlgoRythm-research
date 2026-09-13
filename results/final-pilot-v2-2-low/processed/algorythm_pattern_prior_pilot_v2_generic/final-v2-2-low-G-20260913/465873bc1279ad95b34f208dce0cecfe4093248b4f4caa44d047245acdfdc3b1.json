@@ -1,0 +1,73 @@
+{
+  "run_id": "465873bc1279ad95b34f208dce0cecfe4093248b4f4caa44d047245acdfdc3b1",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "84f3f42daee56d7600767eabde24e6de743a15325e94340a56df82fe7443e057",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:32:09.395677Z",
+  "latency": 7.575084333017003,
+  "token_usage": {
+    "prompt_tokens": 1107,
+    "completion_tokens": 516,
+    "total_tokens": 1623,
+    "cost": 0.00029349,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00029349,
+      "upstream_inference_prompt_cost": 3.549e-05,
+      "upstream_inference_completions_cost": 0.000258
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 420,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.95, \"reason\": \"When digit equals previous, valid smaller choices are (d-1)*9^k, not d*9^k - 1; overcounts.\"}, {\"line\": 27, \"score\": 0.2, \"reason\": \"Redundant check on last two equal digits; loop break already handles it, possible off-by-one.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/465873bc1279ad95b34f208dce0cecfe4093248b4f4caa44d047245acdfdc3b1.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.95,
+        "reason": "When digit equals previous, valid smaller choices are (d-1)*9^k, not d*9^k - 1; overcounts."
+      },
+      {
+        "line": 27,
+        "score": 0.2,
+        "reason": "Redundant check on last two equal digits; loop break already handles it, possible off-by-one."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 4402,
+  "prompt_tokens_estimate": 1101,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

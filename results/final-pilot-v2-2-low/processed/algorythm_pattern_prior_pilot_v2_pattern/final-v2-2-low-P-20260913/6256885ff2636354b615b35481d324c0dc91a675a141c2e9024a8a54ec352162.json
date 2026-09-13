@@ -1,0 +1,88 @@
+{
+  "run_id": "6256885ff2636354b615b35481d324c0dc91a675a141c2e9024a8a54ec352162",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "ddf03aa9a6fe2d485c64d0fb3a950509f63ac93c0b24adf3bc32082850c4f33d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 4,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:49:57.761307Z",
+  "latency": 33.72166070796084,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 2772,
+    "total_tokens": 3946,
+    "cost": 0.00142386,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00142386,
+      "upstream_inference_prompt_cost": 3.786e-05,
+      "upstream_inference_completions_cost": 0.001386
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2552,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 38, \"score\": 0.85, \"reason\": \"Uses j^k as maze index, mixing flip differences instead of the actual (flip i-2, flip i-1) pair, which is just k.\"}, {\"line\": 13, \"score\": 0.6, \"reason\": \"Cells with equal horizontal neighbors are impossible regardless of flips, but F=false leaves maze row valid instead of marking it invalid.\"}, {\"line\": 8, \"score\": 0.5, \"reason\": \"Horizontal equality should invalidate all states for this row, not just skip adding constraints.\"}, {\"line\": 36, \"score\": 0.4, \"reason\": \"Compares k&1 with j&2 (non-adjacent rows' flips); with this bit encoding it is either dead or an incorrect constraint.\"}, {\"line\": 11, \"score\": 0.35, \"reason\": \"Same horizontal-equality issue: skipping constraint instead of marking row state impossible.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/6256885ff2636354b615b35481d324c0dc91a675a141c2e9024a8a54ec352162.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 38,
+        "score": 0.85,
+        "reason": "Uses j^k as maze index, mixing flip differences instead of the actual (flip i-2, flip i-1) pair, which is just k."
+      },
+      {
+        "line": 13,
+        "score": 0.6,
+        "reason": "Cells with equal horizontal neighbors are impossible regardless of flips, but F=false leaves maze row valid instead of marking it invalid."
+      },
+      {
+        "line": 8,
+        "score": 0.5,
+        "reason": "Horizontal equality should invalidate all states for this row, not just skip adding constraints."
+      },
+      {
+        "line": 36,
+        "score": 0.4,
+        "reason": "Compares k&1 with j&2 (non-adjacent rows' flips); with this bit encoding it is either dead or an incorrect constraint."
+      },
+      {
+        "line": 11,
+        "score": 0.35,
+        "reason": "Same horizontal-equality issue: skipping constraint instead of marking row state impossible."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

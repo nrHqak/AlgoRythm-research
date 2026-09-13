@@ -1,0 +1,145 @@
+{
+  "run_id": "4ff9aeeaa5a1ebeba9e89708ab1f4d5f4f3c929c099a127f2673154584c9744d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "3660d9a2fa098651ea32159818d1c6af84c6d36d16c9a641891f0afbde74c2a7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45759088",
+  "task_id": "abc283_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:08.465690+00:00",
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1802",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "af791ce28b82a49cc9552bc01f38a48e898b5650af5626591c787d198852f95b",
+  "prior_hash": null,
+  "prompt_chars": 4058,
+  "prompt_tokens_estimate": 1015,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 45759088\nTask ID: abc283_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: H,W = map(int,input().split())\n2: A = [list(map(int,input().split())) for _ in range(H)]\n3: maze = [[1]*4 for _ in range(H)]\n4: for i in range(H):\n5:     for j in range(W):\n6:         F = True\n7:         if j >= 1:\n8:             if A[i][j] == A[i][j-1]:\n9:                 F = False\n10:         if j <= W-2:\n11:             if A[i][j] == A[i][j+1]:\n12:                 F = False\n13:         if F:\n14:             if i == 0:\n15:                 x = A[i][j]^A[i+1][j]\n16:                 if x == 1:\n17:                     maze[i][0],maze[i][2] = 0,0\n18:                 else:\n19:                     maze[i][1],maze[i][3] = 0,0\n20:             elif i == H-1:\n21:                 x = A[i][j]^A[i-1][j]\n22:                 if x == 1:\n23:                     maze[i][0],maze[i][1] = 0,0\n24:                 else:\n25:                     maze[i][2],maze[i][3] = 0,0\n26:             else:\n27:                 x,y = A[i][j]^A[i-1][j],A[i][j]^A[i+1][j]\n28:                 maze[i][3^((x<<1)+y)] = 0\n29: inf = 10**12\n30: dp = [[inf]*4 for _ in range(H+1)]\n31: dp[0][1],dp[0][3] = 1,1\n32: dp[0][0],dp[0][2] = 0,0\n33: for i in range(1,H+1):\n34:     for j in range(4):\n35:         for k in range(4):\n36:             if (k&1)^(j&2) == 1:\n37:                 continue\n38:             if maze[i-1][j^k]:\n39:                 if i == H:\n40:                     dp[i][j] = min(dp[i][j],dp[i-1][k])\n41:                 else:\n42:                     dp[i][j] = min(dp[i][j],dp[i-1][k]+(j&1))\n43: print(min(dp[-1]) if min(dp[-1]) < inf else -1)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.",
+  "raw_response": "{\"ranking\": [{\"line\": 36, \"score\": 0.95, \"reason\": \"(k&1)^(j&2) compares bit with value 2, XOR never equals 1; should compare bit values (k&1)^((j>>1)&1)\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"maze indexing uses j^k, plausibility of state pairing depends on fix at line 36\"}, {\"line\": 42, \"score\": 0.2, \"reason\": \"cost added for bottom row bits, tied to j meaning; depends on line 36 convention\"}]}",
+  "latency": 4.010031167010311,
+  "token_usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 266,
+    "total_tokens": 1440,
+    "cost": 0.0002707,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002707,
+      "upstream_inference_prompt_cost": 0.0001377,
+      "upstream_inference_completions_cost": 0.000133
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 127,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789247884-CwAxiU6GsLcSG1M8nUjP",
+    "provider_created": 1789247884,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 388,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789247884-CwAxiU6GsLcSG1M8nUjP",
+    "object": "chat.completion",
+    "created": 1789247884,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 36, \"score\": 0.95, \"reason\": \"(k&1)^(j&2) compares bit with value 2, XOR never equals 1; should compare bit values (k&1)^((j>>1)&1)\"}, {\"line\": 38, \"score\": 0.3, \"reason\": \"maze indexing uses j^k, plausibility of state pairing depends on fix at line 36\"}, {\"line\": 42, \"score\": 0.2, \"reason\": \"cost added for bottom row bits, tied to j meaning; depends on line 36 convention\"}]}",
+          "refusal": null,
+          "reasoning": "ABC283E: minimum number of flipped cells so no two adjacent equal. dp over rows, state = bottom row pattern (j = pattern of row i?), transition k top, j bottom; constraint top's bottom bits must equal bottom's top bits: (k&1)^(j>>1)? Condition k's bit0 equals j's bit1. Code: (k&1)^(j&2)==1 continue — j&2 is 0 or 2, so XOR never equals 1! Should be ((k&1)^(j>>1&1))==1. So line 36 buggy.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "ABC283E: minimum number of flipped cells so no two adjacent equal. dp over rows, state = bottom row pattern (j = pattern of row i?), transition k top, j bottom; constraint top's bottom bits must equal bottom's top bits: (k&1)^(j>>1)? Condition k's bit0 equals j's bit1. Code: (k&1)^(j&2)==1 continue — j&2 is 0 or 2, so XOR never equals 1! Should be ((k&1)^(j>>1&1))==1. So line 36 buggy.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1174,
+      "completion_tokens": 266,
+      "total_tokens": 1440,
+      "cost": 0.0002707,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002707,
+        "upstream_inference_prompt_cost": 0.0001377,
+        "upstream_inference_completions_cost": 0.000133
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 127,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

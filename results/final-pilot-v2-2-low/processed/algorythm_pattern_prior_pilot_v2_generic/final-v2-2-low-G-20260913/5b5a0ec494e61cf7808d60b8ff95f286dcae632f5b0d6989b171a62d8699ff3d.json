@@ -1,0 +1,78 @@
+{
+  "run_id": "5b5a0ec494e61cf7808d60b8ff95f286dcae632f5b0d6989b171a62d8699ff3d",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "9c39e45392e804d00a429bc84778cf8a8428dc5d78571bcb2a7185c9b2a530a7",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "35962547",
+  "task_id": "abc237_f",
+  "condition": "generic_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:15:09.163711Z",
+  "latency": 10.33758591703372,
+  "token_usage": {
+    "prompt_tokens": 2080,
+    "completion_tokens": 573,
+    "total_tokens": 2653,
+    "cost": 0.0005601,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005601,
+      "upstream_inference_prompt_cost": 0.0002736,
+      "upstream_inference_completions_cost": 0.0002865
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 454,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 124, \"score\": 0.95, \"reason\": \"Skipping x>c drops valid extensions: state should stay unchanged but still be counted, so transitions are undercounted.\"}, {\"line\": 136, \"score\": 0.2, \"reason\": \"Final sum looks correct (a<b<c over real values), but depends on the faulty transitions.\"}, {\"line\": 125, \"score\": 0.1, \"reason\": \"x<=a replacing a is correct for strict LIS; lower suspicion.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/5b5a0ec494e61cf7808d60b8ff95f286dcae632f5b0d6989b171a62d8699ff3d.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 124,
+        "score": 0.95,
+        "reason": "Skipping x>c drops valid extensions: state should stay unchanged but still be counted, so transitions are undercounted."
+      },
+      {
+        "line": 136,
+        "score": 0.2,
+        "reason": "Final sum looks correct (a<b<c over real values), but depends on the faulty transitions."
+      },
+      {
+        "line": 125,
+        "score": 0.1,
+        "reason": "x<=a replacing a is correct for strict LIS; lower suspicion."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 141,
+  "loc": 141,
+  "evaluation_denominator": 141,
+  "faulty_lines": [
+    136
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1857",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "de7ea1c59a57894a18a9cc65f02bb3afd1713bf6b4b3ddeeafdd709ebc42d9f2",
+  "prior_hash": "1c6c6ce863f975d464ed5908bc6dcf2094e5c636e1a5ad2f3fb339d02eaba37c",
+  "prompt_chars": 7861,
+  "prompt_tokens_estimate": 1966,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

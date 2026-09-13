@@ -1,0 +1,73 @@
+{
+  "run_id": "ed3e15aef7a7d556c431294156fdd02d2d98d4bc9cef1a539b5206c8ff3f72f9",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4e16d1b718ce40d73f17a8784fd2e8851cdc8042bd1c989c7e4e6b8a74585eca",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54718266",
+  "task_id": "abc308_d",
+  "condition": "pattern_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:10:40.047969Z",
+  "latency": 2.364554458006751,
+  "token_usage": {
+    "prompt_tokens": 1111,
+    "completion_tokens": 120,
+    "total_tokens": 1231,
+    "cost": 9.609e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.609e-05,
+      "upstream_inference_prompt_cost": 3.609e-05,
+      "upstream_inference_completions_cost": 6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 19,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 27, \"score\": 0.98, \"reason\": \"Checks grid[h][w] (a non-empty list, always truthy) instead of visited flag bool[h][w]\"}, {\"line\": 16, \"score\": 0.2, \"reason\": \"Sequence s,n,u,k,e uses 's' as start; next of 'e' is 's' which is correct here, but shadowing names risky\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/ed3e15aef7a7d556c431294156fdd02d2d98d4bc9cef1a539b5206c8ff3f72f9.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 27,
+        "score": 0.98,
+        "reason": "Checks grid[h][w] (a non-empty list, always truthy) instead of visited flag bool[h][w]"
+      },
+      {
+        "line": 16,
+        "score": 0.2,
+        "reason": "Sequence s,n,u,k,e uses 's' as start; next of 'e' is 's' which is correct here, but shadowing names risky"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 30,
+  "loc": 30,
+  "evaluation_denominator": 30,
+  "faulty_lines": [
+    27
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "619",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "11f049fac55c78da937115bc49f4eaf0a43413e947ebfc8226aff1df1d682517",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4306,
+  "prompt_tokens_estimate": 1077,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

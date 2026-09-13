@@ -1,0 +1,145 @@
+{
+  "run_id": "edd21f1f391762add49f2c176dff46f875860bd9328d7c89a2d3d6501a173cfd",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "0e5d49482d0d449b0ea49c8a9af14e76012bd2ceed3b77093d435ed9e61063f9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "52795863",
+  "task_id": "abc238_e",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:06:23.749175+00:00",
+  "source_line_count": 25,
+  "loc": 25,
+  "evaluation_denominator": 25,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1577",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b2b4bb35a9cace0417d8763b63af218b48705c91039b935ab3dea6cb72418f58",
+  "prior_hash": "177748b6fd9bdbbd80a8db1bd17dfd736950ec98b438a8daf3ee426ab613815a",
+  "prompt_chars": 4034,
+  "prompt_tokens_estimate": 1009,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 52795863\nTask ID: abc238_e\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: import math\n2: import sys\n3: sys.setrecursionlimit(500_000)\n4: from collections import defaultdict\n5: \n6: N, Q = map(int, input().split())\n7: g = [[] for _ in range(N + 1)]\n8: for _ in range(Q):\n9:     l, r = map(int, input().split())\n10:     l -= 1\n11:     g[l].append(r)\n12:     g[r].append(l)\n13: visited = [False] * (N + 1)\n14: q = [0]\n15: visited[0] = True\n16: while len(q) > 0:\n17:     i = q.pop()\n18:     for j in g[i]:\n19:         if not visited[j]:\n20:             visited[j] = True\n21:             q.append(j)\n22: if all(visited):\n23:     print('Yes')\n24: else:\n25:     print('No')    \n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using graph or grid traversal, DFS or BFS. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether nodes are marked visited at the correct moment, on push/enqueue versus on pop/dequeue, since the wrong moment causes duplicate work or missed nodes\n2. check whether the traversal follows the right discipline: first-in-first-out for BFS, last-in-first-out for DFS, with recursive calls unwinding properly\n3. check whether every valid neighbor is enumerated exactly once, including boundary checks for grid traversals\n4. check whether the goal or termination check happens at the correct point relative to enqueueing or dequeueing a node\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.3, \"reason\": \"all(visited) checks indices 0..N; if only indices 1..N were intended, an off-by-one would matter, but 0 is a real node so likely fine.\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Stack pop gives DFS, which is valid here since only connectivity matters, not shortest path.\"}, {\"line\": 12, \"score\": 0.1, \"reason\": \"Undirected edge addition is correct for this connectivity check.\"}, {\"line\": 10, \"score\": 0.1, \"reason\": \"l-1 makes interval edges (l-1, r); this matches the standard solution.\"}]}",
+  "latency": 5.425974457990378,
+  "token_usage": {
+    "prompt_tokens": 1004,
+    "completion_tokens": 359,
+    "total_tokens": 1363,
+    "cost": 0.0002149,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002149,
+      "upstream_inference_prompt_cost": 3.54e-05,
+      "upstream_inference_completions_cost": 0.0001795
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 190,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250778-1ceGwygbvcjz1XIZroEd",
+    "provider_created": 1789250778,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 749,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250778-1ceGwygbvcjz1XIZroEd",
+    "object": "chat.completion",
+    "created": 1789250778,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 22, \"score\": 0.3, \"reason\": \"all(visited) checks indices 0..N; if only indices 1..N were intended, an off-by-one would matter, but 0 is a real node so likely fine.\"}, {\"line\": 17, \"score\": 0.2, \"reason\": \"Stack pop gives DFS, which is valid here since only connectivity matters, not shortest path.\"}, {\"line\": 12, \"score\": 0.1, \"reason\": \"Undirected edge addition is correct for this connectivity check.\"}, {\"line\": 10, \"score\": 0.1, \"reason\": \"l-1 makes interval edges (l-1, r); this matches the standard solution.\"}]}",
+          "refusal": null,
+          "reasoning": "Standard approach: also edge g[N] indexing — visited up to N, g sized N+1 fine. Check all(visited) — index 0..N all True. Actually bug: BFS only connected component of 0 — that's correct approach (union of intervals). Looks correct? Hmm, known correct solution is exactly this. Possible bug: q as stack DFS fine. Looks correct... maybe line 22: visited[0]=True okay. Perhaps all(visited) fine. The bug might be recursion not... Actually code seems right; but must find something. Maybe missing nothing—perhaps it's actually correct and this task expects subtle bug? Check: nodes 0..N, edge (l-1, r). Traversal from 0. all(visited) length N+1 covers 0..N. Fine. So code correct; rank mild suspects like line 12 duplicates fine.\n\nI'll give low scores.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "Standard approach: also edge g[N] indexing — visited up to N, g sized N+1 fine. Check all(visited) — index 0..N all True. Actually bug: BFS only connected component of 0 — that's correct approach (union of intervals). Looks correct? Hmm, known correct solution is exactly this. Possible bug: q as stack DFS fine. Looks correct... maybe line 22: visited[0]=True okay. Perhaps all(visited) fine. The bug might be recursion not... Actually code seems right; but must find something. Maybe missing nothing—perhaps it's actually correct and this task expects subtle bug? Check: nodes 0..N, edge (l-1, r). Traversal from 0. all(visited) length N+1 covers 0..N. Fine. So code correct; rank mild suspects like line 12 duplicates fine.\n\nI'll give low scores.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1004,
+      "completion_tokens": 359,
+      "total_tokens": 1363,
+      "cost": 0.0002149,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002149,
+        "upstream_inference_prompt_cost": 3.54e-05,
+        "upstream_inference_completions_cost": 0.0001795
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 190,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

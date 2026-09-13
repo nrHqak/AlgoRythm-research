@@ -1,0 +1,78 @@
+{
+  "run_id": "549eb823ec4358550e94a6d64a36940ec709359818266685210d0ab59a8adcea",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "3aae741fee252007973b7285a2e26a19680130e070b853c34f0f938783c71eb6",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "31456138",
+  "task_id": "arc139_c",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:55:26.205560Z",
+  "latency": 13.103918124979828,
+  "token_usage": {
+    "prompt_tokens": 1084,
+    "completion_tokens": 1018,
+    "total_tokens": 2102,
+    "cost": 0.00054872,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00054872,
+      "upstream_inference_prompt_cost": 3.972e-05,
+      "upstream_inference_completions_cost": 0.000509
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 876,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 23, \"score\": 0.85, \"reason\": \"Loop starts at N-1, producing one extra cell (N,N-1) than the 3N+M-3 target; likely should start at N\"}, {\"line\": 24, \"score\": 0.4, \"reason\": \"Appends (N, i) for too many i values due to the off-by-one start at line 23\"}, {\"line\": 10, \"score\": 0.15, \"reason\": \"Block loop range(1, N-1, 2) edge coverage for small N is plausible but worth checking\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/549eb823ec4358550e94a6d64a36940ec709359818266685210d0ab59a8adcea.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 23,
+        "score": 0.85,
+        "reason": "Loop starts at N-1, producing one extra cell (N,N-1) than the 3N+M-3 target; likely should start at N"
+      },
+      {
+        "line": 24,
+        "score": 0.4,
+        "reason": "Appends (N, i) for too many i values due to the off-by-one start at line 23"
+      },
+      {
+        "line": 10,
+        "score": 0.15,
+        "reason": "Block loop range(1, N-1, 2) edge coverage for small N is plausible but worth checking"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 43,
+  "loc": 43,
+  "evaluation_denominator": 43,
+  "faulty_lines": [
+    28
+  ],
+  "pattern_label": "brute_force_implementation",
+  "difficulty": "2406",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "bb7049a07cc05097ee9741a2bf125e6c1926e0f0756333659ea839b26c3f7e2f",
+  "prior_hash": null,
+  "prompt_chars": 3666,
+  "prompt_tokens_estimate": 917,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

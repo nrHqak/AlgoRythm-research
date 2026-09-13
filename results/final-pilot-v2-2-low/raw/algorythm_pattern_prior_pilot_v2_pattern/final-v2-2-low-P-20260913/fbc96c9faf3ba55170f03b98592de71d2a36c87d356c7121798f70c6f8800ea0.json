@@ -1,0 +1,145 @@
+{
+  "run_id": "fbc96c9faf3ba55170f03b98592de71d2a36c87d356c7121798f70c6f8800ea0",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "4a8e1e81487fb9121c82dd3aa686be416ae288d59f762c5f4d7c0bdfb9597c0f",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "41991921",
+  "task_id": "abc304_g",
+  "condition": "pattern_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:04:10.674110+00:00",
+  "source_line_count": 48,
+  "loc": 48,
+  "evaluation_denominator": 48,
+  "faulty_lines": [
+    43
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "3177",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "e102aa478d4a964b5236f416fede410ad5a99bd60c86f4342e407ae5553e9606",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4729,
+  "prompt_tokens_estimate": 1183,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low",
+  "system_prompt": "You are an expert algorithm-teaching assistant helping a novice\nprogrammer find a logical bug in their own code. The program compiles\nand runs, but fails at least one test case; there is no syntax error.\n\nThink like a careful code reviewer, not like a compiler: novice bugs are\nusually not random single-character slips. They typically live at the\nboundary between the programmer's intended plan and the code that\nimplements it -- places such as loop bounds, comparison directions,\nindex updates, initialization, and the order in which state is updated.\nReason about what the code is trying to do, then check where that\nintention and the code plausibly diverge.\n\nYou must return your findings as a single, valid JSON object matching\nthis schema and nothing else: no prose, no markdown code fences, no\ntext before or after the object.\n{\"ranking\": [{\"line\": <1-indexed line number>, \"score\": <float in [0,1]>, \"reason\": \"<short reason, under 25 words>\"}, ...]}\n\n- \"ranking\" must be ordered from most to least suspicious: scores must\n  be non-increasing down the list.\n- Every \"line\" must be a real line number from the numbered source you\n  are given, and each line number must appear at most once.\n- Only include lines you have genuine reason to suspect; do not pad the\n  list to a fixed length.\n- If the user message includes a delimited block of debugging guidance,\n  treat it as a hint about where to look first, not as a certainty --\n  the actual fault could still be anywhere in the code, so do not\n  restrict your ranking to only the lines that block mentions.\n",
+  "user_prompt": "Program ID: 41991921\nTask ID: abc304_g\n\nProblem statement (if available; may be empty):\n\n\nBelow is the buggy source code. Each line is prefixed with its 1-indexed\nline number followed by a colon and a space; that numbering is for your\nreference only and is not part of the actual source code.\n\n1: def calc1(a, m, t):\n2:   if t == -1:\n3:     return len(a) // 2\n4:   if len(a) < 2:\n5:     return 0\n6:   bit = 1 << t\n7:   b = []\n8:   c = []\n9:   for i in a:\n10:     if i & bit: c.append(i)\n11:     else: b.append(i)\n12:   if m & bit: return calc2(b, c, m, t - 1)\n13:   else:\n14:     if len(b) > len(c): b, c = c, b\n15:     res = len(b) + min((len(c) - len(b)) // 2, calc1(c, m, t - 1))\n16:     return res\n17: def calc2(b, c, m, t):\n18:   if t == -1: return min(len(b), len(c))\n19:   if len(b) == 0 or len(c) == 0: return 0\n20:   bit = 1 << t\n21:   d = []\n22:   e = []\n23:   f = []\n24:   g = []\n25:   for i in b:\n26:     if i & bit: e.append(i)\n27:     else: d.append(i)\n28:   for i in c:\n29:     if i & bit: g.append(i)\n30:     else: f.append(i)\n31:   if m & bit:\n32:     return calc2(e, f, m, t - 1) + calc2(d, g, m, t - 1)\n33:   else:\n34:     res = min(len(e), len(f)) + min(len(d), len(g))\n35:     if len(e) > len(f) and len(g) > len(d):\n36:       res += min(len(e) - len(f), len(g) - len(d), calc2(e, g, m, t - 1))\n37:     elif len(e) < len(f) and len(g) < len(d):\n38:       res += min(len(f) - len(e), len(d) - len(g), calc2(d, f, m, t - 1))\n39:     return res\n40: n = int(input())\n41: a = list(map(int, input().split()))\n42: l = 0\n43: r = 10 ** 10\n44: while l + 1 < r:\n45:   m = (l + r) // 2\n46:   if calc1(a, m, 29) >= (n + 1) // 2: l = m\n47:   else: r = m\n48: print(l)\n\nTask: identify which lines are most likely to contain the logical fault\nthat makes this program fail its tests.\n\nRespond with exactly one JSON object and nothing else, in this shape:\n{\"ranking\": [{\"line\": 12, \"score\": 0.9, \"reason\": \"short reason\"}, {\"line\": 7, \"score\": 0.4, \"reason\": \"short reason\"}]}\n\nRules for the ranking:\n- List only lines you have a genuine reason to suspect.\n- Order entries from most to least suspicious: scores must be\n  non-increasing down the list.\n- score is a number between 0 and 1.\n- line must be a real line number from the numbered source above.\n- Do not repeat a line number.\n- Do not include any text outside the single JSON object.\n\n<DEBUGGING_PRIOR>\nThis program is intended to solve the task using binary search. Before ranking the full source, check these standard failure points for this pattern first, in order:\n1. check whether the midpoint is computed correctly, without an off-by-one or overflow-style error\n2. check whether the comparison against the search predicate moves the boundaries in the correct direction\n3. check whether updating the low or high boundary after a comparison is correct, since a wrong update is the most common cause of an infinite loop or a skipped value\n4. check whether the loop's stopping condition and the final returned index or value are consistent with each other\nThese are hypotheses, not conclusions -- after checking them, still weigh every line of the source by the instructions above.\n</DEBUGGING_PRIOR>",
+  "raw_response": "{\"ranking\": [{\"line\": 46, \"score\": 0.85, \"reason\": \"Uses (n+1)//2 pairs required; with odd n only n//2 pairs are possible, so ceiling overcounts and fails odd-n tests.\"}, {\"line\": 15, \"score\": 0.35, \"reason\": \"Leftover c pairs counted as (len(c)-len(b))//2 without verifying XOR >= m; only min branch checked, may miscount.\"}, {\"line\": 3, \"score\": 0.2, \"reason\": \"At t==-1 returns len(a)//2 unconditionally; correctness depends on m=0 edge semantics of predicate.\"}]}",
+  "latency": 7.99258058302803,
+  "token_usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 593,
+    "total_tokens": 1965,
+    "cost": 0.0004639,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004639,
+      "upstream_inference_prompt_cost": 0.0001674,
+      "upstream_inference_completions_cost": 0.0002965
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 446,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "response_metadata": {
+    "provider_request_id": "gen-1789250643-CyNMBrTzFyFis0yTBI1U",
+    "provider_created": 1789250643,
+    "model_identity_exposed": true,
+    "finish_reason": "stop",
+    "native_finish_reason": "stop",
+    "completion_content_type": "str",
+    "reasoning_present": true,
+    "reasoning_chars": 1533,
+    "reasoning_effort_requested": "low",
+    "provider_preferences": {
+      "only": [
+        "z-ai/fp8"
+      ],
+      "order": [
+        "z-ai/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "expected_underlying_provider": "Z.AI",
+    "actual_underlying_provider": "Z.AI"
+  },
+  "http_status": 200,
+  "provider_response_json": {
+    "id": "gen-1789250643-CyNMBrTzFyFis0yTBI1U",
+    "object": "chat.completion",
+    "created": 1789250643,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Z.AI",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\": [{\"line\": 46, \"score\": 0.85, \"reason\": \"Uses (n+1)//2 pairs required; with odd n only n//2 pairs are possible, so ceiling overcounts and fails odd-n tests.\"}, {\"line\": 15, \"score\": 0.35, \"reason\": \"Leftover c pairs counted as (len(c)-len(b))//2 without verifying XOR >= m; only min branch checked, may miscount.\"}, {\"line\": 3, \"score\": 0.2, \"reason\": \"At t==-1 returns len(a)//2 unconditionally; correctness depends on m=0 edge semantics of predicate.\"}]}",
+          "refusal": null,
+          "reasoning": "This is ABC304G: maximize minimum XOR of pairs. Binary search on m: count max matching where pair XOR >= m? calc1: for bit set in m, pairs must split... Standard solution: count maximum pairs with XOR >= m, check >= n//2. Here line 46 uses (n+1)//2 — should be n//2 (floor). With odd n, one unpaired, need n//2 pairs. (n+1)//2 is wrong for odd n. Line 46 most suspicious.\n\nAlso line 15: res = len(b) + min((len(c)-len(b))//2, calc1(...)) — hmm, calc1 returns max pairs in c alone; when b paired within, remaining c pairs. Actually calc1 counts pairs with XOR < m? Predicate: count pairs with XOR >= m... calc1 at bit set in m: pairs with XOR >= m must have b-c pairs plus leftover within same group. calc2(b,c,m) with m bit: cross matching e-f and d-g. Seems plausible. But line 3: len(a)//2 — at t==-1, all elements identical XOR 0 < m, pairs... if m=0 predicate trivially. Hmm.\n\nLine 34-38 else branch: with m bit 0, maximize min matching: min(len(e),len(f)) + min(len(d),len(g)) plus recursively match leftovers via calc2(e,g). Wait leftovers are e>f excess and g>d excess; cross-match e with g. But also there could be d and f leftovers in other case. That matches lines 35-38. Looks right.\n\nLine 46: (n+1)//2 wrong; should be n//2 = len(a)//2. Also calc1 line 3 len(a)//2 fine.\n\nLine 15: (len(c)-len(b))//2 vs calc1(c): min of pairing b within... actually res = len(b) pairs cross (b-c), leftover c has len(c)-len(b), can pair among themselves floor/2, but pairs within c must have XOR >= m too — calc1 handles that. Seems fine.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "This is ABC304G: maximize minimum XOR of pairs. Binary search on m: count max matching where pair XOR >= m? calc1: for bit set in m, pairs must split... Standard solution: count maximum pairs with XOR >= m, check >= n//2. Here line 46 uses (n+1)//2 — should be n//2 (floor). With odd n, one unpaired, need n//2 pairs. (n+1)//2 is wrong for odd n. Line 46 most suspicious.\n\nAlso line 15: res = len(b) + min((len(c)-len(b))//2, calc1(...)) — hmm, calc1 returns max pairs in c alone; when b paired within, remaining c pairs. Actually calc1 counts pairs with XOR < m? Predicate: count pairs with XOR >= m... calc1 at bit set in m: pairs with XOR >= m must have b-c pairs plus leftover within same group. calc2(b,c,m) with m bit: cross matching e-f and d-g. Seems plausible. But line 3: len(a)//2 — at t==-1, all elements identical XOR 0 < m, pairs... if m=0 predicate trivially. Hmm.\n\nLine 34-38 else branch: with m bit 0, maximize min matching: min(len(e),len(f)) + min(len(d),len(g)) plus recursively match leftovers via calc2(e,g). Wait leftovers are e>f excess and g>d excess; cross-match e with g. But also there could be d and f leftovers in other case. That matches lines 35-38. Looks right.\n\nLine 46: (n+1)//2 wrong; should be n//2 = len(a)//2. Also calc1 line 3 len(a)//2 fine.\n\nLine 15: (len(c)-len(b))//2 vs calc1(c): min of pairing b within... actually res = len(b) pairs cross (b-c), leftover c has len(c)-len(b), can pair among themselves floor/2, but pairs within c must have XOR >= m too — calc1 handles that. Seems fine.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1372,
+      "completion_tokens": 593,
+      "total_tokens": 1965,
+      "cost": 0.0004639,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004639,
+        "upstream_inference_prompt_cost": 0.0001674,
+        "upstream_inference_completions_cost": 0.0002965
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 446,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "provider_response_redactions": 0,
+  "actual_provider": "openrouter",
+  "actual_model": "z-ai/glm-5.3-flash",
+  "prompt_input_fields": [
+    "program_id",
+    "task_id",
+    "problem_context",
+    "numbered_buggy_source"
+  ],
+  "raw_saved_before_parsing": true
+}

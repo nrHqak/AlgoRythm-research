@@ -1,0 +1,83 @@
+{
+  "run_id": "d37c797c382e0247ce07566739f280a460103d5de5ccd35170e8681abc739949",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "16826609e7fb8e6628bb6495cad41a9ae42986ca82bf86ef27218699f08e7b9c",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "pattern_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T22:02:05.048920Z",
+  "latency": 12.034528583986685,
+  "token_usage": {
+    "prompt_tokens": 1104,
+    "completion_tokens": 745,
+    "total_tokens": 1849,
+    "cost": 0.0004997,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004997,
+      "upstream_inference_prompt_cost": 0.0001272,
+      "upstream_inference_completions_cost": 0.0003725
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 572,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 12, \"score\": 0.85, \"reason\": \"range(N) includes i=0, adding 9^0=1 for zero-length numbers; should be range(1,N) for shorter lengths\"}, {\"line\": 27, \"score\": 0.8, \"reason\": \"only decrements when equality is at last two digits, but adjacent equality can occur earlier; mid itself invalid whenever TF is False\"}, {\"line\": 20, \"score\": 0.4, \"reason\": \"subtracting 1 here partially handles mid's invalidity; interaction with line 27 may double- or under-count\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"binary search predicate direction and boundary updates appear correct given the counting logic\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/d37c797c382e0247ce07566739f280a460103d5de5ccd35170e8681abc739949.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 12,
+        "score": 0.85,
+        "reason": "range(N) includes i=0, adding 9^0=1 for zero-length numbers; should be range(1,N) for shorter lengths"
+      },
+      {
+        "line": 27,
+        "score": 0.8,
+        "reason": "only decrements when equality is at last two digits, but adjacent equality can occur earlier; mid itself invalid whenever TF is False"
+      },
+      {
+        "line": 20,
+        "score": 0.4,
+        "reason": "subtracting 1 here partially handles mid's invalidity; interaction with line 27 may double- or under-count"
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "binary search predicate direction and boundary updates appear correct given the counting logic"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": "2f50abebfeb4bb948fffc1fafad37911caa04ed7886a26b7588c1692b55c362a",
+  "prompt_chars": 4377,
+  "prompt_tokens_estimate": 1095,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

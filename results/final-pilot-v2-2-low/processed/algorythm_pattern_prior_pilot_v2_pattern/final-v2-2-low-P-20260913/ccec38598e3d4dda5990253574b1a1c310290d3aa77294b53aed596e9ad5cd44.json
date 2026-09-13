@@ -1,0 +1,73 @@
+{
+  "run_id": "ccec38598e3d4dda5990253574b1a1c310290d3aa77294b53aed596e9ad5cd44",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "ac2d193b5b8123b7049d53c66f63c78dc54331a469af1190f08f75766c60a61d",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:48:09.867319Z",
+  "latency": 5.415038209001068,
+  "token_usage": {
+    "prompt_tokens": 847,
+    "completion_tokens": 270,
+    "total_tokens": 1117,
+    "cost": 0.00022365,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00022365,
+      "upstream_inference_prompt_cost": 8.865e-05,
+      "upstream_inference_completions_cost": 0.000135
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 188,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.9, \"reason\": \"Divides by num instead of p; each face has probability 1/p, so transition weight should be dp[id]/p\"}, {\"line\": 24, \"score\": 0.3, \"reason\": \"Expected cost formula depends on same wrong probability scaling from line 22\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/ccec38598e3d4dda5990253574b1a1c310290d3aa77294b53aed596e9ad5cd44.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.9,
+        "reason": "Divides by num instead of p; each face has probability 1/p, so transition weight should be dp[id]/p"
+      },
+      {
+        "line": 24,
+        "score": 0.3,
+        "reason": "Expected cost formula depends on same wrong probability scaling from line 22"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": null,
+  "prompt_chars": 3092,
+  "prompt_tokens_estimate": 773,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

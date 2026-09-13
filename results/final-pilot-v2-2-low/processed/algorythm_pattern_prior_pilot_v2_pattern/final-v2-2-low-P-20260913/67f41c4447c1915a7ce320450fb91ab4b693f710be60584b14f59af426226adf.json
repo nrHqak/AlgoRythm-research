@@ -1,0 +1,88 @@
+{
+  "run_id": "67f41c4447c1915a7ce320450fb91ab4b693f710be60584b14f59af426226adf",
+  "session_id": "final-v2-2-low-P-20260913",
+  "execution_key": "416a7580957aa21b7c3da68fff00452dc150ce0456c9d493b15156275b928fd6",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_pattern",
+  "program_id": "43438224",
+  "task_id": "arc164_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:47:53.325629Z",
+  "latency": 6.784523958049249,
+  "token_usage": {
+    "prompt_tokens": 1105,
+    "completion_tokens": 393,
+    "total_tokens": 1498,
+    "cost": 0.00023169,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1088,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00023169,
+      "upstream_inference_prompt_cost": 3.519e-05,
+      "upstream_inference_completions_cost": 0.0001965
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 191,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 43, \"score\": 0.7, \"reason\": \"Cost uses R[ni] for odd nj; suspicious parity/cost pairing likely swapped with L\"}, {\"line\": 45, \"score\": 0.65, \"reason\": \"Even-nj cost uses L[i] instead of R-indexed term; inconsistent boundary convention with line 43\"}, {\"line\": 42, \"score\": 0.5, \"reason\": \"Parity check on nj may be off by one; should possibly check j or next boundary parity\"}, {\"line\": 49, \"score\": 0.35, \"reason\": \"Y[s] may index past shrunk DP array length after M-1 iterations; also doubling final cost is suspect\"}, {\"line\": 33, \"score\": 0.2, \"reason\": \"New DP width i*2+5 may truncate reachable states with nj bound check skipping transitions\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_pattern/final-v2-2-low-P-20260913/67f41c4447c1915a7ce320450fb91ab4b693f710be60584b14f59af426226adf.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 43,
+        "score": 0.7,
+        "reason": "Cost uses R[ni] for odd nj; suspicious parity/cost pairing likely swapped with L"
+      },
+      {
+        "line": 45,
+        "score": 0.65,
+        "reason": "Even-nj cost uses L[i] instead of R-indexed term; inconsistent boundary convention with line 43"
+      },
+      {
+        "line": 42,
+        "score": 0.5,
+        "reason": "Parity check on nj may be off by one; should possibly check j or next boundary parity"
+      },
+      {
+        "line": 49,
+        "score": 0.35,
+        "reason": "Y[s] may index past shrunk DP array length after M-1 iterations; also doubling final cost is suspect"
+      },
+      {
+        "line": 33,
+        "score": 0.2,
+        "reason": "New DP width i*2+5 may truncate reachable states with nj bound check skipping transitions"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    16
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2651",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "130fd19c5f926c1c78a64c7afc4a82e6209b03d62faff0d3175d2533c5fb3de3",
+  "prior_hash": null,
+  "prompt_chars": 3728,
+  "prompt_tokens_estimate": 932,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

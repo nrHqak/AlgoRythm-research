@@ -1,0 +1,88 @@
+{
+  "run_id": "7256bafcdbb7de0965825ca72b4e7383f95842efb5f059bd195eeeb97f12165e",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "8140b762b51cd7c30185ca511eccb7b7f2d1a5d028e87af2ceec210f567b2bbc",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "52899692",
+  "task_id": "abc345_e",
+  "condition": "no_prior",
+  "repetition": 1,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:20:32.002550Z",
+  "latency": 27.78436445904663,
+  "token_usage": {
+    "prompt_tokens": 1208,
+    "completion_tokens": 2088,
+    "total_tokens": 3296,
+    "cost": 0.0011868,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 320,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0011868,
+      "upstream_inference_prompt_cost": 0.0001428,
+      "upstream_inference_completions_cost": 0.001044
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1850,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.45, \"reason\": \"Same-color case uses V2[j], but invariant that C2 differs may not hold for all states; resetting V2 right after loses the alternative\"}, {\"line\": 42, \"score\": 0.4, \"reason\": \"j=0 same-color branch sets -INF but drops valid second-best update path; second-best for j=0 never tracked\"}, {\"line\": 34, \"score\": 0.3, \"reason\": \"Tie handling: equal V2 value with clashing color is skipped, but a strict > comparison should still replace only under correct color checks\"}, {\"line\": 28, \"score\": 0.25, \"reason\": \"For (C2,V2) pair, compares against already-updated V1[j]/C1[j] which may double-shift second-best incorrectly\"}, {\"line\": 23, \"score\": 0.2, \"reason\": \"Resetting C2/V2 before comparing V[j-1] erases prior second-best that line 20 still needs across items\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/7256bafcdbb7de0965825ca72b4e7383f95842efb5f059bd195eeeb97f12165e.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.45,
+        "reason": "Same-color case uses V2[j], but invariant that C2 differs may not hold for all states; resetting V2 right after loses the alternative"
+      },
+      {
+        "line": 42,
+        "score": 0.4,
+        "reason": "j=0 same-color branch sets -INF but drops valid second-best update path; second-best for j=0 never tracked"
+      },
+      {
+        "line": 34,
+        "score": 0.3,
+        "reason": "Tie handling: equal V2 value with clashing color is skipped, but a strict > comparison should still replace only under correct color checks"
+      },
+      {
+        "line": 28,
+        "score": 0.25,
+        "reason": "For (C2,V2) pair, compares against already-updated V1[j]/C1[j] which may double-shift second-best incorrectly"
+      },
+      {
+        "line": 23,
+        "score": 0.2,
+        "reason": "Resetting C2/V2 before comparing V[j-1] erases prior second-best that line 20 still needs across items"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 49,
+  "loc": 49,
+  "evaluation_denominator": 49,
+  "faulty_lines": [
+    2
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "2356",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "b16b5f7b38790530ef9bc50709ff1595d5a811466bdda6330be91c10c3c4b575",
+  "prior_hash": null,
+  "prompt_chars": 3988,
+  "prompt_tokens_estimate": 997,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

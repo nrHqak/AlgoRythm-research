@@ -1,0 +1,83 @@
+{
+  "run_id": "a491052a8ef9a10b515a8d7128a5a6c3eaee09a0814e04bb869f0fcb4aad00bb",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "bc832212dfcd7f55e59e4065ba00e8192e3adda3dd9c6ff3dc10e54cebcd81b9",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45808089",
+  "task_id": "abc314_e",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:18:17.054929Z",
+  "latency": 12.600916417024564,
+  "token_usage": {
+    "prompt_tokens": 847,
+    "completion_tokens": 803,
+    "total_tokens": 1650,
+    "cost": 0.00042871,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00042871,
+      "upstream_inference_prompt_cost": 2.721e-05,
+      "upstream_inference_completions_cost": 0.0004015
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 618,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 22, \"score\": 0.85, \"reason\": \"Treats each slot value j as equally likely; problem gives weights W_j, so each term should be weighted by W_j, not divided by num equally.\"}, {\"line\": 24, \"score\": 0.7, \"reason\": \"Expected cost should add c*sum(W)/num; using p (count) assumes uniform probabilities, wrong with weights.\"}, {\"line\": 21, \"score\": 0.2, \"reason\": \"Clamping to max(0,i-j) is correct only for dp lookup, but combined with wrong weighting scheme entire transition is suspect.\"}, {\"line\": 13, \"score\": 0.15, \"reason\": \"s stores weights from input; using them directly as outcomes conflates weights with slot indices.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/a491052a8ef9a10b515a8d7128a5a6c3eaee09a0814e04bb869f0fcb4aad00bb.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 22,
+        "score": 0.85,
+        "reason": "Treats each slot value j as equally likely; problem gives weights W_j, so each term should be weighted by W_j, not divided by num equally."
+      },
+      {
+        "line": 24,
+        "score": 0.7,
+        "reason": "Expected cost should add c*sum(W)/num; using p (count) assumes uniform probabilities, wrong with weights."
+      },
+      {
+        "line": 21,
+        "score": 0.2,
+        "reason": "Clamping to max(0,i-j) is correct only for dp lookup, but combined with wrong weighting scheme entire transition is suspect."
+      },
+      {
+        "line": 13,
+        "score": 0.15,
+        "reason": "s stores weights from input; using them directly as outcomes conflates weights with slot indices."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 26,
+  "loc": 26,
+  "evaluation_denominator": 26,
+  "faulty_lines": [
+    22
+  ],
+  "pattern_label": "dynamic_programming",
+  "difficulty": "1722",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "02e4050a1664ff63dea18058d3bdb3ca976bc586fded8f60e46be32aad552a4c",
+  "prior_hash": null,
+  "prompt_chars": 3092,
+  "prompt_tokens_estimate": 773,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

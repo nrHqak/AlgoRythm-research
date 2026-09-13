@@ -1,0 +1,78 @@
+{
+  "run_id": "8e4691d5e87c26b582e1cfd48cabb7c9af5aa6074a2944825f8ecb905b9fb3ec",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "1155fd90b9d92a6e4ee8cd8965d43a3d375c9631eee34f024be0cc6c81e068d2",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "54010856",
+  "task_id": "arc173_a",
+  "condition": "no_prior",
+  "repetition": 5,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:32:31.420885Z",
+  "latency": 15.59212737501366,
+  "token_usage": {
+    "prompt_tokens": 944,
+    "completion_tokens": 1055,
+    "total_tokens": 1999,
+    "cost": 0.00056158,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 896,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00056158,
+      "upstream_inference_prompt_cost": 3.408e-05,
+      "upstream_inference_completions_cost": 0.0005275
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 903,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 20, \"score\": 0.9, \"reason\": \"On equal digit, count of smaller completions is d*9^k (all digits below d differ from bef=d); the extra -1 wrongly subtracts one valid number.\"}, {\"line\": 27, \"score\": 0.3, \"reason\": \"Dead/dubious adjustment: any adjacent-equal pair would have broken the loop and cleared TF, so this correction is suspicious leftover logic.\"}, {\"line\": 5, \"score\": 0.1, \"reason\": \"Upper bound 10^18 must itself be a feasible candidate satisfying ans>=K; may be off for very large K.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/8e4691d5e87c26b582e1cfd48cabb7c9af5aa6074a2944825f8ecb905b9fb3ec.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 20,
+        "score": 0.9,
+        "reason": "On equal digit, count of smaller completions is d*9^k (all digits below d differ from bef=d); the extra -1 wrongly subtracts one valid number."
+      },
+      {
+        "line": 27,
+        "score": 0.3,
+        "reason": "Dead/dubious adjustment: any adjacent-equal pair would have broken the loop and cleared TF, so this correction is suspicious leftover logic."
+      },
+      {
+        "line": 5,
+        "score": 0.1,
+        "reason": "Upper bound 10^18 must itself be a feasible candidate satisfying ans>=K; may be off for very large K."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 34,
+  "loc": 34,
+  "evaluation_denominator": 34,
+  "faulty_lines": [
+    4
+  ],
+  "pattern_label": "binary_search",
+  "difficulty": "1073",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "9f6bf0b5f5340cd2dc0febf2640982ceb21579337cf35e44668c502454078cd8",
+  "prior_hash": null,
+  "prompt_chars": 3558,
+  "prompt_tokens_estimate": 890,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

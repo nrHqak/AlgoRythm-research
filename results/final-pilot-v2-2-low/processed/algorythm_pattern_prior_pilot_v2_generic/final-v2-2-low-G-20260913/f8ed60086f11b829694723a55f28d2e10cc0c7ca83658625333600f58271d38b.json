@@ -1,0 +1,83 @@
+{
+  "run_id": "f8ed60086f11b829694723a55f28d2e10cc0c7ca83658625333600f58271d38b",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "67c1315f8d2b34963c85c7e1663d8554fdd741ccda05c4f88186fc5f76b19498",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45971969",
+  "task_id": "abc309_e",
+  "condition": "no_prior",
+  "repetition": 2,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:36:00.993771Z",
+  "latency": 14.532384082966018,
+  "token_usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 865,
+    "total_tokens": 1871,
+    "cost": 0.0004682,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 960,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004682,
+      "upstream_inference_prompt_cost": 3.57e-05,
+      "upstream_inference_completions_cost": 0.0004325
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 684,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 34, \"score\": 0.5, \"reason\": \"Passes hp-1 unchanged; any interplay between a child's insurance and accumulated depth must be re-derived here, a common spot for propagation errors.\"}, {\"line\": 30, \"score\": 0.4, \"reason\": \"Update hp=dic[i] only when hp<dic[i]; boundary handling with defaultdict default -1 is error-prone for coverage counts.\"}, {\"line\": 36, \"score\": 0.3, \"reason\": \"Recursive DFS on a chain of up to 3e5 nodes risks recursion-depth failure despite the raised limit.\"}, {\"line\": 29, \"score\": 0.2, \"reason\": \"Comparison direction with default -1 could misclassify nodes exactly at coverage boundary.\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/f8ed60086f11b829694723a55f28d2e10cc0c7ca83658625333600f58271d38b.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 34,
+        "score": 0.5,
+        "reason": "Passes hp-1 unchanged; any interplay between a child's insurance and accumulated depth must be re-derived here, a common spot for propagation errors."
+      },
+      {
+        "line": 30,
+        "score": 0.4,
+        "reason": "Update hp=dic[i] only when hp<dic[i]; boundary handling with defaultdict default -1 is error-prone for coverage counts."
+      },
+      {
+        "line": 36,
+        "score": 0.3,
+        "reason": "Recursive DFS on a chain of up to 3e5 nodes risks recursion-depth failure despite the raised limit."
+      },
+      {
+        "line": 29,
+        "score": 0.2,
+        "reason": "Comparison direction with default -1 could misclassify nodes exactly at coverage boundary."
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 37,
+  "loc": 37,
+  "evaluation_denominator": 37,
+  "faulty_lines": [
+    36
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "957",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "74c00322a1d4dbb1170e1edf38ff6add79ac5c817d61eed941368f154c695f06",
+  "prior_hash": null,
+  "prompt_chars": 3652,
+  "prompt_tokens_estimate": 913,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}

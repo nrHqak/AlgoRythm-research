@@ -1,0 +1,88 @@
+{
+  "run_id": "141f1288ee02da74dc11e24ac7a3e2d94309569bc9db27cf07b9d79ef5c72da3",
+  "session_id": "final-v2-2-low-G-20260913",
+  "execution_key": "57c5365e20166205eaac2aa9c82c4d07337490ed6ba6ce9f803b487d80a33777",
+  "experiment_name": "algorythm_pattern_prior_pilot_v2_generic",
+  "program_id": "45545460",
+  "task_id": "abc267_f",
+  "condition": "generic_prior",
+  "repetition": 3,
+  "provider": "openrouter",
+  "model": "z-ai/glm-5.3-flash",
+  "temperature": 0.0,
+  "max_tokens": 32768,
+  "timestamp": "2026-09-12T21:39:56.515141Z",
+  "latency": 75.62599249999039,
+  "token_usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 5391,
+    "total_tokens": 6872,
+    "cost": 0.00274101,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1472,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00274101,
+      "upstream_inference_prompt_cost": 4.551e-05,
+      "upstream_inference_completions_cost": 0.0026955
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5177,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"ranking\": [{\"line\": 52, \"score\": 0.9, \"reason\": \"Overwrites left[s*ln] (set on line 44 to next path node toward t) with parent[s]=-1, destroying the s-branch pointer\"}, {\"line\": 49, \"score\": 0.7, \"reason\": \"Skip test uses only right[]; node s has right=-1 so gets processed and clobbers its left pointer\"}, {\"line\": 53, \"score\": 0.4, \"reason\": \"Sets right[s]=-1 harmlessly, but executes as part of the block that corrupts s's left pointer\"}, {\"line\": 51, \"score\": 0.3, \"reason\": \"parent[s] is -1; assigning it to left is what wipes the valid path pointer\"}, {\"line\": 44, \"score\": 0.1, \"reason\": \"Sets left[s] correctly but that value is later destroyed by lines 49-53\"}]}",
+  "raw_response_path": "results/final-pilot-v2-2-low/raw/algorythm_pattern_prior_pilot_v2_generic/final-v2-2-low-G-20260913/141f1288ee02da74dc11e24ac7a3e2d94309569bc9db27cf07b9d79ef5c72da3.json",
+  "parsed_response": {
+    "ranking": [
+      {
+        "line": 52,
+        "score": 0.9,
+        "reason": "Overwrites left[s*ln] (set on line 44 to next path node toward t) with parent[s]=-1, destroying the s-branch pointer"
+      },
+      {
+        "line": 49,
+        "score": 0.7,
+        "reason": "Skip test uses only right[]; node s has right=-1 so gets processed and clobbers its left pointer"
+      },
+      {
+        "line": 53,
+        "score": 0.4,
+        "reason": "Sets right[s]=-1 harmlessly, but executes as part of the block that corrupts s's left pointer"
+      },
+      {
+        "line": 51,
+        "score": 0.3,
+        "reason": "parent[s] is -1; assigning it to left is what wipes the valid path pointer"
+      },
+      {
+        "line": 44,
+        "score": 0.1,
+        "reason": "Sets left[s] correctly but that value is later destroyed by lines 49-53"
+      }
+    ]
+  },
+  "status": "ok",
+  "error_type": null,
+  "error_message": null,
+  "source_line_count": 80,
+  "loc": 80,
+  "evaluation_denominator": 80,
+  "faulty_lines": [
+    49
+  ],
+  "pattern_label": "graph_traversal_dfs_bfs",
+  "difficulty": "1939",
+  "system_prompt_hash": "745d438af1bc7ad390ebc48fb20bba5426edbbe64431e6db14c82dfa450a2b40",
+  "shared_prompt_hash": "d473475b288404140d3bea24036666c18d51fc1fc85810b65b189331c5e6381f",
+  "prior_hash": "57763e94ea7912d305980ef5e3b124d3d154871242fb846bf14257ff3602ea13",
+  "prompt_chars": 5234,
+  "prompt_tokens_estimate": 1309,
+  "manifest_hash": "9f2db14bd38647e611bed87c72c87f7c934a2c824388751e2969ad4cab9ef8fc",
+  "reasoning_effort": "low"
+}
