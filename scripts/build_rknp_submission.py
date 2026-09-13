@@ -30,7 +30,7 @@ from dataclasses import dataclass, field
 
 from docx import Document
 from docx.enum.section import WD_SECTION
-from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
@@ -59,6 +59,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC = ROOT / "paper" / "rknp_src"
 PAPER = ROOT / "paper"
 FIGDIR = PAPER / "figures" / "rknp_final"
+NIS_LOGO = SRC / "assets" / "nis_logo.png"
 
 TEMPLATE = SRC / "RKNP_BODY_TEMPLATE_RU.md"
 REFS_JSON = SRC / "references.json"
@@ -397,6 +398,15 @@ def pdf_styles() -> dict[str, ParagraphStyle]:
         "tpright": ParagraphStyle("tpright", alignment=TA_RIGHT,
                                   fontName="TNR", fontSize=12, leading=17,
                                   textColor=colors.black),
+        "tpschool": ParagraphStyle("tpschool", alignment=TA_CENTER,
+                                   fontName="TNR-Bold", fontSize=12,
+                                   leading=16, textColor=colors.black),
+        "tplogo": ParagraphStyle("tplogo", alignment=TA_CENTER,
+                                 fontName="TNR", fontSize=8.5,
+                                 leading=10, textColor=colors.HexColor("#555555")),
+        "tpdirection": ParagraphStyle("tpdirection", alignment=TA_CENTER,
+                                      fontName="TNR", fontSize=12,
+                                      leading=16, textColor=colors.black),
     }
 
 
@@ -456,30 +466,69 @@ def build_table(rows: list[list[str]], st: dict, total: float) -> Table:
     return t
 
 
-def render_titlepage(items: list[str], st: dict) -> list:
-    flow: list = [Spacer(1, 0.6 * cm)]
-    mode = "center"
+def titlepage_sections(items: list[str]) -> dict[str, list[str]]:
+    """Split the semantic title-page source into layout regions."""
+    marker_to_mode = {
+        "@@NIS_HEADER@@": "header",
+        "@@TITLE@@": "title",
+        "@@SUBTITLE@@": "sub",
+        "@@RIGHT@@": "right",
+        "@@DIRECTION@@": "direction",
+        "@@CITY@@": "city",
+    }
+    sections = {name: [] for name in marker_to_mode.values()}
+    mode = "header"
     for raw in items:
         s = raw.strip()
-        if s == "@@SEP@@":
-            flow.append(Spacer(1, 0.85 * cm))
-            continue
-        if s == "@@TITLE@@":
-            mode = "title"
-            flow.append(Spacer(1, 0.5 * cm))
-            continue
-        if s == "@@SUBTITLE@@":
-            mode = "sub"
-            flow.append(Spacer(1, 0.25 * cm))
-            continue
-        if s == "@@RIGHT@@":
-            mode = "right" if mode != "right" else "right"
-            continue
-        if not s:
-            continue
-        style = {"center": st["tp"], "title": st["tptitle"],
-                 "sub": st["tpsub"], "right": st["tpright"]}[mode]
-        flow.append(Paragraph(rl_markup(s), style))
+        if s in marker_to_mode:
+            mode = marker_to_mode[s]
+        elif s and s != "@@SEP@@":
+            sections[mode].append(s)
+    return sections
+
+
+def render_titlepage(items: list[str], st: dict) -> list:
+    """Render a screenshot-matched NIS title page with stable geometry."""
+    if not NIS_LOGO.exists():
+        sys.exit(f"missing NIS logo: {NIS_LOGO}")
+    sections = titlepage_sections(items)
+
+    logo = Image(str(NIS_LOGO), width=3.2 * cm, height=1.78 * cm)
+    logo.hAlign = "CENTER"
+    logo_block = [logo, Spacer(1, 0.08 * cm), Paragraph(
+        "Nazarbayev<br/>Intellectual<br/>Schools", st["tplogo"])]
+    school = "<br/>".join(rl_markup(s) for s in sections["header"])
+    header = Table(
+        [[logo_block, Paragraph(school, st["tpschool"])]],
+        colWidths=[4.0 * cm, TEXT_W - 4.0 * cm],
+        hAlign="LEFT",
+    )
+    header.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ]))
+
+    flow: list = [Spacer(1, 0.15 * cm), header, Spacer(1, 3.0 * cm)]
+    for s in sections["title"]:
+        flow.append(Paragraph(rl_markup(s), st["tptitle"]))
+    flow.append(Spacer(1, 0.55 * cm))
+    for s in sections["sub"]:
+        flow.append(Paragraph(rl_markup(s), st["tpsub"]))
+
+    flow.append(Spacer(1, 1.55 * cm))
+    for s in sections["right"]:
+        flow.append(Paragraph(rl_markup(s), st["tpright"]))
+
+    flow.append(Spacer(1, 2.4 * cm))
+    for s in sections["direction"]:
+        flow.append(Paragraph(rl_markup(s), st["tpdirection"]))
+
+    flow.append(Spacer(1, 1.2 * cm))
+    for s in sections["city"]:
+        flow.append(Paragraph(rl_markup(s), st["tpdirection"]))
     return flow
 
 
@@ -631,6 +680,17 @@ def set_cell_font(cell, size=9.5, bold=False):
             r.font.bold = bold or r.font.bold
             r.font.color.rgb = RGBColor(0, 0, 0)
             r._element.rPr.rFonts.set(qn("w:eastAsia"), DOCX_FONT)
+
+
+def remove_table_borders(table) -> None:
+    """Remove every visible border from a layout-only DOCX table."""
+    tbl_pr = table._tbl.tblPr
+    borders = OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        tag = OxmlElement(f"w:{edge}")
+        tag.set(qn("w:val"), "nil")
+        borders.append(tag)
+    tbl_pr.append(borders)
 
 
 def add_runs(par, text, size=BODY_PT, base_bold=False, base_italic=False):
@@ -816,40 +876,73 @@ def render_docx(blocks: list[Block], toc_entries, out_path=None,
 
     for b in blocks:
         if b.kind == "titlepage":
-            mode = "center"
-            for raw in b.items:
-                s = raw.strip()
-                if s == "@@SEP@@":
-                    sp = doc.add_paragraph()
-                    sp.paragraph_format.first_line_indent = Cm(0)
-                    sp.paragraph_format.space_after = Pt(14)
-                    continue
-                if s in ("@@TITLE@@", "@@SUBTITLE@@", "@@RIGHT@@"):
-                    mode = {"@@TITLE@@": "title", "@@SUBTITLE@@": "sub",
-                            "@@RIGHT@@": "right"}[s]
-                    continue
-                if not s:
-                    continue
+            if not NIS_LOGO.exists():
+                sys.exit(f"missing NIS logo: {NIS_LOGO}")
+            sections = titlepage_sections(b.items)
+
+            header = doc.add_table(rows=1, cols=2)
+            header.alignment = WD_TABLE_ALIGNMENT.LEFT
+            header.autofit = False
+            remove_table_borders(header)
+            left, right = header.rows[0].cells
+            left.width, right.width = Cm(4.0), Cm(13.0)
+            left.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+            right.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+
+            lp = left.paragraphs[0]
+            lp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            lp.paragraph_format.first_line_indent = Cm(0)
+            lp.paragraph_format.space_after = Pt(0)
+            lp.add_run().add_picture(str(NIS_LOGO), width=Cm(3.2))
+            logo_text = left.add_paragraph()
+            logo_text.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            logo_text.paragraph_format.first_line_indent = Cm(0)
+            logo_text.paragraph_format.space_after = Pt(0)
+            add_runs(logo_text, "Nazarbayev\nIntellectual\nSchools", size=8.5)
+
+            rp = right.paragraphs[0]
+            rp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            rp.paragraph_format.first_line_indent = Cm(0)
+            rp.paragraph_format.line_spacing = 1.25
+            rp.paragraph_format.space_after = Pt(0)
+            for idx, s in enumerate(sections["header"]):
+                if idx:
+                    rp.add_run().add_break()
+                add_runs(rp, s, size=12, base_bold=True)
+
+            def title_paragraph(text, align, size, bold=False,
+                                line_spacing=1.25, after=0):
                 p = doc.add_paragraph()
-                pfm = p.paragraph_format
-                pfm.first_line_indent = Cm(0)
-                pfm.space_after = Pt(0)
-                if mode == "right":
-                    pfm.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-                    add_runs(p, s, size=12)
-                    pfm.line_spacing = 1.3
-                elif mode == "title":
-                    pfm.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    add_runs(p, s, size=15, base_bold=True)
-                    pfm.line_spacing = 1.3
-                elif mode == "sub":
-                    pfm.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    add_runs(p, s, size=12)
-                    pfm.line_spacing = 1.25
-                else:
-                    pfm.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    add_runs(p, s, size=13)
-                    pfm.line_spacing = 1.3
+                p.paragraph_format.first_line_indent = Cm(0)
+                p.paragraph_format.alignment = align
+                p.paragraph_format.line_spacing = line_spacing
+                p.paragraph_format.space_after = Pt(after)
+                add_runs(p, text, size=size, base_bold=bold)
+                return p
+
+            spacer = doc.add_paragraph()
+            spacer.paragraph_format.first_line_indent = Cm(0)
+            spacer.paragraph_format.space_after = Pt(67)
+
+            for s in sections["title"]:
+                title_paragraph(s, WD_ALIGN_PARAGRAPH.CENTER, 15, bold=True,
+                                line_spacing=1.3)
+            title_paragraph("", WD_ALIGN_PARAGRAPH.CENTER, 12, after=8)
+            for s in sections["sub"]:
+                title_paragraph(s, WD_ALIGN_PARAGRAPH.CENTER, 12)
+
+            title_paragraph("", WD_ALIGN_PARAGRAPH.CENTER, 12, after=25)
+            for s in sections["right"]:
+                title_paragraph(s, WD_ALIGN_PARAGRAPH.RIGHT, 12,
+                                line_spacing=1.3)
+
+            title_paragraph("", WD_ALIGN_PARAGRAPH.CENTER, 12, after=40)
+            for s in sections["direction"]:
+                title_paragraph(s, WD_ALIGN_PARAGRAPH.CENTER, 12)
+
+            title_paragraph("", WD_ALIGN_PARAGRAPH.CENTER, 12, after=12)
+            for s in sections["city"]:
+                title_paragraph(s, WD_ALIGN_PARAGRAPH.CENTER, 12)
             continue
 
         if b.kind == "h1":
