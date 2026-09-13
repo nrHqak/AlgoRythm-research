@@ -21,7 +21,9 @@ All of the following are frozen and must not be altered before the pilot runs:
 
 # Current Stage
 
-**Pre-results, v2.2 consensus sample frozen, technical configuration frozen, ready for the FINAL scientific pilot.** Protocol, dataset (v2.2), priors, prompts, and model configuration (including the `reasoning_effort = low` amendment) are frozen. **No valid scientific performance result exists anywhere in this repository's history.** Every execution attempt to date — under `max_tokens` 4096, 16384, and 32768 (the last with the model's default reasoning effort) — has been declared VOID by the frozen health rule. The `reasoning_effort = low` amendment that is expected to fix the reasoning-token-exhaustion cause of every VOID attempt has passed only a 20-call synthetic preflight; it has **not yet been exercised by a real scientific session**. The next required action is to run the full 600-call two-session pilot under this exact frozen configuration.
+**Post-results. The final scientific pilot is COMPLETE and VALID, and the Russian APA 7 paper is finalized against it.** The frozen v2.2 protocol was executed end-to-end under `max_tokens = 32768`, `reasoning_effort = low`, 4 workers, Session G then Session P: **600/600 registered calls completed**, zero provider failures, one parser failure (arm B, handled under the preregistered `count_as_failure` policy), all cross-session invariants `PASS`, no VOID marker on either session. The `reasoning_effort = low` amendment resolved the reasoning-token exhaustion that had voided every prior attempt — zero length truncations across all 600 calls.
+
+**The preregistered primary hypothesis was NOT supported.** Program-level Top-1, C vs B: 12/30 (40.00%) vs 12/30 (40.00%), delta 0.00 pp, exact McNemar *p* = 1.0, *b* = 3, *c* = 3, *d* = 6, bootstrap 95% CI [−16.67, +16.67] pp. The null-control gate passed (*d*_null = 5 < *d*_primary = 6), with a minimal margin. This is a **null/mixed calibration result, not evidence of equivalence and not evidence of absence.**
 
 # Completed
 
@@ -46,38 +48,48 @@ All of the following are frozen and must not be altered before the pilot runs:
 
 # In Progress
 
-No scientific experiment is running.
+No scientific experiment is running. The final pilot is complete and its results are written up in `paper/APA7_PAPER_RU.md`.
 
 # Blocked
 
-Nothing currently blocks starting the final scientific pilot. The two historical blockers are both resolved:
+Nothing is blocked. Both historical blockers were resolved and the final pilot has run:
 
-- Pattern-label provenance (v2.1's unreviewed heuristic) — resolved by the v2.2 model-consensus-annotation remediation above.
-- `max_tokens` insufficiency at 16384 — resolved by raising to 32768; the follow-on VOID at 32768 with default reasoning effort is addressed by the frozen `reasoning_effort = low` amendment, which is technically validated (synthetic preflight) but **not yet exercised by a real scientific run** — this is the one remaining unknown before a valid result can exist, not a blocker to attempting the run.
+- Pattern-label provenance (v2.1's unreviewed heuristic) — resolved by the v2.2 model-consensus-annotation remediation.
+- Reasoning-token exhaustion — resolved by the `reasoning_effort = low` amendment, now confirmed at scientific scale (zero length truncations across 600 calls).
 
 # Next Actions
 
-1. **Run the FINAL scientific pilot** under the exact frozen configuration in `pilot/v2/MODEL_FREEZE_RECORD.json`: manifest `data/manifests/pilot_manifest_v2_2.json`, model `z-ai/glm-5.3-flash` via OpenRouter/Z.AI pinned, `temperature = 0`, `max_tokens = 32768`, `reasoning_effort = "low"`, `repetitions = 5`, 4 concurrent workers within a session, Session G then Session P with a hard barrier between them.
-2. Analyze each session natively, then run the cross-session C-vs-B primary comparison (`pilot/v2/STATISTICAL_ANALYSIS_PLAN.md` §6).
-3. Apply the null-calibration gate (A_G vs A_P) **before** interpreting the primary result.
-4. Update `pilot/v2/CLAIM_BOUNDARIES_V2.md` to describe v2.2 labels accurately (consensus of two blinded model annotators, not oracle/human) before writing any Results text.
-5. Apply the (updated) `pilot/v2/CLAIM_BOUNDARIES_V2.md` to every sentence written about the outcome.
-6. Insert the result into `paper/APA7_PAPER_RU.md` per `paper/RESULT_INSERTION_MAP_RU.md`.
+1. Update `pilot/v2/CLAIM_BOUNDARIES_V2.md` to describe v2.2 labels accurately (consensus of two blinded model annotators, not oracle/human). This is the one remaining internal-consistency item; the Russian paper already follows the correct characterization and discloses the discrepancy.
+2. Verify the 10 flagged, incompletely-sourced reference entries against primary bibliographic sources (`paper/APA7_PAPER_RU_STATUS.md` §6).
+3. Student action: supply author name/spelling, affiliation, graduation year, and correspondence address on the title page (competition AI-authorship rule).
+4. Optional: add `data/CLAUDE_ANNOTATION_V2_2_AUDIT.md` (Annotator A's run audit, the only file unique to `agent/claude-v2-2-annotation`) to `main`.
+5. Optional follow-on science, per the paper's Future Work: adjudicate the 50 excluded disagreement programs; run a confirmatory study sized from an externally-specified minimum meaningful difference (this pilot could not size it); test the two hypotheses this pilot generated (ranking-quality effect; pattern-dependent effect).
 
 # Latest Experimental Results
 
-**None.** No valid scientific performance result exists. All pilot attempts to date (4096-token, 16384-token, and 32768-token-with-default-reasoning-effort configurations) are VOID and are retained only as audit history. The `reasoning_effort = low` configuration expected to produce a valid run has passed only a synthetic, non-scientific preflight (20/20 calls, 0 failures) — **this preflight is an engineering/technical validation, not a scientific result, and must never be reported as one.**
+**The final v2.2 scientific pilot is COMPLETE and VALID** (`results/final-pilot-v2-2-low/`). Run integrity: 600/600 calls, 0 provider failures, 1 parser failure (arm B, `count_as_failure`), invariants `PASS`, no VOID marker.
 
-**No Results or Discussion claim may be written yet.** Writing any performance number, effect direction, or comparative statement at this stage would violate `pilot/v2/CLAIM_BOUNDARIES_V2.md`.
+- **Primary (preregistered), Top-1, C vs B, program level:** 12/30 (40.00%) vs 12/30 (40.00%); delta 0.00 pp; exact McNemar *p* = 1.0; *b* = 3, *c* = 3, *d* = 6; bootstrap 95% CI [−16.67, +16.67] pp. **H1 not supported.**
+- **Null-control gate:** A_G 13/30 (43.33%) vs A_P 12/30 (40.00%); drift −3.33 pp; *d*_null = 5; *p* = 1.0; gate **PASS** (5 < 6), minimal margin.
+- **Secondary/descriptive (no alpha adjustment, none significant):** Top-3 50.00% vs 60.00% (*p* = .453); Top-5 53.33% vs 63.33% (*p* = .375); EXAM\* 0.510798 vs 0.445055 (Wilcoxon *p* = .124). All CIs include zero.
+- **Per-pattern Top-1 (descriptive only):** brute force +25.00 pp, dynamic programming −25.00 pp, binary search 0.00 pp, graph traversal 0.00 pp — the two non-zero shifts cancel in the pooled result.
+- **Determinism finding:** 0.00% of (program, condition) cells produced five byte-identical responses in any arm; Top-1 agreement across five repetitions was only 56.67–73.33%. Temperature 0 did not yield reproducible output.
+- **Confirmatory sizing:** NOT POSSIBLE from this pilot. π_d = 0.200 [0.067, 0.367] but ψ = 0.500 exactly, so the McNemar approximation is undefined; registered status "PILOT COULD NOT SIZE THE STUDY".
+- **Operational:** US$0.29696674; 3,385.523 s (56 min 25.5 s); 1,227,795 total tokens.
+
+**Interpretation discipline:** the result is a null/mixed calibration outcome. It is **not** evidence of equivalence and **not** evidence of absence of an effect; the CI is compatible with a substantial effect in either direction. The secondary ranking-quality signal and the pattern-dependent heterogeneity are hypothesis-generating only.
 
 # Known Risks
 
 - `dossier/99_synthesis.md` §S5 (project-level), `pilot/SCIENTIFIC_RISKS.md` (pilot-level).
 - **Two model annotators, not human experts.** v2.2 pattern labels are the exact consensus of two independent blinded LLMs (Claude, Codex), not human-assigned oracle labels. Agreement (κ ≈ 0.75) is "substantial" by the conventional scale, not perfect; the two models may share correlated training-data biases in a way two independent human experts would not.
 - **Consensus-only selection bias.** The v2.2 sample is drawn only from the 78.4483% of the frame where both annotators agreed; the 50 disagreements (21.6% of the frame) were excluded, not adjudicated. This biases the pilot toward programs with comparatively unambiguous pattern assignments.
-- **`reasoning_effort = low` is technically validated but scientifically unexercised.** Every real scientific attempt to date has failed on reasoning-token exhaustion; the amendment addressing this has only 20 synthetic calls of evidence behind it. The next real run is the first test of whether it actually resolves the VOID pattern at scientific scale (300+ calls).
+- **No determinism at temperature 0 (measured).** Zero percent of (program, condition) cells produced five byte-identical responses; Top-1 agreement across repetitions was 56.67–73.33%. Single-shot evaluation of this model is not reproducible, and any future protocol must keep repetitions plus an explicit aggregation rule.
+- **The empirical noise floor nearly equals the primary signal.** *d*_null = 5 vs *d*_primary = 6. The interpretability gate passed, but barely; at n = 30 a Top-1 difference is hard to separate from re-run variability.
+- **The pilot could not size the confirmatory study.** ψ = 0.500 exactly makes the McNemar sizing approximation undefined. Future planning must start from an externally-specified minimum meaningful difference.
+- **`reasoning_effort = low` is a forced configuration constraint.** It was required to get any completion at all; the model's behavior under higher reasoning effort is untested here, so the null result is conditional on this setting.
 - Open items from `pilot/v2/PRE_RUN_REVIEW_V2.md`: **V-1** single-annotator residual in the blinded fault-location pass; **V-2** the `<ALGORITHMIC_PATTERN_PRIOR>` delimiter tag wraps generic text in arm B — the only asymmetry in the design that biases *toward* the hypothesis; **V-5** a statistically null primary result is the expected outcome at n = 30 and must not be read as evidence of absence.
-- **`pilot/v2/CLAIM_BOUNDARIES_V2.md` is stale** relative to the v2.2 model-consensus-annotation amendment (still describes "oracle human-assigned" labels). Must be corrected before any Results are written — see Frozen Decisions and Next Actions.
+- **`pilot/v2/CLAIM_BOUNDARIES_V2.md` is stale** relative to the v2.2 model-consensus-annotation amendment (still describes "oracle human-assigned" labels). The Russian paper already uses the correct characterization and discloses the discrepancy, but the document itself still needs correcting — see Next Actions.
 - ⚠️ **ISEF rule:** generative AI may not be used to author the research plan, the ≤250-word abstract, the poster, or the citations (`AGENTS.md` §3.2 item 7, `dossier/08_block8_competition.md`). AI-assisted engineering and specification work is permissible but must be disclosed accurately.
 
 # Agent Handoffs
@@ -94,8 +106,8 @@ Nothing currently blocks starting the final scientific pilot. The two historical
 
 | Branch | Role | Tip |
 |---|---|---|
-| `main` | authoritative, contains all work | `2533da0` (merge commit) |
-| `agent/codex-gate7` | v2.2 remediation: consensus sample, model/token/concurrency/reasoning-effort freezes, final VOID diagnostics | `f8c00ff` — merged into `main` |
+| `main` | authoritative, contains all work including the final valid results | this commit |
+| `agent/codex-gate7` | v2.2 remediation, execution freezes, VOID diagnostics, and the final VALID pilot results | `bc34ccd` — merged into `main` |
 | `agent/claude-v2-2-annotation` | Claude's (Annotator A) independent blinded v2.2 annotation | `a1d1b16` — content (the annotation CSV) is byte-identical to what `agent/codex-gate7` already carries via its own commit `019d75f`; **not** a git ancestor of `codex-gate7`, and not separately merged. One file unique to this branch, `data/CLAUDE_ANNOTATION_V2_2_AUDIT.md` (Claude's own annotation-run audit note), is **not yet on `main`** — it duplicates no scientific data, only documentation, and can be added later without touching any frozen artifact. |
 | `agent/antigravity-data-v2` | dataset v2.1 | `9c83767` |
 | `agent/codex-v2-preflight` | v2 engineering gates | `96de08d` |
