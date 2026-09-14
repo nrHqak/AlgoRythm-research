@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Шесть сцен для двухминутной видеозащиты исследования AlgoRythm на РКНП" />
+    <title>AlgoRythm · видеозащита исследования</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="mode-monitor visual-left">
+    <main class="deck" aria-live="polite">
+      <section class="scene scene-1 is-active" data-scene="1" aria-label="Сцена 1. Код работает. Ответ неверный">
+        <div class="scene-inner scene-hero">
+          <div class="eyebrow"><span class="status-dot"></span> Исследование · РКНП</div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="brand-lockup">
+                <img src="assets/algorythm-logo.png" alt="Логотип AlgoRythm" />
+              </div>
+              <h1>Код работает.<br /><em>Ответ неверный.</em></h1>
+              <p class="author-line">[ИМЯ ФАМИЛИЯ] <span>·</span> Атырау</p>
+            </div>
+
+            <div class="signal-panel" aria-label="Демонстрационный фрагмент поддерживаемого примера бинарного поиска">
+              <div class="panel-topline"><span>ДЕМО-ПРИМЕР · БИНАРНЫЙ ПОИСК</span><span>ЛОГИЧЕСКАЯ ОШИБКА</span></div>
+              <pre><code><span>06</span> while left &lt;= right:
+<span>07</span>   mid = (left + right) // 2
+<span>08</span>   if arr[mid] == target:
+<span class="fault"><b>09</b>     left = mid + 1</span></code></pre>
+              <div class="wrong-answer">
+                <span class="terminal-prompt">$</span>
+                <span>program.py</span>
+                <strong>RUNS</strong>
+                <span class="divider">/</span>
+                <strong class="warn">WRONG ANSWER</strong>
+              </div>
+              <p>Учебный демонстрационный пример; не данные эксперимента</p>
+            </div>
+          </div>
+          <div class="scene-number">01 / 06</div>
+        </div>
+      </section>
+
+      <section class="scene scene-2" data-scene="2" aria-label="Сцена 2. Увидеть выполнение. Понять логику">
+        <div class="scene-inner">
+          <header class="scene-header">
+            <div>
+              <div class="eyebrow">AlgoRythm · текущий продукт</div>
+              <h2>Увидеть выполнение.<br /><em>Понять логику.</em></h2>
+            </div>
+            <div class="honesty-label">Функциональная схема по коду продукта · не скриншот</div>
+          </header>
+
+          <div class="product-flow reveal-group" data-reveal-group="product">
+            <article class="code-pane reveal is-visible" data-reveal="0">
+              <div class="pane-label"><span>01</span> КОД</div>
+              <pre><code><i>arr</i> = [1, 3, 5, 7, 9, 11]
+<i>target</i> = 7
+left, right = 0, len(arr) - 1
+
+while left &lt;= right:
+  <mark>mid = (left + right) // 2</mark>
+  if arr[mid] == target:
+    result = mid</code></pre>
+            </article>
+
+            <article class="trace-pane reveal is-visible" data-reveal="0">
+              <div class="pane-label"><span>02</span> СОСТОЯНИЕ ДАННЫХ</div>
+              <div class="trace-readout"><span>ШАГ 006 / 012</span><strong>SEARCH</strong></div>
+              <div class="array-viz" aria-label="Массив 1, 3, 5, 7, 9, 11; выбран средний элемент 5">
+                <div style="--h: 18%"><span>1</span></div>
+                <div style="--h: 32%"><span>3</span></div>
+                <div class="active" style="--h: 48%"><span>5</span><b>mid</b></div>
+                <div style="--h: 64%"><span>7</span></div>
+                <div style="--h: 79%"><span>9</span></div>
+                <div style="--h: 94%"><span>11</span></div>
+              </div>
+              <div class="step-controls"><button disabled>← Назад</button><button disabled class="play">▶ Запуск</button><button disabled>Далее →</button></div>
+            </article>
+
+            <article class="mentor-pane reveal is-visible" data-reveal="0">
+              <div class="pane-label"><span>03</span> AI-МЕНТОР</div>
+              <blockquote><b>ПОЛЕ ВОПРОСА</b>Спроси про текущий шаг, идею алгоритма или отладку</blockquote>
+              <p>Вопросы и подсказки вместо готового решения</p>
+              <small>Назначение интерфейса, не гарантия поведения модели</small>
+            </article>
+          </div>
+
+          <div class="product-proofline">
+            <span>Код</span><b>→</b><span>trace через <code>sys.settrace</code></span><b>→</b><span>пошаговая визуализация</span>
+          </div>
+          <div class="scene-number">02 / 06</div>
+        </div>
+      </section>
+
+      <section class="scene scene-3" data-scene="3" aria-label="Сцена 3. Что добавляет знание алгоритма">
+        <div class="scene-inner">
+          <header class="scene-header compact">
+            <div>
+              <div class="eyebrow">Исследовательский вопрос</div>
+              <h2>Что добавляет<br /><em>знание алгоритма?</em></h2>
+            </div>
+            <div class="primary-comparison">ГЛАВНОЕ СРАВНЕНИЕ <strong>B ↔ C</strong></div>
+          </header>
+
+          <div class="experiment-bridge">
+            <div class="same-input">
+              <div class="input-file-icon">PY</div>
+              <div><strong>Один и тот же код</strong><span>с логической ошибкой</span></div>
+            </div>
+            <svg class="split-lines" viewBox="0 0 180 250" aria-hidden="true">
+              <path d="M10 125 H72 Q90 125 90 105 V55 Q90 30 112 30 H170" />
+              <path d="M10 125 H72 Q90 125 90 145 V195 Q90 220 112 220 H170" />
+            </svg>
+            <div class="condition-stack">
+              <article class="condition-card condition-b">
+                <div class="condition-letter">B</div>
+                <div>
+                  <h3>Общая отладочная подсказка</h3>
+                  <p>«Проверьте границы циклов… направление сравнений…»</p>
+                </div>
+              </article>
+              <div class="versus-rule"><span>различается содержание дополнительной подсказки</span></div>
+              <article class="condition-card condition-c">
+                <div class="condition-letter">C</div>
+                <div>
+                  <h3>Подсказка по структуре алгоритма</h3>
+                  <p>«Для бинарного поиска проверьте… вычисление средней точки…»</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="matched-strip">
+            <span>одна модель</span><i></i><span>тот же исходный код</span><i></i><span>сопоставимые длина и формат</span>
+          </div>
+          <div class="scene-number">03 / 06</div>
+        </div>
+      </section>
+
+      <section class="scene scene-4" data-scene="4" aria-label="Сцена 4. Как проверяли">
+        <div class="scene-inner">
+          <header class="scene-header compact">
+            <div>
+              <div class="eyebrow">Предварительно зафиксированный план</div>
+              <h2>Как проверяли</h2>
+            </div>
+            <div class="model-chip">ОДНА МОДЕЛЬ · GLM 5.3 FLASH</div>
+          </header>
+
+          <div class="method-grid">
+            <div class="funnel-mini">
+              <div class="funnel-step"><span>01</span><strong>Проверка тестов</strong></div>
+              <b class="down-arrow">↓</b>
+              <div class="funnel-step"><span>02</span><strong>Независимые модельные метки</strong></div>
+              <b class="down-arrow">↓</b>
+              <div class="funnel-step"><span>03</span><strong>Отбор совпадений</strong></div>
+              <p>Совпадение — критерий отбора, не доказательство правильности метки.</p>
+            </div>
+
+            <div class="formula-zone">
+              <div class="formula">
+                <strong>30</strong><span>программ</span><b>×</b>
+                <strong>4</strong><span>условия</span><b>×</b>
+                <strong>5</strong><span>повторений</span>
+              </div>
+              <div class="formula-result">= <strong>600</strong> вызовов</div>
+              <p>Единица анализа — программа</p>
+            </div>
+
+            <div class="classes-list">
+              <h3>4 класса</h3>
+              <div><span class="swatch dp"></span><strong>8</strong><p>динамическое<br />программирование</p></div>
+              <div><span class="swatch brute"></span><strong>8</strong><p>полный перебор /<br />прямая реализация</p></div>
+              <div><span class="swatch binary"></span><strong>7</strong><p>бинарный поиск</p></div>
+              <div><span class="swatch graph"></span><strong>7</strong><p>обход графа</p></div>
+            </div>
+          </div>
+
+          <div class="arm-strip">
+            <span>Сессия 1</span><strong>A_G</strong><i>↔</i><strong class="arm-b">B</strong>
+            <div class="primary-arrow">ГЛАВНОЕ: <b>B ↔ C</b></div>
+            <span>Сессия 2</span><strong>A_P</strong><i>↔</i><strong class="arm-c">C</strong>
+          </div>
+          <div class="scene-number">04 / 06</div>
+        </div>
+      </section>
+
+      <section class="scene scene-5" data-scene="5" aria-label="Сцена 5. Результат проверки">
+        <div class="scene-inner">
+          <header class="scene-header compact result-header">
+            <div>
+              <div class="eyebrow">Результат проверки · n = 30 программ</div>
+              <h2>Top-1: <em>преимущества не обнаружено</em></h2>
+            </div>
+            <div class="metric-rule">Агрегация: успех ≥ 3 из 5 повторений</div>
+          </header>
+
+          <div class="topk-chart" role="img" aria-label="Top-1: B 40 процентов, C 40 процентов. Top-3: B 50 процентов, C 60 процентов. Top-5: B 53,33 процента, C 63,33 процента.">
+            <div class="y-axis"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span><span>0%</span></div>
+            <div class="grid-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="chart-groups">
+              <div class="bar-group primary-bars">
+                <div class="bar-col"><span class="value">40,0%<small>12/30</small></span><div class="bar b" style="--value: 40"></div><b>B</b></div>
+                <div class="bar-col"><span class="value">40,0%<small>12/30</small></span><div class="bar c" style="--value: 40"></div><b>C</b></div>
+                <label>Top-1 <strong>ОСНОВНАЯ</strong></label>
+              </div>
+              <div class="bar-group secondary-bars reveal" data-reveal="1">
+                <div class="bar-col"><span class="value">50,0%</span><div class="bar b" style="--value: 50"></div><b>B</b></div>
+                <div class="bar-col"><span class="value">60,0%</span><div class="bar c" style="--value: 60"></div><b>C</b></div>
+                <label>Top-3 <strong>+10 п. п.</strong></label>
+              </div>
+              <div class="bar-group secondary-bars reveal" data-reveal="1">
+                <div class="bar-col"><span class="value">53,33%</span><div class="bar b" style="--value: 53.33"></div><b>B</b></div>
+                <div class="bar-col"><span class="value">63,33%</span><div class="bar c" style="--value: 63.33"></div><b>C</b></div>
+                <label>Top-5 <strong>+10 п. п.</strong></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-footer">
+            <div class="legend"><span><i class="b"></i>B · общая</span><span><i class="c"></i>C · по структуре</span></div>
+            <div class="secondary-caveat reveal" data-reveal="1">Описательные различия. Статистически убедительного преимущества нет.</div>
+            <div class="primary-stays">Основная метрика остаётся: <strong>40,0% и 40,0%</strong></div>
+          </div>
+          <div class="scene-number">05 / 06</div>
+        </div>
+      </section>
+
+      <section class="scene scene-6" data-scene="6" aria-label="Сцена 6. Следующий вопрос для AlgoRythm">
+        <div class="scene-inner">
+          <header class="scene-header compact">
+            <div>
+              <div class="eyebrow">Граница вывода</div>
+              <h2>Следующий вопрос<br /><em>для AlgoRythm</em></h2>
+            </div>
+            <img class="corner-logo" src="assets/algorythm-logo.png" alt="" />
+          </header>
+
+          <div class="next-grid">
+            <article class="verified-zone">
+              <div class="zone-kicker">ПРОВЕРЕНО</div>
+              <div class="zone-icon">✓</div>
+              <h3>Конкретная текстовая стратегия локализации</h3>
+              <p>Общий прирост Top-1 <strong>не обнаружен</strong>.</p>
+              <small>Это проверка отдельного механизма, а не всей платформы.</small>
+            </article>
+
+            <div class="next-arrow" aria-hidden="true">→</div>
+
+            <article class="future-zone">
+              <div class="zone-kicker">СЛЕДУЮЩЕЕ ИССЛЕДОВАНИЕ</div>
+              <div class="future-step"><span>01</span><p>Подсказка с учётом <strong>шагов выполнения</strong></p></div>
+              <div class="future-line"></div>
+              <div class="future-step"><span>02</span><p>Затем проверка помощи <strong>с участием учеников</strong></p></div>
+              <div class="not-tested">Следующий этап — ещё не проверено</div>
+            </article>
+          </div>
+
+          <div class="final-line">Понять <em>собственное</em> решение</div>
+          <div class="scene-number">06 / 06</div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="controls" aria-label="Управление презентацией">
+      <div class="control-row scene-jump" aria-label="Переход к сцене">
+        <button type="button" data-jump="0" class="is-current">1</button>
+        <button type="button" data-jump="1">2</button>
+        <button type="button" data-jump="2">3</button>
+        <button type="button" data-jump="3">4</button>
+        <button type="button" data-jump="4">5</button>
+        <button type="button" data-jump="5">6</button>
+      </div>
+      <div class="control-row">
+        <button type="button" id="prevBtn" aria-label="Предыдущий шаг">←</button>
+        <span id="stepLabel">Сцена 1 · шаг 1/1</span>
+        <button type="button" id="nextBtn" aria-label="Следующий шаг">→</button>
+      </div>
+      <div class="control-row utility-row">
+        <button type="button" id="modeBtn">MONITOR</button>
+        <button type="button" id="sideBtn">Визуал слева</button>
+        <button type="button" id="autoBtn">▶ Авто</button>
+        <button type="button" id="fullBtn">⛶</button>
+      </div>
+      <p class="key-help">Space / → далее · ← назад · Home начало · F fullscreen · H скрыть</p>
+    </aside>
+
+    <div class="progress-rail" aria-hidden="true"><div id="progressFill"></div></div>
+    <script src="app.js"></script>
+  </body>
+</html>

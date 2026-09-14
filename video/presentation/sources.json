@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-09-14",
+  "research_repository": "https://github.com/nrHqak/AlgoRythm-research",
+  "product_repository": "https://github.com/nrHqak/AlgoRythm",
+  "refs": {
+    "scientific_results": {
+      "ref": "agent/codex-gate7",
+      "commit": "bc34ccd",
+      "note": "Финальные научные результаты v2.2; текущая рабочая ветка при создании презентации."
+    },
+    "final_report_and_figures": {
+      "ref": "origin/main",
+      "commit": "072bdb80dba7a131ac6fe56137783812262e0798",
+      "note": "Финальный отчёт и рисунки были доступны в этом ref; ветка не переключалась."
+    },
+    "product": {
+      "ref": "origin/main",
+      "commit": "038a15644edad512d4af7034de591c8bbe6380b2"
+    }
+  },
+  "claims": [
+    {
+      "id": "sample_and_calls",
+      "values": ["30 программ", "4 условия", "5 повторений", "600 вызовов", "единица анализа — программа"],
+      "sources": [
+        {"path": "paper/RKNP_SUBMISSION_FINAL_SOURCE.md", "ref": "072bdb80dba7a131ac6fe56137783812262e0798", "locations": ["аннотация", "§3", "Приложение В"]},
+        {"path": "results/final-pilot-v2-2-low/analysis/operational_summary.json", "ref": "bc34ccd", "json_paths": ["$.scientific_calls_completed", "$.analysis.primary_unit"]},
+        {"path": "results/final-pilot-v2-2-low/analysis/C_vs_B.json", "ref": "bc34ccd", "json_paths": ["$.n_programs", "$.repetitions", "$.effective_paired_observations_per_comparison"]}
+      ]
+    },
+    {
+      "id": "class_counts",
+      "values": {"dynamic_programming": 8, "brute_force_implementation": 8, "binary_search": 7, "graph_traversal_dfs_bfs": 7},
+      "sources": [
+        {"path": "data/manifests/SAMPLING_AUDIT_V2_2.md", "ref": "bc34ccd", "location": "§§2–4"},
+        {"path": "data/manifests/pilot_manifest_v2_2.json", "ref": "bc34ccd"}
+      ]
+    },
+    {
+      "id": "sampling_funnel",
+      "values": ["232 размечены", "182 точных совпадения, включая 25 outside_vocabulary", "157 внутри словаря", "109 в четырёх выбранных классах", "30 в финальной выборке"],
+      "sources": [
+        {"path": "data/manifests/SAMPLING_AUDIT_V2_2.md", "ref": "bc34ccd", "location": "§2"},
+        {"path": "paper/RKNP_FINAL_REPORT_RU.md", "ref": "072bdb80dba7a131ac6fe56137783812262e0798", "location": "Приложение А"}
+      ]
+    },
+    {
+      "id": "annotation_agreement",
+      "values": {"programs": 232, "agreements": 182, "disagreements": 50, "raw_agreement_percent": 78.4483, "cohens_kappa": 0.752269},
+      "sources": [
+        {"path": "data/manifests/PATTERN_ANNOTATION_AGREEMENT_V2_2.md", "ref": "bc34ccd", "location": "Overall agreement"}
+      ],
+      "note": "Claude и Codex — независимые модельные аннотаторы паттернов, не сравниваемые модели-локализаторы."
+    },
+    {
+      "id": "model",
+      "values": {"display_name": "GLM 5.3 Flash", "model_id": "z-ai/glm-5.3-flash", "temperature": 0, "reasoning_effort": "low"},
+      "sources": [
+        {"path": "paper/RKNP_FINAL_REPORT_RU.md", "ref": "072bdb80dba7a131ac6fe56137783812262e0798", "location": "§3.10"},
+        {"path": "results/final-pilot-v2-2-low/analysis/SCIENTIFIC_RESULTS_V2_2.md", "ref": "bc34ccd", "location": "Integrity"}
+      ]
+    },
+    {
+      "id": "primary_top1",
+      "values": {"B": "12/30 (40.00%)", "C": "12/30 (40.00%)", "delta_pp": 0, "mcnemar_exact_p": 1.0, "bootstrap_95_ci_pp": [-16.67, 16.67]},
+      "sources": [
+        {"path": "results/final-pilot-v2-2-low/analysis/C_vs_B.json", "ref": "bc34ccd", "json_path": "$.primary_C_vs_B"},
+        {"path": "results/final-pilot-v2-2-low/analysis/SCIENTIFIC_RESULTS_V2_2.md", "ref": "bc34ccd", "location": "Primary result"},
+        {"path": "paper/RKNP_SUBMISSION_FINAL_SOURCE.md", "ref": "072bdb80dba7a131ac6fe56137783812262e0798", "location": "§4.3 and abstract"}
+      ]
+    },
+    {
+      "id": "secondary_topk",
+      "values": {
+        "Top-3": {"B": "15/30 (50.00%)", "C": "18/30 (60.00%)", "delta_pp": 10, "mcnemar_exact_p": 0.453125, "bootstrap_95_ci_pp": [-6.67, 26.67]},
+        "Top-5": {"B": "16/30 (53.33%)", "C": "19/30 (63.33%)", "delta_pp": 10, "mcnemar_exact_p": 0.375, "bootstrap_95_ci_pp": [-3.33, 23.33]}
+      },
+      "sources": [
+        {"path": "results/final-pilot-v2-2-low/analysis/C_vs_B.json", "ref": "bc34ccd", "json_paths": ["$.secondary.top3", "$.secondary.top5"]},
+        {"path": "paper/figures/rknp_final/fig4_topk.svg", "ref": "072bdb80dba7a131ac6fe56137783812262e0798"}
+      ],
+      "note": "Вторичные описательные метрики; убедительного статистического преимущества нет."
+    },
+    {
+      "id": "exam_and_patterns_notes_only",
+      "values": {"EXAM_B": 0.510798, "EXAM_C": 0.445055, "delta": -0.065743, "wilcoxon_p": 0.12404279309009482, "pattern_top1_delta_pp": {"binary_search": 0, "brute_force_implementation": 25, "dynamic_programming": -25, "graph_traversal_dfs_bfs": 0}},
+      "sources": [
+        {"path": "results/final-pilot-v2-2-low/analysis/C_vs_B.json", "ref": "bc34ccd", "json_path": "$.secondary.EXAM*"},
+        {"path": "results/final-pilot-v2-2-low/analysis/SCIENTIFIC_RESULTS_V2_2.md", "ref": "bc34ccd", "locations": ["Per-pattern Top-1 findings", "Primary result"]}
+      ]
+    },
+    {
+      "id": "prompt_parity_and_fragments",
+      "values": ["B — общая отладочная подсказка", "C — подсказка по структуре алгоритма", "сопоставимые длина и формат", "максимальное отклонение 8 слов"],
+      "sources": [
+        {"path": "pilot/v2/GENERIC_PLACEBO_PRIOR.md", "ref": "bc34ccd", "locations": ["§2 Frozen text", "§4 Matching audit"]},
+        {"path": "pilot/v2/PROMPT_DIFF_V2.md", "ref": "bc34ccd", "locations": ["§2 The three prompts", "§4 Disclosed residual asymmetries"]},
+        {"path": "pilot/pattern_priors.json", "ref": "bc34ccd", "json_path": "$.binary_search"}
+      ],
+      "note": "Русские короткие фрагменты в сцене 3 — смысловой перевод замороженных английских формулировок, не новый experimental prompt."
+    },
+    {
+      "id": "aggregation_rule",
+      "values": "Top-K по программе = успех метрики минимум в 3 из 5 повторений",
+      "sources": [
+        {"path": "paper/RKNP_FINAL_REPORT_RU.md", "ref": "072bdb80dba7a131ac6fe56137783812262e0798", "locations": ["§3.11", "Приложение Г"]},
+        {"path": "results/final-pilot-v2-2-low/analysis/C_vs_B.json", "ref": "bc34ccd", "json_path": "$.primary_C_vs_B.bootstrap.unit"}
+      ]
+    }
+  ],
+  "visual_sources": [
+    {
+      "local_asset": "assets/algorythm-logo.png",
+      "source": {"repository": "https://github.com/nrHqak/AlgoRythm", "path": "frontend/public/algorythm-logo.png", "ref": "038a15644edad512d4af7034de591c8bbe6380b2"},
+      "usage": "Видимый логотип в сценах 1 и 6. Исходный файл имеет JPEG-содержимое при расширении PNG; свойство исходника сохранено."
+    },
+    {
+      "local_asset": "assets/fig1_concept_source.svg",
+      "source": {"repository": "https://github.com/nrHqak/AlgoRythm-research", "path": "paper/figures/rknp_final/fig1_concept.svg", "ref": "072bdb80dba7a131ac6fe56137783812262e0798"},
+      "usage": "Локальный первоисточник адаптированной схемы сцены 3; не выводится напрямую из-за плотности текста."
+    },
+    {
+      "local_asset": "assets/fig3_design_source.svg",
+      "source": {"repository": "https://github.com/nrHqak/AlgoRythm-research", "path": "paper/figures/rknp_final/fig3_design.svg", "ref": "072bdb80dba7a131ac6fe56137783812262e0798"},
+      "usage": "Локальный первоисточник адаптированной схемы условий сцены 4."
+    },
+    {
+      "local_asset": "assets/fig4_topk_source.svg",
+      "source": {"repository": "https://github.com/nrHqak/AlgoRythm-research", "path": "paper/figures/rknp_final/fig4_topk.svg", "ref": "072bdb80dba7a131ac6fe56137783812262e0798"},
+      "usage": "Локальный первоисточник адаптированного графика сцены 5."
+    }
+  ],
+  "product_interface_sources": [
+    {"path": "frontend/src/pages/PlaygroundPage.jsx", "ref": "038a15644edad512d4af7034de591c8bbe6380b2", "details": "Поддерживаемый пример binary_search и композиция экрана."},
+    {"path": "frontend/src/components/VisualCanvas.jsx", "ref": "038a15644edad512d4af7034de591c8bbe6380b2", "details": "Визуальное состояние массива и события trace."},
+    {"path": "frontend/src/components/StepPlayer.jsx", "ref": "038a15644edad512d4af7034de591c8bbe6380b2", "details": "Назад / запуск-пауза / далее и прогресс шага."},
+    {"path": "frontend/src/components/MentorChat.jsx", "ref": "038a15644edad512d4af7034de591c8bbe6380b2", "details": "Область AI Mentor."},
+    {"path": "backend/tracer.py", "ref": "038a15644edad512d4af7034de591c8bbe6380b2", "details": "Пошаговый trace через sys.settrace."},
+    {"url": "https://algorythm-seven.vercel.app/", "checked_at": "2026-09-14", "details": "Публичная landing page проверена; /playground перенаправлял на /auth, demo account button не отображался. Защищённый экран не снимался."}
+  ]
+}
